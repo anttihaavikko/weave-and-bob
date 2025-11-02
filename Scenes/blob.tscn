@@ -1,5 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://il0jdy8qi06w"]
+[gd_scene load_steps=16 format=3 uid="uid://il0jdy8qi06w"]
 
+[ext_resource type="Script" uid="uid://c7fckvtsco120" path="res://Scripts/blob.gd" id="1_gy3pb"]
 [ext_resource type="Texture2D" uid="uid://7etpco8nk31f" path="res://icon.svg" id="1_tqd60"]
 [ext_resource type="Script" uid="uid://cwvl2v76rnhn4" path="res://Scripts/gun.gd" id="2_jc5ra"]
 [ext_resource type="Texture2D" uid="uid://c4624ijigoeqo" path="res://Sprites/ak47.png" id="3_gxvcn"]
@@ -25,6 +26,7 @@ height = 72.0
 radius = 25.179358
 
 [node name="Blob" type="Node2D"]
+script = ExtResource("1_gy3pb")
 
 [node name="Link N" type="RigidBody2D" parent="."]
 position = Vector2(-0.11584473, -50)
@@ -247,11 +249,14 @@ node_a = NodePath("..")
 node_b = NodePath("../../Link N")
 disable_collision = false
 
-[node name="Gun" type="RigidBody2D" parent="." node_paths=PackedStringArray("aim_target")]
+[node name="Gun" type="RigidBody2D" parent="." node_paths=PackedStringArray("aim_target", "shot_lines", "barrel")]
 z_index = 100
 position = Vector2(0, 19)
 script = ExtResource("2_jc5ra")
 aim_target = NodePath("Aim Target")
+shot_lines = [null]
+wall_mask = 2
+barrel = NodePath("Barrel")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Gun"]
 position = Vector2(3, -2)
@@ -296,8 +301,11 @@ position = Vector2(1.66893e-06, -4.7683716e-07)
 scale = Vector2(0.028000016, 0.018199947)
 texture = ExtResource("7_qc6ha")
 
+[node name="Barrel" type="Node2D" parent="Gun"]
+position = Vector2(79, -1)
+
 [node name="Line2D" type="Line2D" parent="." node_paths=PackedStringArray("targets")]
-points = PackedVector2Array(0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+points = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 closed = true
 default_color = Color(0, 0, 0, 1)
 script = ExtResource("4_jc5ra")
@@ -384,3 +392,5 @@ texture = ExtResource("7_qc6ha")
 position = Vector2(0, 3)
 scale = Vector2(0.07446808, 0.07446809)
 texture = ExtResource("9_gl400")
+
+[connection signal="shot" from="Gun" to="." method="_on_gun_shot"]

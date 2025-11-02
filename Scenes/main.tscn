@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=5 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/blob.tscn" id="1_bo1nx"]
 [ext_resource type="Texture2D" uid="uid://dggvv625tmn04" path="res://Sprites/square.png" id="3_8gbba"]
+[ext_resource type="Script" uid="uid://b2gfrikyseqk" path="res://Scripts/line_drawer.gd" id="3_jjvhh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bo1nx"]
 
@@ -14,12 +15,14 @@ position = Vector2(932.3344, 580.00006)
 scale = Vector2(2315.621, 1526)
 texture = ExtResource("3_8gbba")
 
-[node name="Blob" parent="." instance=ExtResource("1_bo1nx")]
+[node name="Blob" parent="." node_paths=PackedStringArray("lines") instance=ExtResource("1_bo1nx")]
 position = Vector2(937.82153, 534)
+lines = NodePath("../Line Drawer")
 
 [node name="Box" type="StaticBody2D" parent="."]
 position = Vector2(376.1263, 606)
 scale = Vector2(-10.272897, -10.272897)
+collision_layer = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Box"]
 shape = SubResource("RectangleShape2D_bo1nx")
@@ -32,6 +35,7 @@ texture = ExtResource("3_8gbba")
 [node name="Box2" type="StaticBody2D" parent="."]
 position = Vector2(968.7497, 958)
 scale = Vector2(20.25618, -10.272897)
+collision_layer = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Box2"]
 shape = SubResource("RectangleShape2D_bo1nx")
@@ -44,6 +48,7 @@ texture = ExtResource("3_8gbba")
 [node name="Box3" type="StaticBody2D" parent="."]
 position = Vector2(1414.7136, 302.00006)
 scale = Vector2(-10.272897, -10.272897)
+collision_layer = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Box3"]
 shape = SubResource("RectangleShape2D_bo1nx")
@@ -56,6 +61,7 @@ texture = ExtResource("3_8gbba")
 [node name="Box5" type="StaticBody2D" parent="."]
 position = Vector2(-7.9814606, 605)
 scale = Vector2(-10.272897, -69.4729)
+collision_layer = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Box5"]
 shape = SubResource("RectangleShape2D_bo1nx")
@@ -68,6 +74,7 @@ texture = ExtResource("3_8gbba")
 [node name="Box6" type="StaticBody2D" parent="."]
 position = Vector2(1922.534, 600)
 scale = Vector2(-10.272897, -69.4729)
+collision_layer = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Box6"]
 shape = SubResource("RectangleShape2D_bo1nx")
@@ -80,6 +87,7 @@ texture = ExtResource("3_8gbba")
 [node name="Box4" type="StaticBody2D" parent="."]
 position = Vector2(969.74744, 1117)
 scale = Vector2(-101.341354, -10.272897)
+collision_layer = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Box4"]
 shape = SubResource("RectangleShape2D_bo1nx")
@@ -88,3 +96,18 @@ shape = SubResource("RectangleShape2D_bo1nx")
 modulate = Color(0, 0, 0, 1)
 scale = Vector2(20, 20)
 texture = ExtResource("3_8gbba")
+
+[node name="Line Drawer" type="Node" parent="." node_paths=PackedStringArray("line", "timer")]
+script = ExtResource("3_jjvhh")
+line = NodePath("Shot Line")
+timer = NodePath("Timer")
+
+[node name="Shot Line" type="Line2D" parent="Line Drawer"]
+points = PackedVector2Array(0, 0, 0, 0)
+width = 5.0
+default_color = Color(1, 1, 1, 0.5019608)
+
+[node name="Timer" type="Timer" parent="Line Drawer"]
+wait_time = 0.05
+
+[connection signal="timeout" from="Line Drawer/Timer" to="Line Drawer" method="_on_timer_timeout"]
