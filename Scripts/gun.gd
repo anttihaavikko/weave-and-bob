@@ -7,20 +7,35 @@ var clicked: bool
 @export var shot_lines: Array[Line2D]
 @export_flags_2d_physics var wall_mask: int
 @export var barrel: Node2D
+@export var camera: Camera2D
+@export var reticule: Node2D
 
 var current_shot_line := 0
 var just_shot := false
 
 signal shot
 
+func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+
 func _input(event):
 	# Mouse in viewport coordinates.
 	if event is InputEventMouseButton:
 		clicked = !clicked
-	elif event is InputEventMouseMotion:
-		mouse = event.position
+#	elif event is InputEventMouseMotion:
+#		mouse = event.position - camera.global_position
+#		mouse = camera.get_viewport().get_mouse_position() - camera.global_position
+#		mouse = get_local_mouse_position()
+#		mouse = event.position - camera.get_target_position()
+#		mouse = event.position
+#		reticule.global_position = mouse - global_position + camera.global_position
+#		reticule.global_position = global_position
+#		print(mouse)
 
 func _process(delta: float) -> void:
+	reticule.position = camera.get_local_mouse_position()
+	mouse = reticule.global_position
+	
 	var dir: Vector2 = (mouse - global_position).normalized()
 	aim_target.global_position = global_position + dir * 80
 	if (clicked):

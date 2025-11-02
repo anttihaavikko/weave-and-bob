@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://il0jdy8qi06w"]
+[gd_scene load_steps=17 format=3 uid="uid://il0jdy8qi06w"]
 
 [ext_resource type="Script" uid="uid://c7fckvtsco120" path="res://Scripts/blob.gd" id="1_gy3pb"]
 [ext_resource type="Texture2D" uid="uid://7etpco8nk31f" path="res://icon.svg" id="1_tqd60"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://bwknch2pvkg4u" path="res://Scripts/line.gd" id="4_jc5ra"]
 [ext_resource type="Script" uid="uid://b3lmgbo0i5l43" path="res://Scripts/poly_from_line.gd" id="5_gxvcn"]
 [ext_resource type="Script" uid="uid://dhbqmxfktr4re" path="res://Scripts/glob_legs.gd" id="6_qc6ha"]
+[ext_resource type="Texture2D" uid="uid://c5v2fgqgkwr2w" path="res://Sprites/reticule.png" id="6_thj1j"]
 [ext_resource type="Script" uid="uid://bo6cnh3l6qsfo" path="res://Scripts/face_rotater.gd" id="7_a8vtn"]
 [ext_resource type="Texture2D" uid="uid://go0giiad03jq" path="res://Sprites/circle.png" id="7_qc6ha"]
 [ext_resource type="Script" uid="uid://kurmc8gi31mu" path="res://Scripts/limb.gd" id="8_5fh0x"]
@@ -249,7 +250,7 @@ node_a = NodePath("..")
 node_b = NodePath("../../Link N")
 disable_collision = false
 
-[node name="Gun" type="RigidBody2D" parent="." node_paths=PackedStringArray("aim_target", "shot_lines", "barrel")]
+[node name="Gun" type="RigidBody2D" parent="." node_paths=PackedStringArray("aim_target", "shot_lines", "barrel", "camera", "reticule")]
 z_index = 100
 position = Vector2(0, 19)
 script = ExtResource("2_jc5ra")
@@ -257,6 +258,8 @@ aim_target = NodePath("Aim Target")
 shot_lines = [null]
 wall_mask = 2
 barrel = NodePath("Barrel")
+camera = NodePath("Camera2D")
+reticule = NodePath("Camera2D/Reticule")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Gun"]
 position = Vector2(3, -2)
@@ -303,6 +306,22 @@ texture = ExtResource("7_qc6ha")
 
 [node name="Barrel" type="Node2D" parent="Gun"]
 position = Vector2(79, -1)
+
+[node name="Camera2D" type="Camera2D" parent="Gun"]
+position = Vector2(0, -19)
+process_callback = 0
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_top_margin = 0.1
+drag_bottom_margin = 0.1
+
+[node name="Reticule" type="Sprite2D" parent="Gun/Camera2D"]
+z_index = 999
+position = Vector2(139, -64)
+scale = Vector2(0.851, 0.851)
+texture = ExtResource("6_thj1j")
 
 [node name="Line2D" type="Line2D" parent="." node_paths=PackedStringArray("targets")]
 points = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)

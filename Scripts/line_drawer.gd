@@ -7,7 +7,7 @@ extends Node
 func add_line(from: Vector2, to: Vector2):
 	line.points[0] = from
 	line.points[1] = to
-	line.width = randf_range(5, 10)
+	line.width = randf_range(3, 12)
 	line.show()
 	timer.start()
 	

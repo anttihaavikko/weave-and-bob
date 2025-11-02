@@ -11,8 +11,8 @@ scale = Vector2(1.0023229, 1)
 
 [node name="Bg" type="Sprite2D" parent="."]
 modulate = Color(0.8640645, 0.5525103, 0.35379764, 1)
-position = Vector2(932.3344, 580.00006)
-scale = Vector2(2315.621, 1526)
+position = Vector2(946.5513, 447.00006)
+scale = Vector2(7287.572, 4116)
 texture = ExtResource("3_8gbba")
 
 [node name="Blob" parent="." node_paths=PackedStringArray("lines") instance=ExtResource("1_bo1nx")]
@@ -105,7 +105,6 @@ timer = NodePath("Timer")
 [node name="Shot Line" type="Line2D" parent="Line Drawer"]
 points = PackedVector2Array(0, 0, 0, 0)
 width = 5.0
-default_color = Color(1, 1, 1, 0.5019608)
 
 [node name="Timer" type="Timer" parent="Line Drawer"]
 wait_time = 0.05
