@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://bespa4vyxw6ny"]
+
+[ext_resource type="Texture2D" uid="uid://go0giiad03jq" path="res://Sprites/circle.png" id="1_kuhib"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jjvhh"]
+particle_flag_disable_z = true
+angle_min = -720.0
+angle_max = 720.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = -500.0
+initial_velocity_max = 500.0
+gravity = Vector3(0, 900.8, 0)
+scale_min = 0.01
+scale_max = 0.02
+collision_mode = 1
+collision_friction = 0.5
+collision_bounce = 0.0
+
+[node name="Black Bits" type="GPUParticles2D"]
+modulate = Color(0, 0, 0, 1)
+emitting = false
+amount = 5
+texture = ExtResource("1_kuhib")
+lifetime = 1.5
+one_shot = true
+explosiveness = 1.0
+randomness = 0.28
+collision_base_size = 0.01
+visibility_rect = Rect2(-1000, -1000, 2000, 2000)
+trail_lifetime = 0.1
+process_material = SubResource("ParticleProcessMaterial_jjvhh")
