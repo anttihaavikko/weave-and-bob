@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=10 format=3 uid="uid://mnvjkmc1oomr"]
 
+[ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/blob.tscn" id="1_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://3j32spfokv3d" path="res://Scenes/white_bits.tscn" id="2_kry3j"]
 [ext_resource type="Texture2D" uid="uid://dggvv625tmn04" path="res://Sprites/square.png" id="3_8gbba"]
@@ -14,6 +15,9 @@ polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
 
 [node name="Main" type="Node2D"]
 scale = Vector2(1.0023229, 1)
+
+[node name="Reloader" type="Node" parent="."]
+script = ExtResource("1_6bp64")
 
 [node name="Bg" type="Sprite2D" parent="."]
 modulate = Color(0.8640645, 0.5525103, 0.35379764, 1)
