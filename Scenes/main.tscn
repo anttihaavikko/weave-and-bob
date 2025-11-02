@@ -1,0 +1,90 @@
+[gd_scene load_steps=4 format=3 uid="uid://mnvjkmc1oomr"]
+
+[ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/blob.tscn" id="1_bo1nx"]
+[ext_resource type="Texture2D" uid="uid://dggvv625tmn04" path="res://Sprites/square.png" id="3_8gbba"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bo1nx"]
+
+[node name="Main" type="Node2D"]
+scale = Vector2(1.0023229, 1)
+
+[node name="Bg" type="Sprite2D" parent="."]
+modulate = Color(0.8640645, 0.5525103, 0.35379764, 1)
+position = Vector2(932.3344, 580.00006)
+scale = Vector2(2315.621, 1526)
+texture = ExtResource("3_8gbba")
+
+[node name="Blob" parent="." instance=ExtResource("1_bo1nx")]
+position = Vector2(937.82153, 534)
+
+[node name="Box" type="StaticBody2D" parent="."]
+position = Vector2(376.1263, 606)
+scale = Vector2(-10.272897, -10.272897)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Box"]
+shape = SubResource("RectangleShape2D_bo1nx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Box"]
+modulate = Color(0, 0, 0, 1)
+scale = Vector2(20, 20)
+texture = ExtResource("3_8gbba")
+
+[node name="Box2" type="StaticBody2D" parent="."]
+position = Vector2(968.7497, 958)
+scale = Vector2(20.25618, -10.272897)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Box2"]
+shape = SubResource("RectangleShape2D_bo1nx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Box2"]
+modulate = Color(0, 0, 0, 1)
+scale = Vector2(20, 20)
+texture = ExtResource("3_8gbba")
+
+[node name="Box3" type="StaticBody2D" parent="."]
+position = Vector2(1414.7136, 302.00006)
+scale = Vector2(-10.272897, -10.272897)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Box3"]
+shape = SubResource("RectangleShape2D_bo1nx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Box3"]
+modulate = Color(0, 0, 0, 1)
+scale = Vector2(20, 20)
+texture = ExtResource("3_8gbba")
+
+[node name="Box5" type="StaticBody2D" parent="."]
+position = Vector2(-7.9814606, 605)
+scale = Vector2(-10.272897, -69.4729)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Box5"]
+shape = SubResource("RectangleShape2D_bo1nx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Box5"]
+modulate = Color(0, 0, 0, 1)
+scale = Vector2(20, 20)
+texture = ExtResource("3_8gbba")
+
+[node name="Box6" type="StaticBody2D" parent="."]
+position = Vector2(1922.534, 600)
+scale = Vector2(-10.272897, -69.4729)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Box6"]
+shape = SubResource("RectangleShape2D_bo1nx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Box6"]
+modulate = Color(0, 0, 0, 1)
+scale = Vector2(20, 20)
+texture = ExtResource("3_8gbba")
+
+[node name="Box4" type="StaticBody2D" parent="."]
+position = Vector2(969.74744, 1117)
+scale = Vector2(-101.341354, -10.272897)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Box4"]
+shape = SubResource("RectangleShape2D_bo1nx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Box4"]
+modulate = Color(0, 0, 0, 1)
+scale = Vector2(20, 20)
+texture = ExtResource("3_8gbba")

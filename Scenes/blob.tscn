@@ -1,0 +1,340 @@
+[gd_scene load_steps=14 format=3 uid="uid://il0jdy8qi06w"]
+
+[ext_resource type="Texture2D" uid="uid://7etpco8nk31f" path="res://icon.svg" id="1_tqd60"]
+[ext_resource type="Script" uid="uid://cwvl2v76rnhn4" path="res://Scripts/gun.gd" id="2_jc5ra"]
+[ext_resource type="Texture2D" uid="uid://c4624ijigoeqo" path="res://Sprites/ak47.png" id="3_gxvcn"]
+[ext_resource type="Script" uid="uid://bwknch2pvkg4u" path="res://Scripts/line.gd" id="4_jc5ra"]
+[ext_resource type="Script" uid="uid://b3lmgbo0i5l43" path="res://Scripts/poly_from_line.gd" id="5_gxvcn"]
+[ext_resource type="Script" uid="uid://dhbqmxfktr4re" path="res://Scripts/glob_legs.gd" id="6_qc6ha"]
+[ext_resource type="Script" uid="uid://bo6cnh3l6qsfo" path="res://Scripts/face_rotater.gd" id="7_a8vtn"]
+[ext_resource type="Texture2D" uid="uid://go0giiad03jq" path="res://Sprites/circle.png" id="7_qc6ha"]
+[ext_resource type="Texture2D" uid="uid://w5ubxh2dsi74" path="res://Sprites/mouth.png" id="9_gl400"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8gbba"]
+radius = 4.7334595
+height = 36.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jjgbg"]
+radius = 8.0
+height = 72.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jc5ra"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ctfmv"]
+radius = 25.179358
+
+[node name="Blob" type="Node2D"]
+
+[node name="Link N" type="RigidBody2D" parent="."]
+position = Vector2(-0.11584473, -50)
+rotation = -1.5707964
+mass = 0.1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Link N"]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_8gbba")
+
+[node name="Sprite2D" type="Sprite2D" parent="Link N"]
+visible = false
+scale = Vector2(0.109730035, 0.109730035)
+texture = ExtResource("1_tqd60")
+
+[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="Link N"]
+rotation = 1.5707964
+node_a = NodePath("..")
+node_b = NodePath("../../Gun")
+disable_collision = false
+stiffness = 64.0
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Link N"]
+position = Vector2(-2.000001, 18.953592)
+node_a = NodePath("..")
+node_b = NodePath("../../Link NE")
+disable_collision = false
+
+[node name="Link NE" type="RigidBody2D" parent="."]
+position = Vector2(33.80316, -33.99997)
+rotation = -0.7853982
+scale = Vector2(0.99999994, 0.99999994)
+mass = 0.1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Link NE"]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_8gbba")
+
+[node name="Sprite2D" type="Sprite2D" parent="Link NE"]
+visible = false
+scale = Vector2(0.109730035, 0.109730035)
+texture = ExtResource("1_tqd60")
+
+[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="Link NE"]
+rotation = 1.5707964
+node_a = NodePath("..")
+node_b = NodePath("../../Gun")
+disable_collision = false
+stiffness = 64.0
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Link NE"]
+position = Vector2(-1.4339857, 18.364964)
+node_a = NodePath("..")
+node_b = NodePath("../../Link E")
+disable_collision = false
+
+[node name="Link E" type="RigidBody2D" parent="."]
+position = Vector2(48.76825, -1)
+mass = 0.1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Link E"]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_8gbba")
+
+[node name="Sprite2D" type="Sprite2D" parent="Link E"]
+visible = false
+scale = Vector2(0.109730035, 0.109730035)
+texture = ExtResource("1_tqd60")
+
+[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="Link E"]
+rotation = 1.5707964
+node_a = NodePath("..")
+node_b = NodePath("../../Gun")
+disable_collision = false
+stiffness = 64.0
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Link E"]
+position = Vector2(-1.9953684, 20)
+node_a = NodePath("..")
+node_b = NodePath("../../Link SE")
+disable_collision = false
+
+[node name="Link SE" type="RigidBody2D" parent="."]
+position = Vector2(32.80542, 36)
+rotation = 0.78539795
+scale = Vector2(0.9999998, 0.9999999)
+mass = 0.1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Link SE"]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_8gbba")
+
+[node name="Sprite2D" type="Sprite2D" parent="Link SE"]
+visible = false
+scale = Vector2(0.109730035, 0.109730035)
+texture = ExtResource("1_tqd60")
+
+[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="Link SE"]
+rotation = 1.5707964
+node_a = NodePath("..")
+node_b = NodePath("../../Gun")
+disable_collision = false
+stiffness = 64.0
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Link SE"]
+position = Vector2(-1.391365, 18.361921)
+node_a = NodePath("..")
+node_b = NodePath("../../Link S")
+disable_collision = false
+
+[node name="Link S" type="RigidBody2D" parent="."]
+position = Vector2(-1.1159058, 49)
+rotation = 1.5707964
+mass = 0.1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Link S"]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_8gbba")
+
+[node name="Sprite2D" type="Sprite2D" parent="Link S"]
+visible = false
+scale = Vector2(0.109730035, 0.109730035)
+texture = ExtResource("1_tqd60")
+
+[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="Link S"]
+rotation = 1.5707964
+node_a = NodePath("..")
+node_b = NodePath("../../Gun")
+disable_collision = false
+stiffness = 64.0
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Link S"]
+position = Vector2(-1.0000002, 19.95365)
+node_a = NodePath("..")
+node_b = NodePath("../../Link SW")
+disable_collision = false
+
+[node name="Link SW" type="RigidBody2D" parent="."]
+position = Vector2(-38.030212, 34.99997)
+rotation = 2.3561943
+scale = Vector2(0.9999999, 0.9999999)
+mass = 0.1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Link SW"]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_8gbba")
+
+[node name="Sprite2D" type="Sprite2D" parent="Link SW"]
+visible = false
+scale = Vector2(0.109730035, 0.109730035)
+texture = ExtResource("1_tqd60")
+
+[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="Link SW"]
+rotation = 1.5707964
+node_a = NodePath("..")
+node_b = NodePath("../../Gun")
+disable_collision = false
+stiffness = 64.0
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Link SW"]
+position = Vector2(-1.4339018, 18.365047)
+node_a = NodePath("..")
+node_b = NodePath("../../Link W")
+disable_collision = false
+
+[node name="Link W" type="RigidBody2D" parent="."]
+position = Vector2(-51, 0)
+rotation = 3.1415925
+mass = 0.1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Link W"]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_8gbba")
+
+[node name="Sprite2D" type="Sprite2D" parent="Link W"]
+visible = false
+scale = Vector2(0.109730035, 0.109730035)
+texture = ExtResource("1_tqd60")
+
+[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="Link W"]
+rotation = 1.5707964
+node_a = NodePath("..")
+node_b = NodePath("../../Gun")
+disable_collision = false
+stiffness = 64.0
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Link W"]
+position = Vector2(-0.997684, 18)
+node_a = NodePath("..")
+node_b = NodePath("../../Link NW")
+disable_collision = false
+
+[node name="Link NW" type="RigidBody2D" parent="."]
+position = Vector2(-36.03473, -33.99997)
+rotation = -2.3561945
+scale = Vector2(0.99999994, 0.99999994)
+mass = 0.1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Link NW"]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_8gbba")
+
+[node name="Sprite2D" type="Sprite2D" parent="Link NW"]
+visible = false
+scale = Vector2(0.109730035, 0.109730035)
+texture = ExtResource("1_tqd60")
+
+[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="Link NW"]
+rotation = 1.5707964
+node_a = NodePath("..")
+node_b = NodePath("../../Gun")
+disable_collision = false
+stiffness = 64.0
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Link NW"]
+position = Vector2(-1.3895683, 19.77439)
+node_a = NodePath("..")
+node_b = NodePath("../../Link N")
+disable_collision = false
+
+[node name="Gun" type="RigidBody2D" parent="." node_paths=PackedStringArray("aim_target")]
+z_index = 100
+position = Vector2(0, 19)
+script = ExtResource("2_jc5ra")
+aim_target = NodePath("Aim Target")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gun"]
+position = Vector2(3, -2)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_jjgbg")
+
+[node name="Ak47" type="Sprite2D" parent="Gun"]
+position = Vector2(8, 11)
+scale = Vector2(0.3414634, 0.3414634)
+texture = ExtResource("3_gxvcn")
+
+[node name="Aim Target" type="CharacterBody2D" parent="Gun"]
+position = Vector2(95, 0)
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gun/Aim Target"]
+shape = SubResource("CircleShape2D_jc5ra")
+
+[node name="Aim Spring" type="DampedSpringJoint2D" parent="Gun/Aim Target"]
+rotation = 1.5707964
+node_a = NodePath("..")
+node_b = NodePath("../..")
+length = 20.0
+stiffness = 64.0
+damping = 0.5
+
+[node name="Sprite2D" type="Sprite2D" parent="Gun/Aim Target"]
+visible = false
+scale = Vector2(0.21272318, 0.21272318)
+texture = ExtResource("1_tqd60")
+
+[node name="Line2D" type="Line2D" parent="." node_paths=PackedStringArray("targets")]
+points = PackedVector2Array(0, 0, 100, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+closed = true
+default_color = Color(0, 0, 0, 1)
+script = ExtResource("4_jc5ra")
+targets = [NodePath("../Link N/PinJoint2D"), NodePath("../Link NE/PinJoint2D"), NodePath("../Link E/PinJoint2D"), NodePath("../Link SE/PinJoint2D"), NodePath("../Link S/PinJoint2D"), NodePath("../Link SW/PinJoint2D"), NodePath("../Link W/PinJoint2D"), NodePath("../Link NW/PinJoint2D")]
+
+[node name="Polygon2D" type="Polygon2D" parent="." node_paths=PackedStringArray("line")]
+color = Color(0, 0.47843137, 0.2627451, 1)
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
+script = ExtResource("5_gxvcn")
+line = NodePath("../Line2D")
+
+[node name="Control Node" type="RigidBody2D" parent="." node_paths=PackedStringArray("gun")]
+mass = 0.5
+linear_damp = 1.0
+script = ExtResource("6_qc6ha")
+gun = NodePath("../Gun")
+jump_force = 0.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control Node"]
+shape = SubResource("CircleShape2D_ctfmv")
+
+[node name="Sprite2D" type="Sprite2D" parent="Control Node"]
+visible = false
+scale = Vector2(0.39999926, 0.39999926)
+texture = ExtResource("1_tqd60")
+
+[node name="Face" type="Node2D" parent="Control Node"]
+script = ExtResource("7_a8vtn")
+
+[node name="Eye Left" type="Sprite2D" parent="Control Node/Face"]
+position = Vector2(-9, 0)
+scale = Vector2(-0.014, -0.014)
+texture = ExtResource("7_qc6ha")
+
+[node name="Eye Right" type="Sprite2D" parent="Control Node/Face"]
+position = Vector2(9, 0)
+scale = Vector2(-0.014, -0.014)
+texture = ExtResource("7_qc6ha")
+
+[node name="Blush Left" type="Sprite2D" parent="Control Node/Face"]
+modulate = Color(0.91764706, 0.3372549, 0.09411765, 1)
+position = Vector2(-15.749341, 5.1347084)
+scale = Vector2(-0.019020557, -0.012130703)
+texture = ExtResource("7_qc6ha")
+
+[node name="Blush Right" type="Sprite2D" parent="Control Node/Face"]
+modulate = Color(0.91764706, 0.3372549, 0.09411765, 1)
+position = Vector2(15.891183, 4.945591)
+scale = Vector2(-0.019587915, -0.011374233)
+texture = ExtResource("7_qc6ha")
+
+[node name="Mouth" type="Sprite2D" parent="Control Node/Face"]
+position = Vector2(0, 3)
+scale = Vector2(0.07446808, 0.07446809)
+texture = ExtResource("9_gl400")
