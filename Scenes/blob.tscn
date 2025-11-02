@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://il0jdy8qi06w"]
+[gd_scene load_steps=24 format=3 uid="uid://il0jdy8qi06w"]
 
 [ext_resource type="Script" uid="uid://c7fckvtsco120" path="res://Scripts/blob.gd" id="1_gy3pb"]
 [ext_resource type="Texture2D" uid="uid://7etpco8nk31f" path="res://icon.svg" id="1_tqd60"]
@@ -58,8 +58,6 @@ scale_curve = SubResource("CurveTexture_8b88t")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ctfmv"]
 radius = 25.179358
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_301kd"]
 
 [node name="Blob" type="Node2D"]
 script = ExtResource("1_gy3pb")
@@ -499,127 +497,5 @@ texture = ExtResource("7_qc6ha")
 position = Vector2(0, 3)
 scale = Vector2(0.07446808, 0.07446809)
 texture = ExtResource("9_gl400")
-
-[node name="Leg Right" type="Line2D" parent="Control Node/Face" node_paths=PackedStringArray("targets")]
-position = Vector2(15, 17)
-points = PackedVector2Array(0, 0, 0, 0, 0, 0)
-default_color = Color(0, 0, 0, 1)
-script = ExtResource("4_jc5ra")
-targets = [NodePath("."), NodePath("../../../Leg Right/Knee"), NodePath("../../../Leg Right/Tip")]
-
-[node name="Leg Left" type="Line2D" parent="Control Node/Face" node_paths=PackedStringArray("targets")]
-position = Vector2(-24, 17)
-points = PackedVector2Array(0, 0, 0, 0, 0, 0)
-default_color = Color(0, 0, 0, 1)
-script = ExtResource("4_jc5ra")
-targets = [NodePath("."), NodePath("../../../Leg Left/Knee"), NodePath("../../../Leg Left/Tip")]
-
-[node name="Leg Right" type="Node2D" parent="."]
-position = Vector2(26, 76)
-
-[node name="Knee" type="RigidBody2D" parent="Leg Right"]
-collision_mask = 3
-mass = 0.1
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Leg Right/Knee"]
-shape = SubResource("CircleShape2D_301kd")
-
-[node name="Sprite2D" type="Sprite2D" parent="Leg Right/Knee"]
-modulate = Color(0, 0, 0, 1)
-scale = Vector2(0.039999995, 0.039999995)
-texture = ExtResource("7_qc6ha")
-
-[node name="PinJoint2D" type="PinJoint2D" parent="Leg Right/Knee"]
-position = Vector2(0, -77)
-node_a = NodePath("..")
-node_b = NodePath("../../../Control Node")
-angular_limit_lower = -0.17453292
-angular_limit_upper = 0.17453292
-
-[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="Leg Right/Knee"]
-node_a = NodePath("..")
-node_b = NodePath("../../../Control Node")
-stiffness = 50.0
-damping = 0.5
-
-[node name="Tip" type="RigidBody2D" parent="Leg Right"]
-position = Vector2(-1, 49)
-collision_mask = 3
-mass = 0.1
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Leg Right/Tip"]
-shape = SubResource("CircleShape2D_301kd")
-
-[node name="Sprite2D" type="Sprite2D" parent="Leg Right/Tip"]
-modulate = Color(0, 0, 0, 1)
-scale = Vector2(0.039999995, 0.039999995)
-texture = ExtResource("7_qc6ha")
-
-[node name="PinJoint2D" type="PinJoint2D" parent="Leg Right/Tip"]
-position = Vector2(0, -77)
-node_a = NodePath("..")
-node_b = NodePath("../../../Control Node")
-angular_limit_lower = -0.17453292
-angular_limit_upper = 0.17453292
-
-[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="Leg Right/Tip"]
-node_a = NodePath("..")
-node_b = NodePath("../../../Control Node")
-stiffness = 50.0
-damping = 0.5
-
-[node name="Leg Left" type="Node2D" parent="."]
-position = Vector2(-26, 76)
-
-[node name="Knee" type="RigidBody2D" parent="Leg Left"]
-collision_mask = 3
-mass = 0.1
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Leg Left/Knee"]
-shape = SubResource("CircleShape2D_301kd")
-
-[node name="Sprite2D" type="Sprite2D" parent="Leg Left/Knee"]
-modulate = Color(0, 0, 0, 1)
-scale = Vector2(0.039999995, 0.039999995)
-texture = ExtResource("7_qc6ha")
-
-[node name="PinJoint2D" type="PinJoint2D" parent="Leg Left/Knee"]
-position = Vector2(0, -77)
-node_a = NodePath("..")
-node_b = NodePath("../../../Control Node")
-angular_limit_lower = -0.17453292
-angular_limit_upper = 0.17453292
-
-[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="Leg Left/Knee"]
-node_a = NodePath("..")
-node_b = NodePath("../../../Control Node")
-stiffness = 50.0
-damping = 0.5
-
-[node name="Tip" type="RigidBody2D" parent="Leg Left"]
-position = Vector2(-1, 49)
-collision_mask = 3
-mass = 0.1
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Leg Left/Tip"]
-shape = SubResource("CircleShape2D_301kd")
-
-[node name="Sprite2D" type="Sprite2D" parent="Leg Left/Tip"]
-modulate = Color(0, 0, 0, 1)
-scale = Vector2(0.039999995, 0.039999995)
-texture = ExtResource("7_qc6ha")
-
-[node name="PinJoint2D" type="PinJoint2D" parent="Leg Left/Tip"]
-position = Vector2(0, -77)
-node_a = NodePath("..")
-node_b = NodePath("../../../Control Node")
-angular_limit_lower = -0.17453292
-angular_limit_upper = 0.17453292
-
-[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="Leg Left/Tip"]
-node_a = NodePath("..")
-node_b = NodePath("../../../Control Node")
-stiffness = 50.0
-damping = 0.5
 
 [connection signal="shot" from="Gun" to="." method="_on_gun_shot"]
