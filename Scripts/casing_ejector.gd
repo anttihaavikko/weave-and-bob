@@ -6,7 +6,6 @@ extends Node2D
 var casings: Array[Node]
 
 func get_next() -> Node:
-	print(len(casings))
 	if len(casings) > 100:
 		return casings.pop_front()
 	else:
@@ -18,6 +17,7 @@ func eject():
 	var c := get_next()
 	casings.push_back(c)
 	if c is MovableRigidbody:
+		c.global_position = global_position
 		c.move_to(global_position, global_rotation)
 		c.linear_velocity = Vector2.ZERO
 		c.angular_velocity = 0

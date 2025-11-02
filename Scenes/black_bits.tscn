@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bespa4vyxw6ny"]
+[gd_scene load_steps=4 format=3 uid="uid://bespa4vyxw6ny"]
 
 [ext_resource type="Texture2D" uid="uid://go0giiad03jq" path="res://Sprites/circle.png" id="1_kuhib"]
+[ext_resource type="Script" uid="uid://cnqkxei24emlb" path="res://Scripts/free_after.gd" id="2_jjthn"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jjvhh"]
 particle_flag_disable_z = true
@@ -30,3 +31,4 @@ collision_base_size = 0.01
 visibility_rect = Rect2(-1000, -1000, 2000, 2000)
 trail_lifetime = 0.1
 process_material = SubResource("ParticleProcessMaterial_jjvhh")
+script = ExtResource("2_jjthn")
