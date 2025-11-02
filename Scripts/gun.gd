@@ -12,10 +12,12 @@ var clicked: bool
 @export var muzzle: GPUParticles2D
 @export var flash: GPUParticles2D
 @export var ejector: CasingEjector
+@export var shot_sound: AudioStreamPlayer2D
 
 var current_shot_line := 0
 var just_shot := false
 var full_screen := false
+var cooldown := 0.0
 
 signal shot
 
@@ -31,11 +33,16 @@ func _process(delta: float) -> void:
 	reticule.position = camera.get_local_mouse_position()
 	mouse = reticule.global_position
 	
+	if cooldown > 0:
+		cooldown -= delta
+	
 	var dir: Vector2 = (mouse - global_position).normalized()
 	aim_target.global_position = global_position + dir * 80
 	if clicked:
 		apply_force(-dir * 200000 * delta)
-		just_shot = true
+		just_shot = cooldown <= 0
+	else:
+		cooldown = 0
 		
 	if Input.is_action_just_pressed("full"):
 		full_screen = !full_screen
@@ -46,6 +53,7 @@ func _physics_process(delta: float) -> void:
 	flash.emitting = false
 	
 	if just_shot:
+		cooldown = 0.1
 		just_shot = false
 		var space_state := get_world_2d().direct_space_state
 		var p := barrel.global_position
@@ -57,3 +65,5 @@ func _physics_process(delta: float) -> void:
 		muzzle.emitting = true
 		flash.emitting = true
 		ejector.eject()
+		shot_sound.pitch_scale = randf_range(0.95, 1.05)
+		shot_sound.play()
