@@ -53,7 +53,7 @@ func _physics_process(delta: float) -> void:
 	
 	if just_shot:
 		var d: Vector2 = (mouse - global_position).normalized()
-		apply_impulse(-d * 30000 * delta)
+		apply_impulse(-d * 20000 * delta)
 		cooldown = 0.1
 		just_shot = false
 		var space_state := get_world_2d().direct_space_state

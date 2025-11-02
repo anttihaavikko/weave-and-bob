@@ -285,7 +285,7 @@ disable_collision = false
 
 [node name="Gun" type="RigidBody2D" parent="." node_paths=PackedStringArray("aim_target", "shot_lines", "barrel", "camera", "reticule", "muzzle", "flash", "ejector", "shot_sound")]
 z_index = 100
-position = Vector2(0, 19)
+position = Vector2(2, 19)
 script = ExtResource("2_jc5ra")
 aim_target = NodePath("Aim Target")
 shot_lines = [null]
