@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://il0jdy8qi06w"]
+[gd_scene load_steps=24 format=3 uid="uid://il0jdy8qi06w"]
 
 [ext_resource type="Script" uid="uid://c7fckvtsco120" path="res://Scripts/blob.gd" id="1_gy3pb"]
 [ext_resource type="Texture2D" uid="uid://7etpco8nk31f" path="res://icon.svg" id="1_tqd60"]
@@ -12,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://go0giiad03jq" path="res://Sprites/circle.png" id="7_qc6ha"]
 [ext_resource type="PackedScene" uid="uid://3j32spfokv3d" path="res://Scenes/white_bits.tscn" id="7_spthc"]
 [ext_resource type="Script" uid="uid://kurmc8gi31mu" path="res://Scripts/limb.gd" id="8_5fh0x"]
+[ext_resource type="Script" uid="uid://1dan3ej2pqjl" path="res://Scripts/casing_ejector.gd" id="8_301kd"]
+[ext_resource type="PackedScene" uid="uid://bcw3fv3n1jhbq" path="res://Scenes/casing.tscn" id="9_8816d"]
 [ext_resource type="Texture2D" uid="uid://w5ubxh2dsi74" path="res://Sprites/mouth.png" id="9_gl400"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8gbba"]
@@ -281,7 +283,7 @@ node_a = NodePath("..")
 node_b = NodePath("../../Link N")
 disable_collision = false
 
-[node name="Gun" type="RigidBody2D" parent="." node_paths=PackedStringArray("aim_target", "shot_lines", "barrel", "camera", "reticule", "muzzle", "flash")]
+[node name="Gun" type="RigidBody2D" parent="." node_paths=PackedStringArray("aim_target", "shot_lines", "barrel", "camera", "reticule", "muzzle", "flash", "ejector")]
 z_index = 100
 position = Vector2(0, 19)
 script = ExtResource("2_jc5ra")
@@ -293,6 +295,7 @@ camera = NodePath("Camera2D")
 reticule = NodePath("Camera2D/Reticule")
 muzzle = NodePath("White Bits")
 flash = NodePath("Muzzle")
+ejector = NodePath("Ejector")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Gun"]
 position = Vector2(3, -2)
@@ -373,6 +376,11 @@ one_shot = false
 local_coords = true
 trail_enabled = false
 process_material = SubResource("ParticleProcessMaterial_8b88t")
+
+[node name="Ejector" type="Node2D" parent="Gun"]
+position = Vector2(-8, -4)
+script = ExtResource("8_301kd")
+casing = ExtResource("9_8816d")
 
 [node name="Line2D" type="Line2D" parent="." node_paths=PackedStringArray("targets")]
 points = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)

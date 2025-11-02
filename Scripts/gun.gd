@@ -11,6 +11,7 @@ var clicked: bool
 @export var reticule: Node2D
 @export var muzzle: GPUParticles2D
 @export var flash: GPUParticles2D
+@export var ejector: CasingEjector
 
 var current_shot_line := 0
 var just_shot := false
@@ -55,3 +56,4 @@ func _physics_process(delta: float) -> void:
 		camera.offset = Vector2(randf_range(-1, 1), randf_range(-1, 1)) * 3
 		muzzle.emitting = true
 		flash.emitting = true
+		ejector.eject()
