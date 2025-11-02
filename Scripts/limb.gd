@@ -17,15 +17,12 @@ func _process(delta: float) -> void:
 	var normal := (pos - global_position).normalized()
 	
 	lower.follow(pos, normal, flip)
-	pos = lower.start
-	upper.follow(pos, normal, flip)
+	upper.follow(lower.start, normal, flip)
 
-	pos = target.global_position
-	upper.constrain(pos)
-#	pos = upper.end
-#	lower.constrain(pos)
+	upper.constrain(target.global_position)
+	lower.constrain(upper.end)
 	
-	points[1] = upper.start - global_position + Vector2(50 if flip else -50, 0)
+	points[1] = upper.end - global_position + Vector2(50 if flip else -50, 0)
 	points[2] = target.global_position - global_position
 	
 class LimbSegment:
