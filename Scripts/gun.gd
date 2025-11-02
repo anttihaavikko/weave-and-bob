@@ -51,3 +51,4 @@ func _physics_process(delta: float) -> void:
 		var query := PhysicsRayQueryParameters2D.create(p, p + dir, wall_mask)
 		var result := space_state.intersect_ray(query)
 		shot.emit(p, result.position if result else p + dir)
+		camera.offset = Vector2(randf_range(-1, 1), randf_range(-1, 1)) * 3
