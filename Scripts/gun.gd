@@ -8,7 +8,6 @@ var clicked: bool
 func _input(event):
 	# Mouse in viewport coordinates.
 	if event is InputEventMouseButton:
-		print("Mouse Click/Unclick at: ", event)
 		clicked = !clicked
 	elif event is InputEventMouseMotion:
 		mouse = event.position
