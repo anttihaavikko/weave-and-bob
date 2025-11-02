@@ -39,7 +39,6 @@ func _process(delta: float) -> void:
 	var dir: Vector2 = (mouse - global_position).normalized()
 	aim_target.global_position = global_position + dir * 80
 	if clicked:
-		apply_force(-dir * 200000 * delta)
 		just_shot = cooldown <= 0
 	else:
 		cooldown = 0
@@ -53,6 +52,8 @@ func _physics_process(delta: float) -> void:
 	flash.emitting = false
 	
 	if just_shot:
+		var d: Vector2 = (mouse - global_position).normalized()
+		apply_impulse(-d * 30000 * delta)
 		cooldown = 0.1
 		just_shot = false
 		var space_state := get_world_2d().direct_space_state
