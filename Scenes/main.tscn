@@ -103,6 +103,7 @@ line = NodePath("Shot Line")
 timer = NodePath("Timer")
 
 [node name="Shot Line" type="Line2D" parent="Line Drawer"]
+position = Vector2(-5, 0)
 points = PackedVector2Array(0, 0, 0, 0)
 width = 5.0
 

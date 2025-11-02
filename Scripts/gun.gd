@@ -12,25 +12,17 @@ var clicked: bool
 
 var current_shot_line := 0
 var just_shot := false
+var full_screen := false
 
 signal shot
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func _input(event):
-	# Mouse in viewport coordinates.
 	if event is InputEventMouseButton:
 		clicked = !clicked
-#	elif event is InputEventMouseMotion:
-#		mouse = event.position - camera.global_position
-#		mouse = camera.get_viewport().get_mouse_position() - camera.global_position
-#		mouse = get_local_mouse_position()
-#		mouse = event.position - camera.get_target_position()
-#		mouse = event.position
-#		reticule.global_position = mouse - global_position + camera.global_position
-#		reticule.global_position = global_position
-#		print(mouse)
 
 func _process(delta: float) -> void:
 	reticule.position = camera.get_local_mouse_position()
@@ -38,9 +30,13 @@ func _process(delta: float) -> void:
 	
 	var dir: Vector2 = (mouse - global_position).normalized()
 	aim_target.global_position = global_position + dir * 80
-	if (clicked):
+	if clicked:
 		apply_force(-dir * 200000 * delta)
 		just_shot = true
+		
+	if Input.is_action_just_pressed("full"):
+		full_screen = !full_screen
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN if full_screen else DisplayServer.WINDOW_MODE_WINDOWED)
 		
 func _physics_process(delta: float) -> void:
 	if just_shot:
