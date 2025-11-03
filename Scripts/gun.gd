@@ -36,7 +36,7 @@ func _input(event):
 		clicked = !clicked
 		
 func reload(wasteful: bool):
-	if !clicked && ammo.get_amount() <= 20 or wasteful:
+	if !clicked && ammo.get_amount() < (30 if wasteful else 20):
 		mag_ejector.eject()
 		ammo.reload()
 		reload_sound.play()
