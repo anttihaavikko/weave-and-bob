@@ -18,6 +18,7 @@ var clicked: bool
 @export var sprite_wrap: Node2D
 @export var hand_wrap: Node2D
 @export var ammo: AmmoDisplay
+@export var mag_ejector: CasingEjector
 
 var current_shot_line := 0
 var just_shot := false
@@ -34,11 +35,13 @@ func _input(event):
 	if event is InputEventMouseButton:
 		clicked = !clicked
 		
-func reload():
-	if !clicked && !ammo.is_full():
+func reload(wasteful: bool):
+	if !clicked && ammo.get_amount() <= 20 or wasteful:
+		mag_ejector.eject()
 		ammo.reload()
 		reload_sound.play()
 		just_shot = false
+		apply_impulse(Vector2(-50, 600))
 
 func _process(delta: float) -> void:
 	reticule.position = camera.get_local_mouse_position()

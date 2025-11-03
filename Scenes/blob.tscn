@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://il0jdy8qi06w"]
+[gd_scene load_steps=32 format=3 uid="uid://il0jdy8qi06w"]
 
 [ext_resource type="Script" uid="uid://c7fckvtsco120" path="res://Scripts/blob.gd" id="1_gy3pb"]
 [ext_resource type="Texture2D" uid="uid://7etpco8nk31f" path="res://icon.svg" id="1_tqd60"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://1dan3ej2pqjl" path="res://Scripts/casing_ejector.gd" id="8_301kd"]
 [ext_resource type="AudioStream" uid="uid://du4gppilni6bp" path="res://Sounds/rifle.wav" id="9_301kd"]
 [ext_resource type="PackedScene" uid="uid://bcw3fv3n1jhbq" path="res://Scenes/casing.tscn" id="9_8816d"]
+[ext_resource type="PackedScene" uid="uid://blglscrdi4t0" path="res://Scenes/magazine.tscn" id="9_ag0hk"]
 [ext_resource type="AudioStream" uid="uid://c4ijxv5e2avwk" path="res://Sounds/reload.wav" id="10_e5myt"]
 [ext_resource type="AudioStream" uid="uid://bi76cdkjhvhjs" path="res://Sounds/empty_click.wav" id="11_vqq8p"]
 [ext_resource type="Texture2D" uid="uid://de44f66euuvyk" path="res://Sprites/ammo-bg.png" id="16_8816d"]
@@ -47,7 +48,7 @@ scale_max = 0.01
 _data = [Vector2(0, 0.10721612), 0.0, 2.0742433, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_8b88t"]
+[sub_resource type="CurveTexture" id="CurveTexture_vqq8p"]
 curve = SubResource("Curve_spthc")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8b88t"]
@@ -59,7 +60,7 @@ spread = 0.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.099999994
 scale_max = 0.29999998
-scale_curve = SubResource("CurveTexture_8b88t")
+scale_curve = SubResource("CurveTexture_vqq8p")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ctfmv"]
 radius = 23.021729
@@ -302,7 +303,7 @@ position = Vector2(-1.3895683, 19.77439)
 node_a = NodePath("..")
 node_b = NodePath("../../Link N")
 
-[node name="Gun" type="RigidBody2D" parent="." node_paths=PackedStringArray("aim_target", "barrel", "camera", "reticule", "muzzle", "flash", "ejector", "shot_sound", "reload_sound", "dry_shot_sound", "sprite_wrap", "hand_wrap", "ammo")]
+[node name="Gun" type="RigidBody2D" parent="." node_paths=PackedStringArray("aim_target", "barrel", "camera", "reticule", "muzzle", "flash", "ejector", "shot_sound", "reload_sound", "dry_shot_sound", "sprite_wrap", "hand_wrap", "ammo", "mag_ejector")]
 z_index = 100
 position = Vector2(2, 19)
 script = ExtResource("2_jc5ra")
@@ -320,6 +321,7 @@ dry_shot_sound = NodePath("Empty")
 sprite_wrap = NodePath("Sprite Wrap")
 hand_wrap = NodePath("Hand Wrap")
 ammo = NodePath("../Control Node/Orienter/Ammo Display/Bg/HBoxContainer")
+mag_ejector = NodePath("Clip Ejector")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Gun"]
 position = Vector2(3, -2)
@@ -424,6 +426,14 @@ position = Vector2(-8, -4)
 scale = Vector2(0.9912767, 1)
 script = ExtResource("8_301kd")
 casing = ExtResource("9_8816d")
+
+[node name="Clip Ejector" type="Node2D" parent="Gun"]
+position = Vector2(7.999999, 2.9999995)
+scale = Vector2(0.9912767, 1)
+script = ExtResource("8_301kd")
+casing = ExtResource("9_ag0hk")
+limit = 10
+eject_dir = Vector2(-1, -3)
 
 [node name="Shot Sound" type="AudioStreamPlayer2D" parent="Gun"]
 position = Vector2(80, -1)

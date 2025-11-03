@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://blglscrdi4t0"]
+
+[ext_resource type="Script" uid="uid://bt7s05v5ntv7t" path="res://Scripts/movable_rigidbody.gd" id="1_i4h00"]
+[ext_resource type="Texture2D" uid="uid://m1o32bdweyxe" path="res://Sprites/mag.png" id="2_6kidh"]
+
+[node name="Magazine" type="RigidBody2D"]
+z_index = 250
+collision_layer = 4
+collision_mask = 2
+mass = 0.2
+can_sleep = false
+script = ExtResource("1_i4h00")
+metadata/_custom_type_script = "uid://bt7s05v5ntv7t"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(3.0264015, -4, 13.114401, 6, 6.052801, 16.999998, -9.079199, 2, -12.105599, -14.999998, 9.536743e-07, -14.999998)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.32498372, 0.32498372)
+texture = ExtResource("2_6kidh")

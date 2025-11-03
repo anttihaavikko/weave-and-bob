@@ -1,7 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://bespa4vyxw6ny"]
+[gd_scene load_steps=6 format=3 uid="uid://bespa4vyxw6ny"]
 
 [ext_resource type="Texture2D" uid="uid://go0giiad03jq" path="res://Sprites/circle.png" id="1_kuhib"]
 [ext_resource type="Script" uid="uid://cnqkxei24emlb" path="res://Scripts/free_after.gd" id="2_jjthn"]
+
+[sub_resource type="Curve" id="Curve_d6cko"]
+_data = [Vector2(0, 0.89339894), 0.0, -0.05015089, 0, 0, Vector2(0.2826087, 0.99467), 0.027932035, 0.027932035, 0, 0, Vector2(1, 0.51230013), -2.0443904, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_8tlvr"]
+curve = SubResource("Curve_d6cko")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jjthn"]
 particle_flag_disable_z = true
@@ -14,6 +21,7 @@ initial_velocity_max = 500.0
 gravity = Vector3(0, 900.8, 0)
 scale_min = 0.01
 scale_max = 0.02
+scale_curve = SubResource("CurveTexture_8tlvr")
 collision_mode = 1
 collision_friction = 0.0
 collision_bounce = 0.0
@@ -29,6 +37,7 @@ explosiveness = 1.0
 randomness = 0.18
 collision_base_size = 0.01
 visibility_rect = Rect2(-1000, -1000, 2000, 2000)
+local_coords = true
 trail_lifetime = 0.1
 process_material = SubResource("ParticleProcessMaterial_jjthn")
 script = ExtResource("2_jjthn")

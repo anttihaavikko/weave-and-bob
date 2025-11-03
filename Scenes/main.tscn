@@ -40,6 +40,14 @@ scale = Vector2(307.61032, 253.7011)
 position = Vector2(-720.3268, 89.00001)
 scale = Vector2(447.22372, 351.8664)
 
+[node name="Wall7" parent="." instance=ExtResource("4_344ge")]
+position = Vector2(-1929.1964, -68.29785)
+scale = Vector2(757.85767, 1433.2708)
+
+[node name="Wall8" parent="." instance=ExtResource("4_344ge")]
+position = Vector2(1690.2917, -50.54834)
+scale = Vector2(719.0284, 1502.7698)
+
 [node name="Wall2" parent="." instance=ExtResource("4_344ge")]
 position = Vector2(3.4028625, 1438)
 scale = Vector2(2560.5256, 512.7101)

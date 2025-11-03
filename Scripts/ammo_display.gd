@@ -11,8 +11,8 @@ func _ready() -> void:
 func has() -> bool:
 	return ammo > 0
 	
-func is_full() -> bool:
-	return ammo == 30
+func get_amount() -> int:
+	return ammo
 	
 func use():
 	ammo -= 1

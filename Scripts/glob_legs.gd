@@ -22,14 +22,14 @@ func _process(delta: float) -> void:
 		_nudge(Vector2(0, -999 * jump_force))
 		
 	if grounded:
-		gun.reload()
+		gun.reload(false)
 		
 func _hit_enemy(enemy: Node2D):
 	if stomp_cooldown <= 0:
 		stomp_cooldown = 0.2
 		linear_velocity = Vector2.ZERO
 		_nudge((global_position - enemy.global_position).normalized() * 1500)
-		gun.reload()
+		gun.reload(true)
 		
 		if enemy is Enemy:
 			enemy.die()
