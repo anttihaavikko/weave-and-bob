@@ -87,5 +87,5 @@ func _physics_process(delta: float) -> void:
 		muzzle.emitting = true
 		flash.emitting = true
 		ejector.eject()
-		shot_sound.pitch_scale = randf_range(0.95, 1.05)
+		shot_sound.pitch_scale = randf_range(0.9, 1.1)
 		shot_sound.play()

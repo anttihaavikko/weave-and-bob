@@ -37,4 +37,4 @@ script = ExtResource("4_frouj")
 body = NodePath("..")
 metadata/_custom_type_script = "uid://c0lfb6otbhec3"
 
-[connection signal="body_entered" from="." to="AudioStreamPlayer2D" method="_on_casing_body_entered"]
+[connection signal="body_entered" from="." to="AudioStreamPlayer2D" method="_on_body_entered"]
