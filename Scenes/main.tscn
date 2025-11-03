@@ -1,17 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=11 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/blob.tscn" id="1_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://3j32spfokv3d" path="res://Scenes/white_bits.tscn" id="2_kry3j"]
 [ext_resource type="Texture2D" uid="uid://dggvv625tmn04" path="res://Sprites/square.png" id="3_8gbba"]
 [ext_resource type="Script" uid="uid://b2gfrikyseqk" path="res://Scripts/line_drawer.gd" id="3_jjvhh"]
+[ext_resource type="PackedScene" uid="uid://dsh5hka8p1olw" path="res://Scenes/wall.tscn" id="4_344ge"]
 [ext_resource type="Script" uid="uid://iea5t2xob5o7" path="res://Scripts/effects.gd" id="5_kry3j"]
 [ext_resource type="PackedScene" uid="uid://bespa4vyxw6ny" path="res://Scenes/black_bits.tscn" id="6_21xkr"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bo1nx"]
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_jjvhh"]
-polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
+[ext_resource type="PackedScene" uid="uid://biww1pdu4di3l" path="res://Scenes/enemy.tscn" id="9_ynf5e"]
+[ext_resource type="PackedScene" uid="uid://oamh1nmk7jrt" path="res://Scenes/blood.tscn" id="10_hptm8"]
 
 [node name="Main" type="Node2D"]
 scale = Vector2(1.0023229, 1)
@@ -21,123 +19,37 @@ script = ExtResource("1_6bp64")
 
 [node name="Bg" type="Sprite2D" parent="."]
 modulate = Color(0.8640645, 0.5525103, 0.35379764, 1)
-position = Vector2(946.5513, 447.00006)
+position = Vector2(5.237854, 552.00006)
 scale = Vector2(7287.572, 4116)
 texture = ExtResource("3_8gbba")
 
 [node name="Blob" parent="." node_paths=PackedStringArray("lines", "effects") instance=ExtResource("1_bo1nx")]
-position = Vector2(937.82153, 534)
+position = Vector2(-3.4918823, 639)
 lines = NodePath("../Line Drawer")
 effects = NodePath("../Effects")
 
-[node name="Box4" type="StaticBody2D" parent="."]
-position = Vector2(969.74744, 1117)
-scale = Vector2(-101.341354, -10.272897)
-collision_layer = 3
+[node name="Wall" parent="." instance=ExtResource("4_344ge")]
+position = Vector2(5.9860992, 1215)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Box4"]
-shape = SubResource("RectangleShape2D_bo1nx")
+[node name="Wall5" parent="." instance=ExtResource("4_344ge")]
+position = Vector2(-765.2225, 516)
+scale = Vector2(307.61032, 253.7011)
 
-[node name="Sprite2D" type="Sprite2D" parent="Box4"]
-modulate = Color(0, 0, 0, 1)
-scale = Vector2(20, 20)
-texture = ExtResource("3_8gbba")
+[node name="Wall6" parent="." instance=ExtResource("4_344ge")]
+position = Vector2(542.02594, 303.08264)
+scale = Vector2(447.22372, 351.8664)
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="Box4"]
-light_mask = 2
-visibility_layer = 2
-occluder = SubResource("OccluderPolygon2D_jjvhh")
+[node name="Wall2" parent="." instance=ExtResource("4_344ge")]
+position = Vector2(3.4028625, 1438)
+scale = Vector2(2560.5256, 512.7101)
 
-[node name="Box7" type="StaticBody2D" parent="."]
-position = Vector2(969.7474, 946)
-scale = Vector2(-22.803806, -10.272897)
-collision_layer = 3
+[node name="Wall3" parent="." instance=ExtResource("4_344ge")]
+position = Vector2(1284.1836, 736.51605)
+scale = Vector2(611.38666, 2499.6785)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Box7"]
-shape = SubResource("RectangleShape2D_bo1nx")
-
-[node name="Sprite2D" type="Sprite2D" parent="Box7"]
-modulate = Color(0, 0, 0, 1)
-scale = Vector2(20, 20)
-texture = ExtResource("3_8gbba")
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="Box7"]
-light_mask = 2
-visibility_layer = 2
-occluder = SubResource("OccluderPolygon2D_jjvhh")
-
-[node name="Box10" type="StaticBody2D" parent="."]
-position = Vector2(1560.3752, 447)
-scale = Vector2(-11.190783, -10.272897)
-collision_layer = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Box10"]
-shape = SubResource("RectangleShape2D_bo1nx")
-
-[node name="Sprite2D" type="Sprite2D" parent="Box10"]
-modulate = Color(0, 0, 0, 1)
-scale = Vector2(20, 20)
-texture = ExtResource("3_8gbba")
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="Box10"]
-light_mask = 2
-visibility_layer = 2
-occluder = SubResource("OccluderPolygon2D_jjvhh")
-
-[node name="Box11" type="StaticBody2D" parent="."]
-position = Vector2(420.02417, 286.00003)
-scale = Vector2(-11.190783, -10.272897)
-collision_layer = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Box11"]
-shape = SubResource("RectangleShape2D_bo1nx")
-
-[node name="Sprite2D" type="Sprite2D" parent="Box11"]
-modulate = Color(0, 0, 0, 1)
-scale = Vector2(20, 20)
-texture = ExtResource("3_8gbba")
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="Box11"]
-light_mask = 2
-visibility_layer = 2
-occluder = SubResource("OccluderPolygon2D_jjvhh")
-
-[node name="Box8" type="StaticBody2D" parent="."]
-position = Vector2(2045.249, 496)
-scale = Vector2(-22.803806, -101.71289)
-collision_layer = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Box8"]
-shape = SubResource("RectangleShape2D_bo1nx")
-
-[node name="Sprite2D" type="Sprite2D" parent="Box8"]
-modulate = Color(0, 0, 0, 1)
-scale = Vector2(20, 20)
-texture = ExtResource("3_8gbba")
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="Box8"]
-light_mask = 2
-visibility_layer = 2
-occluder = SubResource("OccluderPolygon2D_jjvhh")
-
-[node name="Box9" type="StaticBody2D" parent="."]
-position = Vector2(-82.80765, 508.99994)
-scale = Vector2(-22.803806, -101.71288)
-collision_layer = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Box9"]
-shape = SubResource("RectangleShape2D_bo1nx")
-
-[node name="Sprite2D" type="Sprite2D" parent="Box9"]
-modulate = Color(0, 0, 0, 1)
-scale = Vector2(20, 20)
-texture = ExtResource("3_8gbba")
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="Box9"]
-light_mask = 2
-visibility_layer = 2
-position = Vector2(0, 0.06882058)
-occluder = SubResource("OccluderPolygon2D_jjvhh")
+[node name="Wall4" parent="." instance=ExtResource("4_344ge")]
+position = Vector2(-1428.6812, 729.00006)
+scale = Vector2(611.38666, 2499.6785)
 
 [node name="Line Drawer" type="Node" parent="." node_paths=PackedStringArray("line", "timer")]
 script = ExtResource("3_jjvhh")
@@ -154,6 +66,13 @@ wait_time = 0.05
 
 [node name="Effects" type="Node" parent="."]
 script = ExtResource("5_kry3j")
-effects = Array[PackedScene]([ExtResource("2_kry3j"), ExtResource("6_21xkr")])
+effects = Array[PackedScene]([ExtResource("2_kry3j"), ExtResource("6_21xkr"), ExtResource("10_hptm8")])
+
+[node name="Enemy" parent="." instance=ExtResource("9_ynf5e")]
+position = Vector2(-405.05908, 753)
+
+[node name="Enemy2" parent="." instance=ExtResource("9_ynf5e")]
+position = Vector2(753.25024, -208.00002)
+respawns_after = 0
 
 [connection signal="timeout" from="Line Drawer/Timer" to="Line Drawer" method="_on_timer_timeout"]
