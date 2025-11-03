@@ -14,11 +14,11 @@
 [ext_resource type="Script" uid="uid://1dan3ej2pqjl" path="res://Scripts/casing_ejector.gd" id="8_301kd"]
 [ext_resource type="AudioStream" uid="uid://du4gppilni6bp" path="res://Sounds/rifle.wav" id="9_301kd"]
 [ext_resource type="PackedScene" uid="uid://bcw3fv3n1jhbq" path="res://Scenes/casing.tscn" id="9_8816d"]
-[ext_resource type="Texture2D" uid="uid://w5ubxh2dsi74" path="res://Sprites/mouth.png" id="9_gl400"]
 [ext_resource type="AudioStream" uid="uid://c4ijxv5e2avwk" path="res://Sounds/reload.wav" id="10_e5myt"]
 [ext_resource type="AudioStream" uid="uid://bi76cdkjhvhjs" path="res://Sounds/empty_click.wav" id="11_vqq8p"]
 [ext_resource type="Texture2D" uid="uid://de44f66euuvyk" path="res://Sprites/ammo-bg.png" id="16_8816d"]
 [ext_resource type="Script" uid="uid://pqokfa0fjvq0" path="res://Scripts/ammo_display.gd" id="17_rkwq6"]
+[ext_resource type="PackedScene" uid="uid://ba03mhjfvn43o" path="res://Scenes/face.tscn" id="17_vqq8p"]
 [ext_resource type="Texture2D" uid="uid://du5b3oq3i146w" path="res://Sprites/ammo.png" id="17_xdj3o"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8gbba"]
@@ -474,13 +474,13 @@ texture = ExtResource("1_tqd60")
 [node name="Orienter" type="Node2D" parent="Control Node"]
 script = ExtResource("7_a8vtn")
 
-[node name="Face" type="Node2D" parent="Control Node/Orienter"]
+[node name="Middle" type="Node2D" parent="Control Node/Orienter"]
 z_index = 20
 
-[node name="Left Arm" type="Node2D" parent="Control Node/Orienter/Face"]
+[node name="Left Arm" type="Node2D" parent="Control Node/Orienter/Middle"]
 position = Vector2(-35, 6)
 
-[node name="Left Arm" type="Line2D" parent="Control Node/Orienter/Face/Left Arm" node_paths=PackedStringArray("target")]
+[node name="Left Arm" type="Line2D" parent="Control Node/Orienter/Middle/Left Arm" node_paths=PackedStringArray("target")]
 z_index = 150
 z_as_relative = false
 points = PackedVector2Array(0, 0, 0, 0, 0, 0)
@@ -492,10 +492,10 @@ script = ExtResource("8_5fh0x")
 target = NodePath("../../../../../Gun/Hand Wrap/Handle Pos")
 length = 25.0
 
-[node name="Right Arm" type="Node2D" parent="Control Node/Orienter/Face"]
+[node name="Right Arm" type="Node2D" parent="Control Node/Orienter/Middle"]
 position = Vector2(33, 4)
 
-[node name="Right Arm Line" type="Line2D" parent="Control Node/Orienter/Face/Right Arm" node_paths=PackedStringArray("target")]
+[node name="Right Arm Line" type="Line2D" parent="Control Node/Orienter/Middle/Right Arm" node_paths=PackedStringArray("target")]
 z_index = 10
 points = PackedVector2Array(0, 0, 0, 0, 0, 0)
 width = 8.0
@@ -508,36 +508,7 @@ target = NodePath("../../../../../Gun/Hand Wrap/Rest Pos")
 length = 25.0
 flip = true
 
-[node name="Eye Left" type="Sprite2D" parent="Control Node/Orienter/Face"]
-position = Vector2(-9, 0)
-rotation = 3.1415925
-scale = Vector2(0.014, 0.014)
-texture = ExtResource("7_qc6ha")
-
-[node name="Eye Right" type="Sprite2D" parent="Control Node/Orienter/Face"]
-position = Vector2(9, 0)
-rotation = 3.1415925
-scale = Vector2(0.014, 0.014)
-texture = ExtResource("7_qc6ha")
-
-[node name="Blush Left" type="Sprite2D" parent="Control Node/Orienter/Face"]
-modulate = Color(0.91764706, 0.3372549, 0.09411765, 1)
-position = Vector2(-15.749341, 5.1347084)
-rotation = 3.1415925
-scale = Vector2(0.019020557, 0.012130703)
-texture = ExtResource("7_qc6ha")
-
-[node name="Blush Right" type="Sprite2D" parent="Control Node/Orienter/Face"]
-modulate = Color(0.91764706, 0.3372549, 0.09411765, 1)
-position = Vector2(15.891183, 4.945591)
-rotation = 3.1415925
-scale = Vector2(0.019587915, 0.011374233)
-texture = ExtResource("7_qc6ha")
-
-[node name="Mouth" type="Sprite2D" parent="Control Node/Orienter/Face"]
-position = Vector2(0, 3)
-scale = Vector2(0.07446808, 0.07446809)
-texture = ExtResource("9_gl400")
+[node name="Face" parent="Control Node/Orienter/Middle" instance=ExtResource("17_vqq8p")]
 
 [node name="Ammo Display" type="Node2D" parent="Control Node/Orienter"]
 z_index = 999

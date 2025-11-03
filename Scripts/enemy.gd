@@ -8,15 +8,20 @@ extends Node2D
 
 var max_life := life
 
-func hurt():
+func hurt(pos: Vector2):
 	flasher.flash()
 	life -= 1
+	Effects.singleton.add(2, pos)
 	if life <= 0:
 		die()
 
 func die():
 	hide()
 	process_mode = Node.PROCESS_MODE_DISABLED
+	Effects.singleton.add(2, global_position)
+	Effects.singleton.add(2, global_position)
+	Effects.singleton.add(2, global_position)
+	Effects.singleton.add(0, global_position)
 	if respawns_after > 0:
 		await get_tree().create_timer(respawns_after).timeout
 		life = max_life

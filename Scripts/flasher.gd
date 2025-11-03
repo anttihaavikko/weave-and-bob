@@ -8,8 +8,6 @@ var colors := {}
 func _ready() -> void:
 	for s in sprites:
 		colors[s.name] = s.modulate
-		
-	print(colors)	
 
 func flash():
 	_colorize(Color.WHITE)

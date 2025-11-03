@@ -82,9 +82,12 @@ func _physics_process(delta: float) -> void:
 		var dir := Vector2.RIGHT.rotated(global_rotation + randf_range(-0.1, 0.1)).normalized() * 2000
 		var query := PhysicsRayQueryParameters2D.create(p, p + dir, wall_mask)
 		var result := space_state.intersect_ray(query)
+		
 		if result.has("collider") and result.collider is Enemy:
-			result.collider.hurt()
+			result.collider.hurt(result.position)
+			
 		shot.emit(result.has("position"), p, result.position if result else p + dir)
+		
 		camera.offset = Vector2(randf_range(-1, 1), randf_range(-1, 1)) * 5
 		muzzle.emitting = true
 		flash.emitting = true

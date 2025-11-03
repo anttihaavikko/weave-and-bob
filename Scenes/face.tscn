@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://ba03mhjfvn43o"]
+
+[ext_resource type="Texture2D" uid="uid://go0giiad03jq" path="res://Sprites/circle.png" id="1_j5fwq"]
+[ext_resource type="Texture2D" uid="uid://w5ubxh2dsi74" path="res://Sprites/mouth.png" id="2_cwi3a"]
+
+[node name="Face" type="Node2D"]
+
+[node name="Eye Left" type="Sprite2D" parent="."]
+position = Vector2(-9, 0)
+rotation = 3.1415925
+scale = Vector2(0.014, 0.014)
+texture = ExtResource("1_j5fwq")
+
+[node name="Eye Right" type="Sprite2D" parent="."]
+position = Vector2(9, 0)
+rotation = 3.1415925
+scale = Vector2(0.014, 0.014)
+texture = ExtResource("1_j5fwq")
+
+[node name="Blush Left" type="Sprite2D" parent="."]
+modulate = Color(0.91764706, 0.3372549, 0.09411765, 1)
+position = Vector2(-15.749341, 5.1347084)
+rotation = 3.1415925
+scale = Vector2(0.019020557, 0.012130703)
+texture = ExtResource("1_j5fwq")
+
+[node name="Blush Right" type="Sprite2D" parent="."]
+modulate = Color(0.91764706, 0.3372549, 0.09411765, 1)
+position = Vector2(15.891183, 4.945591)
+rotation = 3.1415925
+scale = Vector2(0.019587915, 0.011374233)
+texture = ExtResource("1_j5fwq")
+
+[node name="Mouth" type="Sprite2D" parent="."]
+position = Vector2(0, 3)
+scale = Vector2(0.07446808, 0.07446809)
+texture = ExtResource("2_cwi3a")

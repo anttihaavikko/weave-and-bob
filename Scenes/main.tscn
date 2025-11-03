@@ -19,12 +19,12 @@ script = ExtResource("1_6bp64")
 
 [node name="Bg" type="Sprite2D" parent="."]
 modulate = Color(0.8640645, 0.5525103, 0.35379764, 1)
-position = Vector2(5.237854, 552.00006)
-scale = Vector2(7287.572, 4116)
+position = Vector2(4.9882813, -911)
+scale = Vector2(15596.7705, 8983.001)
 texture = ExtResource("3_8gbba")
 
 [node name="Blob" parent="." node_paths=PackedStringArray("lines", "effects") instance=ExtResource("1_bo1nx")]
-position = Vector2(-3.4918823, 639)
+position = Vector2(-232.46, 836)
 lines = NodePath("../Line Drawer")
 effects = NodePath("../Effects")
 
@@ -32,11 +32,11 @@ effects = NodePath("../Effects")
 position = Vector2(5.9860992, 1215)
 
 [node name="Wall5" parent="." instance=ExtResource("4_344ge")]
-position = Vector2(-765.2225, 516)
+position = Vector2(681.4173, 435)
 scale = Vector2(307.61032, 253.7011)
 
 [node name="Wall6" parent="." instance=ExtResource("4_344ge")]
-position = Vector2(542.02594, 303.08264)
+position = Vector2(-720.3268, 89.00001)
 scale = Vector2(447.22372, 351.8664)
 
 [node name="Wall2" parent="." instance=ExtResource("4_344ge")]
@@ -69,10 +69,29 @@ script = ExtResource("5_kry3j")
 effects = Array[PackedScene]([ExtResource("2_kry3j"), ExtResource("6_21xkr"), ExtResource("10_hptm8")])
 
 [node name="Enemy" parent="." instance=ExtResource("9_ynf5e")]
-position = Vector2(-405.05908, 753)
+position = Vector2(328.23755, 644)
+
+[node name="Enemy4" parent="." instance=ExtResource("9_ynf5e")]
+position = Vector2(-860.0023, 730.00006)
 
 [node name="Enemy2" parent="." instance=ExtResource("9_ynf5e")]
-position = Vector2(753.25024, -208.00002)
+position = Vector2(801.139, 17.999985)
+respawns_after = 0
+
+[node name="Enemy3" parent="." instance=ExtResource("9_ynf5e")]
+position = Vector2(-812.1135, -404)
+respawns_after = 0
+
+[node name="Enemy5" parent="." instance=ExtResource("9_ynf5e")]
+position = Vector2(-380.117, -401.00003)
+respawns_after = 0
+
+[node name="Enemy6" parent="." instance=ExtResource("9_ynf5e")]
+position = Vector2(103.75894, -415.00003)
+respawns_after = 0
+
+[node name="Enemy7" parent="." instance=ExtResource("9_ynf5e")]
+position = Vector2(625.547, -425.00003)
 respawns_after = 0
 
 [connection signal="timeout" from="Line Drawer/Timer" to="Line Drawer" method="_on_timer_timeout"]

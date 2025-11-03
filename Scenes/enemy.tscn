@@ -1,11 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://biww1pdu4di3l"]
+[gd_scene load_steps=8 format=3 uid="uid://biww1pdu4di3l"]
 
 [ext_resource type="Script" uid="uid://cxtjkd8vlagxd" path="res://Scripts/enemy.gd" id="1_1f0kj"]
 [ext_resource type="Texture2D" uid="uid://go0giiad03jq" path="res://Sprites/circle.png" id="1_hghv2"]
 [ext_resource type="Script" uid="uid://c26faw2casac2" path="res://Scripts/flasher.gd" id="3_afpow"]
+[ext_resource type="Texture2D" uid="uid://w5ubxh2dsi74" path="res://Sprites/mouth.png" id="4_287tu"]
+[ext_resource type="Texture2D" uid="uid://bvqmnjk5nrig" path="res://Sprites/brow.png" id="5_0830c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_344ge"]
 radius = 252.11693
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_afpow"]
+polygon = PackedVector2Array(88.761604, -220.26027, 184.09814, -157.7984, 233.41014, -29.5872, 213.68533, 118.3488, 115.06134, 216.97281, 0, 246.56001, -128.2112, 210.39787, -213.68533, 108.486404, -236.6976, 3.2874668, -207.11041, -111.77387, -138.07361, -197.248, -36.162136, -233.41014)
 
 [node name="Enemy" type="StaticBody2D" node_paths=PackedStringArray("flasher")]
 scale = Vector2(0.3041856, 0.3041856)
@@ -28,5 +33,54 @@ texture = ExtResource("1_hghv2")
 
 [node name="Flasher" type="Node" parent="." node_paths=PackedStringArray("sprites")]
 script = ExtResource("3_afpow")
-sprites = [NodePath("../Fill"), NodePath("../Sprite2D")]
+sprites = [NodePath("../Fill"), NodePath("../Sprite2D"), NodePath("../Face/Brow"), NodePath("../Face/Eye Left"), NodePath("../Face/Eye Right"), NodePath("../Face/Mouth"), NodePath("../Face/Blush Left"), NodePath("../Face/Blush Right")]
 metadata/_custom_type_script = "uid://c26faw2casac2"
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+visible = false
+occluder = SubResource("OccluderPolygon2D_afpow")
+
+[node name="Face" type="Node2D" parent="."]
+position = Vector2(0, -3.2874668)
+scale = Vector2(5.5745897, 5.5745897)
+
+[node name="Eye Left" type="Sprite2D" parent="Face"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-9, 0)
+rotation = 3.1415925
+scale = Vector2(0.014, 0.014)
+texture = ExtResource("1_hghv2")
+
+[node name="Eye Right" type="Sprite2D" parent="Face"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(9, 0)
+rotation = 3.1415925
+scale = Vector2(0.014, 0.014)
+texture = ExtResource("1_hghv2")
+
+[node name="Mouth" type="Sprite2D" parent="Face"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(0, 4.128064)
+scale = Vector2(0.074468076, 0.07446809)
+texture = ExtResource("4_287tu")
+flip_v = true
+
+[node name="Blush Left" type="Sprite2D" parent="Face"]
+modulate = Color(1, 1, 1, 0.58431375)
+position = Vector2(-15.749341, 5.1347084)
+rotation = 3.1415925
+scale = Vector2(0.019020557, 0.012130703)
+texture = ExtResource("1_hghv2")
+
+[node name="Blush Right" type="Sprite2D" parent="Face"]
+modulate = Color(1, 1, 1, 0.58431375)
+position = Vector2(15.891183, 4.945591)
+rotation = 3.1415925
+scale = Vector2(0.019587915, 0.011374233)
+texture = ExtResource("1_hghv2")
+
+[node name="Brow" type="Sprite2D" parent="Face"]
+modulate = Color(0.91764706, 0.3372549, 0.09411765, 1)
+position = Vector2(-0.58972335, -4.7177877)
+scale = Vector2(0.23466125, 0.23466125)
+texture = ExtResource("5_0830c")
