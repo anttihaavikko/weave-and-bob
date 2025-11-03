@@ -22,10 +22,15 @@ func die():
 	Effects.singleton.add(2, global_position)
 	Effects.singleton.add(2, global_position)
 	Effects.singleton.add(0, global_position)
+	Effects.singleton.add(0, global_position)
+	Effects.singleton.add(0, global_position)
+	Effects.singleton.add(1, global_position)
+	Effects.singleton.add(3, global_position)
 	if respawns_after > 0:
 		await get_tree().create_timer(respawns_after).timeout
 		life = max_life
 		show()
 		process_mode = Node.PROCESS_MODE_INHERIT
+		Effects.singleton.add(3, global_position)
 	else:
 		queue_free()
