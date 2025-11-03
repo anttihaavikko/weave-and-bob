@@ -4,7 +4,6 @@ var mouse: Vector2
 var clicked: bool
 
 @export var aim_target: Node2D
-@export var shot_lines: Array[Line2D]
 @export_flags_2d_physics var wall_mask: int
 @export var barrel: Node2D
 @export var camera: Camera2D
@@ -13,6 +12,8 @@ var clicked: bool
 @export var flash: GPUParticles2D
 @export var ejector: CasingEjector
 @export var shot_sound: AudioStreamPlayer2D
+@export var sprite_wrap: Node2D
+@export var hand_wrap: Node2D
 
 var current_shot_line := 0
 var just_shot := false
@@ -38,6 +39,11 @@ func _process(delta: float) -> void:
 	
 	var dir: Vector2 = (mouse - global_position).normalized()
 	aim_target.global_position = global_position + dir * 80
+	
+#	var flipped := -1 if aim_target.global_position.x < global_position.x else 1
+#	hand_wrap.scale = Vector2(flipped, flipped)
+#	sprite_wrap.scale = Vector2(1, flipped)
+	
 	if clicked:
 		just_shot = cooldown <= 0
 	else:
@@ -62,7 +68,7 @@ func _physics_process(delta: float) -> void:
 		var query := PhysicsRayQueryParameters2D.create(p, p + dir, wall_mask)
 		var result := space_state.intersect_ray(query)
 		shot.emit(result.has("position"), p, result.position if result else p + dir)
-		camera.offset = Vector2(randf_range(-1, 1), randf_range(-1, 1)) * 3
+		camera.offset = Vector2(randf_range(-1, 1), randf_range(-1, 1)) * 5
 		muzzle.emitting = true
 		flash.emitting = true
 		ejector.eject()
