@@ -2,15 +2,15 @@
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/blob.tscn" id="1_bo1nx"]
-[ext_resource type="PackedScene" uid="uid://3j32spfokv3d" path="res://Scenes/white_bits.tscn" id="2_kry3j"]
+[ext_resource type="PackedScene" uid="uid://3j32spfokv3d" path="res://Scenes/Effects/white_bits.tscn" id="2_kry3j"]
 [ext_resource type="Texture2D" uid="uid://dggvv625tmn04" path="res://Sprites/square.png" id="3_8gbba"]
 [ext_resource type="Script" uid="uid://b2gfrikyseqk" path="res://Scripts/line_drawer.gd" id="3_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://dsh5hka8p1olw" path="res://Scenes/wall.tscn" id="4_344ge"]
 [ext_resource type="Script" uid="uid://iea5t2xob5o7" path="res://Scripts/effects.gd" id="5_kry3j"]
-[ext_resource type="PackedScene" uid="uid://bespa4vyxw6ny" path="res://Scenes/black_bits.tscn" id="6_21xkr"]
+[ext_resource type="PackedScene" uid="uid://bespa4vyxw6ny" path="res://Scenes/Effects/black_bits.tscn" id="6_21xkr"]
 [ext_resource type="PackedScene" uid="uid://biww1pdu4di3l" path="res://Scenes/enemy.tscn" id="9_ynf5e"]
-[ext_resource type="PackedScene" uid="uid://dpon26r25h1rq" path="res://Scenes/pulse.tscn" id="10_d1ilt"]
-[ext_resource type="PackedScene" uid="uid://oamh1nmk7jrt" path="res://Scenes/blood.tscn" id="10_hptm8"]
+[ext_resource type="PackedScene" uid="uid://dpon26r25h1rq" path="res://Scenes/Effects/pulse.tscn" id="10_d1ilt"]
+[ext_resource type="PackedScene" uid="uid://oamh1nmk7jrt" path="res://Scenes/Effects/blood.tscn" id="10_hptm8"]
 
 [node name="Main" type="Node2D"]
 scale = Vector2(1.0023229, 1)
