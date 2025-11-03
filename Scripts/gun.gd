@@ -1,3 +1,4 @@
+class_name Gun
 extends RigidBody2D
 
 var mouse: Vector2
@@ -12,8 +13,11 @@ var clicked: bool
 @export var flash: GPUParticles2D
 @export var ejector: CasingEjector
 @export var shot_sound: AudioStreamPlayer2D
+@export var reload_sound: AudioStreamPlayer2D
+@export var dry_shot_sound: AudioStreamPlayer2D
 @export var sprite_wrap: Node2D
 @export var hand_wrap: Node2D
+@export var ammo: AmmoDisplay
 
 var current_shot_line := 0
 var just_shot := false
@@ -29,6 +33,12 @@ func _ready() -> void:
 func _input(event):
 	if event is InputEventMouseButton:
 		clicked = !clicked
+		
+func reload():
+	if !clicked && !ammo.is_full():
+		ammo.reload()
+		reload_sound.play()
+		just_shot = false
 
 func _process(delta: float) -> void:
 	reticule.position = camera.get_local_mouse_position()
@@ -58,6 +68,11 @@ func _physics_process(delta: float) -> void:
 	flash.emitting = false
 	
 	if just_shot:
+		if !ammo.has():
+			dry_shot_sound.play()
+			cooldown = 1
+			return
+		ammo.use()
 		var d: Vector2 = (mouse - global_position).normalized()
 		apply_impulse(-d * 20000 * delta)
 		cooldown = 0.1
