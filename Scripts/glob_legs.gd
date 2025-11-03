@@ -28,7 +28,7 @@ func _hit_enemy(enemy: Node2D):
 	if stomp_cooldown <= 0:
 		stomp_cooldown = 0.2
 		linear_velocity = Vector2.ZERO
-		_nudge((global_position - enemy.global_position).normalized() * 1500)
+		_nudge((global_position - enemy.global_position).normalized() * 1700)
 		gun.reload(true)
 		
 		if enemy is Enemy:
