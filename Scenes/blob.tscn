@@ -721,7 +721,6 @@ shape = SubResource("CircleShape2D_vqq8p")
 [node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="Control Node"]
 node_a = NodePath("..")
 node_b = NodePath("../../Gun")
-length = 1.0
 damping = 5.0
 
 [connection signal="shot" from="Gun" to="." method="_on_gun_shot"]

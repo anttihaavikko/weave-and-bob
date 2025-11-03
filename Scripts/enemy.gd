@@ -4,9 +4,12 @@ extends Node2D
 @export var respawns_after := 2
 @export var life := 10
 
+@export var flasher: Flasher
+
 var max_life := life
 
 func hurt():
+	flasher.flash()
 	life -= 1
 	if life <= 0:
 		die()

@@ -1,16 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://biww1pdu4di3l"]
+[gd_scene load_steps=5 format=3 uid="uid://biww1pdu4di3l"]
 
 [ext_resource type="Script" uid="uid://cxtjkd8vlagxd" path="res://Scripts/enemy.gd" id="1_1f0kj"]
 [ext_resource type="Texture2D" uid="uid://go0giiad03jq" path="res://Sprites/circle.png" id="1_hghv2"]
+[ext_resource type="Script" uid="uid://c26faw2casac2" path="res://Scripts/flasher.gd" id="3_afpow"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_344ge"]
 radius = 252.11693
 
-[node name="Enemy" type="StaticBody2D"]
+[node name="Enemy" type="StaticBody2D" node_paths=PackedStringArray("flasher")]
 scale = Vector2(0.3041856, 0.3041856)
 collision_layer = 8
 script = ExtResource("1_1f0kj")
 life = 5
+flasher = NodePath("Flasher")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_344ge")
@@ -23,3 +25,8 @@ texture = ExtResource("1_hghv2")
 modulate = Color(0.91764706, 0.3372549, 0.09411765, 1)
 scale = Vector2(0.90197337, 0.90197337)
 texture = ExtResource("1_hghv2")
+
+[node name="Flasher" type="Node" parent="." node_paths=PackedStringArray("sprites")]
+script = ExtResource("3_afpow")
+sprites = [NodePath("../Fill"), NodePath("../Sprite2D")]
+metadata/_custom_type_script = "uid://c26faw2casac2"
