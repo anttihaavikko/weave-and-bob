@@ -487,14 +487,14 @@ begin_cap_mode = 2
 end_cap_mode = 2
 script = ExtResource("8_5fh0x")
 target = NodePath("../../../../../Gun/Hand Wrap/Handle Pos")
-length = 50.0
+length = 35.0
 
 [node name="Right Arm" type="Node2D" parent="Control Node/Orienter/Middle"]
 position = Vector2(33, 4)
 
 [node name="Right Arm Line" type="Line2D" parent="Control Node/Orienter/Middle/Right Arm" node_paths=PackedStringArray("target")]
 z_index = 10
-points = PackedVector2Array(0, 0, 24.159836, 6.4266844, 2, 18)
+points = PackedVector2Array(0, 0, -22.159838, 11.573317, 2, 18)
 width = 8.0
 default_color = Color(0, 0, 0, 1)
 joint_mode = 2
@@ -502,10 +502,10 @@ begin_cap_mode = 2
 end_cap_mode = 2
 script = ExtResource("8_5fh0x")
 target = NodePath("../../../../../Gun/Hand Wrap/Rest Pos")
-length = 50.0
-flip = true
+length = 35.0
 
 [node name="Face" parent="Control Node/Orienter/Middle" instance=ExtResource("17_vqq8p")]
+position = Vector2(0, -6)
 
 [node name="Ammo Display" type="Node2D" parent="Control Node/Orienter"]
 z_index = 999

@@ -1,4 +1,4 @@
-@tool
+class_name Limb
 extends Line2D
 
 @export var target: Node2D
