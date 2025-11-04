@@ -5,8 +5,10 @@ var ids: Array[String]
 
 enum PickupType { None, Magazine }
 
-func collect(id: String, type: PickupType):
+func mark(id: String):
 	ids.push_back(id)
+
+func collect(type: PickupType):
 	if type == PickupType.Magazine: has_magazine = true
 	
 func has(id: String) -> bool:

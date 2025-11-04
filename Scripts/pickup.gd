@@ -8,6 +8,7 @@ func _ready() -> void:
 		queue_free()
 
 func _picked(_body: Node2D):
-	GameState.collect(id, type)
+	GameState.collect(type)
+	GameState.mark(id)
 	Effects.singleton.add_many([0, 1, 3], global_position)
 	queue_free()

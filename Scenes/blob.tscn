@@ -505,7 +505,7 @@ target = NodePath("../../../../../Gun/Hand Wrap/Rest Pos")
 length = 35.0
 
 [node name="Face" parent="Control Node/Orienter/Middle" instance=ExtResource("17_vqq8p")]
-position = Vector2(0, -6)
+position = Vector2(0, -18)
 
 [node name="Ammo Display" type="Node2D" parent="Control Node/Orienter"]
 z_index = 999
