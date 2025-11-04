@@ -16,7 +16,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_c1wug"]
 shader = SubResource("Shader_dw3ye")
-shader_parameter/amount = 2.000000095
+shader_parameter/amount = 0.50000002375
 
 [sub_resource type="Curve" id="Curve_d1ilt"]
 _data = [Vector2(0.021739133, 0.011275172), 0.0, 3.2048843, 0, 0, Vector2(0.9975846, 1), 0.09194328, 0.0, 0, 0]
