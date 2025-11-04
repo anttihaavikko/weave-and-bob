@@ -25,30 +25,28 @@ position = Vector2(4.9882813, -911)
 scale = Vector2(15596.7705, 8983.001)
 texture = ExtResource("3_8gbba")
 
-[node name="Blob" parent="." node_paths=PackedStringArray("lines", "effects") instance=ExtResource("1_bo1nx")]
-position = Vector2(-232.46, 836)
-lines = NodePath("../Line Drawer")
-effects = NodePath("../Effects")
-
-[node name="Line Drawer" type="Node" parent="." node_paths=PackedStringArray("line", "timer")]
-script = ExtResource("3_jjvhh")
-line = NodePath("Shot Line")
-timer = NodePath("Timer")
-
-[node name="Shot Line" type="Line2D" parent="Line Drawer"]
-position = Vector2(-5, 0)
-points = PackedVector2Array(0, 0, 0, 0)
-width = 5.0
-
-[node name="Timer" type="Timer" parent="Line Drawer"]
-wait_time = 0.05
-
-[node name="Effects" type="Node" parent="."]
-script = ExtResource("5_kry3j")
-effects = Array[PackedScene]([ExtResource("2_kry3j"), ExtResource("6_21xkr"), ExtResource("10_hptm8"), ExtResource("10_d1ilt"), ExtResource("12_6iyac")])
-
 [node name="Level" type="Node2D" parent="."]
 position = Vector2(3.9907298, 0)
+
+[node name="Background" type="Node2D" parent="Level"]
+
+[node name="Wall" type="Sprite2D" parent="Level/Background"]
+modulate = Color(0.7652146, 0.46412712, 0.2644224, 1)
+position = Vector2(-55.308685, 1299)
+scale = Vector2(2273.5933, 457.75012)
+texture = ExtResource("3_8gbba")
+
+[node name="Wall2" type="Sprite2D" parent="Level/Background"]
+modulate = Color(0.7652146, 0.46412712, 0.2644224, 1)
+position = Vector2(-943.8076, 961)
+scale = Vector2(87.515205, 457.75012)
+texture = ExtResource("3_8gbba")
+
+[node name="Wall3" type="Sprite2D" parent="Level/Background"]
+modulate = Color(0.7652146, 0.46412712, 0.2644224, 1)
+position = Vector2(-831.4981, 850.4375)
+scale = Vector2(58.722828, 548.8751)
+texture = ExtResource("3_8gbba")
 
 [node name="Wall" parent="Level" instance=ExtResource("4_344ge")]
 position = Vector2(5.986099, 1215)
@@ -113,5 +111,27 @@ respawns_after = 0
 position = Vector2(625.54694, -425.00003)
 scale = Vector2(0.30418557, 0.3041856)
 respawns_after = 0
+
+[node name="Blob" parent="." node_paths=PackedStringArray("lines", "effects") instance=ExtResource("1_bo1nx")]
+position = Vector2(-232.46, 836)
+lines = NodePath("../Line Drawer")
+effects = NodePath("../Effects")
+
+[node name="Line Drawer" type="Node" parent="." node_paths=PackedStringArray("line", "timer")]
+script = ExtResource("3_jjvhh")
+line = NodePath("Shot Line")
+timer = NodePath("Timer")
+
+[node name="Shot Line" type="Line2D" parent="Line Drawer"]
+position = Vector2(-5, 0)
+points = PackedVector2Array(0, 0, 0, 0)
+width = 5.0
+
+[node name="Timer" type="Timer" parent="Line Drawer"]
+wait_time = 0.05
+
+[node name="Effects" type="Node" parent="."]
+script = ExtResource("5_kry3j")
+effects = Array[PackedScene]([ExtResource("2_kry3j"), ExtResource("6_21xkr"), ExtResource("10_hptm8"), ExtResource("10_d1ilt"), ExtResource("12_6iyac")])
 
 [connection signal="timeout" from="Line Drawer/Timer" to="Line Drawer" method="_on_timer_timeout"]

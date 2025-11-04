@@ -5,6 +5,6 @@ uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
 
 void fragment() {
 	vec4 offset = texture(TEXTURE, UV);
-	vec4 color = texture(SCREEN_TEXTURE, SCREEN_UV - vec2(offset.r, offset.b) * 0.05 * amount);
-	COLOR = color;
+	vec4 color = texture(SCREEN_TEXTURE, SCREEN_UV - vec2(-0.5 - offset.r * 2.0, -0.5 - offset.g * -2.0) * 0.05 * amount);
+	COLOR = vec4(color.rgb, offset.a);
 }

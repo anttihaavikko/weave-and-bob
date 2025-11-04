@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://clbo68vkega58"
-path="res://.godot/imported/pulse-ring-displacement.png-f252c4d05ae944e43a0f214fcd5375de.ctex"
+uid="uid://bim36tggdjwr4"
+path="res://.godot/imported/pulse-circle-displacement.png-22f7d2c8972dec0b15cd05d9531e9743.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/pulse-ring-displacement.png"
-dest_files=["res://.godot/imported/pulse-ring-displacement.png-f252c4d05ae944e43a0f214fcd5375de.ctex"]
+source_file="res://Sprites/pulse-circle-displacement.png"
+dest_files=["res://.godot/imported/pulse-circle-displacement.png-22f7d2c8972dec0b15cd05d9531e9743.ctex"]
 
 [params]
 

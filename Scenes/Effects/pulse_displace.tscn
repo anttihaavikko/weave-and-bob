@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bhr0ejaysdti2"]
 
-[ext_resource type="Texture2D" uid="uid://clbo68vkega58" path="res://Sprites/pulse-ring-displacement.png" id="1_dw3ye"]
+[ext_resource type="Texture2D" uid="uid://bim36tggdjwr4" path="res://Sprites/pulse-circle-displacement.png" id="1_dw3ye"]
 
 [sub_resource type="Shader" id="Shader_dw3ye"]
 code = "shader_type canvas_item;
@@ -32,8 +32,8 @@ angle_max = 1.0728835e-05
 direction = Vector3(0, 0, 0)
 spread = 0.0
 gravity = Vector3(0, 0, 0)
-scale_min = 1.5
-scale_max = 1.5
+scale_min = 2.5
+scale_max = 2.5
 scale_curve = SubResource("CurveTexture_8b88t")
 
 [node name="Displace Pulse" type="GPUParticles2D"]
