@@ -20,6 +20,9 @@ func _init() -> void:
 
 @export var effects: Array[PackedScene]
 
+func add_many(indices: Array[int], pos: Vector2):
+	for i in indices: add(i, pos)
+
 func add(index: int, pos: Vector2):
 	var effect := effects[index].instantiate()
 	add_child(effect)

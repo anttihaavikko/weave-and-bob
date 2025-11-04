@@ -35,7 +35,8 @@ func _input(event):
 	if event is InputEventMouseButton:
 		clicked = !clicked
 		
-func reload(wasteful: bool):
+func reload(wasteful: bool) -> void:
+	if !GameState.has_magazine: return
 	if !clicked && ammo.get_amount() < (30 if wasteful else 20):
 		mag_ejector.eject()
 		ammo.reload()

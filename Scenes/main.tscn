@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=18 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/blob.tscn" id="1_bo1nx"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dpon26r25h1rq" path="res://Scenes/Effects/pulse.tscn" id="10_d1ilt"]
 [ext_resource type="PackedScene" uid="uid://oamh1nmk7jrt" path="res://Scenes/Effects/blood.tscn" id="10_hptm8"]
 [ext_resource type="PackedScene" uid="uid://bhr0ejaysdti2" path="res://Scenes/Effects/pulse_displace.tscn" id="12_6iyac"]
+[ext_resource type="PackedScene" uid="uid://tmp3aao5rcrn" path="res://Scenes/pickup.tscn" id="16_k12tt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jkdf5"]
 shader = ExtResource("3_jkdf5")
@@ -283,5 +284,8 @@ visible = false
 material = SubResource("ShaderMaterial_jkdf5")
 position = Vector2(49.88413, 819)
 texture = ExtResource("4_jkdf5")
+
+[node name="Pickup" parent="." instance=ExtResource("16_k12tt")]
+position = Vector2(-784.1784, 506)
 
 [connection signal="timeout" from="Line Drawer/Timer" to="Line Drawer" method="_on_timer_timeout"]

@@ -1,0 +1,91 @@
+[gd_scene load_steps=10 format=3 uid="uid://tmp3aao5rcrn"]
+
+[ext_resource type="Script" uid="uid://cxwexjyhaq21t" path="res://Scripts/pickup.gd" id="1_bwh4r"]
+[ext_resource type="Shader" uid="uid://dw5u0j1r1we5x" path="res://Shaders/Blob.gdshader" id="2_3bix2"]
+[ext_resource type="Texture2D" uid="uid://cqk6j01w8oul" path="res://Sprites/ring.png" id="3_yevec"]
+[ext_resource type="Texture2D" uid="uid://bgx06nvsv72dy" path="res://Sprites/mag-pickup.png" id="4_6n8e5"]
+[ext_resource type="Script" uid="uid://dguf5w2xdap1w" path="res://Scripts/rocker.gd" id="5_7m4td"]
+[ext_resource type="Texture2D" uid="uid://go0giiad03jq" path="res://Sprites/circle.png" id="6_qxdh1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hibaj"]
+radius = 66.45926
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fevyy"]
+shader = ExtResource("2_3bix2")
+shader_parameter/amount = 15.0
+shader_parameter/rotation_speed = 2.0
+shader_parameter/offset = 0.0
+shader_parameter/speed = 0.1
+shader_parameter/peaks = 7.0
+shader_parameter/time_mod = 1.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fevyy"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(10, 10, 1)
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 1.0
+emission_ring_inner_radius = 10.0
+emission_ring_cone_angle = 90.0
+spread = 180.0
+initial_velocity_max = 1000.0
+gravity = Vector3(0, 0, 0)
+tangential_accel_min = -6000.0
+tangential_accel_max = 6000.0
+scale_min = 0.0
+scale_max = 0.03
+turbulence_enabled = true
+turbulence_noise_strength = 0.2
+turbulence_noise_scale = 10.0
+turbulence_noise_speed_random = 2.64
+
+[node name="Pickup" type="Area2D"]
+collision_layer = 0
+script = ExtResource("1_bwh4r")
+id = "first_mag"
+type = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_hibaj")
+
+[node name="Ring" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_fevyy")
+scale = Vector2(1.0857737, 1.0857737)
+texture = ExtResource("3_yevec")
+
+[node name="Icon" type="Sprite2D" parent="."]
+scale = Vector2(0.85451853, 0.85451853)
+texture = ExtResource("4_6n8e5")
+script = ExtResource("5_7m4td")
+angle = 8.0
+speed = 12.0
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+visible = false
+amount = 10
+texture = ExtResource("6_qxdh1")
+explosiveness = 0.41
+trail_enabled = true
+trail_lifetime = 0.09999999999999999
+process_material = SubResource("ParticleProcessMaterial_fevyy")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 15
+texture = ExtResource("6_qxdh1")
+explosiveness = 0.43
+randomness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 287.32
+initial_velocity_max = 597.01
+orbit_velocity_min = -2.0
+orbit_velocity_max = 2.0
+tangential_accel_min = -100.0
+tangential_accel_max = 100.0
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 0.0
+scale_amount_max = 0.05
+
+[connection signal="body_entered" from="." to="." method="_picked"]
