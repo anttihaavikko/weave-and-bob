@@ -30,15 +30,7 @@ func hurt(pos: Vector2):
 func die():
 	hide()
 	process_mode = Node.PROCESS_MODE_DISABLED
-	Effects.singleton.add(4, global_position)
-	Effects.singleton.add(3, global_position)
-	Effects.singleton.add(2, global_position)
-	Effects.singleton.add(2, global_position)
-	Effects.singleton.add(2, global_position)
-	Effects.singleton.add(0, global_position)
-	Effects.singleton.add(0, global_position)
-	Effects.singleton.add(0, global_position)
-	Effects.singleton.add(1, global_position)
+	Effects.singleton.add_many([4, 3, 2, 2, 2, 0, 0, 0, 1], global_position)
 	if respawns_after > 0:
 		await get_tree().create_timer(respawns_after).timeout
 		life = max_life
