@@ -16,7 +16,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_c1wug"]
 shader = SubResource("Shader_dw3ye")
-shader_parameter/amount = 0.50000002375
+shader_parameter/amount = 2.000000095
 
 [sub_resource type="Curve" id="Curve_d1ilt"]
 _data = [Vector2(0.021739133, 0.011275172), 0.0, 3.2048843, 0, 0, Vector2(0.9975846, 1), 0.09194328, 0.0, 0, 0]
@@ -32,12 +32,13 @@ angle_max = 1.0728835e-05
 direction = Vector3(0, 0, 0)
 spread = 0.0
 gravity = Vector3(0, 0, 0)
-scale_min = 2.5
-scale_max = 2.5
+scale_min = 1.1999999
+scale_max = 1.1999999
 scale_curve = SubResource("CurveTexture_8b88t")
 
 [node name="Displace Pulse" type="GPUParticles2D"]
 modulate = Color(1, 1, 1, 0.5019608)
+z_index = 999
 material = SubResource("ShaderMaterial_c1wug")
 emitting = false
 amount = 1
