@@ -40,59 +40,66 @@ effects = Array[PackedScene]([ExtResource("2_kry3j"), ExtResource("6_21xkr"), Ex
 position = Vector2(3.9907298, 0)
 
 [node name="Background" type="Node2D" parent="Level"]
+modulate = Color(0.7647059, 0.4627451, 0.25882354, 1)
 
 [node name="Wall" type="Sprite2D" parent="Level/Background"]
-modulate = Color(0.7652146, 0.46412712, 0.2644224, 1)
 position = Vector2(-55.308685, 1299)
 scale = Vector2(2273.5933, 457.75012)
 texture = ExtResource("3_8gbba")
 
 [node name="Wall2" type="Sprite2D" parent="Level/Background"]
-modulate = Color(0.7652146, 0.46412712, 0.2644224, 1)
 position = Vector2(-943.8076, 961)
 scale = Vector2(87.515205, 457.75012)
 texture = ExtResource("3_8gbba")
 
 [node name="Wall3" type="Sprite2D" parent="Level/Background"]
-modulate = Color(0.7652146, 0.46412712, 0.2644224, 1)
 position = Vector2(-963.2088, 712.00006)
 scale = Vector2(17.067837, 215.99998)
 texture = ExtResource("3_8gbba")
 
 [node name="Wall4" type="Sprite2D" parent="Level/Background"]
-modulate = Color(0.7652146, 0.46412712, 0.2644224, 1)
 position = Vector2(-867.76117, 961)
 scale = Vector2(37.466763, 240)
 texture = ExtResource("3_8gbba")
 
 [node name="Tree" parent="Level/Background" instance=ExtResource("9_wsu2k")]
+modulate = Color(1, 1, 1, 1)
 position = Vector2(-729.3059, 1082)
 
 [node name="Tree2" parent="Level/Background" instance=ExtResource("9_wsu2k")]
+modulate = Color(1, 1, 1, 1)
 position = Vector2(-615.5701, 1082)
 
 [node name="Tree3" parent="Level/Background" instance=ExtResource("9_wsu2k")]
+modulate = Color(1, 1, 1, 1)
 position = Vector2(-505.825, 1075)
 
 [node name="Tree4" parent="Level/Background" instance=ExtResource("9_wsu2k")]
+modulate = Color(1, 1, 1, 1)
 position = Vector2(-383.11008, 1080)
 
 [node name="Tree5" parent="Level/Background" instance=ExtResource("9_wsu2k")]
+modulate = Color(1, 1, 1, 1)
 position = Vector2(295.314, 1070)
 
 [node name="Tree6" parent="Level/Background" instance=ExtResource("9_wsu2k")]
+modulate = Color(1, 1, 1, 1)
 position = Vector2(434.98956, 1091)
 
 [node name="Tree7" parent="Level/Background" instance=ExtResource("9_wsu2k")]
+modulate = Color(1, 1, 1, 1)
 position = Vector2(578.6558, 1072)
 
 [node name="Tree8" parent="Level/Background" instance=ExtResource("9_wsu2k")]
+modulate = Color(1, 1, 1, 1)
 position = Vector2(702.36847, 1092)
 
 [node name="Tree9" parent="Level/Background" instance=ExtResource("9_wsu2k")]
+modulate = Color(1, 1, 1, 1)
 position = Vector2(810.11816, 1068)
 
 [node name="Tree10" parent="Level/Background" instance=ExtResource("9_wsu2k")]
+modulate = Color(1, 1, 1, 1)
 position = Vector2(935.8262, 1096)
 
 [node name="Wall" parent="Level" instance=ExtResource("4_344ge")]
@@ -163,62 +170,71 @@ respawns_after = 0
 position = Vector2(3999.709, -1383)
 
 [node name="Background" type="Node2D" parent="Room"]
+modulate = Color(0.7647059, 0.4627451, 0.25882354, 1)
+position = Vector2(0.9975586, 0)
 
 [node name="Wall" type="Sprite2D" parent="Room/Background"]
-modulate = Color(0.7652146, 0.46412712, 0.2644224, 1)
 position = Vector2(-55.308685, 1299)
 scale = Vector2(2273.5933, 457.75012)
 texture = ExtResource("3_8gbba")
 
 [node name="Wall2" type="Sprite2D" parent="Room/Background"]
-modulate = Color(0.7652146, 0.46412712, 0.2644224, 1)
 position = Vector2(-943.8076, 961)
 scale = Vector2(87.515205, 457.75012)
 texture = ExtResource("3_8gbba")
 
 [node name="Wall3" type="Sprite2D" parent="Room/Background"]
-modulate = Color(0.7652146, 0.46412712, 0.2644224, 1)
 position = Vector2(-963.2088, 712.00006)
 scale = Vector2(17.067837, 215.99998)
 texture = ExtResource("3_8gbba")
 
 [node name="Wall4" type="Sprite2D" parent="Room/Background"]
-modulate = Color(0.7652146, 0.46412712, 0.2644224, 1)
 position = Vector2(-867.76117, 961)
 scale = Vector2(37.466763, 240)
 texture = ExtResource("3_8gbba")
 
 [node name="Tree" parent="Room/Background" instance=ExtResource("9_wsu2k")]
+modulate = Color(1, 1, 1, 1)
 position = Vector2(-729.3059, 1082)
 
 [node name="Tree2" parent="Room/Background" instance=ExtResource("9_wsu2k")]
+modulate = Color(1, 1, 1, 1)
 position = Vector2(-615.5701, 1082)
 
 [node name="Tree3" parent="Room/Background" instance=ExtResource("9_wsu2k")]
+modulate = Color(1, 1, 1, 1)
 position = Vector2(-505.825, 1075)
 
 [node name="Tree4" parent="Room/Background" instance=ExtResource("9_wsu2k")]
+modulate = Color(1, 1, 1, 1)
 position = Vector2(-383.11008, 1080)
 
 [node name="Tree5" parent="Room/Background" instance=ExtResource("9_wsu2k")]
+modulate = Color(1, 1, 1, 1)
 position = Vector2(295.314, 1070)
 
 [node name="Tree6" parent="Room/Background" instance=ExtResource("9_wsu2k")]
+modulate = Color(1, 1, 1, 1)
 position = Vector2(434.98956, 1091)
 
 [node name="Tree7" parent="Room/Background" instance=ExtResource("9_wsu2k")]
+modulate = Color(1, 1, 1, 1)
 position = Vector2(578.6558, 1072)
 
 [node name="Tree8" parent="Room/Background" instance=ExtResource("9_wsu2k")]
+modulate = Color(1, 1, 1, 1)
 position = Vector2(702.36847, 1092)
 
 [node name="Tree9" parent="Room/Background" instance=ExtResource("9_wsu2k")]
+modulate = Color(1, 1, 1, 1)
 position = Vector2(810.11816, 1068)
 
 [node name="Tree10" parent="Room/Background" instance=ExtResource("9_wsu2k")]
+modulate = Color(1, 1, 1, 1)
 position = Vector2(935.8262, 1096)
 
 [node name="Wall2" parent="Room" instance=ExtResource("4_344ge")]
+z_index = 10
 position = Vector2(3.4028625, 1438)
 scale = Vector2(2560.5256, 512.7101)
 
@@ -238,9 +254,14 @@ scale = Vector2(910.0666, 1112.7468)
 position = Vector2(-1428.2788, -254.58084)
 scale = Vector2(611.38666, 1122.8385)
 
+[node name="Enemy" parent="Room" instance=ExtResource("9_ynf5e")]
+position = Vector2(-55.87027, 1152)
+scale = Vector2(0.53731334, 0.53731334)
+respawns_after = 0
+
 [node name="Player" parent="." node_paths=PackedStringArray("lines", "effects") instance=ExtResource("1_bo1nx")]
 z_index = 10
-position = Vector2(2528.1274, -713)
+position = Vector2(-92.784424, 830)
 lines = NodePath("../Line Drawer")
 effects = NodePath("../Effects")
 

@@ -17,28 +17,31 @@ shader_parameter/color = Color(1, 1, 1, 1)
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_afpow"]
 polygon = PackedVector2Array(88.761604, -220.26027, 184.09814, -157.7984, 233.41014, -29.5872, 213.68533, 118.3488, 115.06134, 216.97281, 0, 246.56001, -128.2112, 210.39787, -213.68533, 108.486404, -236.6976, 3.2874668, -207.11041, -111.77387, -138.07361, -197.248, -36.162136, -233.41014)
 
-[node name="Enemy" type="StaticBody2D" node_paths=PackedStringArray("flasher")]
+[node name="Enemy" type="StaticBody2D" node_paths=PackedStringArray("frame", "flasher")]
 scale = Vector2(0.3041856, 0.3041856)
 collision_layer = 8
 script = ExtResource("1_1f0kj")
 life = 5
+frame = NodePath("Frame")
 flasher = NodePath("Flasher")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_344ge")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Frame" type="Node2D" parent="."]
+
+[node name="Outline" type="Sprite2D" parent="Frame"]
 modulate = Color(0, 0, 0, 1)
 texture = ExtResource("1_hghv2")
 
-[node name="Fill" type="Sprite2D" parent="."]
+[node name="Fill" type="Sprite2D" parent="Frame"]
 modulate = Color(0.91764706, 0.3372549, 0.09411765, 1)
 scale = Vector2(0.90197337, 0.90197337)
 texture = ExtResource("1_hghv2")
 
 [node name="Flasher" type="Node" parent="." node_paths=PackedStringArray("sprites")]
 script = ExtResource("3_afpow")
-sprites = [NodePath("../Fill"), NodePath("../Sprite2D"), NodePath("../Face/Brow"), NodePath("../Face/Eye Left"), NodePath("../Face/Eye Right"), NodePath("../Face/Mouth"), NodePath("../Face/Blush Left"), NodePath("../Face/Blush Right")]
+sprites = [NodePath("../Frame/Fill"), NodePath("../Frame/Outline"), NodePath("../Face/Brow"), NodePath("../Face/Eye Left"), NodePath("../Face/Eye Right"), NodePath("../Face/Mouth"), NodePath("../Face/Blush Left"), NodePath("../Face/Blush Right")]
 white = SubResource("ShaderMaterial_1dp5w")
 metadata/_custom_type_script = "uid://c26faw2casac2"
 

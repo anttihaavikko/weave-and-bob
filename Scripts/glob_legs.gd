@@ -29,10 +29,14 @@ func _hit_enemy(enemy: Node2D):
 		stomp_cooldown = 0.2
 		linear_velocity = Vector2.ZERO
 		_nudge((global_position - enemy.global_position).normalized() * 1700)
-		gun.reload(true)
 		
 		if enemy is Enemy:
-			enemy.die()
+			if enemy.get_stomp_pos() > global_position.y:
+				gun.reload(true)
+				enemy.die()
+			else:
+				enemy.squash(global_position)
+			
 		
 func _nudge(dir: Vector2):
 	apply_impulse(dir)
