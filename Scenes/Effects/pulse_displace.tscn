@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://bhr0ejaysdti2"]
+
+[ext_resource type="Texture2D" uid="uid://clbo68vkega58" path="res://Sprites/pulse-ring-displacement.png" id="1_dw3ye"]
+
+[sub_resource type="Shader" id="Shader_dw3ye"]
+code = "shader_type canvas_item;
+
+uniform float amount: hint_range(0.0, 5) = 1.0;
+uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
+
+void fragment() {
+	vec4 offset = texture(TEXTURE, UV);
+	vec4 color = texture(SCREEN_TEXTURE, SCREEN_UV - vec2(offset.r, offset.b) * 0.05 * amount);
+	COLOR = color;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c1wug"]
+shader = SubResource("Shader_dw3ye")
+shader_parameter/amount = 0.50000002375
+
+[sub_resource type="Curve" id="Curve_d1ilt"]
+_data = [Vector2(0.021739133, 0.011275172), 0.0, 3.2048843, 0, 0, Vector2(0.9975846, 1), 0.09194328, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_8b88t"]
+curve = SubResource("Curve_d1ilt")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_d1ilt"]
+particle_flag_disable_z = true
+angle_min = 1.0728835e-05
+angle_max = 1.0728835e-05
+direction = Vector3(0, 0, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+scale_min = 1.5
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_8b88t")
+
+[node name="Displace Pulse" type="GPUParticles2D"]
+modulate = Color(1, 1, 1, 0.5019608)
+material = SubResource("ShaderMaterial_c1wug")
+emitting = false
+amount = 1
+texture = ExtResource("1_dw3ye")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+randomness = 0.18
+collision_base_size = 0.01
+visibility_rect = Rect2(0, 0, 10000, 10000)
+trail_lifetime = 0.1
+process_material = SubResource("ParticleProcessMaterial_d1ilt")

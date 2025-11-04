@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://il0jdy8qi06w"]
+[gd_scene load_steps=30 format=3 uid="uid://il0jdy8qi06w"]
 
 [ext_resource type="Script" uid="uid://c7fckvtsco120" path="res://Scripts/blob.gd" id="1_gy3pb"]
 [ext_resource type="Texture2D" uid="uid://7etpco8nk31f" path="res://icon.svg" id="1_tqd60"]
@@ -44,23 +44,9 @@ gravity = Vector3(0, 0, 0)
 scale_min = 0.01
 scale_max = 0.01
 
-[sub_resource type="Curve" id="Curve_spthc"]
-_data = [Vector2(0, 0.10721612), 0.0, 2.0742433, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+[sub_resource type="Curve" id="Curve_ag0hk"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_vqq8p"]
-curve = SubResource("Curve_spthc")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8b88t"]
-particle_flag_disable_z = true
-angle_min = 1.0728835e-05
-angle_max = 1.0728835e-05
-direction = Vector3(0, 0, 0)
-spread = 0.0
-gravity = Vector3(0, 0, 0)
-scale_min = 0.099999994
-scale_max = 0.29999998
-scale_curve = SubResource("CurveTexture_vqq8p")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ctfmv"]
 radius = 23.021729
@@ -406,20 +392,21 @@ trail_enabled = true
 trail_lifetime = 0.1
 process_material = SubResource("ParticleProcessMaterial_spthc")
 
-[node name="Muzzle" type="GPUParticles2D" parent="Gun"]
+[node name="Muzzle" type="CPUParticles2D" parent="Gun"]
 modulate = Color(1, 1, 1, 0.5019608)
-position = Vector2(123, 0)
+position = Vector2(122, -1)
 emitting = false
-amount = 2
+amount = 1
 texture = ExtResource("7_qc6ha")
-lifetime = 0.08
+lifetime = 0.09999999999999999
+one_shot = true
 explosiveness = 1.0
 randomness = 0.18
-collision_base_size = 0.01
-visibility_rect = Rect2(-1000, -1000, 2000, 2000)
 local_coords = true
-trail_lifetime = 0.1
-process_material = SubResource("ParticleProcessMaterial_8b88t")
+gravity = Vector2(0, 0)
+scale_amount_min = 0.2
+scale_amount_max = 0.3
+scale_amount_curve = SubResource("Curve_ag0hk")
 
 [node name="Ejector" type="Node2D" parent="Gun"]
 position = Vector2(-8, -4)

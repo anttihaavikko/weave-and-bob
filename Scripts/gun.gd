@@ -10,7 +10,7 @@ var clicked: bool
 @export var camera: Camera2D
 @export var reticule: Node2D
 @export var muzzle: GPUParticles2D
-@export var flash: GPUParticles2D
+@export var flash: CPUParticles2D
 @export var ejector: CasingEjector
 @export var shot_sound: AudioStreamPlayer2D
 @export var reload_sound: AudioStreamPlayer2D

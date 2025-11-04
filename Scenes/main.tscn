@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=13 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/blob.tscn" id="1_bo1nx"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://biww1pdu4di3l" path="res://Scenes/enemy.tscn" id="9_ynf5e"]
 [ext_resource type="PackedScene" uid="uid://dpon26r25h1rq" path="res://Scenes/Effects/pulse.tscn" id="10_d1ilt"]
 [ext_resource type="PackedScene" uid="uid://oamh1nmk7jrt" path="res://Scenes/Effects/blood.tscn" id="10_hptm8"]
+[ext_resource type="PackedScene" uid="uid://bhr0ejaysdti2" path="res://Scenes/Effects/pulse_displace.tscn" id="12_6iyac"]
 
 [node name="Main" type="Node2D"]
 scale = Vector2(1.0023229, 1)
@@ -29,37 +30,6 @@ position = Vector2(-232.46, 836)
 lines = NodePath("../Line Drawer")
 effects = NodePath("../Effects")
 
-[node name="Wall" parent="." instance=ExtResource("4_344ge")]
-position = Vector2(5.9860992, 1215)
-
-[node name="Wall5" parent="." instance=ExtResource("4_344ge")]
-position = Vector2(681.4173, 435)
-scale = Vector2(307.61032, 253.7011)
-
-[node name="Wall6" parent="." instance=ExtResource("4_344ge")]
-position = Vector2(-720.3268, 89.00001)
-scale = Vector2(447.22372, 351.8664)
-
-[node name="Wall7" parent="." instance=ExtResource("4_344ge")]
-position = Vector2(-1929.1964, -68.29785)
-scale = Vector2(757.85767, 1433.2708)
-
-[node name="Wall8" parent="." instance=ExtResource("4_344ge")]
-position = Vector2(1690.2917, -50.54834)
-scale = Vector2(719.0284, 1502.7698)
-
-[node name="Wall2" parent="." instance=ExtResource("4_344ge")]
-position = Vector2(3.4028625, 1438)
-scale = Vector2(2560.5256, 512.7101)
-
-[node name="Wall3" parent="." instance=ExtResource("4_344ge")]
-position = Vector2(1284.1836, 736.51605)
-scale = Vector2(611.38666, 2499.6785)
-
-[node name="Wall4" parent="." instance=ExtResource("4_344ge")]
-position = Vector2(-1428.6812, 729.00006)
-scale = Vector2(611.38666, 2499.6785)
-
 [node name="Line Drawer" type="Node" parent="." node_paths=PackedStringArray("line", "timer")]
 script = ExtResource("3_jjvhh")
 line = NodePath("Shot Line")
@@ -75,32 +45,73 @@ wait_time = 0.05
 
 [node name="Effects" type="Node" parent="."]
 script = ExtResource("5_kry3j")
-effects = Array[PackedScene]([ExtResource("2_kry3j"), ExtResource("6_21xkr"), ExtResource("10_hptm8"), ExtResource("10_d1ilt")])
+effects = Array[PackedScene]([ExtResource("2_kry3j"), ExtResource("6_21xkr"), ExtResource("10_hptm8"), ExtResource("10_d1ilt"), ExtResource("12_6iyac")])
 
-[node name="Enemy" parent="." instance=ExtResource("9_ynf5e")]
+[node name="Level" type="Node2D" parent="."]
+position = Vector2(3.9907298, 0)
+
+[node name="Wall" parent="Level" instance=ExtResource("4_344ge")]
+position = Vector2(5.986099, 1215)
+
+[node name="Wall5" parent="Level" instance=ExtResource("4_344ge")]
+position = Vector2(681.4173, 435)
+scale = Vector2(307.6103, 253.7011)
+
+[node name="Wall6" parent="Level" instance=ExtResource("4_344ge")]
+position = Vector2(-720.3268, 89.00001)
+scale = Vector2(447.2237, 351.8664)
+
+[node name="Wall7" parent="Level" instance=ExtResource("4_344ge")]
+position = Vector2(-1929.1963, -68.29785)
+scale = Vector2(757.85767, 1433.2708)
+
+[node name="Wall8" parent="Level" instance=ExtResource("4_344ge")]
+position = Vector2(1690.2917, -50.54834)
+scale = Vector2(719.0284, 1502.7698)
+
+[node name="Wall2" parent="Level" instance=ExtResource("4_344ge")]
+position = Vector2(3.4028625, 1438)
+scale = Vector2(2560.5256, 512.7101)
+
+[node name="Wall3" parent="Level" instance=ExtResource("4_344ge")]
+position = Vector2(1284.1836, 736.51605)
+scale = Vector2(611.38666, 2499.6785)
+
+[node name="Wall4" parent="Level" instance=ExtResource("4_344ge")]
+position = Vector2(-1428.6812, 729.00006)
+scale = Vector2(611.38666, 2499.6785)
+
+[node name="Enemy" parent="Level" instance=ExtResource("9_ynf5e")]
 position = Vector2(328.23755, 644)
+scale = Vector2(0.30418557, 0.3041856)
 
-[node name="Enemy4" parent="." instance=ExtResource("9_ynf5e")]
-position = Vector2(-860.0023, 730.00006)
+[node name="Enemy4" parent="Level" instance=ExtResource("9_ynf5e")]
+position = Vector2(-860.00226, 730.00006)
+scale = Vector2(0.30418557, 0.3041856)
 
-[node name="Enemy2" parent="." instance=ExtResource("9_ynf5e")]
+[node name="Enemy2" parent="Level" instance=ExtResource("9_ynf5e")]
 position = Vector2(801.139, 17.999985)
+scale = Vector2(0.30418557, 0.3041856)
 respawns_after = 0
 
-[node name="Enemy3" parent="." instance=ExtResource("9_ynf5e")]
+[node name="Enemy3" parent="Level" instance=ExtResource("9_ynf5e")]
 position = Vector2(-812.1135, -404)
+scale = Vector2(0.30418557, 0.3041856)
 respawns_after = 0
 
-[node name="Enemy5" parent="." instance=ExtResource("9_ynf5e")]
-position = Vector2(-380.117, -401.00003)
+[node name="Enemy5" parent="Level" instance=ExtResource("9_ynf5e")]
+position = Vector2(-380.11697, -401.00003)
+scale = Vector2(0.30418557, 0.3041856)
 respawns_after = 0
 
-[node name="Enemy6" parent="." instance=ExtResource("9_ynf5e")]
-position = Vector2(103.75894, -415.00003)
+[node name="Enemy6" parent="Level" instance=ExtResource("9_ynf5e")]
+position = Vector2(103.758934, -415.00003)
+scale = Vector2(0.30418557, 0.3041856)
 respawns_after = 0
 
-[node name="Enemy7" parent="." instance=ExtResource("9_ynf5e")]
-position = Vector2(625.547, -425.00003)
+[node name="Enemy7" parent="Level" instance=ExtResource("9_ynf5e")]
+position = Vector2(625.54694, -425.00003)
+scale = Vector2(0.30418557, 0.3041856)
 respawns_after = 0
 
 [connection signal="timeout" from="Line Drawer/Timer" to="Line Drawer" method="_on_timer_timeout"]

@@ -25,6 +25,7 @@ func die():
 	Effects.singleton.add(0, global_position)
 	Effects.singleton.add(0, global_position)
 	Effects.singleton.add(1, global_position)
+	Effects.singleton.add(4, global_position)
 	Effects.singleton.add(3, global_position)
 	if respawns_after > 0:
 		await get_tree().create_timer(respawns_after).timeout

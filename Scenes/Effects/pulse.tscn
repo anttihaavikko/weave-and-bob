@@ -2,14 +2,14 @@
 
 [ext_resource type="Texture2D" uid="uid://go0giiad03jq" path="res://Sprites/circle.png" id="1_vpxr1"]
 
-[sub_resource type="Curve" id="Curve_d1ilt"]
+[sub_resource type="Curve" id="Curve_lfwev"]
 _data = [Vector2(0, 0.10721612), 0.0, 2.0742433, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_8b88t"]
-curve = SubResource("Curve_d1ilt")
+[sub_resource type="CurveTexture" id="CurveTexture_ei7hn"]
+curve = SubResource("Curve_lfwev")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_d1ilt"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gfl5n"]
 particle_flag_disable_z = true
 angle_min = 1.0728835e-05
 angle_max = 1.0728835e-05
@@ -18,7 +18,7 @@ spread = 0.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.5
 scale_max = 0.5
-scale_curve = SubResource("CurveTexture_8b88t")
+scale_curve = SubResource("CurveTexture_ei7hn")
 
 [node name="Pulse" type="GPUParticles2D"]
 modulate = Color(1, 1, 1, 0.5019608)
@@ -30,7 +30,7 @@ one_shot = true
 explosiveness = 1.0
 randomness = 0.18
 collision_base_size = 0.01
-visibility_rect = Rect2(-1000, -1000, 2000, 2000)
+visibility_rect = Rect2(-3000, -3000, 6000, 6000)
 local_coords = true
 trail_lifetime = 0.1
-process_material = SubResource("ParticleProcessMaterial_d1ilt")
+process_material = SubResource("ParticleProcessMaterial_gfl5n")
