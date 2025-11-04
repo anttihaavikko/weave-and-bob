@@ -1,13 +1,18 @@
-[gd_scene load_steps=8 format=3 uid="uid://biww1pdu4di3l"]
+[gd_scene load_steps=10 format=3 uid="uid://biww1pdu4di3l"]
 
 [ext_resource type="Script" uid="uid://cxtjkd8vlagxd" path="res://Scripts/enemy.gd" id="1_1f0kj"]
 [ext_resource type="Texture2D" uid="uid://go0giiad03jq" path="res://Sprites/circle.png" id="1_hghv2"]
 [ext_resource type="Script" uid="uid://c26faw2casac2" path="res://Scripts/flasher.gd" id="3_afpow"]
 [ext_resource type="Texture2D" uid="uid://w5ubxh2dsi74" path="res://Sprites/mouth.png" id="4_287tu"]
+[ext_resource type="Shader" uid="uid://bcpkc8l8xvy70" path="res://Shaders/White.gdshader" id="4_ghaa6"]
 [ext_resource type="Texture2D" uid="uid://bvqmnjk5nrig" path="res://Sprites/brow.png" id="5_0830c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_344ge"]
 radius = 252.11693
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1dp5w"]
+shader = ExtResource("4_ghaa6")
+shader_parameter/color = Color(1, 1, 1, 1)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_afpow"]
 polygon = PackedVector2Array(88.761604, -220.26027, 184.09814, -157.7984, 233.41014, -29.5872, 213.68533, 118.3488, 115.06134, 216.97281, 0, 246.56001, -128.2112, 210.39787, -213.68533, 108.486404, -236.6976, 3.2874668, -207.11041, -111.77387, -138.07361, -197.248, -36.162136, -233.41014)
@@ -34,6 +39,7 @@ texture = ExtResource("1_hghv2")
 [node name="Flasher" type="Node" parent="." node_paths=PackedStringArray("sprites")]
 script = ExtResource("3_afpow")
 sprites = [NodePath("../Fill"), NodePath("../Sprite2D"), NodePath("../Face/Brow"), NodePath("../Face/Eye Left"), NodePath("../Face/Eye Right"), NodePath("../Face/Mouth"), NodePath("../Face/Blush Left"), NodePath("../Face/Blush Right")]
+white = SubResource("ShaderMaterial_1dp5w")
 metadata/_custom_type_script = "uid://c26faw2casac2"
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
