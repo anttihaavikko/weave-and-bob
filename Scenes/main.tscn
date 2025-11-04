@@ -31,6 +31,10 @@ position = Vector2(4.9882813, -911)
 scale = Vector2(15596.7705, 8983.001)
 texture = ExtResource("3_8gbba")
 
+[node name="Effects" type="Node" parent="."]
+script = ExtResource("5_kry3j")
+effects = Array[PackedScene]([ExtResource("2_kry3j"), ExtResource("6_21xkr"), ExtResource("10_hptm8"), ExtResource("10_d1ilt"), ExtResource("12_6iyac")])
+
 [node name="Level" type="Node2D" parent="."]
 position = Vector2(3.9907298, 0)
 
@@ -119,6 +123,7 @@ scale = Vector2(0.30418557, 0.3041856)
 respawns_after = 0
 
 [node name="Blob" parent="." node_paths=PackedStringArray("lines", "effects") instance=ExtResource("1_bo1nx")]
+z_index = 10
 position = Vector2(-232.46, 836)
 lines = NodePath("../Line Drawer")
 effects = NodePath("../Effects")
@@ -135,10 +140,6 @@ width = 5.0
 
 [node name="Timer" type="Timer" parent="Line Drawer"]
 wait_time = 0.05
-
-[node name="Effects" type="Node" parent="."]
-script = ExtResource("5_kry3j")
-effects = Array[PackedScene]([ExtResource("2_kry3j"), ExtResource("6_21xkr"), ExtResource("10_hptm8"), ExtResource("10_d1ilt"), ExtResource("12_6iyac")])
 
 [node name="PulseCircleDisplacement" type="Sprite2D" parent="."]
 visible = false
