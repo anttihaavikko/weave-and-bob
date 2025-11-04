@@ -398,7 +398,7 @@ position = Vector2(122, -1)
 emitting = false
 amount = 1
 texture = ExtResource("7_qc6ha")
-lifetime = 0.09999999999999999
+lifetime = 0.1
 one_shot = true
 explosiveness = 1.0
 randomness = 0.18
@@ -480,21 +480,21 @@ position = Vector2(-35, 6)
 [node name="Left Arm" type="Line2D" parent="Control Node/Orienter/Middle/Left Arm" node_paths=PackedStringArray("target")]
 z_index = 150
 z_as_relative = false
-points = PackedVector2Array(0, 0, 0, 0, 0, 0)
+points = PackedVector2Array(0, 0, -9.685585, 23.047548, 15, 27)
 default_color = Color(0, 0, 0, 1)
 joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
 script = ExtResource("8_5fh0x")
 target = NodePath("../../../../../Gun/Hand Wrap/Handle Pos")
-length = 25.0
+length = 50.0
 
 [node name="Right Arm" type="Node2D" parent="Control Node/Orienter/Middle"]
 position = Vector2(33, 4)
 
 [node name="Right Arm Line" type="Line2D" parent="Control Node/Orienter/Middle/Right Arm" node_paths=PackedStringArray("target")]
 z_index = 10
-points = PackedVector2Array(0, 0, 0, 0, 0, 0)
+points = PackedVector2Array(0, 0, 24.159836, 6.4266844, 2, 18)
 width = 8.0
 default_color = Color(0, 0, 0, 1)
 joint_mode = 2
@@ -502,7 +502,7 @@ begin_cap_mode = 2
 end_cap_mode = 2
 script = ExtResource("8_5fh0x")
 target = NodePath("../../../../../Gun/Hand Wrap/Rest Pos")
-length = 25.0
+length = 50.0
 flip = true
 
 [node name="Face" parent="Control Node/Orienter/Middle" instance=ExtResource("17_vqq8p")]

@@ -1,3 +1,4 @@
+@tool
 extends Line2D
 
 @export var target: Node2D
@@ -11,7 +12,7 @@ func _ready() -> void:
 	upper = LimbSegment.new(length, 0, false)
 	lower = LimbSegment.new(length, 1, true)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	
 	var pos := target.global_position
 	var normal := (pos - global_position).normalized()
@@ -19,10 +20,10 @@ func _process(delta: float) -> void:
 	lower.follow(pos, normal, flip)
 	upper.follow(lower.start, normal, flip)
 
-	upper.constrain(target.global_position)
+	upper.constrain(global_position)
 	lower.constrain(upper.end)
 	
-	points[1] = upper.end - global_position + Vector2(50 if flip else -50, 0)
+	points[1] = upper.end - global_position
 	points[2] = target.global_position - global_position
 	
 class LimbSegment:
@@ -31,10 +32,10 @@ class LimbSegment:
 	var length: float
 	var isTip: bool
 
-	func _init(length: float, index: int, tip: bool):
-		start = Vector2(length * index, 0)
-		end = Vector2(length * (index + 1), 0)
-		length = length
+	func _init(l: float, index: int, tip: bool):
+		start = Vector2(l * index, 0)
+		end = Vector2(l * (index + 1), 0)
+		length = l
 		isTip = tip
 		
 	func follow(target: Vector2, normal: Vector2, flip: bool):

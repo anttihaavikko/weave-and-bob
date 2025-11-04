@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://go0giiad03jq" path="res://Sprites/circle.png" id="1_hghv2"]
 [ext_resource type="Script" uid="uid://c26faw2casac2" path="res://Scripts/flasher.gd" id="3_afpow"]
 [ext_resource type="Texture2D" uid="uid://w5ubxh2dsi74" path="res://Sprites/mouth.png" id="4_287tu"]
-[ext_resource type="Shader" uid="uid://bcpkc8l8xvy70" path="res://Shaders/White.gdshader" id="4_ghaa6"]
+[ext_resource type="Shader" uid="uid://bcpkc8l8xvy70" path="res://Shaders/white.gdshader" id="4_ghaa6"]
 [ext_resource type="Texture2D" uid="uid://bvqmnjk5nrig" path="res://Sprites/brow.png" id="5_0830c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_344ge"]
