@@ -1,13 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=15 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/blob.tscn" id="1_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://3j32spfokv3d" path="res://Scenes/Effects/white_bits.tscn" id="2_kry3j"]
 [ext_resource type="Texture2D" uid="uid://dggvv625tmn04" path="res://Sprites/square.png" id="3_8gbba"]
 [ext_resource type="Script" uid="uid://b2gfrikyseqk" path="res://Scripts/line_drawer.gd" id="3_jjvhh"]
-[ext_resource type="Shader" uid="uid://crr0hy72t2r65" path="res://Shaders/displace.gdshader" id="3_jkdf5"]
 [ext_resource type="PackedScene" uid="uid://dsh5hka8p1olw" path="res://Scenes/wall.tscn" id="4_344ge"]
-[ext_resource type="Texture2D" uid="uid://bim36tggdjwr4" path="res://Sprites/pulse-circle-displacement.png" id="4_jkdf5"]
 [ext_resource type="Script" uid="uid://iea5t2xob5o7" path="res://Scripts/effects.gd" id="5_kry3j"]
 [ext_resource type="PackedScene" uid="uid://bespa4vyxw6ny" path="res://Scenes/Effects/black_bits.tscn" id="6_21xkr"]
 [ext_resource type="PackedScene" uid="uid://cuiocul8q8du7" path="res://Scenes/tree.tscn" id="9_wsu2k"]
@@ -16,10 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://oamh1nmk7jrt" path="res://Scenes/Effects/blood.tscn" id="10_hptm8"]
 [ext_resource type="PackedScene" uid="uid://bhr0ejaysdti2" path="res://Scenes/Effects/pulse_displace.tscn" id="12_6iyac"]
 [ext_resource type="PackedScene" uid="uid://tmp3aao5rcrn" path="res://Scenes/pickup.tscn" id="16_k12tt"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jkdf5"]
-shader = ExtResource("3_jkdf5")
-shader_parameter/amount = 1.0
 
 [node name="Main" type="Node2D"]
 scale = Vector2(1.0023229, 1)
@@ -278,12 +272,6 @@ width = 5.0
 
 [node name="Timer" type="Timer" parent="Line Drawer"]
 wait_time = 0.05
-
-[node name="PulseCircleDisplacement" type="Sprite2D" parent="."]
-visible = false
-material = SubResource("ShaderMaterial_jkdf5")
-position = Vector2(49.88413, 819)
-texture = ExtResource("4_jkdf5")
 
 [node name="Pickup" parent="." instance=ExtResource("16_k12tt")]
 position = Vector2(-784.1784, 506)
