@@ -1,6 +1,8 @@
+class_name Nudgeable
 extends Node2D
 
-var amount := 10
+@export var amount := 10
+
 var cooldown := 0.0
 var phase := 0.0
 var dir := 1

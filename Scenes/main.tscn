@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=19 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/blob.tscn" id="1_bo1nx"]
@@ -15,7 +15,9 @@
 [ext_resource type="PackedScene" uid="uid://oamh1nmk7jrt" path="res://Scenes/Effects/blood.tscn" id="10_hptm8"]
 [ext_resource type="PackedScene" uid="uid://bhr0ejaysdti2" path="res://Scenes/Effects/pulse_displace.tscn" id="12_6iyac"]
 [ext_resource type="PackedScene" uid="uid://whn8b2heqg8s" path="res://Scenes/grass.tscn" id="12_wsu2k"]
+[ext_resource type="Texture2D" uid="uid://o2p2w1csmost" path="res://Sprites/angle.png" id="13_b3802"]
 [ext_resource type="PackedScene" uid="uid://tmp3aao5rcrn" path="res://Scenes/pickup.tscn" id="16_k12tt"]
+[ext_resource type="PackedScene" uid="uid://ympyuuto2ejt" path="res://Scenes/letter.tscn" id="17_h1bgf"]
 
 [node name="Main" type="Node2D"]
 scale = Vector2(1.0023229, 1)
@@ -230,6 +232,12 @@ position = Vector2(810.11816, 1068)
 modulate = Color(1, 1, 1, 1)
 position = Vector2(935.8262, 1096)
 
+[node name="Angle" type="Sprite2D" parent="Room/Background"]
+position = Vector2(-55.870007, 1171.9999)
+rotation = 0.78539824
+scale = Vector2(1.4394156, 1.4394156)
+texture = ExtResource("13_b3802")
+
 [node name="Wall2" parent="Room" instance=ExtResource("4_344ge")]
 z_index = 10
 position = Vector2(226.624, 1443.2216)
@@ -259,43 +267,123 @@ scale = Vector2(611.38666, 1122.8385)
 position = Vector2(-55.87027, 1152)
 scale = Vector2(0.53731334, 0.53731334)
 respawns_after = 0
+stomp_offset = 40
 
 [node name="Enemy2" parent="Room" instance=ExtResource("9_ynf5e")]
 position = Vector2(1328.913, 869)
 stomp_offset = 120
 
-[node name="Grass" parent="." instance=ExtResource("12_wsu2k")]
-position = Vector2(3200.5652, -196)
+[node name="Decorations" type="Node2D" parent="."]
+position = Vector2(3200.565, -196)
 
-[node name="Grass2" parent="." instance=ExtResource("12_wsu2k")]
-position = Vector2(3146.6907, -196)
+[node name="Grass" parent="Decorations" instance=ExtResource("12_wsu2k")]
 
-[node name="Grass3" parent="." instance=ExtResource("12_wsu2k")]
-position = Vector2(3146.6907, -196)
+[node name="Grass2" parent="Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(-53.874268, 0)
 
-[node name="Grass4" parent="." instance=ExtResource("12_wsu2k")]
-position = Vector2(3080.8435, -190)
+[node name="Grass3" parent="Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(-53.874268, 0)
 
-[node name="Grass5" parent="." instance=ExtResource("12_wsu2k")]
-position = Vector2(3015.9941, -191)
+[node name="Grass4" parent="Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(-119.721436, 6)
 
-[node name="Grass6" parent="." instance=ExtResource("12_wsu2k")]
-position = Vector2(2943.1633, -186)
+[node name="Grass5" parent="Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(-184.5708, 5)
 
-[node name="Grass7" parent="." instance=ExtResource("12_wsu2k")]
-position = Vector2(3268.4077, -188)
+[node name="Grass6" parent="Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(-257.4016, 10)
 
-[node name="Grass8" parent="." instance=ExtResource("12_wsu2k")]
-position = Vector2(3338.2456, -190)
+[node name="Grass7" parent="Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(67.84277, 8)
 
-[node name="Grass9" parent="." instance=ExtResource("12_wsu2k")]
-position = Vector2(3403.095, -181)
+[node name="Grass8" parent="Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(137.68066, 6)
 
-[node name="Grass10" parent="." instance=ExtResource("12_wsu2k")]
-position = Vector2(3466.9465, -187)
+[node name="Grass9" parent="Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(202.52979, 15)
 
-[node name="Grass11" parent="." instance=ExtResource("12_wsu2k")]
-position = Vector2(3533.7913, -177)
+[node name="Grass10" parent="Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(266.3816, 9)
+
+[node name="Grass11" parent="Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(333.22632, 19)
+
+[node name="Grass12" parent="Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(1394.76, -15)
+
+[node name="Grass13" parent="Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(1340.8857, -15)
+
+[node name="Grass14" parent="Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(1340.8857, -15)
+
+[node name="Grass15" parent="Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(1275.0386, -9)
+
+[node name="Grass16" parent="Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(1210.1892, -10)
+
+[node name="Grass17" parent="Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(1137.3584, -5)
+
+[node name="Grass18" parent="Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(1462.6028, -7)
+
+[node name="Grass19" parent="Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(1532.4407, -9)
+
+[node name="Grass20" parent="Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(1597.2898, 0)
+
+[node name="Grass21" parent="Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(1661.1416, -6)
+
+[node name="Grass22" parent="Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(1727.9863, 4)
+
+[node name="Letter" parent="Decorations" instance=ExtResource("17_h1bgf")]
+position = Vector2(1022.625, -9)
+letter = "A"
+
+[node name="Letter2" parent="Decorations" instance=ExtResource("17_h1bgf")]
+position = Vector2(1118.4023, -8)
+letter = "N"
+
+[node name="Letter3" parent="Decorations" instance=ExtResource("17_h1bgf")]
+position = Vector2(1221.1641, -8)
+letter = "G"
+
+[node name="Letter4" parent="Decorations" instance=ExtResource("17_h1bgf")]
+position = Vector2(1329.9111, -9)
+letter = "L"
+
+[node name="Letter5" parent="Decorations" instance=ExtResource("17_h1bgf")]
+position = Vector2(1431.6748, -9)
+letter = "E"
+
+[node name="Letter6" parent="Decorations" instance=ExtResource("17_h1bgf")]
+position = Vector2(-71.83252, -9)
+letter = "F"
+
+[node name="Letter7" parent="Decorations" instance=ExtResource("17_h1bgf")]
+position = Vector2(33.92212, -9)
+letter = "A"
+
+[node name="Letter8" parent="Decorations" instance=ExtResource("17_h1bgf")]
+position = Vector2(135.68506, -9)
+letter = "L"
+
+[node name="Letter9" parent="Decorations" instance=ExtResource("17_h1bgf")]
+position = Vector2(234.45605, -12)
+letter = "L"
+
+[node name="Letter10" parent="Decorations" instance=ExtResource("17_h1bgf")]
+position = Vector2(339.21265, -12)
+letter = "E"
+
+[node name="Letter11" parent="Decorations" instance=ExtResource("17_h1bgf")]
+position = Vector2(440.97656, -12)
+letter = "N"
 
 [node name="Player" parent="." node_paths=PackedStringArray("lines", "effects") instance=ExtResource("1_bo1nx")]
 z_index = 10

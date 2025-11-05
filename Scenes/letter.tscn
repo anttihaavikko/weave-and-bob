@@ -1,0 +1,83 @@
+[gd_scene load_steps=11 format=3 uid="uid://ympyuuto2ejt"]
+
+[ext_resource type="Script" uid="uid://dxc0nqaxmw7aw" path="res://Scripts/letter.gd" id="1_cfy4y"]
+[ext_resource type="Script" uid="uid://5c5aa7t0gfjh" path="res://Scripts/destroyable.gd" id="2_is782"]
+[ext_resource type="Script" uid="uid://djtpca2xxdput" path="res://Scripts/randomizer.gd" id="3_ncqpm"]
+[ext_resource type="Texture2D" uid="uid://dvwdkrji75phw" path="res://Sprites/grass_cut.png" id="4_5edsh"]
+[ext_resource type="Shader" uid="uid://7gwbqnj5dg4s" path="res://Shaders/wavy.gdshader" id="5_gplh0"]
+[ext_resource type="FontFile" uid="uid://x80u6ag0vqx5" path="res://Misc/ChunkFive-Regular.otf" id="6_l3lmy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b3802"]
+size = Vector2(65, 86)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k12tt"]
+shader = ExtResource("5_gplh0")
+shader_parameter/amount = 5.0
+shader_parameter/frequency = 0.0
+shader_parameter/speed = 5.0
+shader_parameter/flip = false
+
+[sub_resource type="LabelSettings" id="LabelSettings_cfy4y"]
+font = ExtResource("6_l3lmy")
+font_size = 120
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k12tt"]
+size = Vector2(64, 87)
+
+[node name="Letter" type="Node2D" node_paths=PackedStringArray("label")]
+modulate = Color(0.5686275, 0.32941177, 0.16470589, 1)
+script = ExtResource("1_cfy4y")
+letter = "X"
+label = NodePath("Wrap/Sprite2D/Label")
+amount = 5
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." node_paths=PackedStringArray("stub", "full", "particle_point")]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("2_is782")
+stub = NodePath("../Wrap/Stub")
+full = NodePath("../Wrap/Sprite2D")
+particle_point = NodePath("Particle Point")
+effect_ids = Array[int]([5])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(2.5, -39)
+shape = SubResource("RectangleShape2D_b3802")
+
+[node name="Particle Point" type="Node2D" parent="StaticBody2D"]
+position = Vector2(0, -36)
+
+[node name="Wrap" type="Node2D" parent="."]
+script = ExtResource("3_ncqpm")
+randomize_scale = true
+min_scale = 1.0
+
+[node name="Stub" type="Sprite2D" parent="Wrap"]
+visible = false
+position = Vector2(8, -3)
+texture = ExtResource("4_5edsh")
+
+[node name="Sprite2D" type="Node2D" parent="Wrap"]
+material = SubResource("ShaderMaterial_k12tt")
+position = Vector2(4.9885254, 3)
+
+[node name="Label" type="Label" parent="Wrap/Sprite2D"]
+offset_left = -49.988525
+offset_top = -132.0
+offset_right = 49.011475
+offset_bottom = 33.0
+text = "A"
+label_settings = SubResource("LabelSettings_cfy4y")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Area2D" type="Area2D" parent="Wrap/Sprite2D"]
+collision_layer = 0
+collision_mask = 13
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wrap/Sprite2D/Area2D"]
+position = Vector2(-2.9885254, -41.5)
+shape = SubResource("RectangleShape2D_k12tt")
+
+[connection signal="body_entered" from="Wrap/Sprite2D/Area2D" to="." method="_body_entered"]
