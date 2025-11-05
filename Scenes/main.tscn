@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=17 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/blob.tscn" id="1_bo1nx"]
@@ -8,11 +8,13 @@
 [ext_resource type="PackedScene" uid="uid://dsh5hka8p1olw" path="res://Scenes/wall.tscn" id="4_344ge"]
 [ext_resource type="Script" uid="uid://iea5t2xob5o7" path="res://Scripts/effects.gd" id="5_kry3j"]
 [ext_resource type="PackedScene" uid="uid://bespa4vyxw6ny" path="res://Scenes/Effects/black_bits.tscn" id="6_21xkr"]
+[ext_resource type="PackedScene" uid="uid://487ovkxtb45u" path="res://Scenes/Effects/destroyed_grass.tscn" id="9_k12tt"]
 [ext_resource type="PackedScene" uid="uid://cuiocul8q8du7" path="res://Scenes/tree.tscn" id="9_wsu2k"]
 [ext_resource type="PackedScene" uid="uid://biww1pdu4di3l" path="res://Scenes/enemy.tscn" id="9_ynf5e"]
 [ext_resource type="PackedScene" uid="uid://dpon26r25h1rq" path="res://Scenes/Effects/pulse.tscn" id="10_d1ilt"]
 [ext_resource type="PackedScene" uid="uid://oamh1nmk7jrt" path="res://Scenes/Effects/blood.tscn" id="10_hptm8"]
 [ext_resource type="PackedScene" uid="uid://bhr0ejaysdti2" path="res://Scenes/Effects/pulse_displace.tscn" id="12_6iyac"]
+[ext_resource type="PackedScene" uid="uid://whn8b2heqg8s" path="res://Scenes/grass.tscn" id="12_wsu2k"]
 [ext_resource type="PackedScene" uid="uid://tmp3aao5rcrn" path="res://Scenes/pickup.tscn" id="16_k12tt"]
 
 [node name="Main" type="Node2D"]
@@ -29,7 +31,7 @@ texture = ExtResource("3_8gbba")
 
 [node name="Effects" type="Node" parent="."]
 script = ExtResource("5_kry3j")
-effects = Array[PackedScene]([ExtResource("2_kry3j"), ExtResource("6_21xkr"), ExtResource("10_hptm8"), ExtResource("10_d1ilt"), ExtResource("12_6iyac")])
+effects = Array[PackedScene]([ExtResource("2_kry3j"), ExtResource("6_21xkr"), ExtResource("10_hptm8"), ExtResource("10_d1ilt"), ExtResource("12_6iyac"), ExtResource("9_k12tt")])
 
 [node name="Level" type="Node2D" parent="."]
 position = Vector2(3.9907298, 0)
@@ -254,9 +256,42 @@ position = Vector2(-55.87027, 1152)
 scale = Vector2(0.53731334, 0.53731334)
 respawns_after = 0
 
+[node name="Grass" parent="." instance=ExtResource("12_wsu2k")]
+position = Vector2(3200.5652, -205)
+
+[node name="Grass2" parent="." instance=ExtResource("12_wsu2k")]
+position = Vector2(3146.6907, -205)
+
+[node name="Grass3" parent="." instance=ExtResource("12_wsu2k")]
+position = Vector2(3146.6907, -205)
+
+[node name="Grass4" parent="." instance=ExtResource("12_wsu2k")]
+position = Vector2(3080.8435, -199)
+
+[node name="Grass5" parent="." instance=ExtResource("12_wsu2k")]
+position = Vector2(3015.9941, -200)
+
+[node name="Grass6" parent="." instance=ExtResource("12_wsu2k")]
+position = Vector2(2943.1633, -195)
+
+[node name="Grass7" parent="." instance=ExtResource("12_wsu2k")]
+position = Vector2(3268.4077, -197)
+
+[node name="Grass8" parent="." instance=ExtResource("12_wsu2k")]
+position = Vector2(3338.2456, -199)
+
+[node name="Grass9" parent="." instance=ExtResource("12_wsu2k")]
+position = Vector2(3403.095, -190)
+
+[node name="Grass10" parent="." instance=ExtResource("12_wsu2k")]
+position = Vector2(3466.9465, -196)
+
+[node name="Grass11" parent="." instance=ExtResource("12_wsu2k")]
+position = Vector2(3533.7913, -186)
+
 [node name="Player" parent="." node_paths=PackedStringArray("lines", "effects") instance=ExtResource("1_bo1nx")]
 z_index = 10
-position = Vector2(-92.784424, 830)
+position = Vector2(2691.7473, -678)
 lines = NodePath("../Line Drawer")
 effects = NodePath("../Effects")
 

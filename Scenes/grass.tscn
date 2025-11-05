@@ -1,0 +1,68 @@
+[gd_scene load_steps=10 format=3 uid="uid://whn8b2heqg8s"]
+
+[ext_resource type="Script" uid="uid://de5j4ushffq0u" path="res://Scripts/nudgeable.gd" id="1_y1qba"]
+[ext_resource type="Script" uid="uid://5c5aa7t0gfjh" path="res://Scripts/destroyable.gd" id="2_vaoxa"]
+[ext_resource type="Script" uid="uid://djtpca2xxdput" path="res://Scripts/randomizer.gd" id="3_gr604"]
+[ext_resource type="Texture2D" uid="uid://dvwdkrji75phw" path="res://Sprites/grass_cut.png" id="4_e406d"]
+[ext_resource type="Shader" uid="uid://7gwbqnj5dg4s" path="res://Shaders/wavy.gdshader" id="5_47oxd"]
+[ext_resource type="Texture2D" uid="uid://c17ipxxgiv2pb" path="res://Sprites/grass1.png" id="6_2opp2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b3802"]
+size = Vector2(43.89856, 75)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k12tt"]
+shader = ExtResource("5_47oxd")
+shader_parameter/amount = 5.0
+shader_parameter/frequency = 0.0
+shader_parameter/speed = 5.0
+shader_parameter/flip = false
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k12tt"]
+size = Vector2(29.930511, 61)
+
+[node name="Grass" type="Node2D"]
+modulate = Color(0.5686275, 0.32941177, 0.16470589, 1)
+script = ExtResource("1_y1qba")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." node_paths=PackedStringArray("stub", "full", "particle_point")]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("2_vaoxa")
+stub = NodePath("../Wrap/Stub")
+full = NodePath("../Wrap/Sprite2D")
+particle_point = NodePath("Particle Point")
+effect_ids = Array[int]([5])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(8.979736, -34.5)
+shape = SubResource("RectangleShape2D_b3802")
+
+[node name="Particle Point" type="Node2D" parent="StaticBody2D"]
+position = Vector2(9, -45)
+
+[node name="Wrap" type="Node2D" parent="."]
+script = ExtResource("3_gr604")
+randomize_scale = true
+min_scale = 0.8
+max_scale = 1.3
+
+[node name="Stub" type="Sprite2D" parent="Wrap"]
+position = Vector2(8, -3)
+texture = ExtResource("4_e406d")
+
+[node name="Sprite2D" type="Sprite2D" parent="Wrap"]
+material = SubResource("ShaderMaterial_k12tt")
+position = Vector2(4.9885254, 3)
+texture = ExtResource("6_2opp2")
+offset = Vector2(0, -50)
+
+[node name="Area2D" type="Area2D" parent="Wrap/Sprite2D"]
+collision_layer = 0
+collision_mask = 13
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wrap/Sprite2D/Area2D"]
+position = Vector2(3.9909668, -28.5)
+shape = SubResource("RectangleShape2D_k12tt")
+
+[connection signal="body_entered" from="Wrap/Sprite2D/Area2D" to="." method="_body_entered"]

@@ -67,6 +67,16 @@ func _process(delta: float) -> void:
 		full_screen = !full_screen
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN if full_screen else DisplayServer.WINDOW_MODE_WINDOWED)
 		
+func _get_shot_end(space_state: PhysicsDirectSpaceState2D, p: Vector2, dir: Vector2, ignored: Array[RID]) -> Dictionary:
+	var query := PhysicsRayQueryParameters2D.create(p, p + dir, wall_mask, ignored)
+	var result := space_state.intersect_ray(query)
+	if result.has("collider") and result.collider is Destroyable:
+		result.collider.destroy()
+		ignored.push_back(result.collider.get_rid())
+		return _get_shot_end(space_state, result.position, dir, ignored)
+	else:
+		return result
+		
 func _physics_process(delta: float) -> void:
 	muzzle.emitting = false
 	flash.emitting = false
@@ -84,11 +94,11 @@ func _physics_process(delta: float) -> void:
 		var space_state := get_world_2d().direct_space_state
 		var p := barrel.global_position
 		var dir := Vector2.RIGHT.rotated(global_rotation + randf_range(-0.1, 0.1)).normalized() * 2000
-		var query := PhysicsRayQueryParameters2D.create(p, p + dir, wall_mask)
-		var result := space_state.intersect_ray(query)
+		var result := _get_shot_end(space_state, p, dir, [])
 		
-		if result.has("collider") and result.collider is Enemy:
-			result.collider.hurt(result.position)
+		if result.has("collider"):
+			if result.collider is Enemy:
+				result.collider.hurt(result.position)
 			
 		shot.emit(result.has("position"), p, result.position if result else p + dir)
 		

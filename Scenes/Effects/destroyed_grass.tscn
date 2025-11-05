@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://487ovkxtb45u"]
+
+[ext_resource type="Texture2D" uid="uid://go0giiad03jq" path="res://Sprites/circle.png" id="1_hepx1"]
+[ext_resource type="Script" uid="uid://cnqkxei24emlb" path="res://Scripts/free_after.gd" id="2_oc6ar"]
+
+[sub_resource type="Curve" id="Curve_hepx1"]
+_data = [Vector2(0, 0.53515154), 0.0, 1.4890907, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_oc6ar"]
+curve = SubResource("Curve_hepx1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3qnd1"]
+particle_flag_disable_z = true
+angle_min = -720.0
+angle_max = 720.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = -1000.0
+initial_velocity_max = 1000.0
+gravity = Vector3(0, 1000, 0)
+scale_min = 0.01
+scale_max = 0.02
+turbulence_enabled = true
+turbulence_noise_strength = 2.0
+turbulence_noise_scale = 20.0
+turbulence_noise_speed_random = 0.0
+turbulence_influence_max = 0.231
+turbulence_influence_over_life = SubResource("CurveTexture_oc6ar")
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.0
+
+[node name="Grass Particles" type="GPUParticles2D"]
+modulate = Color(0.5686275, 0.32941177, 0.16470589, 1)
+emitting = false
+amount = 5
+texture = ExtResource("1_hepx1")
+lifetime = 1.5
+one_shot = true
+explosiveness = 1.0
+randomness = 0.18
+collision_base_size = 0.01
+visibility_rect = Rect2(-1000, -1000, 2000, 2000)
+trail_enabled = true
+trail_lifetime = 0.09999999999999999
+process_material = SubResource("ParticleProcessMaterial_3qnd1")
+script = ExtResource("2_oc6ar")
+delay = 2.0

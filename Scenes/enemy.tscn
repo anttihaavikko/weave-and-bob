@@ -75,14 +75,14 @@ texture = ExtResource("4_287tu")
 flip_v = true
 
 [node name="Blush Left" type="Sprite2D" parent="Face"]
-modulate = Color(1, 1, 1, 0.58431375)
+modulate = Color(1, 1, 1, 0.56078434)
 position = Vector2(-15.749341, 5.1347084)
 rotation = 3.1415925
 scale = Vector2(0.019020557, 0.012130703)
 texture = ExtResource("1_hghv2")
 
 [node name="Blush Right" type="Sprite2D" parent="Face"]
-modulate = Color(1, 1, 1, 0.58431375)
+modulate = Color(1, 1, 1, 0.56078434)
 position = Vector2(15.891183, 4.945591)
 rotation = 3.1415925
 scale = Vector2(0.019587915, 0.011374233)
