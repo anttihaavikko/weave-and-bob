@@ -33,6 +33,10 @@ theme_override_constants/separation = 12
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
+[node name="Picker" type="ColorPickerButton" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "        "
+
 [node name="LineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2

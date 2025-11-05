@@ -23,6 +23,15 @@ func _enter_tree():
 	if adder is Button:
 		adder.button_down.connect(add)
 		
+	var picker = dock.get_node("VBoxContainer/HBoxContainer/Picker")
+	if picker is ColorPickerButton:
+		picker.color_changed.connect(_color_picked)
+		
+func _color_picked(color: Color):
+	var edit = dock.get_node("VBoxContainer/HBoxContainer/LineEdit")
+	if edit is LineEdit:
+		edit.text = color.to_html(false)
+		
 func load_colors():
 	var file := FileAccess.open("res://addons/palette/colors.txt", FileAccess.READ)
 	var content := file.get_as_text()
