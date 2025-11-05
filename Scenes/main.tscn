@@ -421,6 +421,7 @@ position = Vector2(-784.1784, 506)
 
 [node name="Map Pickup" parent="." instance=ExtResource("16_k12tt")]
 position = Vector2(4895.628, -2058)
+id = "first_map"
 type = 2
 
 [connection signal="timeout" from="Line Drawer/Timer" to="Line Drawer" method="_on_timer_timeout"]
