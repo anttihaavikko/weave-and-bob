@@ -8,7 +8,7 @@ extends Node2D
 
 func _ready() -> void:
 	if anim:
-		anim.speed_scale = randf_range(0.9, 1.1)
+		anim.speed_scale *= randf_range(0.9, 1.1)
 		anim.seek(randf_range(0, 1))
 	if randomize_scale:
 		scale *= randf_range(min_scale, max_scale)

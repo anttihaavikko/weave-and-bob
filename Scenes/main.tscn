@@ -232,16 +232,20 @@ position = Vector2(935.8262, 1096)
 
 [node name="Wall2" parent="Room" instance=ExtResource("4_344ge")]
 z_index = 10
-position = Vector2(3.4028625, 1438)
-scale = Vector2(2560.5256, 512.7101)
+position = Vector2(226.624, 1443.2216)
+scale = Vector2(3006.968, 523.15326)
 
 [node name="Wall6" parent="Room" instance=ExtResource("4_344ge")]
 position = Vector2(-63.44917, -118.93408)
 scale = Vector2(2560.5256, 512.7101)
 
 [node name="Wall3" parent="Room" instance=ExtResource("4_344ge")]
-position = Vector2(1233.4949, 546.654)
-scale = Vector2(396.6058, 2932.552)
+position = Vector2(1481.7244, -68.71359)
+scale = Vector2(893.06506, 1701.8169)
+
+[node name="Wall7" parent="Room" instance=ExtResource("4_344ge")]
+position = Vector2(1409.386, 1346.5175)
+scale = Vector2(748.3877, 782.3929)
 
 [node name="Wall4" parent="Room" instance=ExtResource("4_344ge")]
 position = Vector2(-1578.021, 1422.466)
@@ -255,6 +259,10 @@ scale = Vector2(611.38666, 1122.8385)
 position = Vector2(-55.87027, 1152)
 scale = Vector2(0.53731334, 0.53731334)
 respawns_after = 0
+
+[node name="Enemy2" parent="Room" instance=ExtResource("9_ynf5e")]
+position = Vector2(1328.913, 869)
+stomp_offset = 120
 
 [node name="Grass" parent="." instance=ExtResource("12_wsu2k")]
 position = Vector2(3200.5652, -196)
