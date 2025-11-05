@@ -257,37 +257,37 @@ scale = Vector2(0.53731334, 0.53731334)
 respawns_after = 0
 
 [node name="Grass" parent="." instance=ExtResource("12_wsu2k")]
-position = Vector2(3200.5652, -205)
+position = Vector2(3200.5652, -196)
 
 [node name="Grass2" parent="." instance=ExtResource("12_wsu2k")]
-position = Vector2(3146.6907, -205)
+position = Vector2(3146.6907, -196)
 
 [node name="Grass3" parent="." instance=ExtResource("12_wsu2k")]
-position = Vector2(3146.6907, -205)
+position = Vector2(3146.6907, -196)
 
 [node name="Grass4" parent="." instance=ExtResource("12_wsu2k")]
-position = Vector2(3080.8435, -199)
+position = Vector2(3080.8435, -190)
 
 [node name="Grass5" parent="." instance=ExtResource("12_wsu2k")]
-position = Vector2(3015.9941, -200)
+position = Vector2(3015.9941, -191)
 
 [node name="Grass6" parent="." instance=ExtResource("12_wsu2k")]
-position = Vector2(2943.1633, -195)
+position = Vector2(2943.1633, -186)
 
 [node name="Grass7" parent="." instance=ExtResource("12_wsu2k")]
-position = Vector2(3268.4077, -197)
+position = Vector2(3268.4077, -188)
 
 [node name="Grass8" parent="." instance=ExtResource("12_wsu2k")]
-position = Vector2(3338.2456, -199)
+position = Vector2(3338.2456, -190)
 
 [node name="Grass9" parent="." instance=ExtResource("12_wsu2k")]
-position = Vector2(3403.095, -190)
+position = Vector2(3403.095, -181)
 
 [node name="Grass10" parent="." instance=ExtResource("12_wsu2k")]
-position = Vector2(3466.9465, -196)
+position = Vector2(3466.9465, -187)
 
 [node name="Grass11" parent="." instance=ExtResource("12_wsu2k")]
-position = Vector2(3533.7913, -186)
+position = Vector2(3533.7913, -177)
 
 [node name="Player" parent="." node_paths=PackedStringArray("lines", "effects") instance=ExtResource("1_bo1nx")]
 z_index = 10

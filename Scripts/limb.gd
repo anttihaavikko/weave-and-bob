@@ -47,7 +47,7 @@ class LimbSegment:
 			var flipMod := -1 if flip else 1
 			if normal.y * flipMod < 0:
 				dir = flipped if dir.x > flipped.x else dir
-			if normal.y * flipMod > 0:
+			if normal.y * flipMod >= 0:
 				dir = flipped if dir.x < flipped.x else dir
 		
 #		if dir.length() > 0:	

@@ -25,6 +25,7 @@ modulate = Color(0.5686275, 0.32941177, 0.16470589, 1)
 script = ExtResource("1_y1qba")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." node_paths=PackedStringArray("stub", "full", "particle_point")]
+visible = false
 collision_layer = 16
 collision_mask = 0
 script = ExtResource("2_vaoxa")
@@ -57,6 +58,7 @@ texture = ExtResource("6_2opp2")
 offset = Vector2(0, -50)
 
 [node name="Area2D" type="Area2D" parent="Wrap/Sprite2D"]
+visible = false
 collision_layer = 0
 collision_mask = 13
 metadata/_edit_group_ = true
