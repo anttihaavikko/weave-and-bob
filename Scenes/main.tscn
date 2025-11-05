@@ -233,7 +233,7 @@ modulate = Color(1, 1, 1, 1)
 position = Vector2(935.8262, 1096)
 
 [node name="Angle" type="Sprite2D" parent="Room/Background"]
-position = Vector2(-55.870007, 1171.9999)
+position = Vector2(-55.870007, 1172)
 rotation = 0.78539824
 scale = Vector2(1.4394156, 1.4394156)
 texture = ExtResource("13_b3802")
@@ -244,12 +244,16 @@ position = Vector2(226.624, 1443.2216)
 scale = Vector2(3006.968, 523.15326)
 
 [node name="Wall6" parent="Room" instance=ExtResource("4_344ge")]
-position = Vector2(-63.44917, -118.93408)
-scale = Vector2(2560.5256, 512.7101)
+position = Vector2(-412.68906, -163.52615)
+scale = Vector2(1862.0458, 777.33856)
+
+[node name="Wall8" parent="Room" instance=ExtResource("4_344ge")]
+position = Vector2(1089.8391, -159.34927)
+scale = Vector2(672.4979, 785.69305)
 
 [node name="Wall3" parent="Room" instance=ExtResource("4_344ge")]
-position = Vector2(1481.7244, -68.71359)
-scale = Vector2(893.06506, 1701.8169)
+position = Vector2(1481.7244, -421.9075)
+scale = Vector2(893.06506, 2408.2048)
 
 [node name="Wall7" parent="Room" instance=ExtResource("4_344ge")]
 position = Vector2(1409.386, 1346.5175)
@@ -260,8 +264,16 @@ position = Vector2(-1578.021, 1422.466)
 scale = Vector2(910.0666, 1112.7468)
 
 [node name="Wall5" parent="Room" instance=ExtResource("4_344ge")]
-position = Vector2(-1428.2788, -254.58084)
-scale = Vector2(611.38666, 1122.8385)
+position = Vector2(-755.5623, -254.58095)
+scale = Vector2(1956.8197, 1122.8385)
+
+[node name="Wall9" parent="Room" instance=ExtResource("4_344ge")]
+position = Vector2(501.83417, -1627.9999)
+scale = Vector2(1956.8197, 1122.8385)
+
+[node name="Wall10" parent="Room" instance=ExtResource("4_344ge")]
+position = Vector2(-333.73376, -660.4278)
+scale = Vector2(1175.7974, 1009.6941)
 
 [node name="Enemy" parent="Room" instance=ExtResource("9_ynf5e")]
 position = Vector2(-55.87027, 1152)
@@ -404,7 +416,11 @@ width = 5.0
 [node name="Timer" type="Timer" parent="Line Drawer"]
 wait_time = 0.05
 
-[node name="Pickup" parent="." instance=ExtResource("16_k12tt")]
+[node name="Mag Pickup" parent="." instance=ExtResource("16_k12tt")]
 position = Vector2(-784.1784, 506)
+
+[node name="Map Pickup" parent="." instance=ExtResource("16_k12tt")]
+position = Vector2(4895.628, -2058)
+type = 2
 
 [connection signal="timeout" from="Line Drawer/Timer" to="Line Drawer" method="_on_timer_timeout"]
