@@ -4,8 +4,6 @@ extends EditorPlugin
 var dock
 var copy_indicator: Control
 var colors: PackedStringArray
-var alt := false
-var shift := false
 
 func _enter_tree():
 	dock = preload("res://addons/palette/palette.tscn").instantiate()

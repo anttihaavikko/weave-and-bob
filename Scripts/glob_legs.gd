@@ -22,6 +22,8 @@ func _process(delta: float) -> void:
 	if grounded && Input.is_action_just_pressed("jump"):
 		_nudge(Vector2(0, -999 * jump_force))
 		jump_particles.emitting = true
+		SoundEffects.singleton.add(0, global_position, 0.5)
+		SoundEffects.singleton.add(1, global_position, 1.5)
 		
 	if grounded:
 		gun.reload(false)

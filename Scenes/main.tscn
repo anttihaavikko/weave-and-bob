@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=27 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/blob.tscn" id="1_bo1nx"]
@@ -12,8 +12,12 @@
 [ext_resource type="PackedScene" uid="uid://cuiocul8q8du7" path="res://Scenes/tree.tscn" id="9_wsu2k"]
 [ext_resource type="PackedScene" uid="uid://biww1pdu4di3l" path="res://Scenes/enemy.tscn" id="9_ynf5e"]
 [ext_resource type="PackedScene" uid="uid://dpon26r25h1rq" path="res://Scenes/Effects/pulse.tscn" id="10_d1ilt"]
+[ext_resource type="Script" uid="uid://e88pkdwyw65u" path="res://Scripts/sound_effects.gd" id="10_gt3je"]
 [ext_resource type="PackedScene" uid="uid://oamh1nmk7jrt" path="res://Scenes/Effects/blood.tscn" id="10_hptm8"]
+[ext_resource type="AudioStream" uid="uid://d3ivffpwlf2en" path="res://Sounds/jump.wav" id="11_3pmx8"]
 [ext_resource type="PackedScene" uid="uid://bhr0ejaysdti2" path="res://Scenes/Effects/pulse_displace.tscn" id="12_6iyac"]
+[ext_resource type="AudioStream" uid="uid://7crcfiktt7y4" path="res://Sounds/throw2.wav" id="12_cbgmd"]
+[ext_resource type="PackedScene" uid="uid://c5itq0mw48wch" path="res://Scenes/sound.tscn" id="12_u50mg"]
 [ext_resource type="PackedScene" uid="uid://whn8b2heqg8s" path="res://Scenes/grass.tscn" id="12_wsu2k"]
 [ext_resource type="Texture2D" uid="uid://o2p2w1csmost" path="res://Sprites/angle.png" id="13_b3802"]
 [ext_resource type="PackedScene" uid="uid://tmp3aao5rcrn" path="res://Scenes/pickup.tscn" id="16_k12tt"]
@@ -38,6 +42,11 @@ texture = ExtResource("3_8gbba")
 [node name="Effects" type="Node" parent="."]
 script = ExtResource("5_kry3j")
 effects = Array[PackedScene]([ExtResource("2_kry3j"), ExtResource("6_21xkr"), ExtResource("10_hptm8"), ExtResource("10_d1ilt"), ExtResource("12_6iyac"), ExtResource("9_k12tt")])
+
+[node name="Sounds" type="Node" parent="."]
+script = ExtResource("10_gt3je")
+effects = Array[AudioStream]([ExtResource("11_3pmx8"), ExtResource("12_cbgmd")])
+prefab = ExtResource("12_u50mg")
 
 [node name="Line Drawer" type="Node" parent="." node_paths=PackedStringArray("line", "timer")]
 script = ExtResource("3_jjvhh")

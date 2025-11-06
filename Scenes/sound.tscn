@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://c5itq0mw48wch"]
+
+[node name="Sound" type="AudioStreamPlayer2D"]
+autoplay = true

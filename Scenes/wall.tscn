@@ -9,7 +9,7 @@ polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
 
 [node name="Wall" type="Sprite2D"]
 modulate = Color(0, 0, 0, 1)
-z_index = 1
+z_index = 50
 rotation = 3.1415925
 scale = Vector2(647.23303, 512.7101)
 texture = ExtResource("1_d155t")
