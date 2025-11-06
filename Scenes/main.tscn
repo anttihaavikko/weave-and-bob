@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=35 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/blob.tscn" id="1_bo1nx"]
@@ -19,11 +19,19 @@
 [ext_resource type="AudioStream" uid="uid://7crcfiktt7y4" path="res://Sounds/throw2.wav" id="12_cbgmd"]
 [ext_resource type="PackedScene" uid="uid://c5itq0mw48wch" path="res://Scenes/sound.tscn" id="12_u50mg"]
 [ext_resource type="PackedScene" uid="uid://whn8b2heqg8s" path="res://Scenes/grass.tscn" id="12_wsu2k"]
+[ext_resource type="AudioStream" uid="uid://isl0a55wt0u8" path="res://Sounds/explosion.wav" id="13_1w6v2"]
 [ext_resource type="Texture2D" uid="uid://o2p2w1csmost" path="res://Sprites/angle.png" id="13_b3802"]
+[ext_resource type="AudioStream" uid="uid://ceas7swx6gpbt" path="res://Sounds/bump.wav" id="14_ueoa1"]
+[ext_resource type="AudioStream" uid="uid://dhgvtmwjwvfyr" path="res://Sounds/land.wav" id="15_6vcvc"]
+[ext_resource type="AudioStream" uid="uid://by8w7qkrtxmm6" path="res://Sounds/enemy_bump.wav" id="16_7k868"]
 [ext_resource type="PackedScene" uid="uid://tmp3aao5rcrn" path="res://Scenes/pickup.tscn" id="16_k12tt"]
+[ext_resource type="AudioStream" uid="uid://5fiorq7fpqgr" path="res://Sounds/pickup1.wav" id="17_e08e2"]
 [ext_resource type="PackedScene" uid="uid://ympyuuto2ejt" path="res://Scenes/letter.tscn" id="17_h1bgf"]
+[ext_resource type="AudioStream" uid="uid://la43ov0oeu1r" path="res://Sounds/pickup2.wav" id="18_neg2b"]
 [ext_resource type="PackedScene" uid="uid://b5cxgdqfrr4vr" path="res://Scenes/door.tscn" id="19_ee4r6"]
 [ext_resource type="Script" uid="uid://b6b2bur0hl2iu" path="res://Scripts/encounter.gd" id="19_fevyy"]
+[ext_resource type="AudioStream" uid="uid://c7qbt07jr3pr5" path="res://Sounds/pickup3.wav" id="19_r33sp"]
+[ext_resource type="AudioStream" uid="uid://etiky1i8a4st" path="res://Sounds/stomp.wav" id="20_neg2b"]
 [ext_resource type="Script" uid="uid://h30wfqlv3joy" path="res://Scripts/wave.gd" id="21_ee4r6"]
 [ext_resource type="Script" uid="uid://c8ej1vfg86d5v" path="res://Scripts/spawn.gd" id="22_gt3je"]
 
@@ -45,7 +53,7 @@ effects = Array[PackedScene]([ExtResource("2_kry3j"), ExtResource("6_21xkr"), Ex
 
 [node name="Sounds" type="Node" parent="."]
 script = ExtResource("10_gt3je")
-effects = Array[AudioStream]([ExtResource("11_3pmx8"), ExtResource("12_cbgmd")])
+effects = Array[AudioStream]([ExtResource("11_3pmx8"), ExtResource("12_cbgmd"), ExtResource("13_1w6v2"), ExtResource("14_ueoa1"), ExtResource("15_6vcvc"), ExtResource("16_7k868"), ExtResource("17_e08e2"), ExtResource("18_neg2b"), ExtResource("19_r33sp"), ExtResource("20_neg2b")])
 prefab = ExtResource("12_u50mg")
 
 [node name="Line Drawer" type="Node" parent="." node_paths=PackedStringArray("line", "timer")]
@@ -63,7 +71,7 @@ wait_time = 0.05
 
 [node name="Player" parent="." node_paths=PackedStringArray("lines", "effects") instance=ExtResource("1_bo1nx")]
 z_index = 10
-position = Vector2(5924.2383, 1387)
+position = Vector2(-181.57813, 742)
 lines = NodePath("../Line Drawer")
 effects = NodePath("../Effects")
 

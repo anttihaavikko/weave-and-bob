@@ -6,6 +6,7 @@ extends MovableRigidbody
 @export var jump_particles: CPUParticles2D
 
 var stomp_cooldown := 0.0
+var grounded := false
 
 func _process(delta: float) -> void:
 	var x: float = Input.get_axis("left", "right")
@@ -13,8 +14,12 @@ func _process(delta: float) -> void:
 	
 	if stomp_cooldown > 0:
 		stomp_cooldown -= delta
+		
+	var was_grounded := grounded	
+	grounded = ground_cast.is_colliding()
 	
-	var grounded := ground_cast.is_colliding()
+	if !was_grounded and grounded:
+		SoundEffects.singleton.add(4, global_position, 0.3)
 
 	if (global_position - gun.global_position).length() > 60:
 		move_to(gun.global_position, 0)
@@ -39,7 +44,9 @@ func _hit_enemy(enemy: Node2D):
 				gun.reload(true)
 				enemy.die()
 				jump_particles.emitting = true
+				SoundEffects.singleton.add(9, global_position, 2) # stomp.wav
 			else:
+				SoundEffects.singleton.add(3, global_position)
 				enemy.squash(global_position)
 		
 func _nudge(dir: Vector2):

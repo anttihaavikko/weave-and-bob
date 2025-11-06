@@ -40,6 +40,7 @@ func _physics_process(delta: float) -> void:
 			turn_delay = 0.5
 			var p := bump_cast.get_collision_point(0)
 			Effects.singleton.add_many([0, 1], p)
+			SoundEffects.singleton.add(5, p, 0.3) # enemy_bump.wav
 			squash(p)
 
 func get_stomp_pos() -> float:
@@ -63,6 +64,7 @@ func die():
 	hide()
 	process_mode = Node.PROCESS_MODE_DISABLED
 	Effects.singleton.add_many([4, 3, 2, 2, 2, 0, 0, 0, 1], global_position)
+	SoundEffects.singleton.add(2, global_position)
 	died.emit()
 	if starts_encounter: starts_encounter.start(self)
 	if respawns_after > 0:
