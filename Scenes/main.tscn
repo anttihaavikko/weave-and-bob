@@ -117,8 +117,8 @@ position = Vector2(-720.3268, 89.00001)
 scale = Vector2(447.2237, 351.8664)
 
 [node name="Wall7" parent="Level" instance=ExtResource("4_344ge")]
-position = Vector2(-2987.5083, 318.00015)
-scale = Vector2(2662.3293, 1433.2708)
+position = Vector2(-2987.5083, 360.60757)
+scale = Vector2(2662.3293, 1348.0559)
 
 [node name="Wall8" parent="Level" instance=ExtResource("4_344ge")]
 position = Vector2(1690.2917, 40.27298)
@@ -137,7 +137,7 @@ position = Vector2(-1428.6812, 729.00006)
 scale = Vector2(611.38666, 2499.6785)
 
 [node name="Wall9" parent="Level" instance=ExtResource("4_344ge")]
-position = Vector2(-4615.1753, -176.86371)
+position = Vector2(-2967.1072, 20)
 scale = Vector2(932.4324, 3333.951)
 
 [node name="Enemy" parent="Level" instance=ExtResource("9_ynf5e")]
@@ -439,7 +439,7 @@ position = Vector2(2736.6436, -796.9998)
 [node name="Encounter" type="Node2D" parent="." node_paths=PackedStringArray("doors")]
 position = Vector2(3941.8435, -441)
 script = ExtResource("19_fevyy")
-doors = [NodePath("")]
+doors = [NodePath("../Door")]
 reward = ExtResource("16_k12tt")
 reward_type = 1
 
@@ -450,25 +450,33 @@ script = ExtResource("21_ee4r6")
 [node name="Spawn" type="Node2D" parent="Encounter/Wave"]
 position = Vector2(954.7821, 237)
 script = ExtResource("22_gt3je")
+mode = 1
+dir = Vector2(-1, 0)
 _enemy = ExtResource("9_ynf5e")
 
 [node name="Spawn2" type="Node2D" parent="Encounter/Wave"]
 position = Vector2(-967.75195, 237)
 script = ExtResource("22_gt3je")
+mode = 1
+dir = Vector2(1, 0)
 _enemy = ExtResource("9_ynf5e")
 
 [node name="Wave2" type="Node2D" parent="Encounter"]
-position = Vector2(0, -356)
+position = Vector2(0, -273)
 script = ExtResource("21_ee4r6")
 
 [node name="Spawn" type="Node2D" parent="Encounter/Wave2"]
 position = Vector2(954.7821, 237)
 script = ExtResource("22_gt3je")
+mode = 1
+dir = Vector2(-1, 0)
 _enemy = ExtResource("9_ynf5e")
 
 [node name="Spawn2" type="Node2D" parent="Encounter/Wave2"]
 position = Vector2(-967.75195, 237)
 script = ExtResource("22_gt3je")
+mode = 1
+dir = Vector2(1, 0)
 _enemy = ExtResource("9_ynf5e")
 
 [connection signal="died" from="Room/Enemy" to="Encounter" method="start"]

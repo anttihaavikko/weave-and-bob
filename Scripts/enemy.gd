@@ -1,13 +1,20 @@
 class_name Enemy
-extends Node2D
+extends CharacterBody2D
 
 @export var id: String
 @export var respawns_after := 2
 @export var life := 10
 @export var stomp_offset := 20
 @export var frame: Node2D
+@export var bump_cast: ShapeCast2D
 
 @export var flasher: Flasher
+
+enum Behaviour { None, Wave }
+var mode: Behaviour
+var dir: Vector2
+var time := 0.0
+var turn_delay := 0.0
 
 var max_life := life
 
@@ -16,6 +23,20 @@ signal died
 func _ready() -> void:
 	if GameState.has(id):
 		queue_free()
+		
+func initialize(behaviour: Behaviour, direction: Vector2):
+	mode = behaviour
+	dir = direction
+	
+func _physics_process(delta: float) -> void:
+	if mode == Behaviour.Wave:
+		time += delta
+		turn_delay -= delta
+		velocity = (dir + Vector2.UP * sin(time * 5) * 1) * 20000 * delta
+		move_and_slide()
+		if turn_delay <= 0 and bump_cast.is_colliding():
+			dir = -dir
+			turn_delay = 0.5
 
 func get_stomp_pos() -> float:
 	return global_position.y - stomp_offset

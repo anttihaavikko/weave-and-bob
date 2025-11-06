@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://biww1pdu4di3l"]
+[gd_scene load_steps=11 format=3 uid="uid://biww1pdu4di3l"]
 
 [ext_resource type="Script" uid="uid://cxtjkd8vlagxd" path="res://Scripts/enemy.gd" id="1_1f0kj"]
 [ext_resource type="Texture2D" uid="uid://go0giiad03jq" path="res://Sprites/circle.png" id="1_hghv2"]
@@ -17,12 +17,17 @@ shader_parameter/color = Color(1, 1, 1, 1)
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_afpow"]
 polygon = PackedVector2Array(88.761604, -220.26027, 184.09814, -157.7984, 233.41014, -29.5872, 213.68533, 118.3488, 115.06134, 216.97281, 0, 246.56001, -128.2112, 210.39787, -213.68533, 108.486404, -236.6976, 3.2874668, -207.11041, -111.77387, -138.07361, -197.248, -36.162136, -233.41014)
 
-[node name="Enemy" type="StaticBody2D" node_paths=PackedStringArray("frame", "flasher")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_ghaa6"]
+radius = 309.8
+
+[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("frame", "bump_cast", "flasher")]
 scale = Vector2(0.3041856, 0.3041856)
 collision_layer = 8
+collision_mask = 9
 script = ExtResource("1_1f0kj")
 life = 5
 frame = NodePath("Frame")
+bump_cast = NodePath("Bump Cast")
 flasher = NodePath("Flasher")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -93,3 +98,8 @@ modulate = Color(0.91764706, 0.3372549, 0.09411765, 1)
 position = Vector2(-0.58972335, -4.7177877)
 scale = Vector2(0.23466125, 0.23466125)
 texture = ExtResource("5_0830c")
+
+[node name="Bump Cast" type="ShapeCast2D" parent="."]
+shape = SubResource("CircleShape2D_ghaa6")
+target_position = Vector2(0, 0)
+collision_mask = 9
