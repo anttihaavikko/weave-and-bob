@@ -13,6 +13,7 @@ func _ready() -> void:
 	
 func change(pos: Vector2):
 	get_tree().create_tween().tween_property(self, "global_position", pos, 0.5).set_trans(Tween.TRANS_BOUNCE)
+	SoundEffects.singleton.add(10, global_position) # throw1.wav
 	
 func open():
 	change(_open_pos)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=38 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/blob.tscn" id="1_bo1nx"]
@@ -33,7 +33,10 @@
 [ext_resource type="AudioStream" uid="uid://c7qbt07jr3pr5" path="res://Sounds/pickup3.wav" id="19_r33sp"]
 [ext_resource type="AudioStream" uid="uid://etiky1i8a4st" path="res://Sounds/stomp.wav" id="20_neg2b"]
 [ext_resource type="Script" uid="uid://h30wfqlv3joy" path="res://Scripts/wave.gd" id="21_ee4r6"]
+[ext_resource type="AudioStream" uid="uid://btdcfgsyegmvj" path="res://Sounds/throw1.wav" id="21_r33sp"]
 [ext_resource type="Script" uid="uid://c8ej1vfg86d5v" path="res://Scripts/spawn.gd" id="22_gt3je"]
+[ext_resource type="AudioStream" uid="uid://baj3ju7qtah60" path="res://Sounds/spawn.wav" id="22_jwpg7"]
+[ext_resource type="AudioStream" uid="uid://dwphx657ljy5h" path="res://Sounds/warn.wav" id="23_k2e45"]
 
 [node name="Main" type="Node2D"]
 scale = Vector2(1.0023229, 1)
@@ -53,7 +56,7 @@ effects = Array[PackedScene]([ExtResource("2_kry3j"), ExtResource("6_21xkr"), Ex
 
 [node name="Sounds" type="Node" parent="."]
 script = ExtResource("10_gt3je")
-effects = Array[AudioStream]([ExtResource("11_3pmx8"), ExtResource("12_cbgmd"), ExtResource("13_1w6v2"), ExtResource("14_ueoa1"), ExtResource("15_6vcvc"), ExtResource("16_7k868"), ExtResource("17_e08e2"), ExtResource("18_neg2b"), ExtResource("19_r33sp"), ExtResource("20_neg2b")])
+effects = Array[AudioStream]([ExtResource("11_3pmx8"), ExtResource("12_cbgmd"), ExtResource("13_1w6v2"), ExtResource("14_ueoa1"), ExtResource("15_6vcvc"), ExtResource("16_7k868"), ExtResource("17_e08e2"), ExtResource("18_neg2b"), ExtResource("19_r33sp"), ExtResource("20_neg2b"), ExtResource("21_r33sp"), ExtResource("22_jwpg7"), ExtResource("23_k2e45")])
 prefab = ExtResource("12_u50mg")
 
 [node name="Line Drawer" type="Node" parent="." node_paths=PackedStringArray("line", "timer")]
@@ -71,7 +74,7 @@ wait_time = 0.05
 
 [node name="Player" parent="." node_paths=PackedStringArray("lines", "effects") instance=ExtResource("1_bo1nx")]
 z_index = 10
-position = Vector2(-181.57813, 742)
+position = Vector2(-2168.9617, -442)
 lines = NodePath("../Line Drawer")
 effects = NodePath("../Effects")
 
@@ -456,11 +459,11 @@ reward = ExtResource("16_k12tt")
 reward_type = 1
 
 [node name="Wave" type="Node2D" parent="Room/Intro Encounter"]
-position = Vector2(0, -124)
+position = Vector2(0.00024357482, -103)
 script = ExtResource("21_ee4r6")
 
 [node name="Spawn" type="Node2D" parent="Room/Intro Encounter/Wave"]
-position = Vector2(954.7821, 237)
+position = Vector2(924.8516, 216)
 script = ExtResource("22_gt3je")
 title = "SIN"
 mode = 1
@@ -468,7 +471,7 @@ dir = Vector2(-1, 0)
 _enemy = ExtResource("9_ynf5e")
 
 [node name="Spawn2" type="Node2D" parent="Room/Intro Encounter/Wave"]
-position = Vector2(-967.75195, 237)
+position = Vector2(-921.85834, 214)
 script = ExtResource("22_gt3je")
 title = "COS"
 mode = 1

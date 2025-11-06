@@ -16,6 +16,8 @@ func _ready() -> void:
 func start(enc: Encounter):
 	encounter = enc
 	print("activated wave")
+	await get_tree().create_timer(0.5).timeout
+	SoundEffects.singleton.add(12, global_position) # warn.wav
 	await get_tree().create_timer(delay).timeout
 	for spawn in spawns:
 		spawn.start(self)

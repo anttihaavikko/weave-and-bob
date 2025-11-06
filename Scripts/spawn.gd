@@ -10,6 +10,7 @@ extends Node2D
 
 func start(wave: Wave):
 	Effects.singleton.add(3, global_position)
+	SoundEffects.singleton.add(11, global_position) # spawn.wav
 	await get_tree().create_timer(delay).timeout
 	var e := _enemy.instantiate()
 	if e is Enemy:

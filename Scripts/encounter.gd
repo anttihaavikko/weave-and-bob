@@ -25,12 +25,14 @@ func open_doors():
 func next_wave() -> void:
 	if waves.is_empty():
 		print("encounter complete")
+		await get_tree().create_timer(0.25).timeout
 		open_doors()
 		await get_tree().create_timer(0.5).timeout
 		var pickup := reward.instantiate()
 		if pickup is Pickup:
 			pickup.id = id
 			pickup.type = reward_type
+			SoundEffects.singleton.add(6, global_position) # pickup1.wav
 		add_child(pickup)
 		return
 	var wave = waves.pop_front()
