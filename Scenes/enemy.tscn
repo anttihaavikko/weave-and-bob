@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://biww1pdu4di3l"]
+[gd_scene load_steps=13 format=3 uid="uid://biww1pdu4di3l"]
 
 [ext_resource type="Script" uid="uid://cxtjkd8vlagxd" path="res://Scripts/enemy.gd" id="1_1f0kj"]
 [ext_resource type="Texture2D" uid="uid://go0giiad03jq" path="res://Sprites/circle.png" id="1_hghv2"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://w5ubxh2dsi74" path="res://Sprites/mouth.png" id="4_287tu"]
 [ext_resource type="Shader" uid="uid://bcpkc8l8xvy70" path="res://Shaders/white.gdshader" id="4_ghaa6"]
 [ext_resource type="Texture2D" uid="uid://bvqmnjk5nrig" path="res://Sprites/brow.png" id="5_0830c"]
+[ext_resource type="FontFile" uid="uid://x80u6ag0vqx5" path="res://Misc/ChunkFive-Regular.otf" id="7_1dp5w"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_344ge"]
 radius = 252.11693
@@ -20,7 +21,11 @@ polygon = PackedVector2Array(88.761604, -220.26027, 184.09814, -157.7984, 233.41
 [sub_resource type="CircleShape2D" id="CircleShape2D_ghaa6"]
 radius = 309.8
 
-[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("frame", "bump_cast", "flasher")]
+[sub_resource type="LabelSettings" id="LabelSettings_auwsv"]
+font = ExtResource("7_1dp5w")
+font_size = 70
+
+[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("frame", "bump_cast", "title_label", "flasher")]
 scale = Vector2(0.3041856, 0.3041856)
 collision_layer = 8
 collision_mask = 9
@@ -28,6 +33,7 @@ script = ExtResource("1_1f0kj")
 life = 5
 frame = NodePath("Frame")
 bump_cast = NodePath("Bump Cast")
+title_label = NodePath("Label")
 flasher = NodePath("Flasher")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -44,9 +50,9 @@ modulate = Color(0.91764706, 0.3372549, 0.09411765, 1)
 scale = Vector2(0.90197337, 0.90197337)
 texture = ExtResource("1_hghv2")
 
-[node name="Flasher" type="Node" parent="." node_paths=PackedStringArray("sprites")]
+[node name="Flasher" type="Node" parent="." node_paths=PackedStringArray("items")]
 script = ExtResource("3_afpow")
-sprites = [NodePath("../Frame/Fill"), NodePath("../Frame/Outline"), NodePath("../Face/Brow"), NodePath("../Face/Eye Left"), NodePath("../Face/Eye Right"), NodePath("../Face/Mouth"), NodePath("../Face/Blush Left"), NodePath("../Face/Blush Right")]
+items = [NodePath("../Frame/Outline"), NodePath("../Frame/Fill"), NodePath("../Label"), NodePath("../Face/Eye Left"), NodePath("../Face/Eye Right"), NodePath("../Face/Mouth"), NodePath("../Face/Brow")]
 white = SubResource("ShaderMaterial_1dp5w")
 metadata/_custom_type_script = "uid://c26faw2casac2"
 
@@ -100,6 +106,18 @@ scale = Vector2(0.23466125, 0.23466125)
 texture = ExtResource("5_0830c")
 
 [node name="Bump Cast" type="ShapeCast2D" parent="."]
+visible = false
 shape = SubResource("CircleShape2D_ghaa6")
 target_position = Vector2(0, 0)
 collision_mask = 9
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+offset_left = -128.2112
+offset_top = -170.94826
+offset_right = 121.63629
+offset_bottom = -59.547714
+text = "FOO"
+label_settings = SubResource("LabelSettings_auwsv")
+horizontal_alignment = 1
+vertical_alignment = 1

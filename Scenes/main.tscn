@@ -444,12 +444,13 @@ reward = ExtResource("16_k12tt")
 reward_type = 1
 
 [node name="Wave" type="Node2D" parent="Encounter"]
-position = Vector2(0, -168)
+position = Vector2(0, -124)
 script = ExtResource("21_ee4r6")
 
 [node name="Spawn" type="Node2D" parent="Encounter/Wave"]
 position = Vector2(954.7821, 237)
 script = ExtResource("22_gt3je")
+title = "SIN"
 mode = 1
 dir = Vector2(-1, 0)
 _enemy = ExtResource("9_ynf5e")
@@ -457,17 +458,19 @@ _enemy = ExtResource("9_ynf5e")
 [node name="Spawn2" type="Node2D" parent="Encounter/Wave"]
 position = Vector2(-967.75195, 237)
 script = ExtResource("22_gt3je")
+title = "COS"
 mode = 1
 dir = Vector2(1, 0)
 _enemy = ExtResource("9_ynf5e")
 
 [node name="Wave2" type="Node2D" parent="Encounter"]
-position = Vector2(0, -273)
+position = Vector2(0, -220)
 script = ExtResource("21_ee4r6")
 
 [node name="Spawn" type="Node2D" parent="Encounter/Wave2"]
 position = Vector2(954.7821, 237)
 script = ExtResource("22_gt3je")
+title = "COS"
 mode = 1
 dir = Vector2(-1, 0)
 _enemy = ExtResource("9_ynf5e")
@@ -475,6 +478,7 @@ _enemy = ExtResource("9_ynf5e")
 [node name="Spawn2" type="Node2D" parent="Encounter/Wave2"]
 position = Vector2(-967.75195, 237)
 script = ExtResource("22_gt3je")
+title = "SIN"
 mode = 1
 dir = Vector2(1, 0)
 _enemy = ExtResource("9_ynf5e")

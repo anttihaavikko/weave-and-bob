@@ -2,11 +2,13 @@ class_name Enemy
 extends CharacterBody2D
 
 @export var id: String
+@export var title: String
 @export var respawns_after := 2
 @export var life := 10
 @export var stomp_offset := 20
 @export var frame: Node2D
 @export var bump_cast: ShapeCast2D
+@export var title_label: Label
 
 @export var flasher: Flasher
 
@@ -21,12 +23,9 @@ var max_life := life
 signal died
 
 func _ready() -> void:
+	title_label.text = title
 	if GameState.has(id):
 		queue_free()
-		
-func initialize(behaviour: Behaviour, direction: Vector2):
-	mode = behaviour
-	dir = direction
 	
 func _physics_process(delta: float) -> void:
 	if mode == Behaviour.Wave:
@@ -37,6 +36,9 @@ func _physics_process(delta: float) -> void:
 		if turn_delay <= 0 and bump_cast.is_colliding():
 			dir = -dir
 			turn_delay = 0.5
+			var p := bump_cast.get_collision_point(0)
+			Effects.singleton.add_many([0, 1], p)
+			squash(p)
 
 func get_stomp_pos() -> float:
 	return global_position.y - stomp_offset

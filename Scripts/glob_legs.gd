@@ -36,7 +36,6 @@ func _hit_enemy(enemy: Node2D):
 				enemy.die()
 			else:
 				enemy.squash(global_position)
-			
 		
 func _nudge(dir: Vector2):
 	apply_impulse(dir)

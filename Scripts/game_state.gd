@@ -1,6 +1,6 @@
 extends Node
 
-var has_magazine := true
+var has_magazine := false
 var map_upgrades := 0
 
 var ids: Array[String]
