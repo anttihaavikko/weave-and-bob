@@ -3,6 +3,7 @@ extends MovableRigidbody
 @export var jump_force := 1.0
 @export var ground_cast: ShapeCast2D
 @export var gun: Gun
+@export var jump_particles: CPUParticles2D
 
 var stomp_cooldown := 0.0
 
@@ -20,6 +21,7 @@ func _process(delta: float) -> void:
 	
 	if grounded && Input.is_action_just_pressed("jump"):
 		_nudge(Vector2(0, -999 * jump_force))
+		jump_particles.emitting = true
 		
 	if grounded:
 		gun.reload(false)
@@ -34,6 +36,7 @@ func _hit_enemy(enemy: Node2D):
 			if enemy.get_stomp_pos() > global_position.y:
 				gun.reload(true)
 				enemy.die()
+				jump_particles.emitting = true
 			else:
 				enemy.squash(global_position)
 		

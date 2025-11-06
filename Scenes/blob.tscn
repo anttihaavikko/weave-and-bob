@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://il0jdy8qi06w"]
+[gd_scene load_steps=33 format=3 uid="uid://il0jdy8qi06w"]
 
 [ext_resource type="Script" uid="uid://c7fckvtsco120" path="res://Scripts/blob.gd" id="1_gy3pb"]
 [ext_resource type="Texture2D" uid="uid://7etpco8nk31f" path="res://icon.svg" id="1_tqd60"]
@@ -17,6 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://blglscrdi4t0" path="res://Scenes/magazine.tscn" id="9_ag0hk"]
 [ext_resource type="AudioStream" uid="uid://c4ijxv5e2avwk" path="res://Sounds/reload.wav" id="10_e5myt"]
 [ext_resource type="AudioStream" uid="uid://bi76cdkjhvhjs" path="res://Sounds/empty_click.wav" id="11_vqq8p"]
+[ext_resource type="Texture2D" uid="uid://c5cmcf5tapfbf" path="res://Sprites/jump_lines.png" id="13_4y007"]
+[ext_resource type="Script" uid="uid://gsc1d8hvkfjt" path="res://Scripts/follower.gd" id="13_mb5hu"]
 [ext_resource type="Texture2D" uid="uid://de44f66euuvyk" path="res://Sprites/ammo-bg.png" id="16_8816d"]
 [ext_resource type="Script" uid="uid://pqokfa0fjvq0" path="res://Scripts/ammo_display.gd" id="17_rkwq6"]
 [ext_resource type="PackedScene" uid="uid://ba03mhjfvn43o" path="res://Scenes/face.tscn" id="17_vqq8p"]
@@ -47,6 +49,10 @@ scale_max = 0.01
 [sub_resource type="Curve" id="Curve_ag0hk"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
+
+[sub_resource type="Curve" id="Curve_4y007"]
+_data = [Vector2(0, 0.22073996), 0.0, 0.0, 0, 0, Vector2(0.34243697, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ctfmv"]
 radius = 23.021729
@@ -436,6 +442,27 @@ position = Vector2(-4, -1)
 stream = ExtResource("11_vqq8p")
 volume_db = -3.343
 
+[node name="Jump Lines" type="CPUParticles2D" parent="." node_paths=PackedStringArray("target")]
+modulate = Color(1, 1, 1, 0.48235294)
+emitting = false
+amount = 7
+texture = ExtResource("13_4y007")
+lifetime = 0.7
+one_shot = true
+preprocess = 0.1
+explosiveness = 0.6
+direction = Vector2(0, 1)
+spread = 20.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 200.0
+initial_velocity_max = 200.0
+angle_min = -10.0
+angle_max = 10.0
+scale_amount_min = 0.75
+scale_amount_curve = SubResource("Curve_4y007")
+script = ExtResource("13_mb5hu")
+target = NodePath("../Control Node/Orienter")
+
 [node name="Line2D" type="Line2D" parent="." node_paths=PackedStringArray("targets")]
 points = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 closed = true
@@ -452,7 +479,7 @@ polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
 script = ExtResource("5_gxvcn")
 line = NodePath("../Line2D")
 
-[node name="Control Node" type="RigidBody2D" parent="." node_paths=PackedStringArray("ground_cast", "gun")]
+[node name="Control Node" type="RigidBody2D" parent="." node_paths=PackedStringArray("ground_cast", "gun", "jump_particles")]
 mass = 0.5
 can_sleep = false
 continuous_cd = 2
@@ -460,6 +487,7 @@ linear_damp = 1.0
 script = ExtResource("6_qc6ha")
 ground_cast = NodePath("Orienter/Ground Cast")
 gun = NodePath("../Gun")
+jump_particles = NodePath("../Jump Lines")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control Node"]
 shape = SubResource("CircleShape2D_ctfmv")

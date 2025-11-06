@@ -52,6 +52,12 @@ width = 5.0
 [node name="Timer" type="Timer" parent="Line Drawer"]
 wait_time = 0.05
 
+[node name="Player" parent="." node_paths=PackedStringArray("lines", "effects") instance=ExtResource("1_bo1nx")]
+z_index = 10
+position = Vector2(5924.2383, 1387)
+lines = NodePath("../Line Drawer")
+effects = NodePath("../Effects")
+
 [node name="Level" type="Node2D" parent="."]
 position = Vector2(3.9907298, 0)
 
@@ -812,12 +818,6 @@ title = "TAN"
 mode = 1
 dir = Vector2(0, 1)
 _enemy = ExtResource("9_ynf5e")
-
-[node name="Player" parent="." node_paths=PackedStringArray("lines", "effects") instance=ExtResource("1_bo1nx")]
-z_index = 10
-position = Vector2(5924.2383, 1387)
-lines = NodePath("../Line Drawer")
-effects = NodePath("../Effects")
 
 [node name="Mag Pickup" parent="." instance=ExtResource("16_k12tt")]
 position = Vector2(-784.1784, 506)
