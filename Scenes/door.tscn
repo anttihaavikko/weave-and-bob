@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5cxgdqfrr4vr"]
+
+[ext_resource type="Texture2D" uid="uid://dggvv625tmn04" path="res://Sprites/square.png" id="1_p0e35"]
+[ext_resource type="Script" uid="uid://blju3jhsll8dm" path="res://Scripts/door.gd" id="2_fahql"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bo1nx"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_jjvhh"]
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
+
+[node name="Door" type="Sprite2D"]
+modulate = Color(0, 0, 0, 1)
+z_index = 1
+rotation = 3.1415925
+scale = Vector2(130.69637, 615.48535)
+texture = ExtResource("1_p0e35")
+script = ExtResource("2_fahql")
+opened = true
+
+[node name="Body" type="StaticBody2D" parent="."]
+scale = Vector2(0.050000004, 0.05)
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body"]
+shape = SubResource("RectangleShape2D_bo1nx")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Body"]
+light_mask = 2
+visibility_layer = 2
+occluder = SubResource("OccluderPolygon2D_jjvhh")

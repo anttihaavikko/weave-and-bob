@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=23 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/blob.tscn" id="1_bo1nx"]
@@ -18,6 +18,10 @@
 [ext_resource type="Texture2D" uid="uid://o2p2w1csmost" path="res://Sprites/angle.png" id="13_b3802"]
 [ext_resource type="PackedScene" uid="uid://tmp3aao5rcrn" path="res://Scenes/pickup.tscn" id="16_k12tt"]
 [ext_resource type="PackedScene" uid="uid://ympyuuto2ejt" path="res://Scenes/letter.tscn" id="17_h1bgf"]
+[ext_resource type="PackedScene" uid="uid://b5cxgdqfrr4vr" path="res://Scenes/door.tscn" id="19_ee4r6"]
+[ext_resource type="Script" uid="uid://b6b2bur0hl2iu" path="res://Scripts/encounter.gd" id="19_fevyy"]
+[ext_resource type="Script" uid="uid://h30wfqlv3joy" path="res://Scripts/wave.gd" id="21_ee4r6"]
+[ext_resource type="Script" uid="uid://c8ej1vfg86d5v" path="res://Scripts/spawn.gd" id="22_gt3je"]
 
 [node name="Main" type="Node2D"]
 scale = Vector2(1.0023229, 1)
@@ -113,8 +117,8 @@ position = Vector2(-720.3268, 89.00001)
 scale = Vector2(447.2237, 351.8664)
 
 [node name="Wall7" parent="Level" instance=ExtResource("4_344ge")]
-position = Vector2(-1929.1963, -68.29785)
-scale = Vector2(757.85767, 1433.2708)
+position = Vector2(-2987.5083, 318.00015)
+scale = Vector2(2662.3293, 1433.2708)
 
 [node name="Wall8" parent="Level" instance=ExtResource("4_344ge")]
 position = Vector2(1690.2917, 40.27298)
@@ -131,6 +135,10 @@ scale = Vector2(611.38666, 2499.6785)
 [node name="Wall4" parent="Level" instance=ExtResource("4_344ge")]
 position = Vector2(-1428.6812, 729.00006)
 scale = Vector2(611.38666, 2499.6785)
+
+[node name="Wall9" parent="Level" instance=ExtResource("4_344ge")]
+position = Vector2(-4615.1753, -176.86371)
+scale = Vector2(932.4324, 3333.951)
 
 [node name="Enemy" parent="Level" instance=ExtResource("9_ynf5e")]
 position = Vector2(328.23755, 644)
@@ -151,17 +159,17 @@ scale = Vector2(0.30418557, 0.3041856)
 respawns_after = 0
 
 [node name="Enemy5" parent="Level" instance=ExtResource("9_ynf5e")]
-position = Vector2(-380.11697, -401.00003)
+position = Vector2(-363.15643, -411.00003)
 scale = Vector2(0.30418557, 0.3041856)
 respawns_after = 0
 
 [node name="Enemy6" parent="Level" instance=ExtResource("9_ynf5e")]
-position = Vector2(103.758934, -415.00003)
+position = Vector2(120.71958, -423.00003)
 scale = Vector2(0.30418557, 0.3041856)
 respawns_after = 0
 
 [node name="Enemy7" parent="Level" instance=ExtResource("9_ynf5e")]
-position = Vector2(625.54694, -425.00003)
+position = Vector2(604.5956, -431.00003)
 scale = Vector2(0.30418557, 0.3041856)
 respawns_after = 0
 
@@ -256,8 +264,8 @@ position = Vector2(1481.7244, -421.9075)
 scale = Vector2(893.06506, 2408.2048)
 
 [node name="Wall7" parent="Room" instance=ExtResource("4_344ge")]
-position = Vector2(1409.386, 1346.5175)
-scale = Vector2(748.3877, 782.3929)
+position = Vector2(1486.5393, 1346.5175)
+scale = Vector2(902.6943, 782.3929)
 
 [node name="Wall4" parent="Room" instance=ExtResource("4_344ge")]
 position = Vector2(-1578.021, 1422.466)
@@ -278,6 +286,7 @@ scale = Vector2(1175.7974, 1009.6941)
 [node name="Enemy" parent="Room" instance=ExtResource("9_ynf5e")]
 position = Vector2(-55.87027, 1152)
 scale = Vector2(0.53731334, 0.53731334)
+id = "intro"
 respawns_after = 0
 stomp_offset = 40
 
@@ -399,7 +408,7 @@ letter = "N"
 
 [node name="Player" parent="." node_paths=PackedStringArray("lines", "effects") instance=ExtResource("1_bo1nx")]
 z_index = 10
-position = Vector2(2691.7473, -678)
+position = Vector2(2366.503, -678)
 lines = NodePath("../Line Drawer")
 effects = NodePath("../Effects")
 
@@ -420,8 +429,47 @@ wait_time = 0.05
 position = Vector2(-784.1784, 506)
 
 [node name="Map Pickup" parent="." instance=ExtResource("16_k12tt")]
-position = Vector2(4895.628, -2058)
+position = Vector2(4897.6235, -2060)
 id = "first_map"
 type = 2
 
+[node name="Door" parent="." instance=ExtResource("19_ee4r6")]
+position = Vector2(2736.6436, -796.9998)
+
+[node name="Encounter" type="Node2D" parent="." node_paths=PackedStringArray("doors")]
+position = Vector2(3941.8435, -441)
+script = ExtResource("19_fevyy")
+doors = [NodePath("")]
+reward = ExtResource("16_k12tt")
+reward_type = 1
+
+[node name="Wave" type="Node2D" parent="Encounter"]
+position = Vector2(0, -168)
+script = ExtResource("21_ee4r6")
+
+[node name="Spawn" type="Node2D" parent="Encounter/Wave"]
+position = Vector2(954.7821, 237)
+script = ExtResource("22_gt3je")
+_enemy = ExtResource("9_ynf5e")
+
+[node name="Spawn2" type="Node2D" parent="Encounter/Wave"]
+position = Vector2(-967.75195, 237)
+script = ExtResource("22_gt3je")
+_enemy = ExtResource("9_ynf5e")
+
+[node name="Wave2" type="Node2D" parent="Encounter"]
+position = Vector2(0, -356)
+script = ExtResource("21_ee4r6")
+
+[node name="Spawn" type="Node2D" parent="Encounter/Wave2"]
+position = Vector2(954.7821, 237)
+script = ExtResource("22_gt3je")
+_enemy = ExtResource("9_ynf5e")
+
+[node name="Spawn2" type="Node2D" parent="Encounter/Wave2"]
+position = Vector2(-967.75195, 237)
+script = ExtResource("22_gt3je")
+_enemy = ExtResource("9_ynf5e")
+
+[connection signal="died" from="Room/Enemy" to="Encounter" method="start"]
 [connection signal="timeout" from="Line Drawer/Timer" to="Line Drawer" method="_on_timer_timeout"]

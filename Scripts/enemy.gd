@@ -1,6 +1,7 @@
 class_name Enemy
 extends Node2D
 
+@export var id: String
 @export var respawns_after := 2
 @export var life := 10
 @export var stomp_offset := 20
@@ -9,6 +10,12 @@ extends Node2D
 @export var flasher: Flasher
 
 var max_life := life
+
+signal died
+
+func _ready() -> void:
+	if GameState.has(id):
+		queue_free()
 
 func get_stomp_pos() -> float:
 	return global_position.y - stomp_offset
@@ -31,6 +38,7 @@ func die():
 	hide()
 	process_mode = Node.PROCESS_MODE_DISABLED
 	Effects.singleton.add_many([4, 3, 2, 2, 2, 0, 0, 0, 1], global_position)
+	died.emit(self)
 	if respawns_after > 0:
 		await get_tree().create_timer(respawns_after).timeout
 		life = max_life
