@@ -31,13 +31,26 @@ script = ExtResource("1_6bp64")
 
 [node name="Bg" type="Sprite2D" parent="."]
 modulate = Color(0.8640645, 0.5525103, 0.35379764, 1)
-position = Vector2(4.9882813, -911)
-scale = Vector2(15596.7705, 8983.001)
+position = Vector2(1098.6985, -911)
+scale = Vector2(17784.191, 8983.001)
 texture = ExtResource("3_8gbba")
 
 [node name="Effects" type="Node" parent="."]
 script = ExtResource("5_kry3j")
 effects = Array[PackedScene]([ExtResource("2_kry3j"), ExtResource("6_21xkr"), ExtResource("10_hptm8"), ExtResource("10_d1ilt"), ExtResource("12_6iyac"), ExtResource("9_k12tt")])
+
+[node name="Line Drawer" type="Node" parent="." node_paths=PackedStringArray("line", "timer")]
+script = ExtResource("3_jjvhh")
+line = NodePath("Shot Line")
+timer = NodePath("Timer")
+
+[node name="Shot Line" type="Line2D" parent="Line Drawer"]
+position = Vector2(-5, 0)
+points = PackedVector2Array(0, 0, 0, 0)
+width = 5.0
+
+[node name="Timer" type="Timer" parent="Line Drawer"]
+wait_time = 0.05
 
 [node name="Level" type="Node2D" parent="."]
 position = Vector2(3.9907298, 0)
@@ -248,8 +261,8 @@ texture = ExtResource("13_b3802")
 
 [node name="Wall2" parent="Room" instance=ExtResource("4_344ge")]
 z_index = 10
-position = Vector2(226.624, 1443.2216)
-scale = Vector2(3006.968, 523.15326)
+position = Vector2(226.62404, 1732.1985)
+scale = Vector2(3006.968, 1101.107)
 
 [node name="Wall6" parent="Room" instance=ExtResource("4_344ge")]
 position = Vector2(-412.68906, -163.52615)
@@ -283,147 +296,528 @@ scale = Vector2(1956.8197, 1122.8385)
 position = Vector2(-333.73376, -660.4278)
 scale = Vector2(1175.7974, 1009.6941)
 
-[node name="Enemy" parent="Room" instance=ExtResource("9_ynf5e")]
-position = Vector2(-55.87027, 1152)
+[node name="Decorations" type="Node2D" parent="Room"]
+position = Vector2(-799.14404, 1187)
+
+[node name="Grass" parent="Room/Decorations" instance=ExtResource("12_wsu2k")]
+
+[node name="Grass2" parent="Room/Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(-53.874268, 0)
+
+[node name="Grass3" parent="Room/Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(-53.874268, 0)
+
+[node name="Grass4" parent="Room/Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(-119.721436, 6)
+
+[node name="Grass5" parent="Room/Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(-184.5708, 5)
+
+[node name="Grass6" parent="Room/Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(-257.4016, 10)
+
+[node name="Grass7" parent="Room/Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(67.84277, 8)
+
+[node name="Grass8" parent="Room/Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(137.68066, 6)
+
+[node name="Grass9" parent="Room/Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(202.52979, 15)
+
+[node name="Grass10" parent="Room/Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(266.3816, 9)
+
+[node name="Grass11" parent="Room/Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(333.22632, 19)
+
+[node name="Grass12" parent="Room/Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(1394.76, -15)
+
+[node name="Grass13" parent="Room/Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(1340.8857, -15)
+
+[node name="Grass14" parent="Room/Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(1340.8857, -15)
+
+[node name="Grass15" parent="Room/Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(1275.0386, -9)
+
+[node name="Grass16" parent="Room/Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(1210.1892, -10)
+
+[node name="Grass17" parent="Room/Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(1137.3584, -5)
+
+[node name="Grass18" parent="Room/Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(1462.6028, -7)
+
+[node name="Grass19" parent="Room/Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(1532.4407, -9)
+
+[node name="Grass20" parent="Room/Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(1597.2898, 0)
+
+[node name="Grass21" parent="Room/Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(1661.1416, -6)
+
+[node name="Grass22" parent="Room/Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(1727.9863, 4)
+
+[node name="Letter" parent="Room/Decorations" instance=ExtResource("17_h1bgf")]
+position = Vector2(1022.625, -9)
+letter = "A"
+
+[node name="Letter2" parent="Room/Decorations" instance=ExtResource("17_h1bgf")]
+position = Vector2(1118.4023, -8)
+letter = "N"
+
+[node name="Letter3" parent="Room/Decorations" instance=ExtResource("17_h1bgf")]
+position = Vector2(1221.1641, -8)
+letter = "G"
+
+[node name="Letter4" parent="Room/Decorations" instance=ExtResource("17_h1bgf")]
+position = Vector2(1329.9111, -9)
+letter = "L"
+
+[node name="Letter5" parent="Room/Decorations" instance=ExtResource("17_h1bgf")]
+position = Vector2(1431.6748, -9)
+letter = "E"
+
+[node name="Letter6" parent="Room/Decorations" instance=ExtResource("17_h1bgf")]
+position = Vector2(-71.83252, -9)
+letter = "F"
+
+[node name="Letter7" parent="Room/Decorations" instance=ExtResource("17_h1bgf")]
+position = Vector2(33.92212, -9)
+letter = "A"
+
+[node name="Letter8" parent="Room/Decorations" instance=ExtResource("17_h1bgf")]
+position = Vector2(135.68506, -9)
+letter = "L"
+
+[node name="Letter9" parent="Room/Decorations" instance=ExtResource("17_h1bgf")]
+position = Vector2(234.45605, -12)
+letter = "L"
+
+[node name="Letter10" parent="Room/Decorations" instance=ExtResource("17_h1bgf")]
+position = Vector2(339.21265, -12)
+letter = "E"
+
+[node name="Letter11" parent="Room/Decorations" instance=ExtResource("17_h1bgf")]
+position = Vector2(440.97656, -12)
+letter = "N"
+
+[node name="Enemy2" parent="Room" instance=ExtResource("9_ynf5e")]
+position = Vector2(1328.9131, 869)
+scale = Vector2(0.30418554, 0.3041856)
+stomp_offset = 120
+
+[node name="Door" parent="Room" instance=ExtResource("19_ee4r6")]
+position = Vector2(-1263.0654, 586.0002)
+scale = Vector2(130.69635, 615.48535)
+
+[node name="Enemy" parent="Room" node_paths=PackedStringArray("starts_encounter") instance=ExtResource("9_ynf5e")]
+position = Vector2(-55.87036, 1152)
 scale = Vector2(0.53731334, 0.53731334)
 id = "intro"
 respawns_after = 0
 stomp_offset = 40
+starts_encounter = NodePath("../Intro Encounter")
 
-[node name="Enemy2" parent="Room" instance=ExtResource("9_ynf5e")]
-position = Vector2(1328.913, 869)
-stomp_offset = 120
+[node name="Intro Encounter" type="Node2D" parent="Room" node_paths=PackedStringArray("doors")]
+position = Vector2(-57.865723, 942)
+script = ExtResource("19_fevyy")
+doors = [NodePath("../Door")]
+reward = ExtResource("16_k12tt")
+reward_type = 1
 
-[node name="Decorations" type="Node2D" parent="."]
-position = Vector2(3200.565, -196)
+[node name="Wave" type="Node2D" parent="Room/Intro Encounter"]
+position = Vector2(0, -124)
+script = ExtResource("21_ee4r6")
 
-[node name="Grass" parent="Decorations" instance=ExtResource("12_wsu2k")]
+[node name="Spawn" type="Node2D" parent="Room/Intro Encounter/Wave"]
+position = Vector2(954.7821, 237)
+script = ExtResource("22_gt3je")
+title = "SIN"
+mode = 1
+dir = Vector2(-1, 0)
+_enemy = ExtResource("9_ynf5e")
 
-[node name="Grass2" parent="Decorations" instance=ExtResource("12_wsu2k")]
+[node name="Spawn2" type="Node2D" parent="Room/Intro Encounter/Wave"]
+position = Vector2(-967.75195, 237)
+script = ExtResource("22_gt3je")
+title = "COS"
+mode = 1
+dir = Vector2(1, 0)
+_enemy = ExtResource("9_ynf5e")
+
+[node name="Wave2" type="Node2D" parent="Room/Intro Encounter"]
+position = Vector2(0, -220)
+script = ExtResource("21_ee4r6")
+
+[node name="Spawn" type="Node2D" parent="Room/Intro Encounter/Wave2"]
+position = Vector2(954.7821, 237)
+script = ExtResource("22_gt3je")
+title = "COS"
+mode = 1
+dir = Vector2(-1, 0)
+_enemy = ExtResource("9_ynf5e")
+
+[node name="Spawn2" type="Node2D" parent="Room/Intro Encounter/Wave2"]
+position = Vector2(-967.75195, 237)
+script = ExtResource("22_gt3je")
+title = "SIN"
+mode = 1
+dir = Vector2(1, 0)
+_enemy = ExtResource("9_ynf5e")
+
+[node name="Room2" type="Node2D" parent="."]
+position = Vector2(5443.3555, 589)
+
+[node name="Background" type="Node2D" parent="Room2"]
+modulate = Color(0.7647059, 0.4627451, 0.25882354, 1)
+position = Vector2(0.9975586, 0)
+
+[node name="Wall" type="Sprite2D" parent="Room2/Background"]
+position = Vector2(-55.308685, 1299)
+scale = Vector2(2273.5933, 457.75012)
+texture = ExtResource("3_8gbba")
+
+[node name="Wall2" type="Sprite2D" parent="Room2/Background"]
+position = Vector2(-943.8076, 961)
+scale = Vector2(87.515205, 457.75012)
+texture = ExtResource("3_8gbba")
+
+[node name="Wall3" type="Sprite2D" parent="Room2/Background"]
+position = Vector2(-963.2088, 712.00006)
+scale = Vector2(17.067837, 215.99998)
+texture = ExtResource("3_8gbba")
+
+[node name="Wall4" type="Sprite2D" parent="Room2/Background"]
+position = Vector2(-867.76117, 961)
+scale = Vector2(37.466763, 240)
+texture = ExtResource("3_8gbba")
+
+[node name="Tree" parent="Room2/Background" instance=ExtResource("9_wsu2k")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(-729.3059, 1082)
+
+[node name="Tree2" parent="Room2/Background" instance=ExtResource("9_wsu2k")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(-615.5701, 1082)
+
+[node name="Tree3" parent="Room2/Background" instance=ExtResource("9_wsu2k")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(-505.825, 1075)
+
+[node name="Tree4" parent="Room2/Background" instance=ExtResource("9_wsu2k")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(-383.11008, 1080)
+
+[node name="Tree5" parent="Room2/Background" instance=ExtResource("9_wsu2k")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(295.314, 1070)
+
+[node name="Tree6" parent="Room2/Background" instance=ExtResource("9_wsu2k")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(434.98956, 1091)
+
+[node name="Tree7" parent="Room2/Background" instance=ExtResource("9_wsu2k")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(578.6558, 1072)
+
+[node name="Tree8" parent="Room2/Background" instance=ExtResource("9_wsu2k")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(702.36847, 1092)
+
+[node name="Tree9" parent="Room2/Background" instance=ExtResource("9_wsu2k")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(810.11816, 1068)
+
+[node name="Tree10" parent="Room2/Background" instance=ExtResource("9_wsu2k")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(935.8262, 1096)
+
+[node name="Angle" type="Sprite2D" parent="Room2/Background"]
+position = Vector2(-55.870007, 1172)
+rotation = 0.78539824
+scale = Vector2(1.4394156, 1.4394156)
+texture = ExtResource("13_b3802")
+
+[node name="Wall2" parent="Room2" instance=ExtResource("4_344ge")]
+z_index = 10
+position = Vector2(226.624, 1443.2216)
+scale = Vector2(3006.968, 523.15326)
+
+[node name="Wall2" parent="Room2/Wall2" instance=ExtResource("4_344ge")]
+z_index = 10
+position = Vector2(226.624, 1443.2216)
+scale = Vector2(3006.968, 523.15326)
+
+[node name="Wall5" parent="Room2" instance=ExtResource("4_344ge")]
+z_index = 10
+position = Vector2(269.76804, 179.75845)
+scale = Vector2(426.0296, 123.80591)
+
+[node name="Wall2" parent="Room2/Wall5" instance=ExtResource("4_344ge")]
+z_index = 10
+position = Vector2(226.624, 1443.2216)
+scale = Vector2(3006.968, 523.15326)
+
+[node name="Wall8" parent="Room2" instance=ExtResource("4_344ge")]
+position = Vector2(1089.839, -551.15955)
+scale = Vector2(672.4979, 1801.7179)
+
+[node name="Wall3" parent="Room2" instance=ExtResource("4_344ge")]
+position = Vector2(2557.8203, 147.98405)
+scale = Vector2(3045.2568, 3547.988)
+
+[node name="Wall4" parent="Room2" instance=ExtResource("4_344ge")]
+position = Vector2(-2178.8022, 1422.4661)
+scale = Vector2(2111.6294, 1112.7468)
+
+[node name="Decorations" type="Node2D" parent="Room2"]
+position = Vector2(-799.14404, 1187)
+
+[node name="Grass" parent="Room2/Decorations" instance=ExtResource("12_wsu2k")]
+
+[node name="Grass2" parent="Room2/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(-53.874268, 0)
 
-[node name="Grass3" parent="Decorations" instance=ExtResource("12_wsu2k")]
+[node name="Grass3" parent="Room2/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(-53.874268, 0)
 
-[node name="Grass4" parent="Decorations" instance=ExtResource("12_wsu2k")]
+[node name="Grass4" parent="Room2/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(-119.721436, 6)
 
-[node name="Grass5" parent="Decorations" instance=ExtResource("12_wsu2k")]
+[node name="Grass5" parent="Room2/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(-184.5708, 5)
 
-[node name="Grass6" parent="Decorations" instance=ExtResource("12_wsu2k")]
+[node name="Grass6" parent="Room2/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(-257.4016, 10)
 
-[node name="Grass7" parent="Decorations" instance=ExtResource("12_wsu2k")]
+[node name="Grass7" parent="Room2/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(67.84277, 8)
 
-[node name="Grass8" parent="Decorations" instance=ExtResource("12_wsu2k")]
+[node name="Grass8" parent="Room2/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(137.68066, 6)
 
-[node name="Grass9" parent="Decorations" instance=ExtResource("12_wsu2k")]
+[node name="Grass9" parent="Room2/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(202.52979, 15)
 
-[node name="Grass10" parent="Decorations" instance=ExtResource("12_wsu2k")]
+[node name="Grass10" parent="Room2/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(266.3816, 9)
 
-[node name="Grass11" parent="Decorations" instance=ExtResource("12_wsu2k")]
+[node name="Grass11" parent="Room2/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(333.22632, 19)
 
-[node name="Grass12" parent="Decorations" instance=ExtResource("12_wsu2k")]
+[node name="Grass12" parent="Room2/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(1394.76, -15)
 
-[node name="Grass13" parent="Decorations" instance=ExtResource("12_wsu2k")]
+[node name="Grass13" parent="Room2/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(1340.8857, -15)
 
-[node name="Grass14" parent="Decorations" instance=ExtResource("12_wsu2k")]
+[node name="Grass14" parent="Room2/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(1340.8857, -15)
 
-[node name="Grass15" parent="Decorations" instance=ExtResource("12_wsu2k")]
+[node name="Grass15" parent="Room2/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(1275.0386, -9)
 
-[node name="Grass16" parent="Decorations" instance=ExtResource("12_wsu2k")]
+[node name="Grass16" parent="Room2/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(1210.1892, -10)
 
-[node name="Grass17" parent="Decorations" instance=ExtResource("12_wsu2k")]
+[node name="Grass17" parent="Room2/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(1137.3584, -5)
 
-[node name="Grass18" parent="Decorations" instance=ExtResource("12_wsu2k")]
+[node name="Grass18" parent="Room2/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(1462.6028, -7)
 
-[node name="Grass19" parent="Decorations" instance=ExtResource("12_wsu2k")]
+[node name="Grass19" parent="Room2/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(1532.4407, -9)
 
-[node name="Grass20" parent="Decorations" instance=ExtResource("12_wsu2k")]
+[node name="Grass20" parent="Room2/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(1597.2898, 0)
 
-[node name="Grass21" parent="Decorations" instance=ExtResource("12_wsu2k")]
+[node name="Grass21" parent="Room2/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(1661.1416, -6)
 
-[node name="Grass22" parent="Decorations" instance=ExtResource("12_wsu2k")]
+[node name="Grass22" parent="Room2/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(1727.9863, 4)
 
-[node name="Letter" parent="Decorations" instance=ExtResource("17_h1bgf")]
+[node name="Letter" parent="Room2/Decorations" instance=ExtResource("17_h1bgf")]
 position = Vector2(1022.625, -9)
 letter = "A"
 
-[node name="Letter2" parent="Decorations" instance=ExtResource("17_h1bgf")]
+[node name="Letter2" parent="Room2/Decorations" instance=ExtResource("17_h1bgf")]
 position = Vector2(1118.4023, -8)
 letter = "N"
 
-[node name="Letter3" parent="Decorations" instance=ExtResource("17_h1bgf")]
+[node name="Letter3" parent="Room2/Decorations" instance=ExtResource("17_h1bgf")]
 position = Vector2(1221.1641, -8)
 letter = "G"
 
-[node name="Letter4" parent="Decorations" instance=ExtResource("17_h1bgf")]
+[node name="Letter4" parent="Room2/Decorations" instance=ExtResource("17_h1bgf")]
 position = Vector2(1329.9111, -9)
 letter = "L"
 
-[node name="Letter5" parent="Decorations" instance=ExtResource("17_h1bgf")]
+[node name="Letter5" parent="Room2/Decorations" instance=ExtResource("17_h1bgf")]
 position = Vector2(1431.6748, -9)
 letter = "E"
 
-[node name="Letter6" parent="Decorations" instance=ExtResource("17_h1bgf")]
+[node name="Letter6" parent="Room2/Decorations" instance=ExtResource("17_h1bgf")]
 position = Vector2(-71.83252, -9)
 letter = "F"
 
-[node name="Letter7" parent="Decorations" instance=ExtResource("17_h1bgf")]
+[node name="Letter7" parent="Room2/Decorations" instance=ExtResource("17_h1bgf")]
 position = Vector2(33.92212, -9)
 letter = "A"
 
-[node name="Letter8" parent="Decorations" instance=ExtResource("17_h1bgf")]
+[node name="Letter8" parent="Room2/Decorations" instance=ExtResource("17_h1bgf")]
 position = Vector2(135.68506, -9)
 letter = "L"
 
-[node name="Letter9" parent="Decorations" instance=ExtResource("17_h1bgf")]
+[node name="Letter9" parent="Room2/Decorations" instance=ExtResource("17_h1bgf")]
 position = Vector2(234.45605, -12)
 letter = "L"
 
-[node name="Letter10" parent="Decorations" instance=ExtResource("17_h1bgf")]
+[node name="Letter10" parent="Room2/Decorations" instance=ExtResource("17_h1bgf")]
 position = Vector2(339.21265, -12)
 letter = "E"
 
-[node name="Letter11" parent="Decorations" instance=ExtResource("17_h1bgf")]
+[node name="Letter11" parent="Room2/Decorations" instance=ExtResource("17_h1bgf")]
 position = Vector2(440.97656, -12)
 letter = "N"
 
+[node name="Door" parent="Room2" instance=ExtResource("19_ee4r6")]
+position = Vector2(-1263.0654, 586.00024)
+scale = Vector2(130.69633, 615.48535)
+opened = false
+
+[node name="Enemy" parent="Room2" node_paths=PackedStringArray("starts_encounter") instance=ExtResource("9_ynf5e")]
+position = Vector2(-55.870117, 1152)
+scale = Vector2(0.53731334, 0.53731334)
+id = "onglaught"
+respawns_after = 0
+stomp_offset = 40
+starts_encounter = NodePath("../Onslaught Encounter")
+
+[node name="Onslaught Encounter" type="Node2D" parent="Room2" node_paths=PackedStringArray("doors")]
+position = Vector2(-62.854004, 824)
+script = ExtResource("19_fevyy")
+doors = [NodePath("../Door")]
+reward = ExtResource("16_k12tt")
+reward_type = 2
+
+[node name="Wave" type="Node2D" parent="Room2/Onslaught Encounter"]
+position = Vector2(5.9604645e-08, -0.09260985)
+script = ExtResource("21_ee4r6")
+
+[node name="Spawn" type="Node2D" parent="Room2/Onslaught Encounter/Wave"]
+position = Vector2(935.82635, 196.09262)
+script = ExtResource("22_gt3je")
+title = "SIN"
+mode = 1
+dir = Vector2(-1, 0)
+_enemy = ExtResource("9_ynf5e")
+
+[node name="Spawn2" type="Node2D" parent="Room2/Onslaught Encounter/Wave"]
+position = Vector2(-906.8933, 219.09262)
+script = ExtResource("22_gt3je")
+title = "COS"
+mode = 1
+dir = Vector2(1, 0)
+_enemy = ExtResource("9_ynf5e")
+
+[node name="Spawn3" type="Node2D" parent="Room2/Onslaught Encounter/Wave"]
+position = Vector2(802.1369, -52.90733)
+script = ExtResource("22_gt3je")
+title = "SIN"
+mode = 1
+dir = Vector2(-1, 0)
+_enemy = ExtResource("9_ynf5e")
+
+[node name="Spawn4" type="Node2D" parent="Room2/Onslaught Encounter/Wave"]
+position = Vector2(-790.1645, -1.907318)
+script = ExtResource("22_gt3je")
+title = "COS"
+mode = 1
+dir = Vector2(1, 0)
+_enemy = ExtResource("9_ynf5e")
+
+[node name="Spawn5" type="Node2D" parent="Room2/Onslaught Encounter/Wave"]
+position = Vector2(354.17737, -373.90735)
+script = ExtResource("22_gt3je")
+title = "TAN"
+mode = 1
+dir = Vector2(0, 1)
+_enemy = ExtResource("9_ynf5e")
+
+[node name="Spawn6" type="Node2D" parent="Room2/Onslaught Encounter/Wave"]
+position = Vector2(-411.04495, -382.90732)
+script = ExtResource("22_gt3je")
+title = "TAN"
+mode = 1
+dir = Vector2(0, 1)
+_enemy = ExtResource("9_ynf5e")
+
+[node name="Wave2" type="Node2D" parent="Room2/Onslaught Encounter"]
+position = Vector2(5.9604645e-08, -0.09260985)
+script = ExtResource("21_ee4r6")
+
+[node name="Spawn" type="Node2D" parent="Room2/Onslaught Encounter/Wave2"]
+position = Vector2(935.82635, 196.09262)
+script = ExtResource("22_gt3je")
+title = "SIN"
+mode = 1
+dir = Vector2(-1, 0)
+_enemy = ExtResource("9_ynf5e")
+
+[node name="Spawn2" type="Node2D" parent="Room2/Onslaught Encounter/Wave2"]
+position = Vector2(-906.8933, 219.09262)
+script = ExtResource("22_gt3je")
+title = "COS"
+mode = 1
+dir = Vector2(1, 0)
+_enemy = ExtResource("9_ynf5e")
+
+[node name="Spawn3" type="Node2D" parent="Room2/Onslaught Encounter/Wave2"]
+position = Vector2(802.1369, -52.90733)
+script = ExtResource("22_gt3je")
+title = "SIN"
+mode = 1
+dir = Vector2(-1, 0)
+_enemy = ExtResource("9_ynf5e")
+
+[node name="Spawn4" type="Node2D" parent="Room2/Onslaught Encounter/Wave2"]
+position = Vector2(-790.1645, -1.907318)
+script = ExtResource("22_gt3je")
+title = "COS"
+mode = 1
+dir = Vector2(1, 0)
+_enemy = ExtResource("9_ynf5e")
+
+[node name="Spawn5" type="Node2D" parent="Room2/Onslaught Encounter/Wave2"]
+position = Vector2(354.17737, -373.90735)
+script = ExtResource("22_gt3je")
+title = "TAN"
+mode = 1
+dir = Vector2(0, 1)
+_enemy = ExtResource("9_ynf5e")
+
+[node name="Spawn6" type="Node2D" parent="Room2/Onslaught Encounter/Wave2"]
+position = Vector2(-411.04495, -382.90732)
+script = ExtResource("22_gt3je")
+title = "TAN"
+mode = 1
+dir = Vector2(0, 1)
+_enemy = ExtResource("9_ynf5e")
+
 [node name="Player" parent="." node_paths=PackedStringArray("lines", "effects") instance=ExtResource("1_bo1nx")]
 z_index = 10
-position = Vector2(2366.503, -678)
+position = Vector2(5924.2383, 1387)
 lines = NodePath("../Line Drawer")
 effects = NodePath("../Effects")
-
-[node name="Line Drawer" type="Node" parent="." node_paths=PackedStringArray("line", "timer")]
-script = ExtResource("3_jjvhh")
-line = NodePath("Shot Line")
-timer = NodePath("Timer")
-
-[node name="Shot Line" type="Line2D" parent="Line Drawer"]
-position = Vector2(-5, 0)
-points = PackedVector2Array(0, 0, 0, 0)
-width = 5.0
-
-[node name="Timer" type="Timer" parent="Line Drawer"]
-wait_time = 0.05
 
 [node name="Mag Pickup" parent="." instance=ExtResource("16_k12tt")]
 position = Vector2(-784.1784, 506)
@@ -433,55 +827,4 @@ position = Vector2(4897.6235, -2060)
 id = "first_map"
 type = 2
 
-[node name="Door" parent="." instance=ExtResource("19_ee4r6")]
-position = Vector2(2736.6436, -796.9998)
-
-[node name="Encounter" type="Node2D" parent="." node_paths=PackedStringArray("doors")]
-position = Vector2(3941.8435, -441)
-script = ExtResource("19_fevyy")
-doors = [NodePath("../Door")]
-reward = ExtResource("16_k12tt")
-reward_type = 1
-
-[node name="Wave" type="Node2D" parent="Encounter"]
-position = Vector2(0, -124)
-script = ExtResource("21_ee4r6")
-
-[node name="Spawn" type="Node2D" parent="Encounter/Wave"]
-position = Vector2(954.7821, 237)
-script = ExtResource("22_gt3je")
-title = "SIN"
-mode = 1
-dir = Vector2(-1, 0)
-_enemy = ExtResource("9_ynf5e")
-
-[node name="Spawn2" type="Node2D" parent="Encounter/Wave"]
-position = Vector2(-967.75195, 237)
-script = ExtResource("22_gt3je")
-title = "COS"
-mode = 1
-dir = Vector2(1, 0)
-_enemy = ExtResource("9_ynf5e")
-
-[node name="Wave2" type="Node2D" parent="Encounter"]
-position = Vector2(0, -220)
-script = ExtResource("21_ee4r6")
-
-[node name="Spawn" type="Node2D" parent="Encounter/Wave2"]
-position = Vector2(954.7821, 237)
-script = ExtResource("22_gt3je")
-title = "COS"
-mode = 1
-dir = Vector2(-1, 0)
-_enemy = ExtResource("9_ynf5e")
-
-[node name="Spawn2" type="Node2D" parent="Encounter/Wave2"]
-position = Vector2(-967.75195, 237)
-script = ExtResource("22_gt3je")
-title = "SIN"
-mode = 1
-dir = Vector2(1, 0)
-_enemy = ExtResource("9_ynf5e")
-
-[connection signal="died" from="Room/Enemy" to="Encounter" method="start"]
 [connection signal="timeout" from="Line Drawer/Timer" to="Line Drawer" method="_on_timer_timeout"]

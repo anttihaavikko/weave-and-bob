@@ -20,7 +20,7 @@ func start(enc: Encounter):
 	for spawn in spawns:
 		spawn.start(self)
 
-func enemy_died(_enemy: Enemy):
+func enemy_died():
 	amount -= 1
 	if amount <= 0:
 		encounter.next_wave()

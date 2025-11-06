@@ -18,11 +18,14 @@ func start(enemy: Enemy):
 			waves.push_back(child)
 			
 	next_wave()		
+	
+func open_doors():
+	for door in doors: door.open()
 
 func next_wave() -> void:
 	if waves.is_empty():
 		print("encounter complete")
-		for door in doors: door.open()
+		open_doors()
 		await get_tree().create_timer(0.5).timeout
 		var pickup := reward.instantiate()
 		if pickup is Pickup:

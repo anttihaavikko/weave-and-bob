@@ -6,6 +6,7 @@ extends CharacterBody2D
 @export var respawns_after := 2
 @export var life := 10
 @export var stomp_offset := 20
+@export var starts_encounter: Encounter;
 @export var frame: Node2D
 @export var bump_cast: ShapeCast2D
 @export var title_label: Label
@@ -20,18 +21,19 @@ var turn_delay := 0.0
 
 var max_life := life
 
-signal died
+signal died;
 
 func _ready() -> void:
 	title_label.text = title
 	if GameState.has(id):
+		if starts_encounter: starts_encounter.open_doors()
 		queue_free()
 	
 func _physics_process(delta: float) -> void:
 	if mode == Behaviour.Wave:
 		time += delta
 		turn_delay -= delta
-		velocity = (dir + Vector2.UP * sin(time * 5) * 1) * 20000 * delta
+		velocity = (dir + dir.rotated(PI * 0.5) * sin(time * 5) * 1) * 20000 * delta
 		move_and_slide()
 		if turn_delay <= 0 and bump_cast.is_colliding():
 			dir = -dir
@@ -61,7 +63,8 @@ func die():
 	hide()
 	process_mode = Node.PROCESS_MODE_DISABLED
 	Effects.singleton.add_many([4, 3, 2, 2, 2, 0, 0, 0, 1], global_position)
-	died.emit(self)
+	died.emit()
+	if starts_encounter: starts_encounter.start(self)
 	if respawns_after > 0:
 		await get_tree().create_timer(respawns_after).timeout
 		life = max_life
