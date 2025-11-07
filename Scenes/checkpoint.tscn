@@ -1,10 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://c4dqyepeaha7h"]
+[gd_scene load_steps=13 format=3 uid="uid://c4dqyepeaha7h"]
 
 [ext_resource type="Script" uid="uid://c5qkfriyomk3j" path="res://Scripts/checkpoint.gd" id="1_i1pff"]
 [ext_resource type="Texture2D" uid="uid://bwm4y676yhk77" path="res://Sprites/checkpoint-base.png" id="2_opoc8"]
 [ext_resource type="Texture2D" uid="uid://c2vhuytst51c0" path="res://Sprites/checkpoint-pole.png" id="3_l0c30"]
 [ext_resource type="Texture2D" uid="uid://cnc70y6gahvhg" path="res://Sprites/checkpoint_flag.png" id="4_i1pff"]
 [ext_resource type="Shader" uid="uid://7gwbqnj5dg4s" path="res://Shaders/wavy.gdshader" id="4_opoc8"]
+[ext_resource type="Texture2D" uid="uid://bbx8dangh1d0s" path="res://Sprites/orbs.png" id="6_l0c30"]
+[ext_resource type="Script" uid="uid://bwtaepjv3mwab" path="res://Scripts/rotator.gd" id="6_w8ggu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jwpg7"]
 radius = 204.06657
@@ -111,5 +113,41 @@ position = Vector2(1, -118)
 rotation = 1.5707964
 texture = ExtResource("4_i1pff")
 offset = Vector2(12.365311, -47.66091)
+
+[node name="Orbs1" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.6431373)
+position = Vector2(0, -74)
+rotation = 2.2497294
+scale = Vector2(0.71263784, 0.71263784)
+texture = ExtResource("6_l0c30")
+script = ExtResource("6_w8ggu")
+speed = 250.0
+
+[node name="Orbs2" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.6431373)
+position = Vector2(-6.9999957, -77.00001)
+rotation = -2.4800608
+scale = Vector2(0.42915836, 0.42915836)
+texture = ExtResource("6_l0c30")
+script = ExtResource("6_w8ggu")
+speed = 150.0
+
+[node name="Orbs3" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.6431373)
+position = Vector2(5.9999995, -64)
+rotation = 1.3627982
+scale = Vector2(0.6218615, 0.6218615)
+texture = ExtResource("6_l0c30")
+script = ExtResource("6_w8ggu")
+speed = -100.0
+
+[node name="Orbs4" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.6431373)
+position = Vector2(-3.9999995, -81)
+rotation = 1.6715479
+scale = Vector2(0.6218615, 0.6218615)
+texture = ExtResource("6_l0c30")
+script = ExtResource("6_w8ggu")
+speed = -200.0
 
 [connection signal="body_entered" from="." to="." method="_activate"]
