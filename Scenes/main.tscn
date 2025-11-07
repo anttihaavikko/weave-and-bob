@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=43 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/blob.tscn" id="1_bo1nx"]
@@ -37,6 +37,7 @@
 [ext_resource type="Script" uid="uid://c8ej1vfg86d5v" path="res://Scripts/spawn.gd" id="22_gt3je"]
 [ext_resource type="AudioStream" uid="uid://baj3ju7qtah60" path="res://Sounds/spawn.wav" id="22_jwpg7"]
 [ext_resource type="AudioStream" uid="uid://dwphx657ljy5h" path="res://Sounds/warn.wav" id="23_k2e45"]
+[ext_resource type="PackedScene" uid="uid://ccw01rqfuh3ys" path="res://Scenes/platform.tscn" id="33_o1aky"]
 [ext_resource type="Texture2D" uid="uid://cqk6j01w8oul" path="res://Sprites/ring.png" id="41_8cuat"]
 [ext_resource type="PackedScene" uid="uid://c4dqyepeaha7h" path="res://Scenes/checkpoint.tscn" id="41_kwxat"]
 [ext_resource type="Script" uid="uid://c7fckvtsco120" path="res://Scripts/blob.gd" id="41_o1aky"]
@@ -80,17 +81,6 @@ position = Vector2(-1391.767, -602)
 
 [node name="Checkpoint2" parent="." instance=ExtResource("41_kwxat")]
 position = Vector2(1719.0067, -703)
-
-[node name="Spawn Point" type="Node2D" parent="."]
-position = Vector2(-2234.8083, -465)
-script = ExtResource("41_o1aky")
-player = ExtResource("1_bo1nx")
-
-[node name="Sprite2D" type="Node2D" parent="Spawn Point"]
-visibility_layer = 524288
-scale = Vector2(1.3888413, 1.3888413)
-script = ExtResource("44_aa8k8")
-texture = ExtResource("41_8cuat")
 
 [node name="Level" type="Node2D" parent="."]
 position = Vector2(3.9907298, 0)
@@ -177,6 +167,34 @@ scale = Vector2(2662.3293, 1348.0559)
 position = Vector2(1690.2917, 40.27298)
 scale = Vector2(719.0284, 1321.1271)
 
+[node name="Platform" type="Node2D" parent="Level"]
+position = Vector2(1975.4113, -1216)
+
+[node name="Platform" parent="Level/Platform" instance=ExtResource("33_o1aky")]
+position = Vector2(74.3135, -1.1221026e-05)
+scale = Vector2(570.40137, 41.373005)
+
+[node name="Platform Support" type="Sprite2D" parent="Level/Platform"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(245.4299, 61.000034)
+rotation = 3.7837226
+scale = Vector2(210.89182, 29.583363)
+texture = ExtResource("3_8gbba")
+
+[node name="Platform2" type="Node2D" parent="Level"]
+position = Vector2(1975.4113, -1824)
+
+[node name="Platform" parent="Level/Platform2" instance=ExtResource("33_o1aky")]
+position = Vector2(74.3135, -1.1221026e-05)
+scale = Vector2(570.40137, 41.373005)
+
+[node name="Platform Support" type="Sprite2D" parent="Level/Platform2"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(245.4299, 61.000034)
+rotation = 3.7837226
+scale = Vector2(210.89182, 29.583363)
+texture = ExtResource("3_8gbba")
+
 [node name="Wall2" parent="Level" instance=ExtResource("4_344ge")]
 position = Vector2(3.4028625, 1438)
 scale = Vector2(2560.5256, 512.7101)
@@ -209,22 +227,22 @@ respawns_after = 0
 [node name="Enemy3" parent="Level" instance=ExtResource("9_ynf5e")]
 position = Vector2(-812.1135, -404)
 scale = Vector2(0.30418557, 0.3041856)
-respawns_after = 0
+respawns_after = 1
 
 [node name="Enemy5" parent="Level" instance=ExtResource("9_ynf5e")]
 position = Vector2(-363.15643, -411.00003)
 scale = Vector2(0.30418557, 0.3041856)
-respawns_after = 0
+respawns_after = 1
 
 [node name="Enemy6" parent="Level" instance=ExtResource("9_ynf5e")]
 position = Vector2(120.71958, -423.00003)
 scale = Vector2(0.30418557, 0.3041856)
-respawns_after = 0
+respawns_after = 1
 
 [node name="Enemy7" parent="Level" instance=ExtResource("9_ynf5e")]
 position = Vector2(604.5956, -431.00003)
 scale = Vector2(0.30418557, 0.3041856)
-respawns_after = 0
+respawns_after = 1
 
 [node name="Room" type="Node2D" parent="."]
 position = Vector2(3999.709, -1383)
@@ -852,6 +870,17 @@ title = "TAN"
 mode = 1
 dir = Vector2(0, 1)
 _enemy = ExtResource("9_ynf5e")
+
+[node name="Spawn Point" type="Node2D" parent="."]
+position = Vector2(1734.9696, -734)
+script = ExtResource("41_o1aky")
+player = ExtResource("1_bo1nx")
+
+[node name="Sprite2D" type="Node2D" parent="Spawn Point"]
+visibility_layer = 524288
+scale = Vector2(1.3888413, 1.3888413)
+script = ExtResource("44_aa8k8")
+texture = ExtResource("41_8cuat")
 
 [node name="Mag Pickup" parent="." instance=ExtResource("16_k12tt")]
 position = Vector2(-784.1784, 506)
