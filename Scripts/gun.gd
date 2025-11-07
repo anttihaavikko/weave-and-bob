@@ -1,5 +1,5 @@
 class_name Gun
-extends RigidBody2D
+extends MovableRigidbody
 
 var mouse: Vector2
 var clicked: bool
@@ -24,8 +24,6 @@ var current_shot_line := 0
 var just_shot := false
 var full_screen := false
 var cooldown := 0.0
-
-signal shot
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
@@ -99,8 +97,10 @@ func _physics_process(delta: float) -> void:
 		if result.has("collider"):
 			if result.collider is Enemy:
 				result.collider.hurt(result.position)
-			
-		shot.emit(result.has("position"), p, result.position if result else p + dir)
+		
+		var pos = result.position if result.has("position") else p + dir	
+		Effects.singleton.add_many([0, 1], pos)	
+		LineDrawer.singleton.add(p, pos)
 		
 		camera.offset = Vector2(randf_range(-1, 1), randf_range(-1, 1)) * 5
 		muzzle.emitting = true

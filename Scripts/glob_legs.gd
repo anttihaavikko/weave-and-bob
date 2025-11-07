@@ -8,6 +8,12 @@ extends MovableRigidbody
 var stomp_cooldown := 0.0
 var grounded := false
 
+#func _ready() -> void:
+#	if GameState.spawn_set:
+#		var p = GameState.spawn_point
+#		gun.move_to(p, 0)
+#		move_to(p, 0)
+
 func _process(delta: float) -> void:
 	var x: float = Input.get_axis("left", "right")
 	apply_force(Vector2(x * 200000, 0) * delta)

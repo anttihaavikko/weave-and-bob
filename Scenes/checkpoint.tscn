@@ -1,0 +1,115 @@
+[gd_scene load_steps=11 format=3 uid="uid://c4dqyepeaha7h"]
+
+[ext_resource type="Script" uid="uid://c5qkfriyomk3j" path="res://Scripts/checkpoint.gd" id="1_i1pff"]
+[ext_resource type="Texture2D" uid="uid://bwm4y676yhk77" path="res://Sprites/checkpoint-base.png" id="2_opoc8"]
+[ext_resource type="Texture2D" uid="uid://c2vhuytst51c0" path="res://Sprites/checkpoint-pole.png" id="3_l0c30"]
+[ext_resource type="Texture2D" uid="uid://cnc70y6gahvhg" path="res://Sprites/checkpoint_flag.png" id="4_i1pff"]
+[ext_resource type="Shader" uid="uid://7gwbqnj5dg4s" path="res://Shaders/wavy.gdshader" id="4_opoc8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jwpg7"]
+radius = 204.06657
+
+[sub_resource type="Animation" id="Animation_opoc8"]
+resource_name = "flag"
+length = 0.2
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pole/Flag:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.5707964, 1.703441349946466]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pole/Flag:skew")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.35430183815484884]
+}
+
+[sub_resource type="Animation" id="Animation_l0c30"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pole/Flag:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5707964]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pole/Flag:skew")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w8ggu"]
+_data = {
+&"RESET": SubResource("Animation_l0c30"),
+&"flag": SubResource("Animation_opoc8")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l0c30"]
+shader = ExtResource("4_opoc8")
+shader_parameter/amount = 5.0
+shader_parameter/frequency = 0.0
+shader_parameter/speed = 5.0
+shader_parameter/flip = false
+
+[node name="Checkpoint" type="Area2D" node_paths=PackedStringArray("pole")]
+modulate = Color(0.5686275, 0.32941177, 0.16470589, 1)
+collision_layer = 0
+script = ExtResource("1_i1pff")
+pole = NodePath("Pole")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_jwpg7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_w8ggu")
+}
+autoplay = "flag"
+
+[node name="Base" type="Sprite2D" parent="."]
+position = Vector2(-0.71026415, -20.213013)
+scale = Vector2(0.68654114, 0.68654114)
+texture = ExtResource("2_opoc8")
+
+[node name="Pole" type="Sprite2D" parent="."]
+position = Vector2(-0.24789906, -118.06379)
+rotation = 3.1415927
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("3_l0c30")
+offset = Vector2(0.003198266, -83.02489)
+
+[node name="Flag" type="Sprite2D" parent="Pole"]
+material = SubResource("ShaderMaterial_l0c30")
+position = Vector2(1, -118)
+rotation = 1.5707964
+texture = ExtResource("4_i1pff")
+offset = Vector2(12.365311, -47.66091)
+
+[connection signal="body_entered" from="." to="." method="_activate"]

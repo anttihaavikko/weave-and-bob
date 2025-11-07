@@ -1,11 +1,8 @@
-extends Node
+extends Node2D
 
-@export var lines: LineDrawer
-@export var effects: Effects
-	
-func _on_gun_shot(hit: bool, from: Vector2, to: Vector2):
-	lines.add_line(from, to)
-	if hit:
-		effects.add(0, to)
-		effects.add(1, to)
-	
+@export var player: PackedScene
+
+func _ready() -> void:
+	if GameState.spawn_set: global_position = GameState.spawn_point
+	var plr := player.instantiate()
+	add_child(plr)

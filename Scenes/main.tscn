@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=42 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/blob.tscn" id="1_bo1nx"]
@@ -37,6 +37,10 @@
 [ext_resource type="Script" uid="uid://c8ej1vfg86d5v" path="res://Scripts/spawn.gd" id="22_gt3je"]
 [ext_resource type="AudioStream" uid="uid://baj3ju7qtah60" path="res://Sounds/spawn.wav" id="22_jwpg7"]
 [ext_resource type="AudioStream" uid="uid://dwphx657ljy5h" path="res://Sounds/warn.wav" id="23_k2e45"]
+[ext_resource type="Texture2D" uid="uid://cqk6j01w8oul" path="res://Sprites/ring.png" id="41_8cuat"]
+[ext_resource type="PackedScene" uid="uid://c4dqyepeaha7h" path="res://Scenes/checkpoint.tscn" id="41_kwxat"]
+[ext_resource type="Script" uid="uid://c7fckvtsco120" path="res://Scripts/blob.gd" id="41_o1aky"]
+[ext_resource type="Script" uid="uid://cjo6s8hrhyh8l" path="res://Scripts/dev_sprite.gd" id="44_aa8k8"]
 
 [node name="Main" type="Node2D"]
 scale = Vector2(1.0023229, 1)
@@ -59,10 +63,9 @@ script = ExtResource("10_gt3je")
 effects = Array[AudioStream]([ExtResource("11_3pmx8"), ExtResource("12_cbgmd"), ExtResource("13_1w6v2"), ExtResource("14_ueoa1"), ExtResource("15_6vcvc"), ExtResource("16_7k868"), ExtResource("17_e08e2"), ExtResource("18_neg2b"), ExtResource("19_r33sp"), ExtResource("20_neg2b"), ExtResource("21_r33sp"), ExtResource("22_jwpg7"), ExtResource("23_k2e45")])
 prefab = ExtResource("12_u50mg")
 
-[node name="Line Drawer" type="Node" parent="." node_paths=PackedStringArray("line", "timer")]
+[node name="Line Drawer" type="Node" parent="." node_paths=PackedStringArray("line")]
 script = ExtResource("3_jjvhh")
 line = NodePath("Shot Line")
-timer = NodePath("Timer")
 
 [node name="Shot Line" type="Line2D" parent="Line Drawer"]
 position = Vector2(-5, 0)
@@ -72,11 +75,22 @@ width = 5.0
 [node name="Timer" type="Timer" parent="Line Drawer"]
 wait_time = 0.05
 
-[node name="Player" parent="." node_paths=PackedStringArray("lines", "effects") instance=ExtResource("1_bo1nx")]
-z_index = 10
-position = Vector2(-2168.9617, -442)
-lines = NodePath("../Line Drawer")
-effects = NodePath("../Effects")
+[node name="Checkpoint" parent="." instance=ExtResource("41_kwxat")]
+position = Vector2(-1391.767, -602)
+
+[node name="Checkpoint2" parent="." instance=ExtResource("41_kwxat")]
+position = Vector2(1719.0067, -703)
+
+[node name="Spawn Point" type="Node2D" parent="."]
+position = Vector2(-2234.8083, -465)
+script = ExtResource("41_o1aky")
+player = ExtResource("1_bo1nx")
+
+[node name="Sprite2D" type="Node2D" parent="Spawn Point"]
+visibility_layer = 524288
+scale = Vector2(1.3888413, 1.3888413)
+script = ExtResource("44_aa8k8")
+texture = ExtResource("41_8cuat")
 
 [node name="Level" type="Node2D" parent="."]
 position = Vector2(3.9907298, 0)
