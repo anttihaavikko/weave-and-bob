@@ -6,7 +6,11 @@ extends Node2D
 @export var gun: PackedScene
 @export var cam: Camera2D
 
-func die():
+var dead := false
+
+func die() -> void:
+	if dead: return
+	dead = true
 	hide()
 	Effects.singleton.add_many([4, 3, 2, 2, 2, 0, 0, 0, 1], control.global_position)
 	SoundEffects.singleton.add(2, control.global_position)
@@ -21,4 +25,3 @@ func die():
 	g.apply_torque_impulse(randf_range(-1, 1) * 10000)
 	await get_tree().create_timer(1.5).timeout
 	get_tree().reload_current_scene()
-#	get_tree().create_tween().tween_property(self, "global_position", Vector2(0, 0), 0.5)

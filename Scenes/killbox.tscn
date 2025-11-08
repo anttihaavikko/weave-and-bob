@@ -7,7 +7,7 @@
 size = Vector2(1.0000001, 1.0000002)
 
 [node name="Killbox" type="Sprite2D"]
-modulate = Color(1, 1, 1, 0.49019608)
+self_modulate = Color(1, 1, 1, 0)
 scale = Vector2(100, 100)
 texture = ExtResource("1_l0vr1")
 script = ExtResource("2_40qds")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=45 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/player.tscn" id="1_bo1nx"]
@@ -24,6 +24,7 @@
 [ext_resource type="AudioStream" uid="uid://ceas7swx6gpbt" path="res://Sounds/bump.wav" id="14_ueoa1"]
 [ext_resource type="AudioStream" uid="uid://dhgvtmwjwvfyr" path="res://Sounds/land.wav" id="15_6vcvc"]
 [ext_resource type="AudioStream" uid="uid://by8w7qkrtxmm6" path="res://Sounds/enemy_bump.wav" id="16_7k868"]
+[ext_resource type="PackedScene" uid="uid://b4gsjya68uvno" path="res://Scenes/enemy_spiked.tscn" id="16_aa8k8"]
 [ext_resource type="PackedScene" uid="uid://tmp3aao5rcrn" path="res://Scenes/pickup.tscn" id="16_k12tt"]
 [ext_resource type="AudioStream" uid="uid://5fiorq7fpqgr" path="res://Sounds/pickup1.wav" id="17_e08e2"]
 [ext_resource type="PackedScene" uid="uid://ympyuuto2ejt" path="res://Scenes/letter.tscn" id="17_h1bgf"]
@@ -56,27 +57,6 @@ position = Vector2(1187.2422, -883)
 scale = Vector2(17784.191, 8983.001)
 texture = ExtResource("3_8gbba")
 
-[node name="Effects" type="Node" parent="."]
-script = ExtResource("5_kry3j")
-effects = Array[PackedScene]([ExtResource("2_kry3j"), ExtResource("6_21xkr"), ExtResource("10_hptm8"), ExtResource("10_d1ilt"), ExtResource("12_6iyac"), ExtResource("9_k12tt")])
-
-[node name="Sounds" type="Node" parent="."]
-script = ExtResource("10_gt3je")
-effects = Array[AudioStream]([ExtResource("11_3pmx8"), ExtResource("12_cbgmd"), ExtResource("13_1w6v2"), ExtResource("14_ueoa1"), ExtResource("15_6vcvc"), ExtResource("16_7k868"), ExtResource("17_e08e2"), ExtResource("18_neg2b"), ExtResource("19_r33sp"), ExtResource("20_neg2b"), ExtResource("21_r33sp"), ExtResource("22_jwpg7"), ExtResource("23_k2e45")])
-prefab = ExtResource("12_u50mg")
-
-[node name="Line Drawer" type="Node" parent="." node_paths=PackedStringArray("line")]
-script = ExtResource("3_jjvhh")
-line = NodePath("Shot Line")
-
-[node name="Shot Line" type="Line2D" parent="Line Drawer"]
-position = Vector2(-5, 0)
-points = PackedVector2Array(0, 0, 0, 0)
-width = 5.0
-
-[node name="Timer" type="Timer" parent="Line Drawer"]
-wait_time = 0.05
-
 [node name="Level" type="Node" parent="."]
 
 [node name="Checkpoint" parent="Level" instance=ExtResource("41_kwxat")]
@@ -85,6 +65,10 @@ scale = Vector2(1.0023229, 1)
 
 [node name="Checkpoint2" parent="Level" instance=ExtResource("41_kwxat")]
 position = Vector2(1722.9998, -703)
+scale = Vector2(1.0023229, 1)
+
+[node name="Checkpoint3" parent="Level" instance=ExtResource("41_kwxat")]
+position = Vector2(3693, 1373)
 scale = Vector2(1.0023229, 1)
 
 [node name="Starter" type="Node2D" parent="Level"]
@@ -817,7 +801,7 @@ script = ExtResource("22_gt3je")
 title = "TAN"
 mode = 1
 dir = Vector2(0, 1)
-_enemy = ExtResource("9_ynf5e")
+_enemy = ExtResource("16_aa8k8")
 
 [node name="Spawn6" type="Node2D" parent="Level/Room2/Onslaught Encounter/Wave"]
 position = Vector2(-411.04495, -382.90732)
@@ -825,7 +809,7 @@ script = ExtResource("22_gt3je")
 title = "TAN"
 mode = 1
 dir = Vector2(0, 1)
-_enemy = ExtResource("9_ynf5e")
+_enemy = ExtResource("16_aa8k8")
 
 [node name="Wave2" type="Node2D" parent="Level/Room2/Onslaught Encounter"]
 position = Vector2(5.9604645e-08, -0.09260985)
@@ -837,7 +821,7 @@ script = ExtResource("22_gt3je")
 title = "SIN"
 mode = 1
 dir = Vector2(-1, 0)
-_enemy = ExtResource("9_ynf5e")
+_enemy = ExtResource("16_aa8k8")
 
 [node name="Spawn2" type="Node2D" parent="Level/Room2/Onslaught Encounter/Wave2"]
 position = Vector2(-906.8933, 219.09262)
@@ -845,7 +829,7 @@ script = ExtResource("22_gt3je")
 title = "COS"
 mode = 1
 dir = Vector2(1, 0)
-_enemy = ExtResource("9_ynf5e")
+_enemy = ExtResource("16_aa8k8")
 
 [node name="Spawn3" type="Node2D" parent="Level/Room2/Onslaught Encounter/Wave2"]
 position = Vector2(802.1369, -52.90733)
@@ -853,7 +837,7 @@ script = ExtResource("22_gt3je")
 title = "SIN"
 mode = 1
 dir = Vector2(-1, 0)
-_enemy = ExtResource("9_ynf5e")
+_enemy = ExtResource("16_aa8k8")
 
 [node name="Spawn4" type="Node2D" parent="Level/Room2/Onslaught Encounter/Wave2"]
 position = Vector2(-790.1645, -1.907318)
@@ -861,26 +845,26 @@ script = ExtResource("22_gt3je")
 title = "COS"
 mode = 1
 dir = Vector2(1, 0)
-_enemy = ExtResource("9_ynf5e")
+_enemy = ExtResource("16_aa8k8")
 
 [node name="Spawn5" type="Node2D" parent="Level/Room2/Onslaught Encounter/Wave2"]
-position = Vector2(354.17737, -373.90735)
+position = Vector2(466.91547, -373.90735)
 script = ExtResource("22_gt3je")
 title = "TAN"
 mode = 1
 dir = Vector2(0, 1)
-_enemy = ExtResource("9_ynf5e")
+_enemy = ExtResource("16_aa8k8")
 
 [node name="Spawn6" type="Node2D" parent="Level/Room2/Onslaught Encounter/Wave2"]
-position = Vector2(-411.04495, -382.90732)
+position = Vector2(-524.78076, -382.90732)
 script = ExtResource("22_gt3je")
 title = "TAN"
 mode = 1
 dir = Vector2(0, 1)
-_enemy = ExtResource("9_ynf5e")
+_enemy = ExtResource("16_aa8k8")
 
 [node name="Spawn Point" type="Node2D" parent="Level"]
-position = Vector2(1738.9998, -734)
+position = Vector2(5864, 585)
 scale = Vector2(1.0023229, 1)
 script = ExtResource("39_kwxat")
 player = ExtResource("1_bo1nx")
@@ -901,8 +885,29 @@ scale = Vector2(1.0023229, 1)
 id = "first_map"
 type = 2
 
+[node name="Effects" type="Node" parent="."]
+script = ExtResource("5_kry3j")
+effects = Array[PackedScene]([ExtResource("2_kry3j"), ExtResource("6_21xkr"), ExtResource("10_hptm8"), ExtResource("10_d1ilt"), ExtResource("12_6iyac"), ExtResource("9_k12tt")])
+
+[node name="Sounds" type="Node" parent="."]
+script = ExtResource("10_gt3je")
+effects = Array[AudioStream]([ExtResource("11_3pmx8"), ExtResource("12_cbgmd"), ExtResource("13_1w6v2"), ExtResource("14_ueoa1"), ExtResource("15_6vcvc"), ExtResource("16_7k868"), ExtResource("17_e08e2"), ExtResource("18_neg2b"), ExtResource("19_r33sp"), ExtResource("20_neg2b"), ExtResource("21_r33sp"), ExtResource("22_jwpg7"), ExtResource("23_k2e45")])
+prefab = ExtResource("12_u50mg")
+
+[node name="Line Drawer" type="Node" parent="." node_paths=PackedStringArray("line")]
+script = ExtResource("3_jjvhh")
+line = NodePath("Shot Line")
+
+[node name="Shot Line" type="Line2D" parent="Line Drawer"]
+position = Vector2(-5, 0)
+points = PackedVector2Array(0, 0, 0, 0)
+width = 5.0
+
+[node name="Timer" type="Timer" parent="Line Drawer"]
+wait_time = 0.05
+
 [node name="Killbox" parent="." instance=ExtResource("43_kwxat")]
-position = Vector2(-64.84924, -173)
+position = Vector2(166.61295, -1690)
 scale = Vector2(2126.1772, 100)
 
 [node name="Spikes" type="TextureRect" parent="."]
