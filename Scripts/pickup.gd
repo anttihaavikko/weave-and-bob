@@ -22,7 +22,7 @@ func _ready() -> void:
 	sprite.texture = textures[type]
 	if not Engine.is_editor_hint():
 		if GameState.has(id):
-			queue_free()
+			queue_free()	
 
 func _picked(_body: Node2D):
 	if type == PickupType.Magazine: GameState.has_magazine = true

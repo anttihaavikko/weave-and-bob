@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpamcmqpiyf2j"]
+
+[ext_resource type="Texture2D" uid="uid://dggvv625tmn04" path="res://Sprites/square.png" id="1_l0vr1"]
+[ext_resource type="Script" uid="uid://dwe1vkc75ubha" path="res://Scripts/killbox.gd" id="2_40qds"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o1aky"]
+size = Vector2(1.0000001, 1.0000002)
+
+[node name="Killbox" type="Sprite2D"]
+modulate = Color(1, 1, 1, 0.49019608)
+scale = Vector2(100, 100)
+texture = ExtResource("1_l0vr1")
+script = ExtResource("2_40qds")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-9.536597e-09, 0)
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_o1aky")
+
+[connection signal="body_entered" from="Area2D" to="." method="enter"]

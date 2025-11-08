@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7hykafidlmlr"]
+
+[ext_resource type="Texture2D" uid="uid://c4624ijigoeqo" path="res://Sprites/ak47.png" id="1_nxj5y"]
+
+[node name="Gun" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 10
+
+[node name="Collider" type="CollisionPolygon2D" parent="."]
+scale = Vector2(0.35379726, 0.35379726)
+polygon = PackedVector2Array(-79.8146, -50, 206.52026, -55, 207.51794, -25, 8.979142, -12, 46.891075, 40, 23.944378, 70, -30.928156, 5, -67.84241, 7, -75.82387, 38, -104.75666, 28, -93.78215, -4, -201.53186, 26, -209.51332, -24, -95.77751, -40)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.35379726, 0.35379726)
+texture = ExtResource("1_nxj5y")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1, -19)
+process_callback = 0
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_top_margin = 0.1
+drag_bottom_margin = 0.1
