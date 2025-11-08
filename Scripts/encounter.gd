@@ -3,7 +3,7 @@ extends Node2D
 
 @export var doors: Array[Door]
 @export var reward: PackedScene
-@export var reward_type: Pickup.PickupType
+@export var reward_type: Pickup.Type
 
 var id: String
 var waves: Array[Wave]

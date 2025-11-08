@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bpamcmqpiyf2j" path="res://Scenes/killbox.tscn" id="3_jtvt1"]
 
 [node name="Enemy" instance=ExtResource("1_4oid8")]
+title = "nil"
 
 [node name="Flasher" parent="." index="6" node_paths=PackedStringArray("items")]
 items = [NodePath("../Frame/Outline"), NodePath("../Frame/Fill"), NodePath("../Label"), NodePath("../Face/Eye Left"), NodePath("../Face/Eye Right"), NodePath("../Face/Mouth"), NodePath("../Face/Brow"), NodePath("../Spike"), NodePath("../Spike2"), NodePath("../Spike3"), NodePath("../Halo"), NodePath("../Wing Right"), NodePath("../Wing Left")]
@@ -43,3 +44,6 @@ texture = ExtResource("2_jtvt1")
 position = Vector2(-1.4671991, -1.4671783)
 scale = Vector2(14.231364, 21.051495)
 can_kill_enemies = false
+
+[node name="Label" parent="." index="13"]
+text = "nil"

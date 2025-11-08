@@ -1,8 +1,12 @@
+@tool
 class_name Enemy
 extends CharacterBody2D
 
 @export var id: String
-@export var title: String
+@export var title: String:
+	set(value):
+		title = value
+		title_label.text = value
 @export var respawns_after := 2
 @export var life := 500
 @export var stomp_offset := 20
@@ -11,6 +15,8 @@ extends CharacterBody2D
 @export var bump_cast: ShapeCast2D
 @export var title_label: Label
 @export var halo: Node2D
+@export var left_wing: Node2D
+@export var right_wing: Node2D
 
 @export var flasher: Flasher
 
@@ -25,10 +31,10 @@ var max_life := life
 signal died;
 
 func _ready() -> void:
-	title_label.text = title
-	if GameState.has(id):
-		if starts_encounter: starts_encounter.open_doors()
-		queue_free()
+	if not Engine.is_editor_hint():
+		if GameState.has(id):
+			if starts_encounter: starts_encounter.open_doors()
+			queue_free()
 	
 func _physics_process(delta: float) -> void:
 	if mode == Behaviour.Wave:
@@ -66,6 +72,8 @@ func die():
 	process_mode = Node.PROCESS_MODE_DISABLED
 	Effects.singleton.add_many([4, 3, 2, 2, 2, 0, 0, 0, 1], global_position)
 	SoundEffects.singleton.add(2, global_position)
+	Effects.singleton.add(7, left_wing.global_position) # feathers.tscn
+	Effects.singleton.add(7, right_wing.global_position) # feathers.tscn
 	var h: RigidBody2D = Effects.singleton.add(6, halo.global_position, 10)
 	for c in h.get_children():
 		if c is Node2D:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=46 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/player.tscn" id="1_bo1nx"]
@@ -39,6 +39,7 @@
 [ext_resource type="AudioStream" uid="uid://baj3ju7qtah60" path="res://Sounds/spawn.wav" id="22_jwpg7"]
 [ext_resource type="AudioStream" uid="uid://dwphx657ljy5h" path="res://Sounds/warn.wav" id="23_k2e45"]
 [ext_resource type="PackedScene" uid="uid://cd1lfv8xg8ha8" path="res://Scenes/halo.tscn" id="28_kqrg6"]
+[ext_resource type="PackedScene" uid="uid://lmvlns352qp4" path="res://Scenes/Effects/feathers.tscn" id="29_kqrg6"]
 [ext_resource type="PackedScene" uid="uid://ccw01rqfuh3ys" path="res://Scenes/platform.tscn" id="33_o1aky"]
 [ext_resource type="Script" uid="uid://ban2bpqpuesw1" path="res://Scripts/player_spawn.gd" id="39_kwxat"]
 [ext_resource type="Texture2D" uid="uid://cqk6j01w8oul" path="res://Sprites/ring.png" id="41_8cuat"]
@@ -460,6 +461,7 @@ letter = "N"
 [node name="Enemy2" parent="Level/Room" instance=ExtResource("9_ynf5e")]
 position = Vector2(1328.9131, 874)
 scale = Vector2(0.30418554, 0.3041856)
+title = "∞"
 stomp_offset = 120
 
 [node name="Door" parent="Level/Room" instance=ExtResource("19_ee4r6")]
@@ -888,7 +890,7 @@ type = 2
 
 [node name="Effects" type="Node" parent="."]
 script = ExtResource("5_kry3j")
-effects = Array[PackedScene]([ExtResource("2_kry3j"), ExtResource("6_21xkr"), ExtResource("10_hptm8"), ExtResource("10_d1ilt"), ExtResource("12_6iyac"), ExtResource("9_k12tt"), ExtResource("28_kqrg6")])
+effects = Array[PackedScene]([ExtResource("2_kry3j"), ExtResource("6_21xkr"), ExtResource("10_hptm8"), ExtResource("10_d1ilt"), ExtResource("12_6iyac"), ExtResource("9_k12tt"), ExtResource("28_kqrg6"), ExtResource("29_kqrg6")])
 
 [node name="Sounds" type="Node" parent="."]
 script = ExtResource("10_gt3je")

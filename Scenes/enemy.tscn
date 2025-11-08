@@ -14,6 +14,57 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_344ge"]
 radius = 252.11693
 
+[sub_resource type="Animation" id="Animation_haro7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Wing Right:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Wing Left:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Wing Right:skew")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Wing Left:skew")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
 [sub_resource type="Animation" id="Animation_po0sg"]
 resource_name = "enemy_idle"
 loop_mode = 1
@@ -66,57 +117,6 @@ tracks/3/keys = {
 "values": [-0.3490658503988659, -0.3490658503988659, -0.3490658503988659, -0.3490658503988659]
 }
 
-[sub_resource type="Animation" id="Animation_haro7"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Wing Right:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Wing Left:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Wing Right:skew")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Wing Left:skew")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_haro7"]
 _data = {
 &"RESET": SubResource("Animation_haro7"),
@@ -141,7 +141,7 @@ radius = 309.8
 font = ExtResource("7_1dp5w")
 font_size = 70
 
-[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("frame", "bump_cast", "title_label", "halo", "flasher")]
+[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("frame", "bump_cast", "title_label", "halo", "left_wing", "right_wing", "flasher")]
 scale = Vector2(0.3041856, 0.3041856)
 collision_layer = 8
 collision_mask = 9
@@ -150,6 +150,8 @@ frame = NodePath("Frame")
 bump_cast = NodePath("Bump Cast")
 title_label = NodePath("Label")
 halo = NodePath("Halo")
+left_wing = NodePath("Wing Left/Spot")
+right_wing = NodePath("Wing Right/Spot")
 flasher = NodePath("Flasher")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -168,11 +170,17 @@ scale = Vector2(0.7137786, 0.7137786)
 texture = ExtResource("10_po0sg")
 offset = Vector2(190.67307, -88.76161)
 
+[node name="Spot" type="Node2D" parent="Wing Right"]
+position = Vector2(300, -150)
+
 [node name="Wing Left" type="Sprite2D" parent="."]
 position = Vector2(-164.373, -108.486)
 scale = Vector2(-0.714, 0.714)
 texture = ExtResource("10_po0sg")
 offset = Vector2(190.67307, -88.76161)
+
+[node name="Spot" type="Node2D" parent="Wing Left"]
+position = Vector2(300, -150)
 
 [node name="Trail" type="CPUParticles2D" parent="."]
 modulate = Color(1, 1, 1, 0.49411765)
@@ -262,7 +270,6 @@ offset_left = -128.2112
 offset_top = -170.94826
 offset_right = 121.63629
 offset_bottom = -59.547714
-text = "FOO"
 label_settings = SubResource("LabelSettings_auwsv")
 horizontal_alignment = 1
 vertical_alignment = 1

@@ -1,0 +1,76 @@
+[gd_scene load_steps=12 format=3 uid="uid://lmvlns352qp4"]
+
+[ext_resource type="Shader" uid="uid://dw5u0j1r1we5x" path="res://Shaders/blob.gdshader" id="1_pvoaj"]
+[ext_resource type="Texture2D" uid="uid://su7o4rfkp0cf" path="res://Sprites/feather.png" id="1_uwvsu"]
+[ext_resource type="Script" uid="uid://cnqkxei24emlb" path="res://Scripts/free_after.gd" id="2_pvoaj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ij6xg"]
+shader = ExtResource("1_pvoaj")
+shader_parameter/amount = 20.0
+shader_parameter/rotation_speed = 5.0
+shader_parameter/offset = 0.0
+shader_parameter/speed = 0.1
+shader_parameter/peaks = 7.0
+shader_parameter/time_mod = 1.0
+
+[sub_resource type="Curve" id="Curve_pvoaj"]
+_limits = [-360.0, 360.0, 0.0, 1.0]
+_data = [Vector2(0, 0.61776733), 0.0, 0.0, 0, 0, Vector2(1, -1.3899536), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ij6xg"]
+curve = SubResource("Curve_pvoaj")
+
+[sub_resource type="Curve" id="Curve_uwvsu"]
+_data = [Vector2(0.41919196, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -4.521929, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_pvoaj"]
+curve = SubResource("Curve_uwvsu")
+
+[sub_resource type="Curve" id="Curve_ij6xg"]
+_data = [Vector2(0.24999999, 0), 0.0, 2.3184352, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_jkckh"]
+curve = SubResource("Curve_ij6xg")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ucrsg"]
+particle_flag_rotate_y = true
+particle_flag_disable_z = true
+angle_min = -360.0
+angle_max = 360.00003
+angle_curve = SubResource("CurveTexture_ij6xg")
+direction = Vector3(0, 1, 0)
+spread = 30.0
+initial_velocity_min = -500.0
+initial_velocity_max = 500.0
+gravity = Vector3(0, 500, 0)
+radial_accel_min = -2.2351742e-06
+radial_accel_max = -2.2351742e-06
+damping_max = 100.00001
+scale_min = 0.099999994
+scale_max = 0.19999999
+scale_curve = SubResource("CurveTexture_pvoaj")
+turbulence_enabled = true
+turbulence_noise_scale = 25.0
+turbulence_noise_speed_random = 0.0
+turbulence_influence_max = 0.231
+turbulence_influence_over_life = SubResource("CurveTexture_jkckh")
+collision_mode = 2
+
+[node name="Feathers" type="GPUParticles2D"]
+material = SubResource("ShaderMaterial_ij6xg")
+emitting = false
+amount = 10
+texture = ExtResource("1_uwvsu")
+lifetime = 5.0
+one_shot = true
+explosiveness = 1.0
+randomness = 0.5
+collision_base_size = 0.1
+visibility_rect = Rect2(-1000, -1000, 2000, 2000)
+trail_lifetime = 0.2
+process_material = SubResource("ParticleProcessMaterial_ucrsg")
+script = ExtResource("2_pvoaj")
+delay = 2.0
