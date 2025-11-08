@@ -6,7 +6,7 @@
 
 [node name="Enemy" instance=ExtResource("1_4oid8")]
 
-[node name="Flasher" parent="." index="2" node_paths=PackedStringArray("items")]
+[node name="Flasher" parent="." index="3" node_paths=PackedStringArray("items")]
 items = [NodePath("../Frame/Outline"), NodePath("../Frame/Fill"), NodePath("../Label"), NodePath("../Face/Eye Left"), NodePath("../Face/Eye Right"), NodePath("../Face/Mouth"), NodePath("../Face/Brow"), NodePath("../Spike"), NodePath("../Spike2"), NodePath("../Spike3"), NodePath("../Halo")]
 
 [node name="Spike" type="Sprite2D" parent="." index="7"]
