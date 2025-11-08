@@ -2,6 +2,7 @@ extends Node
 
 var has_magazine := true
 var map_upgrades := 0
+var damage := 100
 
 var spawn_set := false
 var spawn_point: Vector2

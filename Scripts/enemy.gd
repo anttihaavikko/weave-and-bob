@@ -4,7 +4,7 @@ extends CharacterBody2D
 @export var id: String
 @export var title: String
 @export var respawns_after := 2
-@export var life := 10
+@export var life := 500
 @export var stomp_offset := 20
 @export var starts_encounter: Encounter;
 @export var frame: Node2D
@@ -56,7 +56,7 @@ func squash(pos: Vector2):
 func hurt(pos: Vector2):
 	flasher.flash()
 	squash(pos)
-	life -= 1
+	life -= GameState.damage
 	Effects.singleton.add(2, pos)
 	if life <= 0:
 		die()
