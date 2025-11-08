@@ -10,6 +10,7 @@ extends CharacterBody2D
 @export var frame: Node2D
 @export var bump_cast: ShapeCast2D
 @export var title_label: Label
+@export var halo: Node2D
 
 @export var flasher: Flasher
 
@@ -65,7 +66,14 @@ func die():
 	process_mode = Node.PROCESS_MODE_DISABLED
 	Effects.singleton.add_many([4, 3, 2, 2, 2, 0, 0, 0, 1], global_position)
 	SoundEffects.singleton.add(2, global_position)
+	var h: RigidBody2D = Effects.singleton.add(6, halo.global_position, 10)
+	for c in h.get_children():
+		if c is Node2D:
+			c.scale *= global_scale
+	h.apply_impulse(Vector2.UP * 500 + dir * 300)
 	died.emit()
+	await get_tree().create_timer(0.1).timeout
+	h.apply_torque_impulse(2000 * randf_range(-1, 1))
 	if starts_encounter: starts_encounter.start(self)
 	if respawns_after > 0:
 		await get_tree().create_timer(respawns_after).timeout

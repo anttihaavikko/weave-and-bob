@@ -38,11 +38,11 @@
 [ext_resource type="Script" uid="uid://c8ej1vfg86d5v" path="res://Scripts/spawn.gd" id="22_gt3je"]
 [ext_resource type="AudioStream" uid="uid://baj3ju7qtah60" path="res://Sounds/spawn.wav" id="22_jwpg7"]
 [ext_resource type="AudioStream" uid="uid://dwphx657ljy5h" path="res://Sounds/warn.wav" id="23_k2e45"]
+[ext_resource type="PackedScene" uid="uid://cd1lfv8xg8ha8" path="res://Scenes/halo.tscn" id="28_kqrg6"]
 [ext_resource type="PackedScene" uid="uid://ccw01rqfuh3ys" path="res://Scenes/platform.tscn" id="33_o1aky"]
 [ext_resource type="Script" uid="uid://ban2bpqpuesw1" path="res://Scripts/player_spawn.gd" id="39_kwxat"]
 [ext_resource type="Texture2D" uid="uid://cqk6j01w8oul" path="res://Sprites/ring.png" id="41_8cuat"]
 [ext_resource type="PackedScene" uid="uid://c4dqyepeaha7h" path="res://Scenes/checkpoint.tscn" id="41_kwxat"]
-[ext_resource type="PackedScene" uid="uid://bpamcmqpiyf2j" path="res://Scenes/killbox.tscn" id="43_kwxat"]
 [ext_resource type="Script" uid="uid://cjo6s8hrhyh8l" path="res://Scripts/dev_sprite.gd" id="44_aa8k8"]
 
 [node name="Main" type="Node2D"]
@@ -322,8 +322,8 @@ position = Vector2(1089.8391, -159.34927)
 scale = Vector2(672.4979, 785.69305)
 
 [node name="Wall3" parent="Level/Room" instance=ExtResource("4_344ge")]
-position = Vector2(1481.7244, -421.9075)
-scale = Vector2(893.06506, 2408.2048)
+position = Vector2(1481.7244, -427.39798)
+scale = Vector2(893.06506, 2397.2239)
 
 [node name="Wall7" parent="Level/Room" instance=ExtResource("4_344ge")]
 position = Vector2(1486.5393, 1346.5175)
@@ -458,7 +458,7 @@ position = Vector2(440.97656, -12)
 letter = "N"
 
 [node name="Enemy2" parent="Level/Room" instance=ExtResource("9_ynf5e")]
-position = Vector2(1328.9131, 869)
+position = Vector2(1328.9131, 874)
 scale = Vector2(0.30418554, 0.3041856)
 stomp_offset = 120
 
@@ -864,10 +864,11 @@ dir = Vector2(0, 1)
 _enemy = ExtResource("16_aa8k8")
 
 [node name="Spawn Point" type="Node2D" parent="Level"]
-position = Vector2(5864, 585)
+position = Vector2(5769, 1565)
 scale = Vector2(1.0023229, 1)
 script = ExtResource("39_kwxat")
 player = ExtResource("1_bo1nx")
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Node2D" parent="Level/Spawn Point"]
 visibility_layer = 524288
@@ -887,7 +888,7 @@ type = 2
 
 [node name="Effects" type="Node" parent="."]
 script = ExtResource("5_kry3j")
-effects = Array[PackedScene]([ExtResource("2_kry3j"), ExtResource("6_21xkr"), ExtResource("10_hptm8"), ExtResource("10_d1ilt"), ExtResource("12_6iyac"), ExtResource("9_k12tt")])
+effects = Array[PackedScene]([ExtResource("2_kry3j"), ExtResource("6_21xkr"), ExtResource("10_hptm8"), ExtResource("10_d1ilt"), ExtResource("12_6iyac"), ExtResource("9_k12tt"), ExtResource("28_kqrg6")])
 
 [node name="Sounds" type="Node" parent="."]
 script = ExtResource("10_gt3je")
@@ -905,16 +906,5 @@ width = 5.0
 
 [node name="Timer" type="Timer" parent="Line Drawer"]
 wait_time = 0.05
-
-[node name="Killbox" parent="." instance=ExtResource("43_kwxat")]
-position = Vector2(166.61295, -1690)
-scale = Vector2(2126.1772, 100)
-
-[node name="Spikes" type="TextureRect" parent="."]
-offset_left = 2169.9595
-offset_top = -594.0
-offset_right = 2290.9595
-offset_bottom = -474.0
-texture = ExtResource("41_8cuat")
 
 [connection signal="timeout" from="Line Drawer/Timer" to="Line Drawer" method="_on_timer_timeout"]

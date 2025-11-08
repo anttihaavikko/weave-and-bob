@@ -7,9 +7,10 @@
 [node name="Enemy" instance=ExtResource("1_4oid8")]
 
 [node name="Flasher" parent="." index="2" node_paths=PackedStringArray("items")]
-items = [NodePath("../Frame/Outline"), NodePath("../Frame/Fill"), NodePath("../Label"), NodePath("../Face/Eye Left"), NodePath("../Face/Eye Right"), NodePath("../Face/Mouth"), NodePath("../Face/Brow"), NodePath("../Spike"), NodePath("../Spike2"), NodePath("../Spike3")]
+items = [NodePath("../Frame/Outline"), NodePath("../Frame/Fill"), NodePath("../Label"), NodePath("../Face/Eye Left"), NodePath("../Face/Eye Right"), NodePath("../Face/Mouth"), NodePath("../Face/Brow"), NodePath("../Spike"), NodePath("../Spike2"), NodePath("../Spike3"), NodePath("../Halo")]
 
 [node name="Spike" type="Sprite2D" parent="." index="7"]
+modulate = Color(0.8646751, 0.86467516, 0.8646751, 1)
 position = Vector2(0, 276.14716)
 scale = Vector2(2.2406428, 2.2406428)
 texture = ExtResource("2_jtvt1")
@@ -20,6 +21,7 @@ scale = Vector2(21.720425, 39.096764)
 can_kill_enemies = false
 
 [node name="Spike2" type="Sprite2D" parent="." index="8"]
+modulate = Color(0.8646751, 0.86467516, 0.8646751, 1)
 position = Vector2(157.7984, 226.83524)
 rotation = -0.5359692
 scale = Vector2(2.2406428, 2.2406428)
@@ -31,6 +33,7 @@ scale = Vector2(21.789951, 39.22191)
 can_kill_enemies = false
 
 [node name="Spike3" type="Sprite2D" parent="." index="9"]
+modulate = Color(0.8646751, 0.86467516, 0.8646751, 1)
 position = Vector2(-157.79839, 226.83524)
 rotation = 0.5358161
 scale = Vector2(2.2406428, 2.2406428)

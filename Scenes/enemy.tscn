@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://biww1pdu4di3l"]
+[gd_scene load_steps=16 format=3 uid="uid://biww1pdu4di3l"]
 
 [ext_resource type="Script" uid="uid://cxtjkd8vlagxd" path="res://Scripts/enemy.gd" id="1_1f0kj"]
 [ext_resource type="Texture2D" uid="uid://go0giiad03jq" path="res://Sprites/circle.png" id="1_hghv2"]
@@ -7,9 +7,15 @@
 [ext_resource type="Shader" uid="uid://bcpkc8l8xvy70" path="res://Shaders/white.gdshader" id="4_ghaa6"]
 [ext_resource type="Texture2D" uid="uid://bvqmnjk5nrig" path="res://Sprites/brow.png" id="5_0830c"]
 [ext_resource type="FontFile" uid="uid://x80u6ag0vqx5" path="res://Misc/ChunkFive-Regular.otf" id="7_1dp5w"]
+[ext_resource type="Texture2D" uid="uid://b65t48wx4s35d" path="res://Sprites/halo.svg" id="8_auwsv"]
+[ext_resource type="Script" uid="uid://uxu8p38o38ip" path="res://Scripts/mover.gd" id="9_8uf12"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_344ge"]
 radius = 252.11693
+
+[sub_resource type="Curve" id="Curve_8uf12"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.31512606, 0.39185345), 0.01448269, 0.01448269, 0, 0, Vector2(1, 0), -1.3394808, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1dp5w"]
 shader = ExtResource("4_ghaa6")
@@ -25,7 +31,7 @@ radius = 309.8
 font = ExtResource("7_1dp5w")
 font_size = 70
 
-[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("frame", "bump_cast", "title_label", "flasher")]
+[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("frame", "bump_cast", "title_label", "halo", "flasher")]
 scale = Vector2(0.3041856, 0.3041856)
 collision_layer = 8
 collision_mask = 9
@@ -34,10 +40,21 @@ life = 5
 frame = NodePath("Frame")
 bump_cast = NodePath("Bump Cast")
 title_label = NodePath("Label")
+halo = NodePath("Halo")
 flasher = NodePath("Flasher")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_344ge")
+
+[node name="Trail" type="CPUParticles2D" parent="."]
+modulate = Color(1, 1, 1, 0.49411765)
+amount = 15
+texture = ExtResource("1_hghv2")
+lifetime = 2.0
+gravity = Vector2(0, 0)
+scale_amount_min = 0.1
+scale_amount_max = 0.1
+scale_amount_curve = SubResource("Curve_8uf12")
 
 [node name="Frame" type="Node2D" parent="."]
 
@@ -52,7 +69,7 @@ texture = ExtResource("1_hghv2")
 
 [node name="Flasher" type="Node" parent="." node_paths=PackedStringArray("items")]
 script = ExtResource("3_afpow")
-items = [NodePath("../Frame/Outline"), NodePath("../Frame/Fill"), NodePath("../Label"), NodePath("../Face/Eye Left"), NodePath("../Face/Eye Right"), NodePath("../Face/Mouth"), NodePath("../Face/Brow")]
+items = [NodePath("../Frame/Outline"), NodePath("../Frame/Fill"), NodePath("../Label"), NodePath("../Face/Eye Left"), NodePath("../Face/Eye Right"), NodePath("../Face/Mouth"), NodePath("../Face/Brow"), NodePath("../Halo")]
 white = SubResource("ShaderMaterial_1dp5w")
 metadata/_custom_type_script = "uid://c26faw2casac2"
 
@@ -121,3 +138,14 @@ text = "FOO"
 label_settings = SubResource("LabelSettings_auwsv")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Halo" type="Sprite2D" parent="."]
+modulate = Color(0.827451, 0.64705884, 0.12156863, 1)
+position = Vector2(0, -259.70984)
+scale = Vector2(1.7654653, 1.7654653)
+texture = ExtResource("8_auwsv")
+script = ExtResource("9_8uf12")
+moves = true
+move_direction = Vector2(0, -15)
+move_speed = 3.0
+single_direction = true
