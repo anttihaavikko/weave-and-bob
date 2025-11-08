@@ -1,3 +1,5 @@
+@tool
+#@icon("res://Sprites/checkpoint.svg")
 class_name Spawn
 extends Node2D
 
@@ -6,7 +8,10 @@ extends Node2D
 @export var dir: Vector2
 @export var delay := 1.0
 
+## Enemy to spawn
 @export var _enemy: PackedScene
+	
+var texture: Texture2D = preload("res://Sprites/ring.png")
 
 func start(wave: Wave):
 	Effects.singleton.add(3, global_position)
@@ -20,3 +25,7 @@ func start(wave: Wave):
 		e.title = title
 		e.died.connect(wave.enemy_died)
 	add_child(e)
+
+func _draw():
+	if Engine.is_editor_hint():
+		draw_texture(texture, texture.get_size() * -0.5)

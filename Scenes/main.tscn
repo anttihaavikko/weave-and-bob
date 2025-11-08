@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=44 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/blob.tscn" id="1_bo1nx"]
@@ -42,6 +42,8 @@
 [ext_resource type="PackedScene" uid="uid://c4dqyepeaha7h" path="res://Scenes/checkpoint.tscn" id="41_kwxat"]
 [ext_resource type="Script" uid="uid://c7fckvtsco120" path="res://Scripts/blob.gd" id="41_o1aky"]
 [ext_resource type="Script" uid="uid://cjo6s8hrhyh8l" path="res://Scripts/dev_sprite.gd" id="44_aa8k8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o1aky"]
 
 [node name="Main" type="Node2D"]
 scale = Vector2(1.0023229, 1)
@@ -889,5 +891,11 @@ position = Vector2(-784.1784, 506)
 position = Vector2(4897.6235, -2060)
 id = "first_map"
 type = 2
+
+[node name="Killbox" type="Area2D" parent="."]
+position = Vector2(2153.9963, -742)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killbox"]
+shape = SubResource("RectangleShape2D_o1aky")
 
 [connection signal="timeout" from="Line Drawer/Timer" to="Line Drawer" method="_on_timer_timeout"]

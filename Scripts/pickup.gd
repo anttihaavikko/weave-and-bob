@@ -1,17 +1,28 @@
+@tool
 class_name Pickup
 extends Area2D
 
+const textures: Dictionary[PickupType, Texture2D] = {
+	PickupType.None: null,
+	PickupType.Magazine: preload("res://Sprites/mag-pickup.png"),
+	PickupType.Map: preload("res://Sprites/map.png")
+} 
+
 @export var id: String
-@export var type: PickupType
+@export var type: PickupType:
+	set(val):
+		var icon = textures[val]
+		if sprite: sprite.texture = icon
+		type = val
 @export var sprite: Sprite2D 
-@export var icons: Array[Texture2D]
 
 enum PickupType { None, Magazine, Map }
 
 func _ready() -> void:
-	sprite.texture = icons[type]
-	if GameState.has(id):
-		queue_free()
+	sprite.texture = textures[type]
+	if not Engine.is_editor_hint():
+		if GameState.has(id):
+			queue_free()
 
 func _picked(_body: Node2D):
 	if type == PickupType.Magazine: GameState.has_magazine = true
