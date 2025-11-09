@@ -106,6 +106,8 @@ live_gun = NodePath("Gun")
 gun = ExtResource("2_0gysh")
 cam = NodePath("Gun/Camera2D")
 
+[node name="Link Fixer" type="Node" parent="."]
+
 [node name="Link N" type="RigidBody2D" parent="." node_paths=PackedStringArray("player")]
 position = Vector2(-0.11584473, -50)
 rotation = -1.5707964
@@ -136,6 +138,9 @@ stiffness = 64.0
 position = Vector2(-2.000001, 18.953592)
 node_a = NodePath("..")
 node_b = NodePath("../../Link NE")
+softness = 0.5
+angular_limit_lower = -1.5707964
+angular_limit_upper = 1.5707964
 
 [node name="Tuft" type="Sprite2D" parent="Link N"]
 modulate = Color(0, 0.47843137, 0.2627451, 1)
@@ -186,6 +191,9 @@ stiffness = 64.0
 position = Vector2(-1.4339857, 18.364964)
 node_a = NodePath("..")
 node_b = NodePath("../../Link E")
+softness = 0.5
+angular_limit_lower = -1.5707964
+angular_limit_upper = 1.5707964
 
 [node name="Tuft" type="Sprite2D" parent="Link NE"]
 modulate = Color(0, 0.47843137, 0.2627451, 1)
@@ -225,6 +233,9 @@ stiffness = 64.0
 position = Vector2(-1.9953684, 20)
 node_a = NodePath("..")
 node_b = NodePath("../../Link SE")
+softness = 0.5
+angular_limit_lower = -1.5707964
+angular_limit_upper = 1.5707964
 
 [node name="Tuft" type="Sprite2D" parent="Link E"]
 modulate = Color(0, 0.47843137, 0.2627451, 1)
@@ -266,6 +277,9 @@ stiffness = 64.0
 position = Vector2(-1.391365, 18.361921)
 node_a = NodePath("..")
 node_b = NodePath("../../Link S")
+softness = 0.5
+angular_limit_lower = -1.5707964
+angular_limit_upper = 1.5707964
 
 [node name="Tuft" type="Sprite2D" parent="Link SE"]
 modulate = Color(0, 0.47843137, 0.2627451, 1)
@@ -306,6 +320,9 @@ stiffness = 64.0
 position = Vector2(-1.0000002, 19.95365)
 node_a = NodePath("..")
 node_b = NodePath("../../Link SW")
+softness = 0.5
+angular_limit_lower = -1.5707964
+angular_limit_upper = 1.5707964
 
 [node name="Tuft" type="Sprite2D" parent="Link S"]
 modulate = Color(0, 0.47843137, 0.2627451, 1)
@@ -356,6 +373,9 @@ stiffness = 64.0
 position = Vector2(-1.4339018, 18.365047)
 node_a = NodePath("..")
 node_b = NodePath("../../Link W")
+softness = 0.5
+angular_limit_lower = -1.5707964
+angular_limit_upper = 1.5707964
 
 [node name="Tuft" type="Sprite2D" parent="Link SW"]
 modulate = Color(0, 0.47843137, 0.2627451, 1)
@@ -396,6 +416,9 @@ stiffness = 64.0
 position = Vector2(-0.997684, 18)
 node_a = NodePath("..")
 node_b = NodePath("../../Link NW")
+softness = 0.5
+angular_limit_lower = -1.5707964
+angular_limit_upper = 1.5707964
 
 [node name="Left Hand Start" type="Node2D" parent="Link W"]
 
@@ -439,6 +462,9 @@ stiffness = 64.0
 position = Vector2(-1.3895683, 19.77439)
 node_a = NodePath("..")
 node_b = NodePath("../../Link N")
+softness = 0.5
+angular_limit_lower = -1.5707964
+angular_limit_upper = 1.5707964
 
 [node name="Tuft" type="Sprite2D" parent="Link NW"]
 modulate = Color(0, 0.47843137, 0.2627451, 1)
