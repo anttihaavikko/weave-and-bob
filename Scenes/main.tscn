@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=50 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/player.tscn" id="1_bo1nx"]
@@ -36,6 +36,7 @@
 [ext_resource type="Script" uid="uid://h30wfqlv3joy" path="res://Scripts/wave.gd" id="21_ee4r6"]
 [ext_resource type="AudioStream" uid="uid://btdcfgsyegmvj" path="res://Sounds/throw1.wav" id="21_r33sp"]
 [ext_resource type="Script" uid="uid://c8ej1vfg86d5v" path="res://Scripts/spawn.gd" id="22_gt3je"]
+[ext_resource type="Script" uid="uid://d1ixyae7lf7j" path="res://Scripts/cloud.gd" id="22_jut3y"]
 [ext_resource type="AudioStream" uid="uid://baj3ju7qtah60" path="res://Sounds/spawn.wav" id="22_jwpg7"]
 [ext_resource type="AudioStream" uid="uid://dwphx657ljy5h" path="res://Sounds/warn.wav" id="23_k2e45"]
 [ext_resource type="PackedScene" uid="uid://cd1lfv8xg8ha8" path="res://Scenes/halo.tscn" id="28_kqrg6"]
@@ -46,6 +47,10 @@
 [ext_resource type="Texture2D" uid="uid://cqk6j01w8oul" path="res://Sprites/ring.png" id="41_8cuat"]
 [ext_resource type="PackedScene" uid="uid://c4dqyepeaha7h" path="res://Scenes/checkpoint.tscn" id="41_kwxat"]
 [ext_resource type="Script" uid="uid://cjo6s8hrhyh8l" path="res://Scripts/dev_sprite.gd" id="44_aa8k8"]
+[ext_resource type="Texture2D" uid="uid://bjy00gdxmeg1a" path="res://Sprites/cloud1.png" id="47_s8vy0"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_s8vy0"]
+blend_mode = 1
 
 [node name="Main" type="Node2D"]
 scale = Vector2(1.0023229, 1)
@@ -889,6 +894,329 @@ position = Vector2(4909.0005, -2060)
 scale = Vector2(1.0023229, 1)
 id = "first_map"
 type = 2
+
+[node name="Clouds" type="Node2D" parent="."]
+position = Vector2(5382.497, 1402)
+
+[node name="Cloud1" type="Sprite2D" parent="Clouds"]
+modulate = Color(1, 1, 1, 0.05882353)
+material = SubResource("CanvasItemMaterial_s8vy0")
+position = Vector2(-576.6602, -213)
+scale = Vector2(1.7624333, 1.7624333)
+texture = ExtResource("47_s8vy0")
+script = ExtResource("22_jut3y")
+
+[node name="Cloud2" type="Sprite2D" parent="Clouds"]
+modulate = Color(1, 1, 1, 0.05882353)
+material = SubResource("CanvasItemMaterial_s8vy0")
+position = Vector2(368.14484, -55)
+scale = Vector2(1.7624333, 1.7624333)
+texture = ExtResource("47_s8vy0")
+script = ExtResource("22_jut3y")
+
+[node name="Cloud3" type="Sprite2D" parent="Clouds"]
+modulate = Color(1, 1, 1, 0.05882353)
+material = SubResource("CanvasItemMaterial_s8vy0")
+position = Vector2(-1456.2859, 3.7358398)
+scale = Vector2(1.2610525, 1.2610525)
+texture = ExtResource("47_s8vy0")
+script = ExtResource("22_jut3y")
+
+[node name="Cloud4" type="Sprite2D" parent="Clouds"]
+modulate = Color(1, 1, 1, 0.05882353)
+material = SubResource("CanvasItemMaterial_s8vy0")
+position = Vector2(-511.48077, 161.73584)
+scale = Vector2(1.2610525, 1.2610525)
+texture = ExtResource("47_s8vy0")
+script = ExtResource("22_jut3y")
+
+[node name="Cloud5" type="Sprite2D" parent="Clouds"]
+modulate = Color(1, 1, 1, 0.05882353)
+material = SubResource("CanvasItemMaterial_s8vy0")
+position = Vector2(80.84076, -265.8755)
+scale = Vector2(1.7624333, 1.7624333)
+texture = ExtResource("47_s8vy0")
+script = ExtResource("22_jut3y")
+
+[node name="Cloud6" type="Sprite2D" parent="Clouds"]
+modulate = Color(1, 1, 1, 0.05882353)
+material = SubResource("CanvasItemMaterial_s8vy0")
+position = Vector2(1053.5526, 403.99994)
+scale = Vector2(1.7624333, 1.7624333)
+texture = ExtResource("47_s8vy0")
+script = ExtResource("22_jut3y")
+
+[node name="Cloud7" type="Sprite2D" parent="Clouds"]
+modulate = Color(1, 1, 1, 0.05882353)
+material = SubResource("CanvasItemMaterial_s8vy0")
+position = Vector2(-88.79352, 342.99994)
+scale = Vector2(5.9975605, 5.9975605)
+texture = ExtResource("47_s8vy0")
+script = ExtResource("22_jut3y")
+
+[node name="Cloud8" type="Sprite2D" parent="Clouds"]
+modulate = Color(1, 1, 1, 0.05882353)
+material = SubResource("CanvasItemMaterial_s8vy0")
+position = Vector2(1357.8457, -585.99994)
+scale = Vector2(6.146188, 6.146188)
+texture = ExtResource("47_s8vy0")
+script = ExtResource("22_jut3y")
+
+[node name="Cloud9" type="Sprite2D" parent="Clouds"]
+modulate = Color(1, 1, 1, 0.05882353)
+material = SubResource("CanvasItemMaterial_s8vy0")
+position = Vector2(-1447.637, -451.99997)
+scale = Vector2(3.6429255, 3.6429255)
+texture = ExtResource("47_s8vy0")
+script = ExtResource("22_jut3y")
+
+[node name="Cloud10" type="Sprite2D" parent="Clouds"]
+modulate = Color(1, 1, 1, 0.05882353)
+material = SubResource("CanvasItemMaterial_s8vy0")
+position = Vector2(639.5144, -743.99994)
+scale = Vector2(2.2487583, 2.2487583)
+texture = ExtResource("47_s8vy0")
+script = ExtResource("22_jut3y")
+
+[node name="Cloud11" type="Sprite2D" parent="Clouds"]
+modulate = Color(1, 1, 1, 0.05882353)
+material = SubResource("CanvasItemMaterial_s8vy0")
+position = Vector2(-576.6602, -213)
+scale = Vector2(3.6429255, 3.6429255)
+texture = ExtResource("47_s8vy0")
+script = ExtResource("22_jut3y")
+
+[node name="Cloud12" type="Sprite2D" parent="Clouds"]
+modulate = Color(1, 1, 1, 0.05882353)
+material = SubResource("CanvasItemMaterial_s8vy0")
+position = Vector2(368.14484, -55)
+scale = Vector2(3.6429255, 3.6429255)
+texture = ExtResource("47_s8vy0")
+script = ExtResource("22_jut3y")
+
+[node name="Cloud13" type="Sprite2D" parent="Clouds"]
+modulate = Color(1, 1, 1, 0.05882353)
+material = SubResource("CanvasItemMaterial_s8vy0")
+position = Vector2(-1456.2859, 3.7358398)
+scale = Vector2(1.2610525, 1.2610525)
+texture = ExtResource("47_s8vy0")
+script = ExtResource("22_jut3y")
+
+[node name="Cloud14" type="Sprite2D" parent="Clouds"]
+modulate = Color(1, 1, 1, 0.05882353)
+material = SubResource("CanvasItemMaterial_s8vy0")
+position = Vector2(-511.48077, 161.73584)
+scale = Vector2(1.2610525, 1.2610525)
+texture = ExtResource("47_s8vy0")
+script = ExtResource("22_jut3y")
+
+[node name="Cloud15" type="Sprite2D" parent="Clouds"]
+modulate = Color(1, 1, 1, 0.05882353)
+material = SubResource("CanvasItemMaterial_s8vy0")
+position = Vector2(80.84076, -265.8755)
+scale = Vector2(1.7624333, 1.7624333)
+texture = ExtResource("47_s8vy0")
+script = ExtResource("22_jut3y")
+
+[node name="Cloud16" type="Sprite2D" parent="Clouds"]
+modulate = Color(1, 1, 1, 0.05882353)
+material = SubResource("CanvasItemMaterial_s8vy0")
+position = Vector2(1053.5526, 403.99994)
+scale = Vector2(1.7624333, 1.7624333)
+texture = ExtResource("47_s8vy0")
+script = ExtResource("22_jut3y")
+
+[node name="Cloud17" type="Sprite2D" parent="Clouds"]
+modulate = Color(1, 1, 1, 0.05882353)
+material = SubResource("CanvasItemMaterial_s8vy0")
+position = Vector2(-88.79352, 342.99994)
+scale = Vector2(1.6387349, 1.6387349)
+texture = ExtResource("47_s8vy0")
+script = ExtResource("22_jut3y")
+
+[node name="Cloud18" type="Sprite2D" parent="Clouds"]
+modulate = Color(1, 1, 1, 0.05882353)
+material = SubResource("CanvasItemMaterial_s8vy0")
+position = Vector2(1357.8457, -585.99994)
+scale = Vector2(1.679345, 1.679345)
+texture = ExtResource("47_s8vy0")
+script = ExtResource("22_jut3y")
+
+[node name="Cloud19" type="Sprite2D" parent="Clouds"]
+modulate = Color(1, 1, 1, 0.05882353)
+material = SubResource("CanvasItemMaterial_s8vy0")
+position = Vector2(-1447.637, -451.99997)
+scale = Vector2(0.9953696, 0.9953696)
+texture = ExtResource("47_s8vy0")
+script = ExtResource("22_jut3y")
+
+[node name="Cloud20" type="Sprite2D" parent="Clouds"]
+modulate = Color(1, 1, 1, 0.05882353)
+material = SubResource("CanvasItemMaterial_s8vy0")
+position = Vector2(639.5144, -743.99994)
+scale = Vector2(0.6144363, 0.6144363)
+texture = ExtResource("47_s8vy0")
+script = ExtResource("22_jut3y")
+
+[node name="Cloud21" type="Sprite2D" parent="Clouds"]
+modulate = Color(1, 1, 1, 0.05882353)
+material = SubResource("CanvasItemMaterial_s8vy0")
+position = Vector2(-576.6602, -213)
+scale = Vector2(1.7624333, 1.7624333)
+texture = ExtResource("47_s8vy0")
+script = ExtResource("22_jut3y")
+
+[node name="Cloud22" type="Sprite2D" parent="Clouds"]
+modulate = Color(1, 1, 1, 0.05882353)
+material = SubResource("CanvasItemMaterial_s8vy0")
+position = Vector2(368.14484, -55)
+scale = Vector2(1.7624333, 1.7624333)
+texture = ExtResource("47_s8vy0")
+script = ExtResource("22_jut3y")
+
+[node name="Cloud23" type="Sprite2D" parent="Clouds"]
+modulate = Color(1, 1, 1, 0.05882353)
+material = SubResource("CanvasItemMaterial_s8vy0")
+position = Vector2(-1456.2859, 3.7358398)
+scale = Vector2(1.2610525, 1.2610525)
+texture = ExtResource("47_s8vy0")
+script = ExtResource("22_jut3y")
+
+[node name="Cloud24" type="Sprite2D" parent="Clouds"]
+modulate = Color(1, 1, 1, 0.05882353)
+material = SubResource("CanvasItemMaterial_s8vy0")
+position = Vector2(-511.48077, 161.73584)
+scale = Vector2(1.2610525, 1.2610525)
+texture = ExtResource("47_s8vy0")
+script = ExtResource("22_jut3y")
+
+[node name="Cloud25" type="Sprite2D" parent="Clouds"]
+modulate = Color(1, 1, 1, 0.05882353)
+material = SubResource("CanvasItemMaterial_s8vy0")
+position = Vector2(80.84076, -265.8755)
+scale = Vector2(1.7624333, 1.7624333)
+texture = ExtResource("47_s8vy0")
+script = ExtResource("22_jut3y")
+
+[node name="Cloud26" type="Sprite2D" parent="Clouds"]
+modulate = Color(1, 1, 1, 0.05882353)
+material = SubResource("CanvasItemMaterial_s8vy0")
+position = Vector2(1053.5526, 403.99994)
+scale = Vector2(1.7624333, 1.7624333)
+texture = ExtResource("47_s8vy0")
+script = ExtResource("22_jut3y")
+
+[node name="Cloud27" type="Sprite2D" parent="Clouds"]
+modulate = Color(1, 1, 1, 0.05882353)
+material = SubResource("CanvasItemMaterial_s8vy0")
+position = Vector2(-88.79352, 342.99994)
+scale = Vector2(5.9975605, 5.9975605)
+texture = ExtResource("47_s8vy0")
+script = ExtResource("22_jut3y")
+
+[node name="Cloud28" type="Sprite2D" parent="Clouds"]
+modulate = Color(1, 1, 1, 0.05882353)
+material = SubResource("CanvasItemMaterial_s8vy0")
+position = Vector2(1357.8457, -585.99994)
+scale = Vector2(6.146188, 6.146188)
+texture = ExtResource("47_s8vy0")
+script = ExtResource("22_jut3y")
+
+[node name="Cloud29" type="Sprite2D" parent="Clouds"]
+modulate = Color(1, 1, 1, 0.05882353)
+material = SubResource("CanvasItemMaterial_s8vy0")
+position = Vector2(-1447.637, -451.99997)
+scale = Vector2(3.6429255, 3.6429255)
+texture = ExtResource("47_s8vy0")
+script = ExtResource("22_jut3y")
+
+[node name="Cloud30" type="Sprite2D" parent="Clouds"]
+modulate = Color(1, 1, 1, 0.05882353)
+material = SubResource("CanvasItemMaterial_s8vy0")
+position = Vector2(639.5144, -743.99994)
+scale = Vector2(2.2487583, 2.2487583)
+texture = ExtResource("47_s8vy0")
+script = ExtResource("22_jut3y")
+
+[node name="Cloud31" type="Sprite2D" parent="Clouds"]
+modulate = Color(1, 1, 1, 0.05882353)
+material = SubResource("CanvasItemMaterial_s8vy0")
+position = Vector2(-576.6602, -213)
+scale = Vector2(3.6429255, 3.6429255)
+texture = ExtResource("47_s8vy0")
+script = ExtResource("22_jut3y")
+
+[node name="Cloud32" type="Sprite2D" parent="Clouds"]
+modulate = Color(1, 1, 1, 0.05882353)
+material = SubResource("CanvasItemMaterial_s8vy0")
+position = Vector2(368.14484, -55)
+scale = Vector2(3.6429255, 3.6429255)
+texture = ExtResource("47_s8vy0")
+script = ExtResource("22_jut3y")
+
+[node name="Cloud33" type="Sprite2D" parent="Clouds"]
+modulate = Color(1, 1, 1, 0.05882353)
+material = SubResource("CanvasItemMaterial_s8vy0")
+position = Vector2(-1456.2859, 3.7358398)
+scale = Vector2(1.2610525, 1.2610525)
+texture = ExtResource("47_s8vy0")
+script = ExtResource("22_jut3y")
+
+[node name="Cloud34" type="Sprite2D" parent="Clouds"]
+modulate = Color(1, 1, 1, 0.05882353)
+material = SubResource("CanvasItemMaterial_s8vy0")
+position = Vector2(-511.48077, 161.73584)
+scale = Vector2(1.2610525, 1.2610525)
+texture = ExtResource("47_s8vy0")
+script = ExtResource("22_jut3y")
+
+[node name="Cloud35" type="Sprite2D" parent="Clouds"]
+modulate = Color(1, 1, 1, 0.05882353)
+material = SubResource("CanvasItemMaterial_s8vy0")
+position = Vector2(80.84076, -265.8755)
+scale = Vector2(1.7624333, 1.7624333)
+texture = ExtResource("47_s8vy0")
+script = ExtResource("22_jut3y")
+
+[node name="Cloud36" type="Sprite2D" parent="Clouds"]
+modulate = Color(1, 1, 1, 0.05882353)
+material = SubResource("CanvasItemMaterial_s8vy0")
+position = Vector2(1053.5526, 403.99994)
+scale = Vector2(1.7624333, 1.7624333)
+texture = ExtResource("47_s8vy0")
+script = ExtResource("22_jut3y")
+
+[node name="Cloud37" type="Sprite2D" parent="Clouds"]
+modulate = Color(1, 1, 1, 0.05882353)
+material = SubResource("CanvasItemMaterial_s8vy0")
+position = Vector2(-88.79352, 342.99994)
+scale = Vector2(1.6387349, 1.6387349)
+texture = ExtResource("47_s8vy0")
+script = ExtResource("22_jut3y")
+
+[node name="Cloud38" type="Sprite2D" parent="Clouds"]
+modulate = Color(1, 1, 1, 0.05882353)
+material = SubResource("CanvasItemMaterial_s8vy0")
+position = Vector2(1357.8457, -585.99994)
+scale = Vector2(1.679345, 1.679345)
+texture = ExtResource("47_s8vy0")
+script = ExtResource("22_jut3y")
+
+[node name="Cloud39" type="Sprite2D" parent="Clouds"]
+modulate = Color(1, 1, 1, 0.05882353)
+material = SubResource("CanvasItemMaterial_s8vy0")
+position = Vector2(-1447.637, -451.99997)
+scale = Vector2(0.9953696, 0.9953696)
+texture = ExtResource("47_s8vy0")
+script = ExtResource("22_jut3y")
+
+[node name="Cloud40" type="Sprite2D" parent="Clouds"]
+modulate = Color(1, 1, 1, 0.05882353)
+material = SubResource("CanvasItemMaterial_s8vy0")
+position = Vector2(639.5144, -743.99994)
+scale = Vector2(0.6144363, 0.6144363)
+texture = ExtResource("47_s8vy0")
+script = ExtResource("22_jut3y")
 
 [node name="Effects" type="Node" parent="."]
 script = ExtResource("5_kry3j")

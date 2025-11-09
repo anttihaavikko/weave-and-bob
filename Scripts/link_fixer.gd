@@ -15,7 +15,6 @@ func _process(_delta: float) -> void:
 		mid += l.position
 	var distance := (center.position - mid / len(links)).length()
 	if distance > 35:
-		print("reset")
 		for l in links:
 			var origin := origins[links.find(l)] 
 			l.move_to(center.position + origin.position, origin.rotation)
