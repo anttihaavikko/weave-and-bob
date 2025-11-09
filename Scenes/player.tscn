@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://il0jdy8qi06w"]
+[gd_scene load_steps=43 format=3 uid="uid://il0jdy8qi06w"]
 
 [ext_resource type="Script" uid="uid://dpfddv6k670sg" path="res://Scripts/player_root.gd" id="1_p1odr"]
 [ext_resource type="Script" uid="uid://cys6813rck58c" path="res://Scripts/player_part.gd" id="1_p7hy0"]
@@ -7,11 +7,14 @@
 [ext_resource type="Script" uid="uid://cwvl2v76rnhn4" path="res://Scripts/gun.gd" id="2_jc5ra"]
 [ext_resource type="Texture2D" uid="uid://c4624ijigoeqo" path="res://Sprites/ak47.png" id="3_gxvcn"]
 [ext_resource type="Script" uid="uid://bwknch2pvkg4u" path="res://Scripts/line.gd" id="4_jc5ra"]
+[ext_resource type="Shader" uid="uid://7gwbqnj5dg4s" path="res://Shaders/wavy.gdshader" id="5_83xs0"]
 [ext_resource type="Script" uid="uid://b3lmgbo0i5l43" path="res://Scripts/poly_from_line.gd" id="5_gxvcn"]
+[ext_resource type="Texture2D" uid="uid://bbgmkple2xchu" path="res://Sprites/tuft.png" id="5_y6uwr"]
 [ext_resource type="Script" uid="uid://dhbqmxfktr4re" path="res://Scripts/glob_legs.gd" id="6_qc6ha"]
 [ext_resource type="Texture2D" uid="uid://c5v2fgqgkwr2w" path="res://Sprites/reticule.png" id="6_thj1j"]
 [ext_resource type="Script" uid="uid://bo6cnh3l6qsfo" path="res://Scripts/face_rotater.gd" id="7_a8vtn"]
 [ext_resource type="Texture2D" uid="uid://go0giiad03jq" path="res://Sprites/circle.png" id="7_qc6ha"]
+[ext_resource type="Texture2D" uid="uid://y4xga36gbabi" path="res://Sprites/tuft-small.png" id="7_ypfnu"]
 [ext_resource type="Script" uid="uid://kurmc8gi31mu" path="res://Scripts/limb.gd" id="8_5fh0x"]
 [ext_resource type="Script" uid="uid://1dan3ej2pqjl" path="res://Scripts/casing_ejector.gd" id="8_301kd"]
 [ext_resource type="Script" uid="uid://cc1q7hrvx4xpf" path="res://Scripts/shakeable_camera.gd" id="8_vfarp"]
@@ -31,6 +34,35 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8gbba"]
 radius = 5.0
 height = 50.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ypfnu"]
+shader = ExtResource("5_83xs0")
+shader_parameter/amount = 5.0
+shader_parameter/frequency = 0.0
+shader_parameter/speed = 10.0
+shader_parameter/flip = false
+
+[sub_resource type="Shader" id="Shader_ypfnu"]
+code = "shader_type canvas_item;
+
+uniform float amount = 5.0;
+uniform float frequency = 0.0;
+uniform float speed = 5.0;
+uniform bool flip = false;
+
+void vertex() {
+	vec3 world = (MODEL_MATRIX * vec4(VERTEX, 1.0, 1.0)).xyz;
+	float phase = (frequency * world.x) + (speed * TIME);
+	VERTEX.x += (1.0 * float(!flip) - UV.y * UV.y) * amount * sin(phase);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xuaoq"]
+shader = SubResource("Shader_ypfnu")
+shader_parameter/amount = 10.0
+shader_parameter/frequency = 0.5
+shader_parameter/speed = 8.0
+shader_parameter/flip = false
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jjgbg"]
 radius = 8.0
@@ -105,6 +137,24 @@ position = Vector2(-2.000001, 18.953592)
 node_a = NodePath("..")
 node_b = NodePath("../../Link NE")
 
+[node name="Tuft" type="Sprite2D" parent="Link N"]
+modulate = Color(0, 0.47843137, 0.2627451, 1)
+z_index = 11
+material = SubResource("ShaderMaterial_ypfnu")
+position = Vector2(3, -1.8841552)
+rotation = 1.5707964
+scale = Vector2(0.29837972, 0.29837972)
+texture = ExtResource("5_y6uwr")
+
+[node name="Tuft2" type="Sprite2D" parent="Link N"]
+modulate = Color(0, 0.47843137, 0.2627451, 1)
+z_index = 12
+material = SubResource("ShaderMaterial_xuaoq")
+position = Vector2(-0.9999993, 27.115849)
+rotation = 2.0289655
+scale = Vector2(0.29837972, 0.29837972)
+texture = ExtResource("7_ypfnu")
+
 [node name="Link NE" type="RigidBody2D" parent="." node_paths=PackedStringArray("player")]
 position = Vector2(33.80316, -33.99997)
 rotation = -0.7853982
@@ -137,6 +187,15 @@ position = Vector2(-1.4339857, 18.364964)
 node_a = NodePath("..")
 node_b = NodePath("../../Link E")
 
+[node name="Tuft" type="Sprite2D" parent="Link NE"]
+modulate = Color(0, 0.47843137, 0.2627451, 1)
+z_index = 10
+material = SubResource("ShaderMaterial_ypfnu")
+position = Vector2(3, -1.8841552)
+rotation = 1.5707964
+scale = Vector2(0.29837972, 0.29837972)
+texture = ExtResource("5_y6uwr")
+
 [node name="Link E" type="RigidBody2D" parent="." node_paths=PackedStringArray("player")]
 position = Vector2(48.76825, -1)
 mass = 0.1
@@ -166,6 +225,15 @@ stiffness = 64.0
 position = Vector2(-1.9953684, 20)
 node_a = NodePath("..")
 node_b = NodePath("../../Link SE")
+
+[node name="Tuft" type="Sprite2D" parent="Link E"]
+modulate = Color(0, 0.47843137, 0.2627451, 1)
+z_index = 11
+material = SubResource("ShaderMaterial_ypfnu")
+position = Vector2(3, -1.8841552)
+rotation = 1.5707964
+scale = Vector2(0.29837972, 0.29837972)
+texture = ExtResource("5_y6uwr")
 
 [node name="Link SE" type="RigidBody2D" parent="." node_paths=PackedStringArray("player")]
 position = Vector2(32.80542, 36)
@@ -199,6 +267,15 @@ position = Vector2(-1.391365, 18.361921)
 node_a = NodePath("..")
 node_b = NodePath("../../Link S")
 
+[node name="Tuft" type="Sprite2D" parent="Link SE"]
+modulate = Color(0, 0.47843137, 0.2627451, 1)
+z_index = 10
+material = SubResource("ShaderMaterial_ypfnu")
+position = Vector2(3, -1.8841552)
+rotation = 1.5707964
+scale = Vector2(0.29837972, 0.29837972)
+texture = ExtResource("5_y6uwr")
+
 [node name="Link S" type="RigidBody2D" parent="." node_paths=PackedStringArray("player")]
 position = Vector2(-1.1159058, 49)
 rotation = 1.5707964
@@ -229,6 +306,24 @@ stiffness = 64.0
 position = Vector2(-1.0000002, 19.95365)
 node_a = NodePath("..")
 node_b = NodePath("../../Link SW")
+
+[node name="Tuft" type="Sprite2D" parent="Link S"]
+modulate = Color(0, 0.47843137, 0.2627451, 1)
+z_index = 11
+material = SubResource("ShaderMaterial_ypfnu")
+position = Vector2(3, -1.8841552)
+rotation = 1.5707964
+scale = Vector2(0.29837972, 0.29837972)
+texture = ExtResource("5_y6uwr")
+
+[node name="Tuft2" type="Sprite2D" parent="Link S"]
+modulate = Color(0, 0.47843137, 0.2627451, 1)
+z_index = 12
+material = SubResource("ShaderMaterial_xuaoq")
+position = Vector2(6.000001, 25.884094)
+rotation = 2.0289655
+scale = Vector2(0.29837972, 0.29837972)
+texture = ExtResource("7_ypfnu")
 
 [node name="Link SW" type="RigidBody2D" parent="." node_paths=PackedStringArray("player")]
 position = Vector2(-38.030212, 34.99997)
@@ -261,6 +356,15 @@ stiffness = 64.0
 position = Vector2(-1.4339018, 18.365047)
 node_a = NodePath("..")
 node_b = NodePath("../../Link W")
+
+[node name="Tuft" type="Sprite2D" parent="Link SW"]
+modulate = Color(0, 0.47843137, 0.2627451, 1)
+z_index = 10
+material = SubResource("ShaderMaterial_ypfnu")
+position = Vector2(3, -1.8841552)
+rotation = 1.5707964
+scale = Vector2(0.29837972, 0.29837972)
+texture = ExtResource("5_y6uwr")
 
 [node name="Link W" type="RigidBody2D" parent="." node_paths=PackedStringArray("player")]
 position = Vector2(-51, 0)
@@ -295,6 +399,15 @@ node_b = NodePath("../../Link NW")
 
 [node name="Left Hand Start" type="Node2D" parent="Link W"]
 
+[node name="Tuft" type="Sprite2D" parent="Link W"]
+modulate = Color(0, 0.47843137, 0.2627451, 1)
+z_index = 11
+material = SubResource("ShaderMaterial_ypfnu")
+position = Vector2(3, -1.8841552)
+rotation = 1.5707964
+scale = Vector2(0.29837972, 0.29837972)
+texture = ExtResource("5_y6uwr")
+
 [node name="Link NW" type="RigidBody2D" parent="." node_paths=PackedStringArray("player")]
 position = Vector2(-36.03473, -33.99997)
 rotation = -2.3561945
@@ -326,6 +439,24 @@ stiffness = 64.0
 position = Vector2(-1.3895683, 19.77439)
 node_a = NodePath("..")
 node_b = NodePath("../../Link N")
+
+[node name="Tuft" type="Sprite2D" parent="Link NW"]
+modulate = Color(0, 0.47843137, 0.2627451, 1)
+z_index = 10
+material = SubResource("ShaderMaterial_ypfnu")
+position = Vector2(3, -1.8841552)
+rotation = 1.5707964
+scale = Vector2(0.29837972, 0.29837972)
+texture = ExtResource("5_y6uwr")
+
+[node name="Tuft2" type="Sprite2D" parent="Link NW"]
+modulate = Color(0, 0.47843137, 0.2627451, 1)
+z_index = 12
+material = SubResource("ShaderMaterial_xuaoq")
+position = Vector2(4.2181053, -19.774414)
+rotation = 1.1905065
+scale = Vector2(0.29837972, 0.29837972)
+texture = ExtResource("7_ypfnu")
 
 [node name="Gun" type="RigidBody2D" parent="." node_paths=PackedStringArray("aim_target", "barrel", "camera", "reticule", "muzzle", "flash", "ejector", "shot_sound", "reload_sound", "dry_shot_sound", "sprite_wrap", "hand_wrap", "ammo", "mag_ejector")]
 z_index = 100
@@ -500,6 +631,7 @@ target = NodePath("../Control Node/Orienter")
 stream = ExtResource("15_p7hy0")
 
 [node name="Line2D" type="Line2D" parent="." node_paths=PackedStringArray("targets")]
+visible = false
 z_index = 1
 points = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 closed = true

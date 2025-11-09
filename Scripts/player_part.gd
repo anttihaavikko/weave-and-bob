@@ -1,4 +1,4 @@
 class_name PlayerPart
-extends Node2D
+extends MovableRigidbody
 
 @export var player: PlayerRoot

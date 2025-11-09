@@ -11,7 +11,7 @@ extends Node2D
 ## Enemy to spawn
 @export var _enemy: PackedScene
 	
-var texture: Texture2D = preload("res://Sprites/ring.png")
+var texture: Texture2D = preload("res://Sprites/spawn-ring.png")
 
 func start(wave: Wave):
 	Effects.singleton.add(8, global_position) # spawn_ring.tscn
