@@ -500,6 +500,7 @@ target = NodePath("../Control Node/Orienter")
 stream = ExtResource("15_p7hy0")
 
 [node name="Line2D" type="Line2D" parent="." node_paths=PackedStringArray("targets")]
+z_index = 1
 points = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 closed = true
 width = 12.0

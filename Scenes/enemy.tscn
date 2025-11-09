@@ -142,6 +142,7 @@ font = ExtResource("7_1dp5w")
 font_size = 70
 
 [node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("frame", "bump_cast", "title_label", "halo", "left_wing", "right_wing", "flasher")]
+z_index = 4
 scale = Vector2(0.3041856, 0.3041856)
 collision_layer = 8
 collision_mask = 9

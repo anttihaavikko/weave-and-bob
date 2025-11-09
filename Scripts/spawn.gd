@@ -14,7 +14,7 @@ extends Node2D
 var texture: Texture2D = preload("res://Sprites/ring.png")
 
 func start(wave: Wave):
-	Effects.singleton.add(3, global_position)
+	Effects.singleton.add(8, global_position) # spawn_ring.tscn
 	SoundEffects.singleton.add(11, global_position) # spawn.wav
 	await get_tree().create_timer(delay).timeout
 	var e := _enemy.instantiate()
