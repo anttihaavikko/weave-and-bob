@@ -69,6 +69,7 @@ func hurt(pos: Vector2):
 
 func die():
 	hide()
+	GameState.camera.shake(10, 0.3)
 	process_mode = Node.PROCESS_MODE_DISABLED
 	Effects.singleton.add_many([4, 3, 2, 2, 2, 0, 0, 0, 1], global_position)
 	SoundEffects.singleton.add(2, global_position)

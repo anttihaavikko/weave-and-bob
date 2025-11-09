@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b7hykafidlmlr"]
+[gd_scene load_steps=3 format=3 uid="uid://b7hykafidlmlr"]
 
 [ext_resource type="Texture2D" uid="uid://c4624ijigoeqo" path="res://Sprites/ak47.png" id="1_nxj5y"]
+[ext_resource type="Script" uid="uid://cqw3wykwfdsk0" path="res://Scripts/shake_on_start.gd" id="2_oqrbh"]
 
 [node name="Gun" type="RigidBody2D"]
 collision_layer = 4
@@ -23,3 +24,6 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_top_margin = 0.1
 drag_bottom_margin = 0.1
+script = ExtResource("2_oqrbh")
+amt = 15
+dur = 0.4

@@ -4,15 +4,10 @@ extends MovableRigidbody
 @export var ground_cast: ShapeCast2D
 @export var gun: Gun
 @export var jump_particles: CPUParticles2D
+@export var camera: ShakeableCamera
 
 var stomp_cooldown := 0.0
 var grounded := false
-
-#func _ready() -> void:
-#	if GameState.spawn_set:
-#		var p = GameState.spawn_point
-#		gun.move_to(p, 0)
-#		move_to(p, 0)
 
 func _process(delta: float) -> void:
 	var x: float = Input.get_axis("left", "right")
@@ -54,6 +49,7 @@ func _hit_enemy(enemy: Node2D):
 			else:
 				SoundEffects.singleton.add(3, global_position)
 				enemy.squash(global_position)
+				camera.shake(5, 0.2)
 		
 func _nudge(dir: Vector2):
 	apply_impulse(dir)

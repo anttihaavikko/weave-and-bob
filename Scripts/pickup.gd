@@ -5,13 +5,13 @@ extends Area2D
 const textures: Dictionary[Type, Texture2D] = {
 	Type.None: null,
 	Type.Magazine: preload("res://Sprites/mag-pickup.png"),
-	Type.Map: preload("res://Sprites/map.png")
+	Type.Map: preload("res://Sprites/map.png"),
 } 
 
 @export var id: String
 @export var type: Type:
 	set(val):
-		var icon = textures[val]
+		var icon := textures[val]
 		if sprite: sprite.texture = icon
 		type = val
 @export var sprite: Sprite2D 

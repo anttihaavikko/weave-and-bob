@@ -7,6 +7,7 @@ var damage := 100
 var spawn_set := false
 var spawn_point: Vector2
 var checkpoint: Checkpoint
+var camera: ShakeableCamera
 
 var ids: Array[String]
 

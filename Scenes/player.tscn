@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://il0jdy8qi06w"]
+[gd_scene load_steps=37 format=3 uid="uid://il0jdy8qi06w"]
 
 [ext_resource type="Script" uid="uid://dpfddv6k670sg" path="res://Scripts/player_root.gd" id="1_p1odr"]
 [ext_resource type="Script" uid="uid://cys6813rck58c" path="res://Scripts/player_part.gd" id="1_p7hy0"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://go0giiad03jq" path="res://Sprites/circle.png" id="7_qc6ha"]
 [ext_resource type="Script" uid="uid://kurmc8gi31mu" path="res://Scripts/limb.gd" id="8_5fh0x"]
 [ext_resource type="Script" uid="uid://1dan3ej2pqjl" path="res://Scripts/casing_ejector.gd" id="8_301kd"]
+[ext_resource type="Script" uid="uid://cc1q7hrvx4xpf" path="res://Scripts/shakeable_camera.gd" id="8_vfarp"]
 [ext_resource type="AudioStream" uid="uid://du4gppilni6bp" path="res://Sounds/rifle.wav" id="9_301kd"]
 [ext_resource type="PackedScene" uid="uid://bcw3fv3n1jhbq" path="res://Scenes/casing.tscn" id="9_8816d"]
 [ext_resource type="PackedScene" uid="uid://blglscrdi4t0" path="res://Scenes/magazine.tscn" id="9_ag0hk"]
@@ -408,6 +409,7 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_top_margin = 0.1
 drag_bottom_margin = 0.1
+script = ExtResource("8_vfarp")
 
 [node name="Reticule" type="Sprite2D" parent="Gun/Camera2D"]
 z_index = 999
@@ -513,7 +515,7 @@ polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
 script = ExtResource("5_gxvcn")
 line = NodePath("../Line2D")
 
-[node name="Control Node" type="RigidBody2D" parent="." node_paths=PackedStringArray("ground_cast", "gun", "jump_particles")]
+[node name="Control Node" type="RigidBody2D" parent="." node_paths=PackedStringArray("ground_cast", "gun", "jump_particles", "camera")]
 mass = 0.5
 can_sleep = false
 continuous_cd = 2
@@ -522,6 +524,7 @@ script = ExtResource("6_qc6ha")
 ground_cast = NodePath("Orienter/Ground Cast")
 gun = NodePath("../Gun")
 jump_particles = NodePath("../Jump Lines")
+camera = NodePath("../Gun/Camera2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control Node"]
 shape = SubResource("CircleShape2D_ctfmv")

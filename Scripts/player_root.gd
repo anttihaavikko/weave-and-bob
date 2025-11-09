@@ -4,9 +4,12 @@ extends Node2D
 @export var control: Node2D
 @export var live_gun: Gun
 @export var gun: PackedScene
-@export var cam: Camera2D
+@export var cam: ShakeableCamera
 
 var dead := false
+
+func _ready() -> void:
+	GameState.camera = cam
 
 func die() -> void:
 	if dead: return

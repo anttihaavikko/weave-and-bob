@@ -7,7 +7,7 @@ var clicked: bool
 @export var aim_target: Node2D
 @export_flags_2d_physics var wall_mask: int
 @export var barrel: Node2D
-@export var camera: Camera2D
+@export var camera: ShakeableCamera
 @export var reticule: Node2D
 @export var muzzle: GPUParticles2D
 @export var flash: CPUParticles2D
@@ -93,6 +93,7 @@ func _physics_process(delta: float) -> void:
 		var p := barrel.global_position
 		var dir := Vector2.RIGHT.rotated(global_rotation + randf_range(-0.1, 0.1)).normalized() * 2000
 		var result := _get_shot_end(space_state, p, dir, [])
+		camera.shake(3, 0.05)
 		
 		if result.has("collider"):
 			if result.collider is Enemy:
@@ -102,7 +103,6 @@ func _physics_process(delta: float) -> void:
 		Effects.singleton.add_many([0, 1], pos)	
 		LineDrawer.singleton.add(p, pos)
 		
-		camera.offset = Vector2(randf_range(-1, 1), randf_range(-1, 1)) * 5
 		muzzle.emitting = true
 		flash.emitting = true
 		ejector.eject()
