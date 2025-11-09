@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://il0jdy8qi06w"]
+[gd_scene load_steps=44 format=3 uid="uid://il0jdy8qi06w"]
 
 [ext_resource type="Script" uid="uid://dpfddv6k670sg" path="res://Scripts/player_root.gd" id="1_p1odr"]
 [ext_resource type="Script" uid="uid://cys6813rck58c" path="res://Scripts/player_part.gd" id="1_p7hy0"]
@@ -30,6 +30,7 @@
 [ext_resource type="Script" uid="uid://pqokfa0fjvq0" path="res://Scripts/ammo_display.gd" id="17_rkwq6"]
 [ext_resource type="PackedScene" uid="uid://ba03mhjfvn43o" path="res://Scenes/face.tscn" id="17_vqq8p"]
 [ext_resource type="Texture2D" uid="uid://du5b3oq3i146w" path="res://Sprites/ammo.png" id="17_xdj3o"]
+[ext_resource type="Texture2D" uid="uid://c0nfiejcfw6dx" path="res://Sprites/mask.png" id="31_xuaoq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8gbba"]
 radius = 5.0
@@ -138,7 +139,7 @@ stiffness = 64.0
 position = Vector2(-2.000001, 18.953592)
 node_a = NodePath("..")
 node_b = NodePath("../../Link NE")
-softness = 0.5
+softness = 1.0
 angular_limit_lower = -1.5707964
 angular_limit_upper = 1.5707964
 
@@ -191,7 +192,7 @@ stiffness = 64.0
 position = Vector2(-1.4339857, 18.364964)
 node_a = NodePath("..")
 node_b = NodePath("../../Link E")
-softness = 0.5
+softness = 1.0
 angular_limit_lower = -1.5707964
 angular_limit_upper = 1.5707964
 
@@ -233,7 +234,7 @@ stiffness = 64.0
 position = Vector2(-1.9953684, 20)
 node_a = NodePath("..")
 node_b = NodePath("../../Link SE")
-softness = 0.5
+softness = 1.0
 angular_limit_lower = -1.5707964
 angular_limit_upper = 1.5707964
 
@@ -277,7 +278,7 @@ stiffness = 64.0
 position = Vector2(-1.391365, 18.361921)
 node_a = NodePath("..")
 node_b = NodePath("../../Link S")
-softness = 0.5
+softness = 1.0
 angular_limit_lower = -1.5707964
 angular_limit_upper = 1.5707964
 
@@ -320,7 +321,7 @@ stiffness = 64.0
 position = Vector2(-1.0000002, 19.95365)
 node_a = NodePath("..")
 node_b = NodePath("../../Link SW")
-softness = 0.5
+softness = 1.0
 angular_limit_lower = -1.5707964
 angular_limit_upper = 1.5707964
 
@@ -373,7 +374,7 @@ stiffness = 64.0
 position = Vector2(-1.4339018, 18.365047)
 node_a = NodePath("..")
 node_b = NodePath("../../Link W")
-softness = 0.5
+softness = 1.0
 angular_limit_lower = -1.5707964
 angular_limit_upper = 1.5707964
 
@@ -416,7 +417,7 @@ stiffness = 64.0
 position = Vector2(-0.997684, 18)
 node_a = NodePath("..")
 node_b = NodePath("../../Link NW")
-softness = 0.5
+softness = 1.0
 angular_limit_lower = -1.5707964
 angular_limit_upper = 1.5707964
 
@@ -462,7 +463,7 @@ stiffness = 64.0
 position = Vector2(-1.3895683, 19.77439)
 node_a = NodePath("..")
 node_b = NodePath("../../Link N")
-softness = 0.5
+softness = 1.0
 angular_limit_lower = -1.5707964
 angular_limit_upper = 1.5707964
 
@@ -728,6 +729,12 @@ end_cap_mode = 2
 script = ExtResource("8_5fh0x")
 target = NodePath("../../../../../Gun/Hand Wrap/Rest Pos")
 length = 35.0
+
+[node name="Mask" type="Sprite2D" parent="Control Node/Orienter/Middle"]
+visible = false
+position = Vector2(0, -17)
+scale = Vector2(0.37680447, 0.37680447)
+texture = ExtResource("31_xuaoq")
 
 [node name="Face" parent="Control Node/Orienter/Middle" instance=ExtResource("17_vqq8p")]
 position = Vector2(0, -18)

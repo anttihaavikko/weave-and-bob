@@ -33,5 +33,5 @@ texture = ExtResource("1_j5fwq")
 
 [node name="Mouth" type="Sprite2D" parent="."]
 position = Vector2(0, 3)
-scale = Vector2(0.07446808, 0.07446809)
+scale = Vector2(0.066067554, 0.06606756)
 texture = ExtResource("2_cwi3a")
