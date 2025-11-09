@@ -873,7 +873,7 @@ _enemy = ExtResource("16_aa8k8")
 
 [node name="Spawn Point" type="Node2D" parent="Level"]
 z_index = 5
-position = Vector2(5769, 1565)
+position = Vector2(4509.9995, -493)
 scale = Vector2(1.0023229, 1)
 script = ExtResource("39_kwxat")
 player = ExtResource("1_bo1nx")
@@ -896,7 +896,8 @@ id = "first_map"
 type = 2
 
 [node name="Clouds" type="Node2D" parent="."]
-position = Vector2(5382.497, 1402)
+position = Vector2(8648.909, -2283)
+metadata/_edit_group_ = true
 
 [node name="Cloud1" type="Sprite2D" parent="Clouds"]
 modulate = Color(1, 1, 1, 0.05882353)

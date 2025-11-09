@@ -5,5 +5,5 @@ extends Line2D
 func _process(_delta: float) -> void:
 	var i: int = 0
 	for p in targets:
-		points[i] = p.global_position - global_position
+		points[i] = to_local(p.global_position) - to_local(global_position)
 		i += 1

@@ -662,18 +662,19 @@ visible = false
 z_index = 1
 points = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 closed = true
-width = 12.0
+width = 50.0
 default_color = Color(0, 0, 0, 1)
 script = ExtResource("4_jc5ra")
 targets = [NodePath("../Link N/LinkPin"), NodePath("../Link NE/LinkPin"), NodePath("../Link E/LinkPin"), NodePath("../Link SE/LinkPin"), NodePath("../Link S/LinkPin"), NodePath("../Link SW/LinkPin"), NodePath("../Link W/LinkPin"), NodePath("../Link NW/LinkPin")]
 
-[node name="Polygon2D" type="Polygon2D" parent="." node_paths=PackedStringArray("line")]
+[node name="Polygon2D" type="Polygon2D" parent="." node_paths=PackedStringArray("line", "control")]
 z_index = 10
 position = Vector2(0, 1)
 color = Color(0, 0.47843137, 0.2627451, 1)
 polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
 script = ExtResource("5_gxvcn")
 line = NodePath("../Line2D")
+control = NodePath("../Control Node")
 
 [node name="Control Node" type="RigidBody2D" parent="." node_paths=PackedStringArray("ground_cast", "gun", "jump_particles", "camera")]
 mass = 0.5
