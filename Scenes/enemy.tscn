@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://biww1pdu4di3l"]
+[gd_scene load_steps=21 format=3 uid="uid://biww1pdu4di3l"]
 
 [ext_resource type="Script" uid="uid://cxtjkd8vlagxd" path="res://Scripts/enemy.gd" id="1_1f0kj"]
 [ext_resource type="Texture2D" uid="uid://go0giiad03jq" path="res://Sprites/circle.png" id="1_hghv2"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://w5ubxh2dsi74" path="res://Sprites/mouth.png" id="4_287tu"]
 [ext_resource type="Shader" uid="uid://bcpkc8l8xvy70" path="res://Shaders/white.gdshader" id="4_ghaa6"]
 [ext_resource type="Texture2D" uid="uid://bvqmnjk5nrig" path="res://Sprites/brow.png" id="5_0830c"]
+[ext_resource type="Script" uid="uid://b6wi31avwrvcy" path="res://Scripts/face.gd" id="6_haro7"]
 [ext_resource type="FontFile" uid="uid://x80u6ag0vqx5" path="res://Misc/ChunkFive-Regular.otf" id="7_1dp5w"]
 [ext_resource type="Texture2D" uid="uid://b65t48wx4s35d" path="res://Sprites/halo.svg" id="8_auwsv"]
 [ext_resource type="Script" uid="uid://uxu8p38o38ip" path="res://Scripts/mover.gd" id="9_8uf12"]
@@ -214,23 +215,28 @@ metadata/_custom_type_script = "uid://c26faw2casac2"
 visible = false
 occluder = SubResource("OccluderPolygon2D_afpow")
 
-[node name="Face" type="Node2D" parent="."]
+[node name="Face" type="Node2D" parent="." node_paths=PackedStringArray("left_eye", "right_eye")]
 position = Vector2(0, -3.2874668)
 scale = Vector2(5.5745897, 5.5745897)
+script = ExtResource("6_haro7")
+left_eye = NodePath("Eye Left")
+right_eye = NodePath("Eye Right")
 
 [node name="Eye Left" type="Sprite2D" parent="Face"]
 modulate = Color(0, 0, 0, 1)
-position = Vector2(-9, 0)
+position = Vector2(-8.8841915, 1.7893159)
 rotation = 3.1415925
 scale = Vector2(0.014, 0.014)
 texture = ExtResource("1_hghv2")
+offset = Vector2(0, 172.67)
 
 [node name="Eye Right" type="Sprite2D" parent="Face"]
 modulate = Color(0, 0, 0, 1)
-position = Vector2(9, 0)
+position = Vector2(9.1158085, 1.7893159)
 rotation = 3.1415925
 scale = Vector2(0.014, 0.014)
 texture = ExtResource("1_hghv2")
+offset = Vector2(0, 172.67)
 
 [node name="Mouth" type="Sprite2D" parent="Face"]
 modulate = Color(0, 0, 0, 1)
