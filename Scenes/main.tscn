@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=61 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/player.tscn" id="1_bo1nx"]
@@ -43,6 +43,7 @@
 [ext_resource type="Script" uid="uid://d1ixyae7lf7j" path="res://Scripts/cloud.gd" id="22_jut3y"]
 [ext_resource type="AudioStream" uid="uid://baj3ju7qtah60" path="res://Sounds/spawn.wav" id="22_jwpg7"]
 [ext_resource type="AudioStream" uid="uid://dwphx657ljy5h" path="res://Sounds/warn.wav" id="23_k2e45"]
+[ext_resource type="Texture2D" uid="uid://crb3g7853awlr" path="res://Sprites/bricks1.png" id="25_1semv"]
 [ext_resource type="PackedScene" uid="uid://cd1lfv8xg8ha8" path="res://Scenes/halo.tscn" id="28_kqrg6"]
 [ext_resource type="PackedScene" uid="uid://lmvlns352qp4" path="res://Scenes/Effects/feathers.tscn" id="29_kqrg6"]
 [ext_resource type="PackedScene" uid="uid://ba4e8lxoib43" path="res://Scenes/spawn_ring.tscn" id="30_nwwfm"]
@@ -1091,7 +1092,7 @@ _enemy = ExtResource("16_aa8k8")
 
 [node name="Spawn Point" type="Node2D" parent="Level"]
 z_index = 5
-position = Vector2(5798, 1546)
+position = Vector2(5811, 1503)
 scale = Vector2(1.0023229, 1)
 script = ExtResource("39_kwxat")
 player = ExtResource("1_bo1nx")
@@ -1112,6 +1113,15 @@ position = Vector2(4909.0005, -2060)
 scale = Vector2(1.0023229, 1)
 id = "first_map"
 type = 2
+
+[node name="Bricks" type="Node2D" parent="Level"]
+modulate = Color(0.91764706, 0.3372549, 0.09411765, 0.16470589)
+
+[node name="Brick1" type="Sprite2D" parent="Level/Bricks"]
+z_index = 50
+position = Vector2(3713.703, 1505.4083)
+scale = Vector2(2.5642173, 2.5642173)
+texture = ExtResource("25_1semv")
 
 [node name="Clouds" type="Node2D" parent="."]
 position = Vector2(8648.909, -2283)
