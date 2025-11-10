@@ -23,6 +23,7 @@ extends CharacterBody2D
 enum Behaviour {None, Wave}
 var mode: Behaviour
 var dir: Vector2
+var vertical_dir: float
 var time := 0.0
 var turn_delay := 0.0
 
@@ -40,7 +41,7 @@ func _physics_process(delta: float) -> void:
 	if mode == Behaviour.Wave:
 		time += delta
 		turn_delay -= delta
-		velocity = (dir - dir.rotated(PI * sign(dir.x) * 0.5) * sin(time * 5) * 1) * 20000 * delta
+		velocity = (dir - dir.rotated(PI * vertical_dir * 0.5) * sin(time * 5) * 1) * 20000 * delta
 		move_and_slide()
 		if turn_delay <= 0 and bump_cast.is_colliding():
 			dir = - dir

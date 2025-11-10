@@ -11,6 +11,33 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_jwpg7"]
 radius = 204.06657
 
+[sub_resource type="Animation" id="Animation_l0c30"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pole/Flag:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5707964]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pole/Flag:skew")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
 [sub_resource type="Animation" id="Animation_opoc8"]
 resource_name = "flag"
 length = 0.2
@@ -40,33 +67,6 @@ tracks/1/keys = {
 "values": [0.0, 0.35430183815484884]
 }
 
-[sub_resource type="Animation" id="Animation_l0c30"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Pole/Flag:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.5707964]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Pole/Flag:skew")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_w8ggu"]
 _data = {
 &"RESET": SubResource("Animation_l0c30"),
@@ -82,6 +82,7 @@ shader_parameter/flip = false
 
 [node name="Checkpoint" type="Area2D" node_paths=PackedStringArray("pole")]
 modulate = Color(0.5686275, 0.32941177, 0.16470589, 1)
+z_index = 6
 collision_layer = 0
 script = ExtResource("1_i1pff")
 pole = NodePath("Pole")

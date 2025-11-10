@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=60 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/player.tscn" id="1_bo1nx"]
@@ -26,9 +26,13 @@
 [ext_resource type="AudioStream" uid="uid://by8w7qkrtxmm6" path="res://Sounds/enemy_bump.wav" id="16_7k868"]
 [ext_resource type="PackedScene" uid="uid://b4gsjya68uvno" path="res://Scenes/enemy_spiked.tscn" id="16_aa8k8"]
 [ext_resource type="PackedScene" uid="uid://tmp3aao5rcrn" path="res://Scenes/pickup.tscn" id="16_k12tt"]
+[ext_resource type="Shader" uid="uid://7gwbqnj5dg4s" path="res://Shaders/wavy.gdshader" id="17_2daye"]
+[ext_resource type="Texture2D" uid="uid://dod6ubda1x68" path="res://Sprites/sine-hill-svg.svg" id="17_bv80c"]
 [ext_resource type="AudioStream" uid="uid://5fiorq7fpqgr" path="res://Sounds/pickup1.wav" id="17_e08e2"]
+[ext_resource type="Texture2D" uid="uid://cox7xcm18yg4r" path="res://Sprites/sine-hill.png" id="17_gsvbx"]
 [ext_resource type="PackedScene" uid="uid://ympyuuto2ejt" path="res://Scenes/letter.tscn" id="17_h1bgf"]
 [ext_resource type="AudioStream" uid="uid://la43ov0oeu1r" path="res://Sounds/pickup2.wav" id="18_neg2b"]
+[ext_resource type="Texture2D" uid="uid://b38ysewvmjlub" path="res://Sprites/tree.png" id="18_ptfg5"]
 [ext_resource type="PackedScene" uid="uid://b5cxgdqfrr4vr" path="res://Scenes/door.tscn" id="19_ee4r6"]
 [ext_resource type="Script" uid="uid://b6b2bur0hl2iu" path="res://Scripts/encounter.gd" id="19_fevyy"]
 [ext_resource type="AudioStream" uid="uid://c7qbt07jr3pr5" path="res://Sounds/pickup3.wav" id="19_r33sp"]
@@ -43,7 +47,7 @@
 [ext_resource type="PackedScene" uid="uid://lmvlns352qp4" path="res://Scenes/Effects/feathers.tscn" id="29_kqrg6"]
 [ext_resource type="PackedScene" uid="uid://ba4e8lxoib43" path="res://Scenes/spawn_ring.tscn" id="30_nwwfm"]
 [ext_resource type="PackedScene" uid="uid://ccw01rqfuh3ys" path="res://Scenes/platform.tscn" id="33_o1aky"]
-[ext_resource type="PackedScene" uid="uid://dj4ia0fuy6eo6" path="res://Scenes/Effects/grass.tscn" id="33_v2nl5"]
+[ext_resource type="PackedScene" uid="uid://dj4ia0fuy6eo6" path="res://Scenes/Effects/grass_particles.tscn" id="33_v2nl5"]
 [ext_resource type="PackedScene" uid="uid://7825pf5ha5cw" path="res://Scenes/Effects/blood_big.tscn" id="34_xdkp6"]
 [ext_resource type="Script" uid="uid://ban2bpqpuesw1" path="res://Scripts/player_spawn.gd" id="39_kwxat"]
 [ext_resource type="Texture2D" uid="uid://cqk6j01w8oul" path="res://Sprites/ring.png" id="41_8cuat"]
@@ -53,6 +57,13 @@
 [ext_resource type="AudioStream" uid="uid://6icsnrsowbyq" path="res://Sounds/bass.wav" id="49_xdkp6"]
 [ext_resource type="AudioStream" uid="uid://dq0spo1815aj3" path="res://Sounds/flag.wav" id="50_54nrm"]
 [ext_resource type="AudioStream" uid="uid://dk8rm3dvhj87i" path="res://Sounds/flag_boop.wav" id="51_55jeb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1semv"]
+shader = ExtResource("17_2daye")
+shader_parameter/amount = 5.0
+shader_parameter/frequency = 0.0
+shader_parameter/speed = 5.0
+shader_parameter/flip = false
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_s8vy0"]
 blend_mode = 1
@@ -65,9 +76,9 @@ script = ExtResource("1_6bp64")
 
 [node name="Bg" type="Sprite2D" parent="."]
 modulate = Color(0.8640645, 0.5525103, 0.35379764, 1)
-position = Vector2(1187.2422, -883)
+position = Vector2(977.7289, -875)
 scale = Vector2(17784.191, 8983.001)
-texture = ExtResource("3_8gbba")
+texture = ExtResource("17_gsvbx")
 
 [node name="Level" type="Node" parent="."]
 
@@ -504,6 +515,7 @@ script = ExtResource("22_gt3je")
 title = "SIN"
 mode = 1
 dir = Vector2(-1, 0)
+vertical_dir = -1.0
 _enemy = ExtResource("9_ynf5e")
 
 [node name="Spawn2" type="Node2D" parent="Level/Room/Intro Encounter/Wave"]
@@ -512,6 +524,7 @@ script = ExtResource("22_gt3je")
 title = "COS"
 mode = 1
 dir = Vector2(1, 0)
+vertical_dir = 1.0
 _enemy = ExtResource("9_ynf5e")
 
 [node name="Wave2" type="Node2D" parent="Level/Room/Intro Encounter"]
@@ -524,6 +537,7 @@ script = ExtResource("22_gt3je")
 title = "COS"
 mode = 1
 dir = Vector2(-1, 0)
+vertical_dir = -1.0
 _enemy = ExtResource("9_ynf5e")
 
 [node name="Spawn2" type="Node2D" parent="Level/Room/Intro Encounter/Wave2"]
@@ -532,11 +546,182 @@ script = ExtResource("22_gt3je")
 title = "SIN"
 mode = 1
 dir = Vector2(1, 0)
+vertical_dir = 1.0
 _enemy = ExtResource("9_ynf5e")
 
 [node name="Room2" type="Node2D" parent="Level"]
 position = Vector2(5456, 589)
 scale = Vector2(1.0023229, 1)
+
+[node name="Far" type="Node2D" parent="Level/Room2"]
+modulate = Color(0.8509804, 0.50980395, 0.3529412, 1)
+position = Vector2(-536.7529, 863)
+
+[node name="Tree" type="Sprite2D" parent="Level/Room2/Far"]
+material = SubResource("ShaderMaterial_1semv")
+position = Vector2(-0.99768245, 65)
+scale = Vector2(0.42906418, 0.42906418)
+texture = ExtResource("18_ptfg5")
+
+[node name="Tree2" type="Sprite2D" parent="Level/Room2/Far"]
+material = SubResource("ShaderMaterial_1semv")
+position = Vector2(31.426441, 77.49124)
+scale = Vector2(0.38804826, 0.3880483)
+texture = ExtResource("18_ptfg5")
+
+[node name="Tree3" type="Sprite2D" parent="Level/Room2/Far"]
+material = SubResource("ShaderMaterial_1semv")
+position = Vector2(111.74044, 122)
+scale = Vector2(0.42906418, 0.42906418)
+texture = ExtResource("18_ptfg5")
+
+[node name="Tree4" type="Sprite2D" parent="Level/Room2/Far"]
+material = SubResource("ShaderMaterial_1semv")
+position = Vector2(140.67151, 128.99124)
+scale = Vector2(0.37434968, 0.37434968)
+texture = ExtResource("18_ptfg5")
+
+[node name="Tree5" type="Sprite2D" parent="Level/Room2/Far"]
+material = SubResource("ShaderMaterial_1semv")
+position = Vector2(255.40671, 69)
+scale = Vector2(0.42906418, 0.42906418)
+texture = ExtResource("18_ptfg5")
+
+[node name="Tree6" type="Sprite2D" parent="Level/Room2/Far"]
+material = SubResource("ShaderMaterial_1semv")
+position = Vector2(-73.32326, 93.491264)
+scale = Vector2(0.47023985, 0.47023985)
+texture = ExtResource("18_ptfg5")
+
+[node name="Tree11" type="Sprite2D" parent="Level/Room2/Far"]
+material = SubResource("ShaderMaterial_1semv")
+position = Vector2(752.2527, 66.00005)
+scale = Vector2(0.47023985, 0.47023985)
+texture = ExtResource("18_ptfg5")
+
+[node name="Tree12" type="Sprite2D" parent="Level/Room2/Far"]
+material = SubResource("ShaderMaterial_1semv")
+position = Vector2(784.1785, 74.00005)
+scale = Vector2(0.47023985, 0.47023985)
+texture = ExtResource("18_ptfg5")
+
+[node name="Tree7" type="Sprite2D" parent="Level/Room2/Far"]
+material = SubResource("ShaderMaterial_1semv")
+position = Vector2(-99.768234, 121)
+scale = Vector2(0.42906418, 0.42906418)
+texture = ExtResource("18_ptfg5")
+
+[node name="Tree8" type="Sprite2D" parent="Level/Room2/Far"]
+material = SubResource("ShaderMaterial_1semv")
+position = Vector2(-190.55734, 89)
+scale = Vector2(0.42906418, 0.42906418)
+texture = ExtResource("18_ptfg5")
+
+[node name="Tree9" type="Sprite2D" parent="Level/Room2/Far"]
+material = SubResource("ShaderMaterial_1semv")
+position = Vector2(-245.42987, 67)
+scale = Vector2(0.42906418, 0.42906418)
+texture = ExtResource("18_ptfg5")
+
+[node name="Tree10" type="Sprite2D" parent="Level/Room2/Far"]
+material = SubResource("ShaderMaterial_1semv")
+position = Vector2(232.46002, 84)
+scale = Vector2(0.3356245, 0.3356245)
+texture = ExtResource("18_ptfg5")
+
+[node name="Hills" type="TextureRect" parent="Level/Room2/Far"]
+offset_left = -620.5586
+offset_top = 108.0
+offset_right = 2907.0269
+offset_bottom = 620.0
+scale = Vector2(0.62079656, 0.34079656)
+texture = ExtResource("17_bv80c")
+stretch_mode = 1
+
+[node name="Far2" type="Node2D" parent="Level/Room2"]
+modulate = Color(0.8509804, 0.50980395, 0.3529412, 1)
+position = Vector2(-536.7529, 863)
+
+[node name="Tree" type="Sprite2D" parent="Level/Room2/Far2"]
+material = SubResource("ShaderMaterial_1semv")
+position = Vector2(-0.99768245, 65)
+scale = Vector2(0.42906418, 0.42906418)
+texture = ExtResource("18_ptfg5")
+
+[node name="Tree2" type="Sprite2D" parent="Level/Room2/Far2"]
+material = SubResource("ShaderMaterial_1semv")
+position = Vector2(31.426441, 77.49124)
+scale = Vector2(0.38804826, 0.3880483)
+texture = ExtResource("18_ptfg5")
+
+[node name="Tree3" type="Sprite2D" parent="Level/Room2/Far2"]
+material = SubResource("ShaderMaterial_1semv")
+position = Vector2(111.74044, 122)
+scale = Vector2(0.42906418, 0.42906418)
+texture = ExtResource("18_ptfg5")
+
+[node name="Tree4" type="Sprite2D" parent="Level/Room2/Far2"]
+material = SubResource("ShaderMaterial_1semv")
+position = Vector2(140.67151, 128.99124)
+scale = Vector2(0.37434968, 0.37434968)
+texture = ExtResource("18_ptfg5")
+
+[node name="Tree5" type="Sprite2D" parent="Level/Room2/Far2"]
+material = SubResource("ShaderMaterial_1semv")
+position = Vector2(255.40671, 69)
+scale = Vector2(0.42906418, 0.42906418)
+texture = ExtResource("18_ptfg5")
+
+[node name="Tree6" type="Sprite2D" parent="Level/Room2/Far2"]
+material = SubResource("ShaderMaterial_1semv")
+position = Vector2(-73.32326, 93.491264)
+scale = Vector2(0.47023985, 0.47023985)
+texture = ExtResource("18_ptfg5")
+
+[node name="Tree11" type="Sprite2D" parent="Level/Room2/Far2"]
+material = SubResource("ShaderMaterial_1semv")
+position = Vector2(752.2527, 66.00005)
+scale = Vector2(0.47023985, 0.47023985)
+texture = ExtResource("18_ptfg5")
+
+[node name="Tree12" type="Sprite2D" parent="Level/Room2/Far2"]
+material = SubResource("ShaderMaterial_1semv")
+position = Vector2(784.1785, 74.00005)
+scale = Vector2(0.47023985, 0.47023985)
+texture = ExtResource("18_ptfg5")
+
+[node name="Tree7" type="Sprite2D" parent="Level/Room2/Far2"]
+material = SubResource("ShaderMaterial_1semv")
+position = Vector2(-99.768234, 121)
+scale = Vector2(0.42906418, 0.42906418)
+texture = ExtResource("18_ptfg5")
+
+[node name="Tree8" type="Sprite2D" parent="Level/Room2/Far2"]
+material = SubResource("ShaderMaterial_1semv")
+position = Vector2(-190.55734, 89)
+scale = Vector2(0.42906418, 0.42906418)
+texture = ExtResource("18_ptfg5")
+
+[node name="Tree9" type="Sprite2D" parent="Level/Room2/Far2"]
+material = SubResource("ShaderMaterial_1semv")
+position = Vector2(-245.42987, 67)
+scale = Vector2(0.42906418, 0.42906418)
+texture = ExtResource("18_ptfg5")
+
+[node name="Tree10" type="Sprite2D" parent="Level/Room2/Far2"]
+material = SubResource("ShaderMaterial_1semv")
+position = Vector2(232.46002, 84)
+scale = Vector2(0.3356245, 0.3356245)
+texture = ExtResource("18_ptfg5")
+
+[node name="Hills" type="TextureRect" parent="Level/Room2/Far2"]
+offset_left = -620.5586
+offset_top = 108.0
+offset_right = 2907.0269
+offset_bottom = 620.0
+scale = Vector2(0.62079656, 0.34079656)
+texture = ExtResource("17_bv80c")
+stretch_mode = 1
 
 [node name="Background" type="Node2D" parent="Level/Room2"]
 modulate = Color(0.7647059, 0.4627451, 0.25882354, 1)
@@ -577,6 +762,22 @@ position = Vector2(31.925842, 1062)
 [node name="Tree4" parent="Level/Room2/Background" instance=ExtResource("9_wsu2k")]
 modulate = Color(1, 1, 1, 1)
 position = Vector2(154.64078, 1067)
+
+[node name="Tree11" parent="Level/Room2/Background" instance=ExtResource("9_wsu2k")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(-1932.511, 883)
+
+[node name="Tree12" parent="Level/Room2/Background" instance=ExtResource("9_wsu2k")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(-1818.7751, 883)
+
+[node name="Tree13" parent="Level/Room2/Background" instance=ExtResource("9_wsu2k")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(-1709.03, 876)
+
+[node name="Tree14" parent="Level/Room2/Background" instance=ExtResource("9_wsu2k")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(-1586.3152, 881)
 
 [node name="Tree5" parent="Level/Room2/Background" instance=ExtResource("9_wsu2k")]
 modulate = Color(1, 1, 1, 1)
@@ -782,6 +983,7 @@ script = ExtResource("22_gt3je")
 title = "SIN"
 mode = 1
 dir = Vector2(-1, 0)
+vertical_dir = -1.0
 _enemy = ExtResource("9_ynf5e")
 
 [node name="Spawn2" type="Node2D" parent="Level/Room2/Onslaught Encounter/Wave"]
@@ -790,6 +992,7 @@ script = ExtResource("22_gt3je")
 title = "COS"
 mode = 1
 dir = Vector2(1, 0)
+vertical_dir = 1.0
 _enemy = ExtResource("9_ynf5e")
 
 [node name="Spawn3" type="Node2D" parent="Level/Room2/Onslaught Encounter/Wave"]
@@ -798,6 +1001,7 @@ script = ExtResource("22_gt3je")
 title = "SIN"
 mode = 1
 dir = Vector2(-1, 0)
+vertical_dir = -1.0
 _enemy = ExtResource("9_ynf5e")
 
 [node name="Spawn4" type="Node2D" parent="Level/Room2/Onslaught Encounter/Wave"]
@@ -806,6 +1010,7 @@ script = ExtResource("22_gt3je")
 title = "COS"
 mode = 1
 dir = Vector2(1, 0)
+vertical_dir = 1.0
 _enemy = ExtResource("9_ynf5e")
 
 [node name="Spawn5" type="Node2D" parent="Level/Room2/Onslaught Encounter/Wave"]
@@ -814,6 +1019,7 @@ script = ExtResource("22_gt3je")
 title = "TAN"
 mode = 1
 dir = Vector2(0, 1)
+vertical_dir = -1.0
 _enemy = ExtResource("16_aa8k8")
 
 [node name="Spawn6" type="Node2D" parent="Level/Room2/Onslaught Encounter/Wave"]
@@ -822,6 +1028,7 @@ script = ExtResource("22_gt3je")
 title = "TAN"
 mode = 1
 dir = Vector2(0, 1)
+vertical_dir = 1.0
 _enemy = ExtResource("16_aa8k8")
 
 [node name="Wave2" type="Node2D" parent="Level/Room2/Onslaught Encounter"]
@@ -834,6 +1041,7 @@ script = ExtResource("22_gt3je")
 title = "SIN"
 mode = 1
 dir = Vector2(-1, 0)
+vertical_dir = -1.0
 _enemy = ExtResource("16_aa8k8")
 
 [node name="Spawn2" type="Node2D" parent="Level/Room2/Onslaught Encounter/Wave2"]
@@ -842,6 +1050,7 @@ script = ExtResource("22_gt3je")
 title = "COS"
 mode = 1
 dir = Vector2(1, 0)
+vertical_dir = 1.0
 _enemy = ExtResource("16_aa8k8")
 
 [node name="Spawn3" type="Node2D" parent="Level/Room2/Onslaught Encounter/Wave2"]
@@ -850,6 +1059,7 @@ script = ExtResource("22_gt3je")
 title = "SIN"
 mode = 1
 dir = Vector2(-1, 0)
+vertical_dir = -1.0
 _enemy = ExtResource("16_aa8k8")
 
 [node name="Spawn4" type="Node2D" parent="Level/Room2/Onslaught Encounter/Wave2"]
@@ -858,6 +1068,7 @@ script = ExtResource("22_gt3je")
 title = "COS"
 mode = 1
 dir = Vector2(1, 0)
+vertical_dir = 1.0
 _enemy = ExtResource("16_aa8k8")
 
 [node name="Spawn5" type="Node2D" parent="Level/Room2/Onslaught Encounter/Wave2"]
@@ -866,6 +1077,7 @@ script = ExtResource("22_gt3je")
 title = "TAN"
 mode = 1
 dir = Vector2(0, 1)
+vertical_dir = -1.0
 _enemy = ExtResource("16_aa8k8")
 
 [node name="Spawn6" type="Node2D" parent="Level/Room2/Onslaught Encounter/Wave2"]
@@ -874,11 +1086,12 @@ script = ExtResource("22_gt3je")
 title = "TAN"
 mode = 1
 dir = Vector2(0, 1)
+vertical_dir = 1.0
 _enemy = ExtResource("16_aa8k8")
 
 [node name="Spawn Point" type="Node2D" parent="Level"]
 z_index = 5
-position = Vector2(5874, 1504)
+position = Vector2(5798, 1546)
 scale = Vector2(1.0023229, 1)
 script = ExtResource("39_kwxat")
 player = ExtResource("1_bo1nx")

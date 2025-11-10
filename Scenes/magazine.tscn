@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://blglscrdi4t0"]
+[gd_scene load_steps=5 format=3 uid="uid://blglscrdi4t0"]
 
 [ext_resource type="Script" uid="uid://bt7s05v5ntv7t" path="res://Scripts/movable_rigidbody.gd" id="1_i4h00"]
 [ext_resource type="Texture2D" uid="uid://m1o32bdweyxe" path="res://Sprites/mag.png" id="2_6kidh"]
+[ext_resource type="Script" uid="uid://c0lfb6otbhec3" path="res://Scripts/sound_on_hit.gd" id="3_6kidh"]
+[ext_resource type="AudioStream" uid="uid://ojbrjf1tmrvb" path="res://Sounds/mag.wav" id="3_55tsc"]
 
 [node name="Magazine" type="RigidBody2D"]
 z_index = 250
@@ -18,3 +20,12 @@ polygon = PackedVector2Array(3.0264015, -4, 13.114401, 6, 6.052801, 16.999998, -
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.32498372, 0.32498372)
 texture = ExtResource("2_6kidh")
+
+[node name="SoundOnHit" type="AudioStreamPlayer2D" parent="." node_paths=PackedStringArray("body")]
+stream = ExtResource("3_55tsc")
+script = ExtResource("3_6kidh")
+body = NodePath("..")
+min_speed = 10.0
+max_speed = 100.0
+volume_multiplier = 0.7
+metadata/_custom_type_script = "uid://c0lfb6otbhec3"

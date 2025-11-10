@@ -6,6 +6,7 @@ extends Node2D
 @export var title: String
 @export var mode: Enemy.Behaviour
 @export var dir: Vector2
+@export var vertical_dir: float
 @export var delay := 1.0
 
 ## Enemy to spawn
@@ -22,6 +23,7 @@ func start(wave: Wave):
 		e.respawns_after = 0
 		e.mode = mode
 		e.dir = dir
+		e.vertical_dir = vertical_dir
 		e.title = title
 		e.died.connect(wave.enemy_died)
 	add_child(e)
