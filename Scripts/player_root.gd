@@ -17,7 +17,7 @@ func die() -> void:
 	Musics.pitch(0.5, 1.5)
 	dead = true
 	hide()
-	Effects.singleton.add_many([4, 3, 2, 2, 2, 0, 0, 0, 1], control.global_position)
+	Effects.singleton.add_many([4, 3, 0, 0, 0, 1, 9, 10, 2], control.global_position)
 	SoundEffects.singleton.add(2, control.global_position)
 	process_mode = PROCESS_MODE_DISABLED
 	var g := gun.instantiate() as RigidBody2D

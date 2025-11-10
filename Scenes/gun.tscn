@@ -25,5 +25,5 @@ drag_vertical_enabled = true
 drag_top_margin = 0.1
 drag_bottom_margin = 0.1
 script = ExtResource("2_oqrbh")
-amt = 15
+amt = 20
 dur = 0.4

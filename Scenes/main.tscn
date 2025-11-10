@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=53 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/player.tscn" id="1_bo1nx"]
@@ -43,11 +43,14 @@
 [ext_resource type="PackedScene" uid="uid://lmvlns352qp4" path="res://Scenes/Effects/feathers.tscn" id="29_kqrg6"]
 [ext_resource type="PackedScene" uid="uid://ba4e8lxoib43" path="res://Scenes/spawn_ring.tscn" id="30_nwwfm"]
 [ext_resource type="PackedScene" uid="uid://ccw01rqfuh3ys" path="res://Scenes/platform.tscn" id="33_o1aky"]
+[ext_resource type="PackedScene" uid="uid://dj4ia0fuy6eo6" path="res://Scenes/Effects/grass.tscn" id="33_v2nl5"]
+[ext_resource type="PackedScene" uid="uid://7825pf5ha5cw" path="res://Scenes/Effects/blood_big.tscn" id="34_xdkp6"]
 [ext_resource type="Script" uid="uid://ban2bpqpuesw1" path="res://Scripts/player_spawn.gd" id="39_kwxat"]
 [ext_resource type="Texture2D" uid="uid://cqk6j01w8oul" path="res://Sprites/ring.png" id="41_8cuat"]
 [ext_resource type="PackedScene" uid="uid://c4dqyepeaha7h" path="res://Scenes/checkpoint.tscn" id="41_kwxat"]
 [ext_resource type="Script" uid="uid://cjo6s8hrhyh8l" path="res://Scripts/dev_sprite.gd" id="44_aa8k8"]
 [ext_resource type="Texture2D" uid="uid://bjy00gdxmeg1a" path="res://Sprites/cloud1.png" id="47_s8vy0"]
+[ext_resource type="PackedScene" uid="uid://bpamcmqpiyf2j" path="res://Scenes/killbox.tscn" id="50_dmskm"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_s8vy0"]
 blend_mode = 1
@@ -873,7 +876,7 @@ _enemy = ExtResource("16_aa8k8")
 
 [node name="Spawn Point" type="Node2D" parent="Level"]
 z_index = 5
-position = Vector2(5859, 1552)
+position = Vector2(5793, 1478)
 scale = Vector2(1.0023229, 1)
 script = ExtResource("39_kwxat")
 player = ExtResource("1_bo1nx")
@@ -1221,7 +1224,7 @@ script = ExtResource("22_jut3y")
 
 [node name="Effects" type="Node" parent="."]
 script = ExtResource("5_kry3j")
-effects = Array[PackedScene]([ExtResource("2_kry3j"), ExtResource("6_21xkr"), ExtResource("10_hptm8"), ExtResource("10_d1ilt"), ExtResource("12_6iyac"), ExtResource("9_k12tt"), ExtResource("28_kqrg6"), ExtResource("29_kqrg6"), ExtResource("30_nwwfm")])
+effects = Array[PackedScene]([ExtResource("2_kry3j"), ExtResource("6_21xkr"), ExtResource("10_hptm8"), ExtResource("10_d1ilt"), ExtResource("12_6iyac"), ExtResource("9_k12tt"), ExtResource("28_kqrg6"), ExtResource("29_kqrg6"), ExtResource("30_nwwfm"), ExtResource("33_v2nl5"), ExtResource("34_xdkp6")])
 
 [node name="Sounds" type="Node" parent="."]
 script = ExtResource("10_gt3je")
@@ -1239,5 +1242,9 @@ width = 5.0
 
 [node name="Timer" type="Timer" parent="Line Drawer"]
 wait_time = 0.05
+
+[node name="Killbox" parent="." instance=ExtResource("50_dmskm")]
+position = Vector2(6128.7637, 1485)
+scale = Vector2(100, 521.0001)
 
 [connection signal="timeout" from="Line Drawer/Timer" to="Line Drawer" method="_on_timer_timeout"]

@@ -21,6 +21,10 @@ func _process(delta: float) -> void:
 	
 func intensify(state: bool):
 	_intense = state
+
+func pause():
+	normal.volume_linear = 0
+	combat.volume_linear = 0
 	
 func pitch(target: float, reset_after: float = -1):
 	_pitch_target = target

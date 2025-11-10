@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://7825pf5ha5cw"]
+
+[ext_resource type="Texture2D" uid="uid://go0giiad03jq" path="res://Sprites/circle.png" id="1_y4fto"]
+[ext_resource type="Script" uid="uid://cnqkxei24emlb" path="res://Scripts/free_after.gd" id="2_rkgoe"]
+
+[sub_resource type="Curve" id="Curve_y4fto"]
+_data = [Vector2(0, 0.2274487), 0.0, 2.3184352, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_rkgoe"]
+curve = SubResource("Curve_y4fto")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_m6266"]
+particle_flag_disable_z = true
+angle_min = -720.0
+angle_max = 720.0
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = -1500.0
+initial_velocity_max = 1500.0
+gravity = Vector3(0, 1000, 0)
+scale_min = 0.01
+scale_max = 0.049999997
+turbulence_enabled = true
+turbulence_noise_scale = 20.0
+turbulence_noise_speed_random = 0.0
+turbulence_influence_max = 0.231
+turbulence_influence_over_life = SubResource("CurveTexture_rkgoe")
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.0
+
+[node name="Blood" type="GPUParticles2D"]
+modulate = Color(0.9202336, 0.30798864, 0.3580894, 1)
+emitting = false
+amount = 20
+texture = ExtResource("1_y4fto")
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+randomness = 0.18
+collision_base_size = 0.01
+visibility_rect = Rect2(-1000, -1000, 2000, 2000)
+trail_enabled = true
+trail_lifetime = 0.4
+process_material = SubResource("ParticleProcessMaterial_m6266")
+script = ExtResource("2_rkgoe")
+delay = 2.0
