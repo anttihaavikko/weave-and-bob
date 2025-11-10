@@ -17,7 +17,7 @@ func start(enemy: Enemy):
 		if child is Wave:
 			waves.push_back(child)
 			
-	next_wave()		
+	next_wave()
 	
 func open_doors():
 	for door in doors: door.open()
@@ -28,6 +28,7 @@ func next_wave() -> void:
 		await get_tree().create_timer(0.25).timeout
 		open_doors()
 		await get_tree().create_timer(0.5).timeout
+		Musics.intensify(false)
 		var pickup := reward.instantiate()
 		if pickup is Pickup:
 			pickup.id = id

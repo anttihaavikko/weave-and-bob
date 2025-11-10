@@ -2,3 +2,4 @@
 
 [node name="Sound" type="AudioStreamPlayer2D"]
 autoplay = true
+bus = &"Sounds"

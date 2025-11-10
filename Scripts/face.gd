@@ -17,7 +17,6 @@ func blink_both():
 	blink(right_eye)
 	if not removed: blink_both()
 	
-
 func _exit_tree() -> void:
 	removed = true
 

@@ -18,6 +18,7 @@ func start(enc: Encounter):
 	print("activated wave")
 	await get_tree().create_timer(0.5).timeout
 	SoundEffects.singleton.add(12, global_position) # warn.wav
+	Musics.intensify(true)
 	await get_tree().create_timer(delay).timeout
 	for spawn in spawns:
 		spawn.start(self)
@@ -26,4 +27,3 @@ func enemy_died():
 	amount -= 1
 	if amount <= 0:
 		encounter.next_wave()
-	

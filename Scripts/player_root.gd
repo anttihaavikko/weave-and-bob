@@ -13,6 +13,8 @@ func _ready() -> void:
 
 func die() -> void:
 	if dead: return
+	Musics.intensify(false)
+	Musics.pitch(0.5, 1.5)
 	dead = true
 	hide()
 	Effects.singleton.add_many([4, 3, 2, 2, 2, 0, 0, 0, 1], control.global_position)

@@ -20,7 +20,7 @@ extends CharacterBody2D
 
 @export var flasher: Flasher
 
-enum Behaviour { None, Wave }
+enum Behaviour {None, Wave}
 var mode: Behaviour
 var dir: Vector2
 var time := 0.0
@@ -43,7 +43,7 @@ func _physics_process(delta: float) -> void:
 		velocity = (dir - dir.rotated(PI * sign(dir.x) * 0.5) * sin(time * 5) * 1) * 20000 * delta
 		move_and_slide()
 		if turn_delay <= 0 and bump_cast.is_colliding():
-			dir = -dir
+			dir = - dir
 			turn_delay = 0.5
 			var p := bump_cast.get_collision_point(0)
 			Effects.singleton.add_many([0, 1], p)
@@ -75,6 +75,7 @@ func die():
 	SoundEffects.singleton.add(2, global_position)
 	Effects.singleton.add(7, left_wing.global_position) # feathers.tscn
 	Effects.singleton.add(7, right_wing.global_position) # feathers.tscn
+	Musics.pitch(1.3, 1)
 	var h: RigidBody2D = Effects.singleton.add(6, halo.global_position, 10)
 	for c in h.get_children():
 		if c is Node2D:
