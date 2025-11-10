@@ -16,7 +16,7 @@ func _process(delta: float) -> void:
 	if stomp_cooldown > 0:
 		stomp_cooldown -= delta
 		
-	var was_grounded := grounded	
+	var was_grounded := grounded
 	grounded = ground_cast.is_colliding()
 	
 	if !was_grounded and grounded:
@@ -48,6 +48,7 @@ func _hit_enemy(enemy: Node2D):
 				SoundEffects.singleton.add(9, global_position, 2) # stomp.wav
 			else:
 				SoundEffects.singleton.add(3, global_position)
+				SoundEffects.singleton.add(13, global_position, 0.5)
 				enemy.squash(global_position)
 				camera.shake(5, 0.2)
 		

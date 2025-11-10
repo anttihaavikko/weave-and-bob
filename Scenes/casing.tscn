@@ -13,7 +13,7 @@ size = Vector2(6, 2)
 
 [node name="Casing" type="RigidBody2D"]
 collision_layer = 4
-collision_mask = 2
+collision_mask = 10
 physics_material_override = SubResource("PhysicsMaterial_frouj")
 contact_monitor = true
 max_contacts_reported = 1
@@ -32,9 +32,9 @@ shape = SubResource("RectangleShape2D_8b88t")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." node_paths=PackedStringArray("body")]
 stream = ExtResource("3_uaix3")
-volume_db = -30.0
+bus = &"Sounds"
 script = ExtResource("4_frouj")
 body = NodePath("..")
+min_speed = 500.0
+max_speed = 1500.0
 metadata/_custom_type_script = "uid://c0lfb6otbhec3"
-
-[connection signal="body_entered" from="." to="AudioStreamPlayer2D" method="_on_body_entered"]

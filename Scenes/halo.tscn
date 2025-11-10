@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cd1lfv8xg8ha8"]
+[gd_scene load_steps=7 format=3 uid="uid://cd1lfv8xg8ha8"]
 
 [ext_resource type="Script" uid="uid://bt7s05v5ntv7t" path="res://Scripts/movable_rigidbody.gd" id="1_4jv7y"]
 [ext_resource type="Texture2D" uid="uid://b65t48wx4s35d" path="res://Sprites/halo.svg" id="1_kwg2t"]
+[ext_resource type="AudioStream" uid="uid://bp02xmqpk7edk" path="res://Sounds/halo.wav" id="3_kq2oc"]
+[ext_resource type="Script" uid="uid://c0lfb6otbhec3" path="res://Scripts/sound_on_hit.gd" id="4_3btdn"]
+[ext_resource type="AudioStream" uid="uid://oifhdbx7t0a0" path="res://Sounds/halo_detach.wav" id="5_xnfpy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kwg2t"]
 radius = 25.438297
@@ -11,6 +14,7 @@ height = 141.32388
 collision_layer = 4
 collision_mask = 10
 mass = 0.2
+max_contacts_reported = 1
 script = ExtResource("1_4jv7y")
 metadata/_custom_type_script = "uid://bt7s05v5ntv7t"
 
@@ -23,3 +27,19 @@ shape = SubResource("CapsuleShape2D_kwg2t")
 modulate = Color(0.827451, 0.64705884, 0.12156863, 1)
 scale = Vector2(1.7282125, 1.7282125)
 texture = ExtResource("1_kwg2t")
+
+[node name="SoundOnHit" type="AudioStreamPlayer2D" parent="." node_paths=PackedStringArray("body")]
+stream = ExtResource("3_kq2oc")
+bus = &"Sounds"
+script = ExtResource("4_3btdn")
+body = NodePath("..")
+min_speed = 20.0
+max_speed = 100.0
+volume_multiplier = 1.0
+metadata/_custom_type_script = "uid://c0lfb6otbhec3"
+
+[node name="Detach" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_xnfpy")
+volume_db = -10.0
+autoplay = true
+bus = &"Sounds"

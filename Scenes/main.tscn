@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=55 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/player.tscn" id="1_bo1nx"]
@@ -50,6 +50,9 @@
 [ext_resource type="PackedScene" uid="uid://c4dqyepeaha7h" path="res://Scenes/checkpoint.tscn" id="41_kwxat"]
 [ext_resource type="Script" uid="uid://cjo6s8hrhyh8l" path="res://Scripts/dev_sprite.gd" id="44_aa8k8"]
 [ext_resource type="Texture2D" uid="uid://bjy00gdxmeg1a" path="res://Sprites/cloud1.png" id="47_s8vy0"]
+[ext_resource type="AudioStream" uid="uid://6icsnrsowbyq" path="res://Sounds/bass.wav" id="49_xdkp6"]
+[ext_resource type="AudioStream" uid="uid://dq0spo1815aj3" path="res://Sounds/flag.wav" id="50_54nrm"]
+[ext_resource type="AudioStream" uid="uid://dk8rm3dvhj87i" path="res://Sounds/flag_boop.wav" id="51_55jeb"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_s8vy0"]
 blend_mode = 1
@@ -875,7 +878,7 @@ _enemy = ExtResource("16_aa8k8")
 
 [node name="Spawn Point" type="Node2D" parent="Level"]
 z_index = 5
-position = Vector2(5793, 1478)
+position = Vector2(5874, 1504)
 scale = Vector2(1.0023229, 1)
 script = ExtResource("39_kwxat")
 player = ExtResource("1_bo1nx")
@@ -1227,7 +1230,7 @@ effects = Array[PackedScene]([ExtResource("2_kry3j"), ExtResource("6_21xkr"), Ex
 
 [node name="Sounds" type="Node" parent="."]
 script = ExtResource("10_gt3je")
-effects = Array[AudioStream]([ExtResource("11_3pmx8"), ExtResource("12_cbgmd"), ExtResource("13_1w6v2"), ExtResource("14_ueoa1"), ExtResource("15_6vcvc"), ExtResource("16_7k868"), ExtResource("17_e08e2"), ExtResource("18_neg2b"), ExtResource("19_r33sp"), ExtResource("20_neg2b"), ExtResource("21_r33sp"), ExtResource("22_jwpg7"), ExtResource("23_k2e45")])
+effects = Array[AudioStream]([ExtResource("11_3pmx8"), ExtResource("12_cbgmd"), ExtResource("13_1w6v2"), ExtResource("14_ueoa1"), ExtResource("15_6vcvc"), ExtResource("16_7k868"), ExtResource("17_e08e2"), ExtResource("18_neg2b"), ExtResource("19_r33sp"), ExtResource("20_neg2b"), ExtResource("21_r33sp"), ExtResource("22_jwpg7"), ExtResource("23_k2e45"), ExtResource("49_xdkp6"), ExtResource("50_54nrm"), ExtResource("51_55jeb")])
 prefab = ExtResource("12_u50mg")
 
 [node name="Line Drawer" type="Node" parent="." node_paths=PackedStringArray("line")]

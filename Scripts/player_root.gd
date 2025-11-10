@@ -19,7 +19,7 @@ func die() -> void:
 	dead = true
 	hide()
 	Effects.singleton.add_many([4, 3, 0, 0, 0, 1, 9, 10, 2], control.global_position)
-	SoundEffects.singleton.add(2, control.global_position)
+	SoundEffects.singleton.add_many([2, 13], control.global_position)
 	process_mode = PROCESS_MODE_DISABLED
 	var g := gun.instantiate() as RigidBody2D
 	g.global_position = live_gun.global_position

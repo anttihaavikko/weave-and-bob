@@ -21,6 +21,6 @@ func _parse_property(object, type, name, hint_type, hint_string, usage_flags, wi
 	
 func _copy_command(i: int, root: String, comment: String):
 	obj.notify_property_list_changed()
-	var text := "%s.singleton.add(%d, global_position) # %s" % [root, i, comment.strip_edges()]
+	var text := "%s.singleton.add(%d, global_position)" % [root, i]
 	DisplayServer.clipboard_set(text)
 	print(text)
