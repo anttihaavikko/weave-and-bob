@@ -83,6 +83,7 @@ func die():
 	h.apply_impulse(Vector2.UP * 500 + dir * 300)
 	died.emit()
 	await get_tree().create_timer(0.1).timeout
+	Gameplay.hit_stop(get_tree(), 0.5, 3 / 60.0)
 	h.apply_torque_impulse(2000 * randf_range(-1, 1))
 	if starts_encounter: starts_encounter.start(self)
 	if respawns_after > 0:

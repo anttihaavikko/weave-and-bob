@@ -15,6 +15,7 @@ func die() -> void:
 	if dead: return
 	Musics.intensify(false)
 	Musics.pitch(0.5, 1.5)
+	Gameplay.hit_stop(get_tree(), 0.25, 5 / 60.0)
 	dead = true
 	hide()
 	Effects.singleton.add_many([4, 3, 0, 0, 0, 1, 9, 10, 2], control.global_position)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=52 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/player.tscn" id="1_bo1nx"]
@@ -50,7 +50,6 @@
 [ext_resource type="PackedScene" uid="uid://c4dqyepeaha7h" path="res://Scenes/checkpoint.tscn" id="41_kwxat"]
 [ext_resource type="Script" uid="uid://cjo6s8hrhyh8l" path="res://Scripts/dev_sprite.gd" id="44_aa8k8"]
 [ext_resource type="Texture2D" uid="uid://bjy00gdxmeg1a" path="res://Sprites/cloud1.png" id="47_s8vy0"]
-[ext_resource type="PackedScene" uid="uid://bpamcmqpiyf2j" path="res://Scenes/killbox.tscn" id="50_dmskm"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_s8vy0"]
 blend_mode = 1
@@ -1242,9 +1241,5 @@ width = 5.0
 
 [node name="Timer" type="Timer" parent="Line Drawer"]
 wait_time = 0.05
-
-[node name="Killbox" parent="." instance=ExtResource("50_dmskm")]
-position = Vector2(6128.7637, 1485)
-scale = Vector2(100, 521.0001)
 
 [connection signal="timeout" from="Line Drawer/Timer" to="Line Drawer" method="_on_timer_timeout"]
