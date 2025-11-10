@@ -564,19 +564,19 @@ texture = ExtResource("3_8gbba")
 
 [node name="Tree" parent="Level/Room2/Background" instance=ExtResource("9_wsu2k")]
 modulate = Color(1, 1, 1, 1)
-position = Vector2(-729.3059, 1082)
+position = Vector2(-191.55505, 1069)
 
 [node name="Tree2" parent="Level/Room2/Background" instance=ExtResource("9_wsu2k")]
 modulate = Color(1, 1, 1, 1)
-position = Vector2(-615.5701, 1082)
+position = Vector2(-77.819275, 1069)
 
 [node name="Tree3" parent="Level/Room2/Background" instance=ExtResource("9_wsu2k")]
 modulate = Color(1, 1, 1, 1)
-position = Vector2(-505.825, 1075)
+position = Vector2(31.925842, 1062)
 
 [node name="Tree4" parent="Level/Room2/Background" instance=ExtResource("9_wsu2k")]
 modulate = Color(1, 1, 1, 1)
-position = Vector2(-383.11008, 1080)
+position = Vector2(154.64078, 1067)
 
 [node name="Tree5" parent="Level/Room2/Background" instance=ExtResource("9_wsu2k")]
 modulate = Color(1, 1, 1, 1)
@@ -603,8 +603,8 @@ modulate = Color(1, 1, 1, 1)
 position = Vector2(935.8262, 1096)
 
 [node name="Angle" type="Sprite2D" parent="Level/Room2/Background"]
-position = Vector2(-55.870007, 1172)
-rotation = 0.78539824
+position = Vector2(-194.54788, 278)
+rotation = 3.926991
 scale = Vector2(1.4394156, 1.4394156)
 texture = ExtResource("13_b3802")
 

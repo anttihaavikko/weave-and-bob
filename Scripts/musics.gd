@@ -9,8 +9,9 @@ var _pitch_target := 1.0
 
 func _ready() -> void:
 	rhythm.beat.connect(func(_count: int):
-		normal.volume_linear = 0 if _intense else 1
-		combat.volume_linear = 1 if _intense else 0
+		if _count % 4 == 0:
+			normal.volume_linear = 0 if _intense else 1
+			combat.volume_linear = 1 if _intense else 0
 	)
 
 func _process(delta: float) -> void:
