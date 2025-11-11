@@ -681,6 +681,7 @@ line = NodePath("../Line2D")
 control = NodePath("../Control Node")
 
 [node name="Control Node" type="RigidBody2D" parent="." node_paths=PackedStringArray("ground_cast", "gun", "jump_particles", "camera")]
+collision_layer = 4097
 mass = 0.5
 can_sleep = false
 continuous_cd = 2
