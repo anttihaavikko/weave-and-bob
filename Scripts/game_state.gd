@@ -10,12 +10,19 @@ var checkpoint: Checkpoint
 var camera: ShakeableCamera
 
 var ids: Array[String]
+var unique: Array[String]
 
 func mark(id: String):
 	ids.push_back(id)
 
 func has(id: String) -> bool:
 	return ids.has(id)
+
+func register(id: String):
+	if len(id) > 1 and unique.has(id):
+		print("DUPLICATED ID %s" % [id])
+		return
+	unique.push_back(id)
 
 func change_spawn(cp: Checkpoint) -> void:
 	if cp == checkpoint: return

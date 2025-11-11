@@ -6,7 +6,7 @@ const textures: Dictionary[Type, Texture2D] = {
 	Type.None: null,
 	Type.Magazine: preload("res://Sprites/mag-pickup.png"),
 	Type.Map: preload("res://Sprites/map.png"),
-} 
+}
 
 @export var id: String
 @export var type: Type:
@@ -14,15 +14,16 @@ const textures: Dictionary[Type, Texture2D] = {
 		var icon := textures[val]
 		if sprite: sprite.texture = icon
 		type = val
-@export var sprite: Sprite2D 
+@export var sprite: Sprite2D
 
-enum Type { None, Magazine, Map }
+enum Type {None, Magazine, Map}
 
 func _ready() -> void:
 	sprite.texture = textures[type]
 	if not Engine.is_editor_hint():
+		GameState.register(id)
 		if GameState.has(id):
-			queue_free()	
+			queue_free()
 
 func _picked(_body: Node2D):
 	if type == Type.Magazine: GameState.has_magazine = true
