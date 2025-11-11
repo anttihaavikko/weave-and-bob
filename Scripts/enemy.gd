@@ -56,9 +56,13 @@ func get_stomp_pos() -> float:
 	
 func squash(pos: Vector2):
 	frame.rotation = global_position.angle_to_point(pos)
-	frame.scale = Vector2(0.9, 1.1)
-	await get_tree().create_timer(0.1).timeout
-	frame.scale = Vector2.ONE
+	# frame.scale = Vector2(0.9, 1.1)
+	# await get_tree().create_timer(0.1).timeout
+	# frame.scale = Vector2.ONE
+	var tween := get_tree().create_tween()
+	tween.tween_property(frame, "rotation", global_position.angle_to_point(pos), 0.2).set_trans(Tween.TRANS_BOUNCE)
+	tween.parallel().tween_property(frame, "scale", Vector2(0.9, 1.1), 0.1).set_trans(Tween.TRANS_BOUNCE)
+	tween.tween_property(frame, "scale", Vector2.ONE, 0.2).set_trans(Tween.TRANS_ELASTIC)
 
 func hurt(pos: Vector2):
 	flasher.flash()
