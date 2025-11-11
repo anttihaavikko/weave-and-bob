@@ -6,8 +6,8 @@ extends Area2D
 func _activate(other: Node2D):
 	if other is Gun:
 		var tween := get_tree().create_tween()
-		tween.tween_property(pole, "scale", Vector2.ONE, 0.3).set_trans(Tween.TRANS_BOUNCE)
-		tween.parallel().tween_property(pole, "rotation_degrees", 0, 0.3).set_trans(Tween.TRANS_BOUNCE)
+		tween.tween_property(pole, "scale", Vector2.ONE, 0.4).set_trans(Tween.TRANS_BOUNCE)
+		tween.parallel().tween_property(pole, "rotation_degrees", 0, 0.4).set_trans(Tween.TRANS_BOUNCE)
 		if GameState.checkpoint != self:
 			SoundEffects.singleton.add(14, global_position, 0.75)
 			SoundEffects.singleton.add(15, global_position, 1.5)
