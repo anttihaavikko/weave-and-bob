@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=75 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/player.tscn" id="1_bo1nx"]
@@ -57,6 +57,7 @@
 [ext_resource type="Texture2D" uid="uid://bjy00gdxmeg1a" path="res://Sprites/cloud1.png" id="47_s8vy0"]
 [ext_resource type="AudioStream" uid="uid://6icsnrsowbyq" path="res://Sounds/bass.wav" id="49_xdkp6"]
 [ext_resource type="AudioStream" uid="uid://dq0spo1815aj3" path="res://Sounds/flag.wav" id="50_54nrm"]
+[ext_resource type="PackedScene" uid="uid://bpamcmqpiyf2j" path="res://Scenes/killbox.tscn" id="50_dmskm"]
 [ext_resource type="AudioStream" uid="uid://dk8rm3dvhj87i" path="res://Sounds/flag_boop.wav" id="51_55jeb"]
 [ext_resource type="Texture2D" uid="uid://bwyta5f84rygx" path="res://Sprites/hut-inside.png" id="59_2060n"]
 [ext_resource type="Script" uid="uid://bu70ibk77hcta" path="res://Scripts/hut.gd" id="59_lx3vj"]
@@ -64,6 +65,7 @@
 [ext_resource type="Texture2D" uid="uid://ce0wpyjhyloy7" path="res://Sprites/hut-outside.png" id="60_qax2n"]
 [ext_resource type="Texture2D" uid="uid://dftdix61w1rei" path="res://Sprites/hut-awning.png" id="61_y86h7"]
 [ext_resource type="Script" uid="uid://uxu8p38o38ip" path="res://Scripts/mover.gd" id="62_y86h7"]
+[ext_resource type="Texture2D" uid="uid://cg7cgr0t8nuau" path="res://Sprites/dark-spike.svg" id="65_ynmfv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1semv"]
 shader = ExtResource("17_2daye")
@@ -101,7 +103,7 @@ script = ExtResource("1_6bp64")
 
 [node name="Bg" type="Sprite2D" parent="."]
 modulate = Color(0.8640645, 0.5525103, 0.35379764, 1)
-position = Vector2(977.7289, -875)
+position = Vector2(969.2486, -870.75)
 scale = Vector2(17784.191, 8983.001)
 texture = ExtResource("17_gsvbx")
 
@@ -113,6 +115,10 @@ scale = Vector2(1.0023229, 1)
 
 [node name="Checkpoint2" parent="Level" instance=ExtResource("41_kwxat")]
 position = Vector2(1722.9998, -703)
+scale = Vector2(1.0023229, 1)
+
+[node name="Checkpoint4" parent="Level" instance=ExtResource("41_kwxat")]
+position = Vector2(6360.9995, -943)
 scale = Vector2(1.0023229, 1)
 
 [node name="Checkpoint3" parent="Level" instance=ExtResource("41_kwxat")]
@@ -1114,15 +1120,129 @@ dir = Vector2(0, 1)
 vertical_dir = 1.0
 _enemy = ExtResource("16_aa8k8")
 
-[node name="Spawn Point" type="Node2D" parent="Level"]
+[node name="Climb" type="Node2D" parent="Level"]
+position = Vector2(7955, -1730)
+
+[node name="Wall3" parent="Level/Climb" instance=ExtResource("4_344ge")]
+position = Vector2(615.39795, 343.88843)
+rotation = 3.4894047
+scale = Vector2(893.06506, 1658.6755)
+
+[node name="Wall4" parent="Level/Climb" instance=ExtResource("4_344ge")]
+position = Vector2(-687.28735, -447.50818)
+rotation = 3.4894047
+scale = Vector2(893.06506, 776.50146)
+
+[node name="Wall9" parent="Level/Climb" instance=ExtResource("4_344ge")]
+position = Vector2(-2155.8088, -263.03778)
+rotation = 3.4894047
+scale = Vector2(655.8817, 987.34314)
+
+[node name="Wall10" parent="Level/Climb" instance=ExtResource("4_344ge")]
+position = Vector2(-1626.0002, -1378)
+rotation = 3.4894047
+scale = Vector2(655.8817, 987.34314)
+
+[node name="Wall5" parent="Level/Climb" instance=ExtResource("4_344ge")]
+position = Vector2(819.7634, -902.15656)
+rotation = 2.6727705
+scale = Vector2(898.4895, 2004.0216)
+
+[node name="Wall6" parent="Level/Climb" instance=ExtResource("4_344ge")]
+position = Vector2(-799.0061, -989.83716)
+rotation = 2.6727705
+scale = Vector2(893.06506, 1189.1104)
+
+[node name="Wall7" parent="Level/Climb" instance=ExtResource("4_344ge")]
+position = Vector2(-1788.7301, -2158.951)
+scale = Vector2(2370.5254, 1961.7192)
+
+[node name="Wall8" parent="Level/Climb" instance=ExtResource("4_344ge")]
+position = Vector2(1943.5598, -1093.9204)
+scale = Vector2(2353.405, 1809.5282)
+
+[node name="Spikes" type="TextureRect" parent="Level/Climb"]
+z_index = 100
+offset_left = -724.0
+offset_top = 653.9999
+offset_right = 233.7749
+offset_bottom = 714.9999
+scale = Vector2(0.7655851, 0.7655851)
+texture = ExtResource("65_ynmfv")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Killbox" parent="Level/Climb/Spikes" instance=ExtResource("50_dmskm")]
+position = Vector2(481.324, 32.50004)
+scale = Vector2(942.9261, 51.000023)
+
+[node name="Spikes2" type="TextureRect" parent="Level/Climb"]
+z_index = 100
+offset_left = -17.0
+offset_top = 644.99994
+offset_right = 1701.0347
+offset_bottom = 705.99994
+rotation = -1.2185197
+scale = Vector2(0.7655851, 0.7655851)
+texture = ExtResource("65_ynmfv")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Killbox" parent="Level/Climb/Spikes2" instance=ExtResource("50_dmskm")]
+position = Vector2(866.3274, 32.50004)
+scale = Vector2(1712.9329, 51.000023)
+
+[node name="Spikes4" type="TextureRect" parent="Level/Climb"]
+z_index = 100
+offset_left = 119.999985
+offset_top = -1718.0
+offset_right = 1015.63086
+offset_bottom = -1657.0
+rotation = -0.46980098
+scale = Vector2(0.7655851, 0.7655851)
+texture = ExtResource("65_ynmfv")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Killbox" parent="Level/Climb/Spikes4" instance=ExtResource("50_dmskm")]
+position = Vector2(449.51617, 32.50004)
+scale = Vector2(879.3104, 51.000023)
+
+[node name="Spikes3" type="TextureRect" parent="Level/Climb"]
+z_index = 100
+offset_left = -560.0
+offset_top = -1599.0
+offset_right = 775.822
+offset_bottom = -1538.0
+rotation = 1.0987728
+scale = Vector2(0.7655851, 0.7655851)
+texture = ExtResource("65_ynmfv")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Killbox" parent="Level/Climb/Spikes3" instance=ExtResource("50_dmskm")]
+position = Vector2(668.79816, 32.50004)
+scale = Vector2(1317.8744, 51.000023)
+
+[node name="Enemy" parent="Level/Climb" instance=ExtResource("9_ynf5e")]
+position = Vector2(-1717, -748)
+rotation = -0.27908745
+scale = Vector2(0.37250674, 0.37250674)
+stomp_offset = 100
+
+[node name="Platform" parent="Level/Climb" instance=ExtResource("33_o1aky")]
+position = Vector2(74.3135, -1.1221026e-05)
+scale = Vector2(570.40137, 41.373005)
+
+[node name="Player Spawn Point" type="Node2D" parent="Level"]
 z_index = 5
-position = Vector2(-2716, -969)
+position = Vector2(6800.999, -1244)
 scale = Vector2(1.0023229, 1)
 script = ExtResource("39_kwxat")
 player = ExtResource("1_bo1nx")
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Node2D" parent="Level/Spawn Point"]
+[node name="Sprite2D" type="Node2D" parent="Level/Player Spawn Point"]
 visibility_layer = 524288
 scale = Vector2(1.3888413, 1.3888413)
 script = ExtResource("44_aa8k8")
@@ -1138,6 +1258,11 @@ scale = Vector2(1.0023229, 1)
 id = "first_map"
 type = 2
 
+[node name="Map Pickup2" parent="Level" instance=ExtResource("16_k12tt")]
+position = Vector2(6027.9995, -2566)
+scale = Vector2(1.0023229, 1)
+id = "midair"
+
 [node name="Bricks" type="Node2D" parent="Level"]
 modulate = Color(0.91764706, 0.3372549, 0.09411765, 0.16470589)
 
@@ -1148,7 +1273,7 @@ scale = Vector2(2.5642173, 2.5642173)
 texture = ExtResource("25_1semv")
 
 [node name="Clouds" type="Node2D" parent="."]
-position = Vector2(8648.909, -2283)
+position = Vector2(-616.56775, -2067)
 metadata/_edit_group_ = true
 
 [node name="Cloud1" type="Sprite2D" parent="Clouds"]
@@ -1535,10 +1660,11 @@ position = Vector2(65.08862, -257.88834)
 scale = Vector2(0.9999999, 1)
 shape = SubResource("RectangleShape2D_qax2n")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Hut/Collisions"]
+[node name="Table" type="CollisionShape2D" parent="Hut/Collisions"]
 position = Vector2(12.379639, -106.64935)
 scale = Vector2(1.0000001, 1.0000001)
 shape = SubResource("RectangleShape2D_my4ki")
+disabled = true
 one_way_collision = true
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Hut/Collisions"]

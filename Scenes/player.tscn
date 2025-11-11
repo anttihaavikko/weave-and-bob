@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://il0jdy8qi06w"]
+[gd_scene load_steps=45 format=3 uid="uid://il0jdy8qi06w"]
 
 [ext_resource type="Script" uid="uid://dpfddv6k670sg" path="res://Scripts/player_root.gd" id="1_p1odr"]
 [ext_resource type="Script" uid="uid://cys6813rck58c" path="res://Scripts/player_part.gd" id="1_p7hy0"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b7hykafidlmlr" path="res://Scenes/gun.tscn" id="2_0gysh"]
 [ext_resource type="Script" uid="uid://cwvl2v76rnhn4" path="res://Scripts/gun.gd" id="2_jc5ra"]
 [ext_resource type="Texture2D" uid="uid://c4624ijigoeqo" path="res://Sprites/ak47.png" id="3_gxvcn"]
+[ext_resource type="Script" uid="uid://bh32aybxf4kht" path="res://Scripts/link_fixer.gd" id="3_wohnl"]
 [ext_resource type="Script" uid="uid://bwknch2pvkg4u" path="res://Scripts/line.gd" id="4_jc5ra"]
 [ext_resource type="Shader" uid="uid://7gwbqnj5dg4s" path="res://Shaders/wavy.gdshader" id="5_83xs0"]
 [ext_resource type="Script" uid="uid://b3lmgbo0i5l43" path="res://Scripts/poly_from_line.gd" id="5_gxvcn"]
@@ -107,7 +108,10 @@ live_gun = NodePath("Gun")
 gun = ExtResource("2_0gysh")
 cam = NodePath("Gun/Camera2D")
 
-[node name="Link Fixer" type="Node" parent="."]
+[node name="Link Fixer" type="Node" parent="." node_paths=PackedStringArray("links", "center")]
+script = ExtResource("3_wohnl")
+links = [NodePath("../Link N"), NodePath("../Link NE"), NodePath("../Link E"), NodePath("../Link SE"), NodePath("../Link S"), NodePath("../Link SW"), NodePath("../Link W"), NodePath("../Link NW")]
+center = NodePath("../Gun")
 
 [node name="Link N" type="RigidBody2D" parent="." node_paths=PackedStringArray("player")]
 position = Vector2(-0.11584473, -50)
