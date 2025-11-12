@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://tmp3aao5rcrn"]
+[gd_scene load_steps=14 format=3 uid="uid://tmp3aao5rcrn"]
 
 [ext_resource type="Script" uid="uid://cxwexjyhaq21t" path="res://Scripts/pickup.gd" id="1_bwh4r"]
 [ext_resource type="Shader" uid="uid://dw5u0j1r1we5x" path="res://Shaders/blob.gdshader" id="2_3bix2"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://bwtaepjv3mwab" path="res://Scripts/rotator.gd" id="4_yevec"]
 [ext_resource type="Script" uid="uid://dguf5w2xdap1w" path="res://Scripts/rocker.gd" id="5_7m4td"]
 [ext_resource type="Texture2D" uid="uid://go0giiad03jq" path="res://Sprites/circle.png" id="6_qxdh1"]
+[ext_resource type="Texture2D" uid="uid://4pfbr155kw4k" path="res://Sprites/ring-thick.svg" id="9_6n8e5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hibaj"]
 radius = 66.45926
@@ -52,6 +53,7 @@ turbulence_noise_scale = 10.0
 turbulence_noise_speed_random = 2.64
 
 [node name="Pickup" type="Area2D" node_paths=PackedStringArray("sprite")]
+visibility_layer = 524289
 collision_layer = 0
 script = ExtResource("1_bwh4r")
 id = "first_mag"
@@ -110,5 +112,12 @@ angle_min = -720.0
 angle_max = 720.0
 scale_amount_min = 0.0
 scale_amount_max = 0.05
+
+[node name="Map Marker" type="Sprite2D" parent="."]
+modulate = Color(0.91764706, 0.3372549, 0.09411765, 1)
+visibility_layer = 524288
+z_index = 888
+scale = Vector2(4.438483, 4.438483)
+texture = ExtResource("9_6n8e5")
 
 [connection signal="body_entered" from="." to="." method="_picked"]

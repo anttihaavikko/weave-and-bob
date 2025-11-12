@@ -13,6 +13,8 @@ var dead := false
 func _ready() -> void:
 	GameState.camera = cam
 	GameState.unique.clear()
+	var vp := get_tree().root.get_viewport()
+	vp.canvas_cull_mask = 1
 
 func _process(delta: float) -> void:
 	cam.extra_offset = cam.extra_offset.move_toward(Vector2(0, -230) if map_sprite.visible else Vector2(0, 0), delta * 500)

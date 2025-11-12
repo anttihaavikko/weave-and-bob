@@ -10,6 +10,7 @@ polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
 
 [node name="Door" type="Sprite2D"]
 modulate = Color(0, 0, 0, 1)
+visibility_layer = 524289
 z_index = 1
 rotation = 3.1415925
 scale = Vector2(130.69637, 615.48535)

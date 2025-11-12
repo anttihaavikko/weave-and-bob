@@ -1254,6 +1254,7 @@ scale = Vector2(0.37250674, 0.37250674)
 stomp_offset = 100
 
 [node name="Player Spawn Point" type="Node2D" parent="Level"]
+visibility_layer = 524289
 z_index = 5
 position = Vector2(-1623, -784)
 scale = Vector2(1.0023229, 1)
@@ -1793,14 +1794,14 @@ collision_mask = 4096
 position = Vector2(-7.3614845, -293.118)
 shape = SubResource("CircleShape2D_my4ki")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="."]
 
-[node name="Dev Bg" type="ColorRect" parent="CanvasLayer"]
+[node name="Dev Bg" type="ColorRect" parent="UI"]
 visible = false
 offset_right = 1920.0
 offset_bottom = 1266.0
 
-[node name="Map Wrap" type="Node2D" parent="CanvasLayer"]
+[node name="Map Wrap" type="Node2D" parent="UI"]
 position = Vector2(966, 388)
 scale = Vector2(1.0023229, 1)
 script = ExtResource("62_y86h7")
@@ -1809,7 +1810,7 @@ move_direction = Vector2(0, 15)
 move_speed = 3.0
 single_direction = true
 
-[node name="Map" type="Control" parent="CanvasLayer/Map Wrap" node_paths=PackedStringArray("left", "right", "paper", "root", "viewport")]
+[node name="Map" type="Control" parent="UI/Map Wrap" node_paths=PackedStringArray("left", "right", "paper", "root", "viewport")]
 layout_mode = 3
 anchors_preset = 0
 offset_left = -548.72534
@@ -1824,29 +1825,29 @@ paper = NodePath("ColorRect")
 root = NodePath(".")
 viewport = NodePath("ColorRect/Fill/SubViewportContainer/SubViewport")
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Map Wrap/Map"]
+[node name="ColorRect" type="ColorRect" parent="UI/Map Wrap/Map"]
 layout_mode = 0
 offset_right = 1114.0
 offset_bottom = 604.0
 pivot_offset = Vector2(550, 287)
 color = Color(0, 0, 0, 1)
 
-[node name="Fill" type="ColorRect" parent="CanvasLayer/Map Wrap/Map/ColorRect"]
+[node name="Fill" type="ColorRect" parent="UI/Map Wrap/Map/ColorRect"]
 self_modulate = Color(0.9372549, 0.8784314, 0.70980394, 1)
 layout_mode = 0
 offset_top = 11.0
 offset_right = 1124.0
 offset_bottom = 591.0
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer/Map Wrap/Map/ColorRect/Fill"]
-modulate = Color(1, 1, 1, 0.23921569)
+[node name="SubViewportContainer" type="SubViewportContainer" parent="UI/Map Wrap/Map/ColorRect/Fill"]
+modulate = Color(1, 1, 1, 0.74509805)
 layout_mode = 0
 offset_left = 56.86789
 offset_top = 33.0
 offset_right = 1080.8679
 offset_bottom = 545.0
 
-[node name="SubViewport" type="SubViewport" parent="CanvasLayer/Map Wrap/Map/ColorRect/Fill/SubViewportContainer"]
+[node name="SubViewport" type="SubViewport" parent="UI/Map Wrap/Map/ColorRect/Fill/SubViewportContainer"]
 transparent_bg = true
 handle_input_locally = false
 gui_disable_input = true
@@ -1854,11 +1855,11 @@ canvas_cull_mask = 4294443008
 size = Vector2i(1024, 512)
 render_target_update_mode = 4
 
-[node name="Camera2D" type="Camera2D" parent="CanvasLayer/Map Wrap/Map/ColorRect/Fill/SubViewportContainer/SubViewport"]
-position = Vector2(2452.3047, -2393)
+[node name="Camera2D" type="Camera2D" parent="UI/Map Wrap/Map/ColorRect/Fill/SubViewportContainer/SubViewport"]
+position = Vector2(2452.3035, -2123)
 zoom = Vector2(0.05, 0.05)
 
-[node name="Left" type="TextureRect" parent="CanvasLayer/Map Wrap/Map"]
+[node name="Left" type="TextureRect" parent="UI/Map Wrap/Map"]
 modulate = Color(0.9372549, 0.8784314, 0.70980394, 1)
 self_modulate = Color(0.9372549, 0.8784314, 0.70980394, 1)
 layout_mode = 0
@@ -1869,7 +1870,7 @@ offset_bottom = 760.0
 scale = Vector2(0.8474322, 0.8474322)
 texture = ExtResource("69_owhal")
 
-[node name="Hand" type="TextureRect" parent="CanvasLayer/Map Wrap/Map/Left"]
+[node name="Hand" type="TextureRect" parent="UI/Map Wrap/Map/Left"]
 layout_mode = 0
 offset_left = -94.4044
 offset_top = 333.471
@@ -1880,10 +1881,10 @@ pivot_offset = Vector2(97.782745, 113.14868)
 texture = ExtResource("70_uv6w5")
 flip_h = true
 
-[node name="Arm Target" type="Node2D" parent="CanvasLayer/Map Wrap/Map/Left/Hand"]
+[node name="Arm Target" type="Node2D" parent="UI/Map Wrap/Map/Left/Hand"]
 position = Vector2(51.353584, 192.20117)
 
-[node name="Right" type="TextureRect" parent="CanvasLayer/Map Wrap/Map"]
+[node name="Right" type="TextureRect" parent="UI/Map Wrap/Map"]
 modulate = Color(0.9372549, 0.8784314, 0.70980394, 1)
 self_modulate = Color(0.9372549, 0.8784314, 0.70980394, 1)
 layout_mode = 0
@@ -1894,7 +1895,7 @@ offset_bottom = 748.0
 scale = Vector2(0.84475493, 0.84475493)
 texture = ExtResource("69_owhal")
 
-[node name="Hand" type="TextureRect" parent="CanvasLayer/Map Wrap/Map/Right"]
+[node name="Hand" type="TextureRect" parent="UI/Map Wrap/Map/Right"]
 layout_mode = 0
 offset_left = 29.592861
 offset_top = 341.6305
@@ -1904,10 +1905,10 @@ scale = Vector2(1.4581819, 1.4581819)
 pivot_offset = Vector2(49.04651, 102.29663)
 texture = ExtResource("70_uv6w5")
 
-[node name="Arm Target" type="Node2D" parent="CanvasLayer/Map Wrap/Map/Right/Hand"]
+[node name="Arm Target" type="Node2D" parent="UI/Map Wrap/Map/Right/Hand"]
 position = Vector2(95.782, 190.77675)
 
-[node name="Arm Right" type="Line2D" parent="CanvasLayer" node_paths=PackedStringArray("target")]
+[node name="Arm Right" type="Line2D" parent="UI" node_paths=PackedStringArray("target")]
 position = Vector2(1348, 1154)
 points = PackedVector2Array(0, 0, -387.1527, 100.56213, -254.71167, 478)
 width = 80.0
@@ -1916,7 +1917,7 @@ script = ExtResource("71_r7bbj")
 target = NodePath("../Map Wrap/Map/Right/Hand/Arm Target")
 length = 400.0
 
-[node name="Arm Left" type="Line2D" parent="CanvasLayer" node_paths=PackedStringArray("target")]
+[node name="Arm Left" type="Line2D" parent="UI" node_paths=PackedStringArray("target")]
 position = Vector2(582, 1154)
 points = PackedVector2Array(0, 0, 386.45154, 103.224, 260.87225, 483)
 width = 80.0
