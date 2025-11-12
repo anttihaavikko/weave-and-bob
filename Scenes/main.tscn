@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=83 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/player.tscn" id="1_bo1nx"]
@@ -58,15 +58,16 @@
 [ext_resource type="AudioStream" uid="uid://dq0spo1815aj3" path="res://Sounds/flag.wav" id="50_54nrm"]
 [ext_resource type="PackedScene" uid="uid://bpamcmqpiyf2j" path="res://Scenes/killbox.tscn" id="50_dmskm"]
 [ext_resource type="AudioStream" uid="uid://dk8rm3dvhj87i" path="res://Sounds/flag_boop.wav" id="51_55jeb"]
-[ext_resource type="Texture2D" uid="uid://bwyta5f84rygx" path="res://Sprites/hut-inside.png" id="59_2060n"]
 [ext_resource type="Script" uid="uid://bu70ibk77hcta" path="res://Scripts/hut.gd" id="59_lx3vj"]
 [ext_resource type="Texture2D" uid="uid://dd11kkfciaw2d" path="res://Sprites/hut-door-mask.png" id="60_my4ki"]
 [ext_resource type="Texture2D" uid="uid://ce0wpyjhyloy7" path="res://Sprites/hut-outside.png" id="60_qax2n"]
+[ext_resource type="Texture2D" uid="uid://b5j61xklopg4o" path="res://Sprites/hut-inside.svg" id="61_e5peh"]
 [ext_resource type="Texture2D" uid="uid://dftdix61w1rei" path="res://Sprites/hut-awning.png" id="61_y86h7"]
 [ext_resource type="Script" uid="uid://uxu8p38o38ip" path="res://Scripts/mover.gd" id="62_y86h7"]
 [ext_resource type="Texture2D" uid="uid://c3rg57h3r6wkb" path="res://Sprites/banner-tip.svg" id="63_ovafv"]
 [ext_resource type="Texture2D" uid="uid://xivx5ibeo73p" path="res://Sprites/banner-loop.svg" id="64_owhal"]
 [ext_resource type="Texture2D" uid="uid://cg7cgr0t8nuau" path="res://Sprites/dark-spike.svg" id="65_ynmfv"]
+[ext_resource type="Texture2D" uid="uid://dje5iw7nj3qmm" path="res://Sprites/chimney.svg" id="66_e5peh"]
 [ext_resource type="Script" uid="uid://dsnuc3y6dk7pf" path="res://Scripts/map_display.gd" id="69_e5peh"]
 [ext_resource type="Texture2D" uid="uid://278usuw5u7ti" path="res://Sprites/map-end.svg" id="69_owhal"]
 [ext_resource type="Texture2D" uid="uid://crdmw1dyxkdww" path="res://Sprites/map-hand.svg" id="70_uv6w5"]
@@ -82,6 +83,13 @@ shader_parameter/flip = false
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_s8vy0"]
 blend_mode = 1
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uv6w5"]
+shader = ExtResource("17_2daye")
+shader_parameter/amount = 5.0
+shader_parameter/frequency = 0.0
+shader_parameter/speed = 5.0
+shader_parameter/flip = true
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qax2n"]
 size = Vector2(547.04877, 50.275696)
 
@@ -92,20 +100,16 @@ size = Vector2(139.86227, 13.415011)
 size = Vector2(569.4858, 130.79637)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y86h7"]
-size = Vector2(633.552, 47.623154)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_uv6w5"]
-shader = ExtResource("17_2daye")
-shader_parameter/amount = 5.0
-shader_parameter/frequency = 0.0
-shader_parameter/speed = 5.0
-shader_parameter/flip = true
+size = Vector2(633.552, 45.61099)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_qax2n"]
 blend_mode = 1
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_my4ki"]
 radius = 346.73737
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e5peh"]
+size = Vector2(88.33406, 166.65079)
 
 [node name="Main" type="Node2D"]
 visibility_layer = 524289
@@ -1637,15 +1641,66 @@ width = 5.0
 [node name="Timer" type="Timer" parent="Line Drawer"]
 wait_time = 0.05
 
-[node name="Hut" type="Node2D" parent="." node_paths=PackedStringArray("inside_parts", "outside_parts", "area")]
+[node name="Hut" type="Node2D" parent="." node_paths=PackedStringArray("inside_parts", "outside_parts", "area", "attic_area", "attic_dark")]
 position = Vector2(-2921.2139, -385)
 scale = Vector2(1.490867, 1.490867)
 script = ExtResource("59_lx3vj")
-inside_parts = [NodePath("Inside"), NodePath("Darkness Attic"), NodePath("Darkness Right"), NodePath("Darkness Left"), NodePath("Darkness Top"), NodePath("Door Mask"), NodePath("Door Light")]
+inside_parts = [NodePath("Inside"), NodePath("Darkness Right"), NodePath("Darkness Left"), NodePath("Darkness Top"), NodePath("Door Mask"), NodePath("Door Light"), NodePath("Darkness Attic")]
 outside_parts = [NodePath("Outside"), NodePath("Awning")]
 area = NodePath("Area2D")
+attic_area = NodePath("Attic Area")
+attic_dark = NodePath("Darkness Attic")
+
+[node name="Inside" type="Sprite2D" parent="Hut"]
+visible = false
+position = Vector2(-20.951416, -274)
+texture = ExtResource("61_e5peh")
+
+[node name="Tip" type="Sprite2D" parent="Hut/Inside"]
+modulate = Color(0, 0.47843137, 0.2627451, 1)
+material = SubResource("ShaderMaterial_uv6w5")
+position = Vector2(-308.29343, -74.11958)
+scale = Vector2(0.99999994, 1)
+texture = ExtResource("63_ovafv")
+
+[node name="Tip2" type="Sprite2D" parent="Hut/Inside"]
+modulate = Color(0, 0.47843137, 0.2627451, 1)
+material = SubResource("ShaderMaterial_uv6w5")
+position = Vector2(-204.568, -140.5239)
+scale = Vector2(0.74007803, 0.7400781)
+texture = ExtResource("63_ovafv")
+
+[node name="Loop" type="Sprite2D" parent="Hut/Inside"]
+modulate = Color(0, 0.47843137, 0.2627451, 1)
+position = Vector2(-262.78806, -138.51164)
+texture = ExtResource("64_owhal")
+
+[node name="Awning" type="Sprite2D" parent="Hut"]
+position = Vector2(485.83612, -108.6616)
+scale = Vector2(0.9999999, 1)
+texture = ExtResource("61_y86h7")
+
+[node name="Chimney" type="Sprite2D" parent="Hut"]
+z_index = 888
+position = Vector2(-161.94592, -692.2146)
+scale = Vector2(0.99999994, 1)
+texture = ExtResource("66_e5peh")
+
+[node name="Outside" type="Sprite2D" parent="Hut"]
+z_index = 4
+position = Vector2(71.83301, -312)
+texture = ExtResource("60_qax2n")
+
+[node name="Door Mask" type="Sprite2D" parent="Hut"]
+visible = false
+modulate = Color(0, 0, 0, 1)
+z_index = 999
+position = Vector2(337.9436, -77.13635)
+scale = Vector2(0.99999994, 1)
+texture = ExtResource("60_my4ki")
 
 [node name="Collisions" type="StaticBody2D" parent="Hut"]
+z_index = 999
 scale = Vector2(0.9999999, 1)
 collision_layer = 3
 
@@ -1655,11 +1710,19 @@ polygon = PackedVector2Array(268.3474, -43.598785, 331.9209, -42.257294, 333.259
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Hut/Collisions"]
 scale = Vector2(0.99999994, 1)
-polygon = PackedVector2Array(-251.61816, -27.500763, -327.9065, -138.8454, -358.02026, -268.971, -351.99756, -394.40137, -306.4922, -492.331, -227.5271, -569.46735, -255.6333, -589.58984, -339.95215, -514.46576, -380.10376, -394.40137, -394.82617, -262.2635, -356.6819, -124.75961, -258.97925, -7.3782654)
+polygon = PackedVector2Array(-251.61816, -27.500763, -327.9065, -138.8454, -358.02026, -268.971, -351.99756, -394.40137, -306.4922, -492.331, -213.47388, -595.6266, -216.81982, -623.79816, -339.95215, -514.46576, -380.10376, -394.40137, -394.82617, -262.2635, -356.6819, -124.75961, -258.97925, -7.3782654)
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Hut/Collisions"]
 scale = Vector2(0.99999994, 1)
-polygon = PackedVector2Array(357.35046, -216.65247, 321.88306, -208.60345, 331.25183, -282.38605, 317.8678, -402.45038, 269.68567, -496.35547, 176.66748, -584.8946, 78.295654, -633.18866, -18.737915, -645.26215, -101.71826, -633.8594, -102.38745, -667.3969, -12.045898, -677.4582, 93.68713, -663.37244, 198.75098, -614.4076, 304.4839, -514.46576, 353.3352, -413.85315, 374.08032, -252.87302)
+polygon = PackedVector2Array(357.35046, -216.65247, 321.88306, -208.60345, 331.25183, -282.38605, 317.8678, -402.45038, 269.68567, -496.35547, 176.66748, -584.8946, 78.295654, -633.18866, -18.737915, -645.26215, -101.71802, -644.5914, -101.71802, -669.4092, -12.045898, -677.4582, 93.68713, -663.37244, 198.75098, -614.4076, 304.4839, -514.46576, 353.3352, -413.85315, 374.08032, -252.87302)
+
+[node name="Chimney Right" type="CollisionPolygon2D" parent="Hut/Collisions"]
+scale = Vector2(0.99999994, 1)
+polygon = PackedVector2Array(-120.45557, -636.5424, -117.77881, -787.4613, -90.3418, -786.7905, -89.67261, -727.76447, -107.07178, -727.76447, -101.04883, -645.26215)
+
+[node name="Chimney Left" type="CollisionPolygon2D" parent="Hut/Collisions"]
+scale = Vector2(0.99999994, 1)
+polygon = PackedVector2Array(-198.08252, -603.0049, -200.09009, -786.7905, -233.5498, -786.11975, -234.219, -729.10596, -214.14307, -729.10596, -217.48901, -595.6266)
 
 [node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Hut/Collisions"]
 scale = Vector2(0.99999994, 1)
@@ -1693,51 +1756,9 @@ scale = Vector2(1.0000001, 1.0000001)
 shape = SubResource("RectangleShape2D_lx3vj")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Hut/Collisions"]
-position = Vector2(-15.638062, -475.22665)
-scale = Vector2(0.9999999, 1)
+position = Vector2(-15.638062, -478.24524)
+scale = Vector2(1.0000001, 1.0000001)
 shape = SubResource("RectangleShape2D_y86h7")
-
-[node name="Inside" type="Sprite2D" parent="Hut"]
-visible = false
-position = Vector2(-20.951416, -274)
-texture = ExtResource("59_2060n")
-
-[node name="Tip" type="Sprite2D" parent="Hut/Inside"]
-modulate = Color(0, 0.47843137, 0.2627451, 1)
-material = SubResource("ShaderMaterial_uv6w5")
-position = Vector2(-308.29343, -74.11958)
-scale = Vector2(0.99999994, 1)
-texture = ExtResource("63_ovafv")
-
-[node name="Tip2" type="Sprite2D" parent="Hut/Inside"]
-modulate = Color(0, 0.47843137, 0.2627451, 1)
-material = SubResource("ShaderMaterial_uv6w5")
-position = Vector2(-204.568, -140.5239)
-scale = Vector2(0.74007803, 0.7400781)
-texture = ExtResource("63_ovafv")
-
-[node name="Loop" type="Sprite2D" parent="Hut/Inside"]
-modulate = Color(0, 0.47843137, 0.2627451, 1)
-position = Vector2(-262.78806, -138.51164)
-texture = ExtResource("64_owhal")
-
-[node name="Awning" type="Sprite2D" parent="Hut"]
-position = Vector2(485.83612, -108.6616)
-scale = Vector2(0.9999999, 1)
-texture = ExtResource("61_y86h7")
-
-[node name="Outside" type="Sprite2D" parent="Hut"]
-z_index = 4
-position = Vector2(71.83301, -312)
-texture = ExtResource("60_qax2n")
-
-[node name="Door Mask" type="Sprite2D" parent="Hut"]
-visible = false
-modulate = Color(0, 0, 0, 1)
-z_index = 999
-position = Vector2(337.9436, -77.13635)
-scale = Vector2(0.99999994, 1)
-texture = ExtResource("60_my4ki")
 
 [node name="Darkness Attic" type="ColorRect" parent="Hut"]
 visible = false
@@ -1772,8 +1793,12 @@ z_index = 999
 offset_left = -1603.2758
 offset_top = -5493.0
 offset_right = 1541.4193
-offset_bottom = -653.0
+offset_bottom = -664.71484
 color = Color(0, 0, 0, 1)
+
+[node name="Polygon2D" type="Polygon2D" parent="Hut/Darkness Top"]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(1522.3026, 4849.0786, 1370.395, 4908.1045, 1370.395, 4806.1504, 1516.2799, 4806.8213)
 
 [node name="Door Light" type="Polygon2D" parent="Hut"]
 modulate = Color(1, 1, 1, 0.101960786)
@@ -1791,8 +1816,17 @@ position = Vector2(-6.6922884, -1.3415012)
 collision_mask = 4096
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hut/Area2D"]
-position = Vector2(-7.3614845, -293.118)
+position = Vector2(-6.691962, -299.82553)
 shape = SubResource("CircleShape2D_my4ki")
+
+[node name="Attic Area" type="Area2D" parent="Hut"]
+position = Vector2(-6.6922884, -1.3415012)
+collision_mask = 4096
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hut/Attic Area"]
+position = Vector2(-151.9076, -602.85254)
+scale = Vector2(0.9999999, 1)
+shape = SubResource("RectangleShape2D_e5peh")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
