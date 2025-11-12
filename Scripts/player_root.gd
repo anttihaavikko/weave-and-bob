@@ -10,6 +10,7 @@ var dead := false
 
 func _ready() -> void:
 	GameState.camera = cam
+	GameState.unique.clear()
 
 func die() -> void:
 	if dead: return

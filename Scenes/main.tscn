@@ -121,6 +121,10 @@ scale = Vector2(1.0023229, 1)
 position = Vector2(6360.9995, -943)
 scale = Vector2(1.0023229, 1)
 
+[node name="Checkpoint5" parent="Level" instance=ExtResource("41_kwxat")]
+position = Vector2(8941.999, -3813)
+scale = Vector2(1.0023229, 1)
+
 [node name="Checkpoint3" parent="Level" instance=ExtResource("41_kwxat")]
 position = Vector2(3693, 1373)
 scale = Vector2(1.0023229, 1)
@@ -1229,10 +1233,6 @@ position = Vector2(-1717, -748)
 rotation = -0.27908745
 scale = Vector2(0.37250674, 0.37250674)
 stomp_offset = 100
-
-[node name="Platform" parent="Level/Climb" instance=ExtResource("33_o1aky")]
-position = Vector2(74.3135, -1.1221026e-05)
-scale = Vector2(570.40137, 41.373005)
 
 [node name="Player Spawn Point" type="Node2D" parent="Level"]
 z_index = 5
