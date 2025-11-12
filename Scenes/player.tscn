@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://il0jdy8qi06w"]
+[gd_scene load_steps=46 format=3 uid="uid://il0jdy8qi06w"]
 
 [ext_resource type="Script" uid="uid://dpfddv6k670sg" path="res://Scripts/player_root.gd" id="1_p1odr"]
 [ext_resource type="Script" uid="uid://cys6813rck58c" path="res://Scripts/player_part.gd" id="1_p7hy0"]
@@ -31,6 +31,7 @@
 [ext_resource type="Script" uid="uid://pqokfa0fjvq0" path="res://Scripts/ammo_display.gd" id="17_rkwq6"]
 [ext_resource type="PackedScene" uid="uid://ba03mhjfvn43o" path="res://Scenes/face.tscn" id="17_vqq8p"]
 [ext_resource type="Texture2D" uid="uid://du5b3oq3i146w" path="res://Sprites/ammo.png" id="17_xdj3o"]
+[ext_resource type="Texture2D" uid="uid://ttq3o6y5qlto" path="res://Sprites/map-held.svg" id="20_36dho"]
 [ext_resource type="Texture2D" uid="uid://c0nfiejcfw6dx" path="res://Sprites/mask.png" id="31_xuaoq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8gbba"]
@@ -101,12 +102,14 @@ size = Vector2(35, 20)
 [sub_resource type="CircleShape2D" id="CircleShape2D_vqq8p"]
 radius = 62.072536
 
-[node name="Player" type="Node2D" node_paths=PackedStringArray("control", "live_gun", "cam")]
+[node name="Player" type="Node2D" node_paths=PackedStringArray("control", "live_gun", "cam", "map_sprite", "gun_sprite")]
 script = ExtResource("1_p1odr")
 control = NodePath("Control Node")
 live_gun = NodePath("Gun")
 gun = ExtResource("2_0gysh")
 cam = NodePath("Gun/Camera2D")
+map_sprite = NodePath("Gun/Sprite Wrap/Map")
+gun_sprite = NodePath("Gun/Sprite Wrap/Ak47")
 
 [node name="Link Fixer" type="Node" parent="." node_paths=PackedStringArray("links", "center")]
 script = ExtResource("3_wohnl")
@@ -489,7 +492,7 @@ rotation = 1.1905065
 scale = Vector2(0.29837972, 0.29837972)
 texture = ExtResource("7_ypfnu")
 
-[node name="Gun" type="RigidBody2D" parent="." node_paths=PackedStringArray("aim_target", "barrel", "camera", "reticule", "muzzle", "flash", "ejector", "shot_sound", "reload_sound", "dry_shot_sound", "sprite_wrap", "hand_wrap", "ammo", "mag_ejector")]
+[node name="Gun" type="RigidBody2D" parent="." node_paths=PackedStringArray("aim_target", "barrel", "camera", "reticule", "muzzle", "flash", "ejector", "shot_sound", "reload_sound", "dry_shot_sound", "sprite_wrap", "hand_wrap", "ammo", "mag_ejector", "root")]
 z_index = 100
 position = Vector2(2, 19)
 continuous_cd = 1
@@ -509,6 +512,7 @@ sprite_wrap = NodePath("Sprite Wrap")
 hand_wrap = NodePath("Hand Wrap")
 ammo = NodePath("../Control Node/Orienter/Ammo Display/Bg/HBoxContainer")
 mag_ejector = NodePath("Clip Ejector")
+root = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Gun"]
 position = Vector2(3, -2)
@@ -522,6 +526,13 @@ position = Vector2(-2, -19)
 position = Vector2(12, 30)
 scale = Vector2(0.3414634, 0.3414634)
 texture = ExtResource("3_gxvcn")
+
+[node name="Map" type="Sprite2D" parent="Gun/Sprite Wrap"]
+visible = false
+z_index = 50
+position = Vector2(9.999999, 24)
+scale = Vector2(0.5555962, 0.5555962)
+texture = ExtResource("20_36dho")
 
 [node name="Hand Wrap" type="Node2D" parent="Gun"]
 position = Vector2(-2, -19)

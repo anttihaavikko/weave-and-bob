@@ -19,6 +19,7 @@ var clicked: bool
 @export var hand_wrap: Node2D
 @export var ammo: AmmoDisplay
 @export var mag_ejector: CasingEjector
+@export var root: PlayerRoot
 
 var current_shot_line := 0
 var just_shot := false
@@ -56,7 +57,7 @@ func _process(delta: float) -> void:
 #	hand_wrap.scale = Vector2(flipped, flipped)
 #	sprite_wrap.scale = Vector2(1, flipped)
 	
-	if clicked:
+	if clicked and root.gun_sprite.visible:
 		just_shot = cooldown <= 0
 	else:
 		cooldown = 0
@@ -99,8 +100,8 @@ func _physics_process(delta: float) -> void:
 			if result.collider is Enemy:
 				result.collider.hurt(result.position)
 		
-		var pos = result.position if result.has("position") else p + dir	
-		Effects.singleton.add_many([0, 1], pos)	
+		var pos = result.position if result.has("position") else p + dir
+		Effects.singleton.add_many([0, 1], pos)
 		LineDrawer.singleton.add(p, pos)
 		
 		muzzle.emitting = true

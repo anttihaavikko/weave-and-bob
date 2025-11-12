@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 152 108" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:5;">
+    <g transform="matrix(1,0,0,1,-2701.07,-2233.67)">
+        <g transform="matrix(1,0,0,1,-2.96613,3)">
+            <ellipse cx="2836.5" cy="2246.85" rx="10.5" ry="7.854" style="fill:none;stroke:black;stroke-width:16.67px;"/>
+            <ellipse cx="2836.5" cy="2246.85" rx="10.5" ry="7.854" style="fill:white;"/>
+        </g>
+        <g transform="matrix(0.798884,0,0,1,451.759,21.0755)">
+            <ellipse cx="2836.5" cy="2246.85" rx="10.5" ry="7.854" style="fill:none;stroke:black;stroke-width:18.42px;"/>
+            <ellipse cx="2836.5" cy="2246.85" rx="10.5" ry="7.854" style="fill:white;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,-423.966,117.708)">
+            <path d="M3137,2157C3147.94,2176.1 3154.59,2195.1 3157,2214C3195.05,2216.75 3228.86,2212.24 3257,2198C3255.39,2177.93 3259.66,2157.57 3268,2137C3224.43,2152.48 3180.76,2159.05 3137,2157Z" style="fill:none;stroke:black;stroke-width:16.67px;"/>
+            <path d="M3137,2157C3147.94,2176.1 3154.59,2195.1 3157,2214C3195.05,2216.75 3228.86,2212.24 3257,2198C3255.39,2177.93 3259.66,2157.57 3268,2137C3224.43,2152.48 3180.76,2159.05 3137,2157Z" style="fill:white;"/>
+        </g>
+        <g transform="matrix(0.991672,-0.128791,0.128791,0.991672,-706.159,552.766)">
+            <ellipse cx="3175" cy="2179" rx="3" ry="8" style="fill:none;stroke:black;stroke-width:16.67px;"/>
+            <ellipse cx="3175" cy="2179" rx="3" ry="8"/>
+        </g>
+        <g transform="matrix(0.996539,0.0831241,-0.0831241,0.996539,-146.295,-144.43)">
+            <ellipse cx="3175" cy="2179" rx="3" ry="8" style="fill:none;stroke:black;stroke-width:16.67px;"/>
+            <ellipse cx="3175" cy="2179" rx="3" ry="8"/>
+        </g>
+    </g>
+</svg>

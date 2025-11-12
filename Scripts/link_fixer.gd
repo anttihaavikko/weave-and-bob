@@ -14,7 +14,7 @@ func _process(_delta: float) -> void:
 	for l in links:
 		mid += l.position
 	var distance := (center.position - mid / len(links)).length()
-	if distance > 35:
+	if distance > 40:
 		print("needs fixing? ", distance)
 
 class PartOrigin:
