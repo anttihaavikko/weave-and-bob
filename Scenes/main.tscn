@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=81 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/player.tscn" id="1_bo1nx"]
@@ -29,7 +29,6 @@
 [ext_resource type="Shader" uid="uid://7gwbqnj5dg4s" path="res://Shaders/wavy.gdshader" id="17_2daye"]
 [ext_resource type="Texture2D" uid="uid://dod6ubda1x68" path="res://Sprites/sine-hill-svg.svg" id="17_bv80c"]
 [ext_resource type="AudioStream" uid="uid://5fiorq7fpqgr" path="res://Sounds/pickup1.wav" id="17_e08e2"]
-[ext_resource type="Texture2D" uid="uid://cox7xcm18yg4r" path="res://Sprites/sine-hill.png" id="17_gsvbx"]
 [ext_resource type="PackedScene" uid="uid://ympyuuto2ejt" path="res://Scenes/letter.tscn" id="17_h1bgf"]
 [ext_resource type="AudioStream" uid="uid://la43ov0oeu1r" path="res://Sounds/pickup2.wav" id="18_neg2b"]
 [ext_resource type="Texture2D" uid="uid://b38ysewvmjlub" path="res://Sprites/tree.png" id="18_ptfg5"]
@@ -109,6 +108,7 @@ blend_mode = 1
 radius = 346.73737
 
 [node name="Main" type="Node2D"]
+visibility_layer = 524289
 scale = Vector2(1.0023229, 1)
 
 [node name="Reloader" type="Node" parent="."]
@@ -116,11 +116,13 @@ script = ExtResource("1_6bp64")
 
 [node name="Bg" type="Sprite2D" parent="."]
 modulate = Color(0.8640645, 0.5525103, 0.35379764, 1)
-position = Vector2(969.2486, -870.75)
-scale = Vector2(17784.191, 8983.001)
-texture = ExtResource("17_gsvbx")
+light_mask = 524289
+position = Vector2(2216.2268, -1819.6252)
+scale = Vector2(20278.148, 10880.75)
+texture = ExtResource("3_8gbba")
 
-[node name="Level" type="Node" parent="."]
+[node name="Level" type="Node2D" parent="."]
+visibility_layer = 524289
 
 [node name="Checkpoint" parent="Level" instance=ExtResource("41_kwxat")]
 position = Vector2(-1394.9999, -602)
@@ -143,6 +145,7 @@ position = Vector2(3693, 1373)
 scale = Vector2(1.0023229, 1)
 
 [node name="Starter" type="Node2D" parent="Level"]
+visibility_layer = 524289
 position = Vector2(4, 0)
 scale = Vector2(1.0023229, 1)
 
@@ -306,6 +309,7 @@ scale = Vector2(0.30418557, 0.3041856)
 respawns_after = 1
 
 [node name="Room" type="Node2D" parent="Level"]
+visibility_layer = 524289
 position = Vector2(4009, -1383)
 scale = Vector2(1.0023229, 1)
 
@@ -598,6 +602,7 @@ vertical_dir = 1.0
 _enemy = ExtResource("9_ynf5e")
 
 [node name="Room2" type="Node2D" parent="Level"]
+visibility_layer = 524289
 position = Vector2(5456, 589)
 scale = Vector2(1.0023229, 1)
 
@@ -1138,6 +1143,7 @@ vertical_dir = 1.0
 _enemy = ExtResource("16_aa8k8")
 
 [node name="Climb" type="Node2D" parent="Level"]
+visibility_layer = 524289
 position = Vector2(7955, -1730)
 
 [node name="Wall3" parent="Level/Climb" instance=ExtResource("4_344ge")]
@@ -1803,8 +1809,7 @@ move_direction = Vector2(0, 15)
 move_speed = 3.0
 single_direction = true
 
-[node name="Map" type="Control" parent="CanvasLayer/Map Wrap" node_paths=PackedStringArray("left", "right", "paper", "root")]
-modulate = Color(0.9372549, 0.8784314, 0.70980394, 1)
+[node name="Map" type="Control" parent="CanvasLayer/Map Wrap" node_paths=PackedStringArray("left", "right", "paper", "root", "viewport")]
 layout_mode = 3
 anchors_preset = 0
 offset_left = -548.72534
@@ -1817,6 +1822,7 @@ left = NodePath("Left")
 right = NodePath("Right")
 paper = NodePath("ColorRect")
 root = NodePath(".")
+viewport = NodePath("ColorRect/Fill/SubViewportContainer/SubViewport")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/Map Wrap/Map"]
 layout_mode = 0
@@ -1826,13 +1832,35 @@ pivot_offset = Vector2(550, 287)
 color = Color(0, 0, 0, 1)
 
 [node name="Fill" type="ColorRect" parent="CanvasLayer/Map Wrap/Map/ColorRect"]
+self_modulate = Color(0.9372549, 0.8784314, 0.70980394, 1)
 layout_mode = 0
 offset_top = 11.0
 offset_right = 1124.0
 offset_bottom = 591.0
 
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer/Map Wrap/Map/ColorRect/Fill"]
+modulate = Color(1, 1, 1, 0.23921569)
+layout_mode = 0
+offset_left = 56.86789
+offset_top = 33.0
+offset_right = 1080.8679
+offset_bottom = 545.0
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/Map Wrap/Map/ColorRect/Fill/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+gui_disable_input = true
+canvas_cull_mask = 4294443008
+size = Vector2i(1024, 512)
+render_target_update_mode = 4
+
+[node name="Camera2D" type="Camera2D" parent="CanvasLayer/Map Wrap/Map/ColorRect/Fill/SubViewportContainer/SubViewport"]
+position = Vector2(2452.3047, -2393)
+zoom = Vector2(0.05, 0.05)
+
 [node name="Left" type="TextureRect" parent="CanvasLayer/Map Wrap/Map"]
 modulate = Color(0.9372549, 0.8784314, 0.70980394, 1)
+self_modulate = Color(0.9372549, 0.8784314, 0.70980394, 1)
 layout_mode = 0
 offset_left = 480.883
 offset_top = -8.0
@@ -1857,6 +1885,7 @@ position = Vector2(51.353584, 192.20117)
 
 [node name="Right" type="TextureRect" parent="CanvasLayer/Map Wrap/Map"]
 modulate = Color(0.9372549, 0.8784314, 0.70980394, 1)
+self_modulate = Color(0.9372549, 0.8784314, 0.70980394, 1)
 layout_mode = 0
 offset_left = 551.71857
 offset_top = -20.0
