@@ -99,6 +99,8 @@ func _physics_process(delta: float) -> void:
 		if result.has("collider"):
 			if result.collider is Enemy:
 				result.collider.hurt(result.position)
+			if result.collider is BreakableWall:
+				result.collider.hit()
 		
 		var pos = result.position if result.has("position") else p + dir
 		Effects.singleton.add_many([0, 1], pos)

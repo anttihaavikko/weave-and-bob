@@ -13,10 +13,11 @@ var ids: Array[String]
 var unique: Array[String]
 
 func mark(id: String):
-	ids.push_back(id)
+	if len(id) > 1:
+		ids.push_back(id)
 
 func has(id: String) -> bool:
-	return ids.has(id)
+	return len(id) > 1 and ids.has(id)
 
 func register(id: String):
 	if len(id) > 1 and unique.has(id):

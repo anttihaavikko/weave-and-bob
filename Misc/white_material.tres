@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://car0snn5yakqi"]
+
+[ext_resource type="Shader" uid="uid://bcpkc8l8xvy70" path="res://Shaders/white.gdshader" id="1_0hclu"]
+
+[resource]
+shader = ExtResource("1_0hclu")
+shader_parameter/color = Color(1, 1, 1, 1)

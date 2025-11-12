@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=87 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/player.tscn" id="1_bo1nx"]
@@ -69,9 +69,13 @@
 [ext_resource type="Texture2D" uid="uid://cg7cgr0t8nuau" path="res://Sprites/dark-spike.svg" id="65_ynmfv"]
 [ext_resource type="Texture2D" uid="uid://dje5iw7nj3qmm" path="res://Sprites/chimney.svg" id="66_e5peh"]
 [ext_resource type="Script" uid="uid://dsnuc3y6dk7pf" path="res://Scripts/map_display.gd" id="69_e5peh"]
+[ext_resource type="Texture2D" uid="uid://0wfnab31lwj4" path="res://Sprites/cork.png" id="69_f6rfp"]
 [ext_resource type="Texture2D" uid="uid://278usuw5u7ti" path="res://Sprites/map-end.svg" id="69_owhal"]
+[ext_resource type="Script" uid="uid://64kimsichhdi" path="res://Scripts/breakable_wall.gd" id="70_sasc4"]
 [ext_resource type="Texture2D" uid="uid://crdmw1dyxkdww" path="res://Sprites/map-hand.svg" id="70_uv6w5"]
+[ext_resource type="Script" uid="uid://c26faw2casac2" path="res://Scripts/flasher.gd" id="71_pfx1i"]
 [ext_resource type="Script" uid="uid://d21tebxx08yd3" path="res://Scripts/limb_live.gd" id="71_r7bbj"]
+[ext_resource type="Material" uid="uid://car0snn5yakqi" path="res://Misc/white_material.tres" id="72_fg68e"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1semv"]
 shader = ExtResource("17_2daye")
@@ -1827,6 +1831,26 @@ collision_mask = 4096
 position = Vector2(-151.9076, -602.85254)
 scale = Vector2(0.9999999, 1)
 shape = SubResource("RectangleShape2D_e5peh")
+
+[node name="Cork" type="StaticBody2D" parent="Hut" node_paths=PackedStringArray("flasher")]
+position = Vector2(-163.95349, -816.30347)
+scale = Vector2(0.9051588, 0.9051589)
+collision_layer = 3
+script = ExtResource("70_sasc4")
+id = "hut_cork"
+flasher = NodePath("Sprite")
+break_effects = Array[int]([5])
+break_sounds = Array[int]([13, 2])
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hut/Cork"]
+polygon = PackedVector2Array(-78.36719, -52.61316, 80.585205, -53.354248, 62.10254, 68.91589, -59.14502, 68.91589)
+
+[node name="Sprite" type="Sprite2D" parent="Hut/Cork" node_paths=PackedStringArray("items")]
+position = Vector2(0, -0.00012207031)
+texture = ExtResource("69_f6rfp")
+script = ExtResource("71_pfx1i")
+items = [NodePath(".")]
+white = ExtResource("72_fg68e")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
