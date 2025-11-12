@@ -529,6 +529,7 @@ texture = ExtResource("3_gxvcn")
 
 [node name="Map" type="Sprite2D" parent="Gun/Sprite Wrap"]
 visible = false
+modulate = Color(0.9372549, 0.8784314, 0.70980394, 1)
 z_index = 50
 position = Vector2(9.999999, 24)
 scale = Vector2(0.5555962, 0.5555962)

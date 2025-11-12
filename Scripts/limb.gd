@@ -3,6 +3,7 @@ extends Line2D
 
 @export var target: Node2D
 @export var length := 100.0
+
 @export var flip := false
 
 var upper: LimbSegment
@@ -13,7 +14,6 @@ func _ready() -> void:
 	lower = LimbSegment.new(length, 1, true)
 
 func _process(_delta: float) -> void:
-	
 	var pos := target.global_position
 	var normal := (pos - global_position).normalized()
 	
