@@ -19,6 +19,8 @@ func _process(_delta: float) -> void:
 		viewport.world_2d = GameState.camera.get_world_2d()
 
 func toggle():
+	if GameState.map_upgrades == 0:
+		return
 	state = !state
 	get_tree().create_tween().tween_property(right, "position", Vector2(543 if !state else 1099, -20), 0.4).set_trans(Tween.TRANS_BOUNCE)
 	get_tree().create_tween().tween_property(left, "position", Vector2(475 if !state else -30, -24), 0.4).set_trans(Tween.TRANS_BOUNCE)

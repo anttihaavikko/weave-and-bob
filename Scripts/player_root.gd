@@ -24,7 +24,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	cam.extra_offset = cam.extra_offset.move_toward(Vector2(0, -230) if map_sprite.visible else Vector2(0, 0), delta * 500)
 
-	if Input.is_action_just_pressed("map") and GameState.has_gun:
+	if Input.is_action_just_pressed("map") and GameState.has_gun and GameState.map_upgrades > 0:
 		map_sprite.visible = !map_sprite.visible
 		gun_sprite.visible = !gun_sprite.visible
 		SoundEffects.singleton.add(1, global_position)
