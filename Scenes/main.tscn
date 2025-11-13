@@ -2268,7 +2268,6 @@ paper = NodePath("ColorRect")
 root = NodePath(".")
 viewport = NodePath("ColorRect/Fill/SubViewportContainer/SubViewport")
 help = NodePath("../../Help Text")
-mask = 917504
 
 [node name="ColorRect" type="ColorRect" parent="UI/Map Wrap/Map"]
 layout_mode = 0
