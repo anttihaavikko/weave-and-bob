@@ -12,6 +12,8 @@ var camera: ShakeableCamera
 var ids: Array[String]
 var unique: Array[String]
 
+signal fix_player
+
 func mark(id: String):
 	if len(id) > 1:
 		ids.push_back(id)

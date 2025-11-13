@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=94 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/player.tscn" id="1_bo1nx"]
@@ -77,6 +77,9 @@
 [ext_resource type="Script" uid="uid://d21tebxx08yd3" path="res://Scripts/limb_live.gd" id="71_r7bbj"]
 [ext_resource type="Material" uid="uid://car0snn5yakqi" path="res://Misc/white_material.tres" id="72_fg68e"]
 [ext_resource type="Texture2D" uid="uid://go0giiad03jq" path="res://Sprites/circle.png" id="73_jekl6"]
+[ext_resource type="Script" uid="uid://dd48kyy5w2jp2" path="res://Scripts/rotating_door.gd" id="78_v1mrv"]
+[ext_resource type="Texture2D" uid="uid://cthibwn7a8bjd" path="res://Sprites/switch.svg" id="79_fd3ed"]
+[ext_resource type="Script" uid="uid://b38n1sce3un4f" path="res://Scripts/switch.gd" id="79_qnggo"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1semv"]
 shader = ExtResource("17_2daye")
@@ -105,7 +108,10 @@ size = Vector2(139.86227, 13.415011)
 size = Vector2(569.4858, 130.79637)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y86h7"]
-size = Vector2(633.552, 45.61099)
+size = Vector2(385.9494, 35.54975)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jekl6"]
+size = Vector2(90.34149, 35.54975)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_qax2n"]
 blend_mode = 1
@@ -114,7 +120,12 @@ blend_mode = 1
 radius = 346.73737
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e5peh"]
-size = Vector2(88.33406, 166.65079)
+size = Vector2(330.583, 104.27097)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bo1nx"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_jjvhh"]
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
 
 [node name="Main" type="Node2D"]
 visibility_layer = 524289
@@ -1427,7 +1438,7 @@ stomp_offset = 100
 [node name="Player Spawn Point" type="Node2D" parent="Level"]
 visibility_layer = 524289
 z_index = 5
-position = Vector2(-2455.2964, -563)
+position = Vector2(-1690.0741, -620)
 scale = Vector2(1.0023229, 1)
 script = ExtResource("39_kwxat")
 player = ExtResource("1_bo1nx")
@@ -1814,7 +1825,7 @@ width = 5.0
 [node name="Timer" type="Timer" parent="Line Drawer"]
 wait_time = 0.05
 
-[node name="Hut" type="Node2D" parent="." node_paths=PackedStringArray("inside_parts", "outside_parts", "area", "attic_area", "attic_dark")]
+[node name="Hut" type="Node2D" parent="." node_paths=PackedStringArray("inside_parts", "outside_parts", "area", "attic_area", "attic_dark", "pickup")]
 visibility_layer = 524289
 position = Vector2(-2921.2139, -385)
 scale = Vector2(1.490867, 1.490867)
@@ -1824,6 +1835,7 @@ outside_parts = [NodePath("Outside"), NodePath("Awning")]
 area = NodePath("Area2D")
 attic_area = NodePath("Attic Area")
 attic_dark = NodePath("Darkness Attic")
+pickup = NodePath("Pickup")
 
 [node name="Inside" type="Sprite2D" parent="Hut"]
 visible = false
@@ -1930,9 +1942,14 @@ scale = Vector2(1.0000001, 1.0000001)
 shape = SubResource("RectangleShape2D_lx3vj")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Hut/Collisions"]
-position = Vector2(-15.638062, -478.24524)
+position = Vector2(-139.43945, -477.90985)
 scale = Vector2(1.0000001, 1.0000001)
 shape = SubResource("RectangleShape2D_y86h7")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Hut/Collisions"]
+position = Vector2(249.94458, -477.90985)
+scale = Vector2(1.0000001, 1.0000001)
+shape = SubResource("RectangleShape2D_jekl6")
 
 [node name="Darkness Attic" type="ColorRect" parent="Hut"]
 visible = false
@@ -1974,6 +1991,12 @@ color = Color(0, 0, 0, 1)
 color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(1522.3026, 4849.0786, 1370.395, 4908.1045, 1370.395, 4806.1504, 1516.2799, 4806.8213)
 
+[node name="Pickup" parent="Hut" instance=ExtResource("16_k12tt")]
+visible = false
+position = Vector2(-8.699924, -570.8088)
+scale = Vector2(0.6707506, 0.6707506)
+id = "attic_pick"
+
 [node name="Door Light" type="Polygon2D" parent="Hut"]
 modulate = Color(1, 1, 1, 0.101960786)
 material = SubResource("CanvasItemMaterial_qax2n")
@@ -1998,7 +2021,7 @@ position = Vector2(-6.6922884, -1.3415012)
 collision_mask = 4096
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hut/Attic Area"]
-position = Vector2(-151.9076, -602.85254)
+position = Vector2(-30.782959, -571.6626)
 scale = Vector2(0.9999999, 1)
 shape = SubResource("RectangleShape2D_e5peh")
 
@@ -2023,6 +2046,7 @@ items = [NodePath(".")]
 white = ExtResource("72_fg68e")
 
 [node name="Sprite2D" type="Sprite2D" parent="Hut"]
+visible = false
 modulate = Color(0, 0, 0, 1)
 visibility_layer = 524288
 position = Vector2(-21.414612, -297.14255)
@@ -2162,4 +2186,47 @@ target = NodePath("../Map Wrap/Map/Left/Hand/Arm Target")
 length = 400.0
 flip = true
 
+[node name="Hatch" type="StaticBody2D" parent="."]
+position = Vector2(-2615.2144, -1076.8596)
+rotation = 3.1415925
+scale = Vector2(11.488537, 2.1672058)
+collision_layer = 3
+script = ExtResource("78_v1mrv")
+_open_pos = -55.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hatch"]
+position = Vector2(9.861585, 8.060276)
+shape = SubResource("RectangleShape2D_bo1nx")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Hatch"]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(9.861585, 8.060276)
+occluder = SubResource("OccluderPolygon2D_jjvhh")
+
+[node name="Sprite" type="Sprite2D" parent="Hatch"]
+modulate = Color(0, 0, 0, 1)
+visibility_layer = 524289
+position = Vector2(0.121841416, 16.401596)
+scale = Vector2(19.999998, 20)
+texture = ExtResource("3_8gbba")
+offset = Vector2(0.48313236, -0.41412354)
+
+[node name="Switch" type="CharacterBody2D" parent="."]
+position = Vector2(-2739.636, -1309.0001)
+rotation = -3.8409297
+scale = Vector2(1.1658161, 1.1658161)
+collision_layer = 2
+script = ExtResource("79_qnggo")
+change = 120.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Switch"]
+polygon = PackedVector2Array(30.965332, -16.515991, 4.8496094, -31.37854, 8.394043, -69.68518, 8.348633, -127.04431, -8.602539, -126.580444, -9.260498, -68.194214, -3.814209, -29.76709, -31.690674, -11.136597, -23.25708, 38.387573, 33.598633, 26.019897)
+
+[node name="Sprite" type="Sprite2D" parent="Switch"]
+modulate = Color(0, 0, 0, 1)
+texture = ExtResource("79_fd3ed")
+offset = Vector2(0, -48)
+
 [connection signal="timeout" from="Line Drawer/Timer" to="Line Drawer" method="_on_timer_timeout"]
+[connection signal="flipped" from="Switch" to="Hatch" method="change"]
