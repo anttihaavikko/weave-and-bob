@@ -3,12 +3,13 @@ extends Node
 var has_magazine := true
 var map_upgrades := 0
 var damage := 100
-var has_gun := false
+var has_gun := true
 
 var spawn_set := false
 var spawn_point: Vector2
 var checkpoint: Checkpoint
 var camera: ShakeableCamera
+var help_text: Appearer
 
 var ids: Array[String]
 var unique: Array[String]

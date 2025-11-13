@@ -81,6 +81,12 @@ map={
 ]
 }
 
+[physics]
+
+2d/solver/contact_recycle_radius=1.5
+2d/solver/contact_max_separation=2.0
+2d/solver/contact_max_allowed_penetration=1.0
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

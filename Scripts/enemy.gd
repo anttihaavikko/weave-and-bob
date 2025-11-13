@@ -33,10 +33,11 @@ signal died;
 
 func _ready() -> void:
 	if not Engine.is_editor_hint():
-		GameState.register(id)
 		if GameState.has(id):
 			if starts_encounter: starts_encounter.open_doors()
 			queue_free()
+		else:
+			GameState.register(id)
 	
 func _physics_process(delta: float) -> void:
 	if mode == Behaviour.Wave:

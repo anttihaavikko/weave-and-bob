@@ -26,8 +26,13 @@ func _ready() -> void:
 			queue_free()
 
 func _picked(_body: Node2D):
-	if type == Type.Magazine: GameState.has_magazine = true
-	if type == Type.Map: GameState.map_upgrades += 1
+	if type == Type.Magazine:
+		GameState.has_magazine = true
+	if type == Type.Map:
+		GameState.map_upgrades += 1
+		if GameState.map_upgrades == 1:
+			GameState.help_text.show_with_text("Press TAB or M to open the map...")
+		
 	GameState.mark(id)
 	Effects.singleton.add_many([0, 1, 3], global_position)
 	SoundEffects.singleton.add(6, global_position, 0.3)

@@ -12,6 +12,7 @@ delay = 1.5
 
 [node name="Appearer" type="Node2D" parent="."]
 script = ExtResource("2_78oue")
+appear_after = 0.01
 auto_hide_after = 1.0
 
 [node name="Sprite" type="Sprite2D" parent="Appearer"]

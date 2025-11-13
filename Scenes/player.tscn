@@ -127,7 +127,7 @@ rotation = -1.5707964
 mass = 0.1
 can_sleep = false
 freeze_mode = 1
-continuous_cd = 1
+continuous_cd = 2
 script = ExtResource("1_p7hy0")
 player = NodePath("..")
 
@@ -180,7 +180,7 @@ scale = Vector2(0.99999994, 0.99999994)
 mass = 0.1
 can_sleep = false
 freeze_mode = 1
-continuous_cd = 1
+continuous_cd = 2
 script = ExtResource("1_p7hy0")
 player = NodePath("..")
 
@@ -222,7 +222,7 @@ position = Vector2(48.76825, -1)
 mass = 0.1
 can_sleep = false
 freeze_mode = 1
-continuous_cd = 1
+continuous_cd = 2
 script = ExtResource("1_p7hy0")
 player = NodePath("..")
 
@@ -266,7 +266,7 @@ scale = Vector2(0.9999998, 0.9999999)
 mass = 0.1
 can_sleep = false
 freeze_mode = 1
-continuous_cd = 1
+continuous_cd = 2
 script = ExtResource("1_p7hy0")
 player = NodePath("..")
 
@@ -309,7 +309,7 @@ rotation = 1.5707964
 mass = 0.1
 can_sleep = false
 freeze_mode = 1
-continuous_cd = 1
+continuous_cd = 2
 script = ExtResource("1_p7hy0")
 player = NodePath("..")
 
@@ -362,7 +362,7 @@ scale = Vector2(0.9999999, 0.9999999)
 mass = 0.1
 can_sleep = false
 freeze_mode = 1
-continuous_cd = 1
+continuous_cd = 2
 script = ExtResource("1_p7hy0")
 player = NodePath("..")
 
@@ -405,7 +405,7 @@ rotation = 3.1415925
 mass = 0.1
 can_sleep = false
 freeze_mode = 1
-continuous_cd = 1
+continuous_cd = 2
 script = ExtResource("1_p7hy0")
 player = NodePath("..")
 
@@ -451,7 +451,7 @@ scale = Vector2(0.99999994, 0.99999994)
 mass = 0.1
 can_sleep = false
 freeze_mode = 1
-continuous_cd = 1
+continuous_cd = 2
 script = ExtResource("1_p7hy0")
 player = NodePath("..")
 
