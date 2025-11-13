@@ -1,10 +1,11 @@
-[gd_scene load_steps=103 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=109 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/player.tscn" id="1_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://3j32spfokv3d" path="res://Scenes/Effects/white_bits.tscn" id="2_kry3j"]
 [ext_resource type="Texture2D" uid="uid://dggvv625tmn04" path="res://Sprites/square.png" id="3_8gbba"]
 [ext_resource type="Script" uid="uid://b2gfrikyseqk" path="res://Scripts/line_drawer.gd" id="3_jjvhh"]
+[ext_resource type="Texture2D" uid="uid://dqk4jiffpdlow" path="res://Sprites/note.svg" id="4_87bhu"]
 [ext_resource type="PackedScene" uid="uid://dsh5hka8p1olw" path="res://Scenes/wall.tscn" id="4_344ge"]
 [ext_resource type="Script" uid="uid://iea5t2xob5o7" path="res://Scripts/effects.gd" id="5_kry3j"]
 [ext_resource type="PackedScene" uid="uid://bespa4vyxw6ny" path="res://Scenes/Effects/black_bits.tscn" id="6_21xkr"]
@@ -67,6 +68,7 @@
 [ext_resource type="Texture2D" uid="uid://c3rg57h3r6wkb" path="res://Sprites/banner-tip.svg" id="63_ovafv"]
 [ext_resource type="Texture2D" uid="uid://beb8bmur204cd" path="res://Sprites/hut-awning.svg" id="64_jekl6"]
 [ext_resource type="Texture2D" uid="uid://xivx5ibeo73p" path="res://Sprites/banner-loop.svg" id="64_owhal"]
+[ext_resource type="AudioStream" uid="uid://c4oojnib3gv7y" path="res://Sounds/write.wav" id="65_33qc4"]
 [ext_resource type="Texture2D" uid="uid://cg7cgr0t8nuau" path="res://Sprites/dark-spike.svg" id="65_ynmfv"]
 [ext_resource type="Texture2D" uid="uid://dje5iw7nj3qmm" path="res://Sprites/chimney.svg" id="66_e5peh"]
 [ext_resource type="Script" uid="uid://dsnuc3y6dk7pf" path="res://Scripts/map_display.gd" id="69_e5peh"]
@@ -83,9 +85,28 @@
 [ext_resource type="Script" uid="uid://dd48kyy5w2jp2" path="res://Scripts/rotating_door.gd" id="78_v1mrv"]
 [ext_resource type="Texture2D" uid="uid://cthibwn7a8bjd" path="res://Sprites/switch.svg" id="79_fd3ed"]
 [ext_resource type="Script" uid="uid://b38n1sce3un4f" path="res://Scripts/switch.gd" id="79_qnggo"]
+[ext_resource type="Script" uid="uid://dw6lpd5jn1o7p" path="res://Scripts/area_text_display.gd" id="80_55idt"]
 [ext_resource type="FontFile" uid="uid://x80u6ag0vqx5" path="res://Misc/ChunkFive-Regular.otf" id="84_6h1fc"]
 [ext_resource type="Shader" uid="uid://bae8cicg5bb45" path="res://Shaders/wobbly_text.gdshader" id="84_vxl7x"]
+[ext_resource type="LabelSettings" uid="uid://b36veepvgj1eg" path="res://Misc/label_settings.tres" id="85_ihvwq"]
 [ext_resource type="Script" uid="uid://bf838a0ggrmry" path="res://Scripts/appearer.gd" id="86_ihvwq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ihvwq"]
+radius = 82.303375
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k8rh3"]
+shader = ExtResource("84_vxl7x")
+shader_parameter/height = 3.0
+shader_parameter/frequency = 5.0
+shader_parameter/speed = 2.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_k8rh3"]
+line_spacing = -5.0
+font = ExtResource("84_6h1fc")
+font_size = 64
+shadow_size = 8
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(6, 6)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1semv"]
 shader = ExtResource("17_2daye")
@@ -142,13 +163,6 @@ shader_parameter/height = 2.0
 shader_parameter/frequency = 5.0
 shader_parameter/speed = 6.0
 
-[sub_resource type="LabelSettings" id="LabelSettings_vxl7x"]
-font = ExtResource("84_6h1fc")
-font_size = 64
-shadow_size = 8
-shadow_color = Color(0, 0, 0, 1)
-shadow_offset = Vector2(6, 6)
-
 [node name="Main" type="Node2D"]
 visibility_layer = 524289
 scale = Vector2(1.0023229, 1)
@@ -185,6 +199,47 @@ scale = Vector2(1.0023229, 1)
 [node name="Checkpoint3" parent="Level" instance=ExtResource("41_kwxat")]
 position = Vector2(3693, 1373)
 scale = Vector2(1.0023229, 1)
+
+[node name="Note" type="Sprite2D" parent="Level"]
+modulate = Color(0.9372549, 0.8784314, 0.70980394, 1)
+z_index = 13
+position = Vector2(-1395.7579, -606)
+scale = Vector2(0.3895977, 0.3895977)
+texture = ExtResource("4_87bhu")
+
+[node name="Text Area2" type="Area2D" parent="Level" node_paths=PackedStringArray("text")]
+z_index = 999
+position = Vector2(-1391.7671, -565)
+collision_mask = 256
+script = ExtResource("80_55idt")
+text = NodePath("Node2D/Label")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Text Area2"]
+shape = SubResource("CircleShape2D_ihvwq")
+
+[node name="Node2D" type="Node2D" parent="Level/Text Area2"]
+script = ExtResource("62_y86h7")
+moves = true
+move_direction = Vector2(0, -5)
+move_speed = 1.0
+single_direction = true
+
+[node name="Label" type="Label" parent="Level/Text Area2/Node2D"]
+material = SubResource("ShaderMaterial_k8rh3")
+offset_left = -693.3894
+offset_top = -350.0
+offset_right = 659.056
+offset_bottom = -33.0
+scale = Vector2(0.60105747, 0.60105747)
+pivot_offset = Vector2(680.57263, 140.8576)
+text = "Hope you got your gun.
+There seems to be some
+evil forces lurking about...
+                                ~Bob"
+label_settings = SubResource("LabelSettings_k8rh3")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("86_ihvwq")
 
 [node name="Starter" type="Node2D" parent="Level"]
 visibility_layer = 524289
@@ -298,8 +353,8 @@ modulate = Color(0.7647059, 0.4627451, 0.25882354, 1)
 position = Vector2(-2752.2083, -1507)
 
 [node name="Wall" type="Sprite2D" parent="Level/Starter/Background"]
-position = Vector2(-55.308685, 1299)
-scale = Vector2(2273.5933, 457.75012)
+position = Vector2(-140.08943, 1299)
+scale = Vector2(2443.1548, 457.75012)
 texture = ExtResource("3_8gbba")
 
 [node name="Wall2" type="Sprite2D" parent="Level/Starter/Background"]
@@ -511,6 +566,22 @@ stretch_mode = 1
 [node name="Killbox" parent="Level/Starter/Spikes" instance=ExtResource("50_dmskm")]
 position = Vector2(1377.2317, 32.50004)
 scale = Vector2(2734.7415, 51.000023)
+
+[node name="Spikes2" type="TextureRect" parent="Level/Starter"]
+z_index = 100
+offset_left = -3994.4302
+offset_top = -567.0
+offset_right = -3672.8206
+offset_bottom = -506.0
+rotation = 1.5707964
+scale = Vector2(0.7655851, 0.7655851)
+texture = ExtResource("65_ynmfv")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Killbox" parent="Level/Starter/Spikes2" instance=ExtResource("50_dmskm")]
+position = Vector2(164.63866, 29.58977)
+scale = Vector2(309.55542, 45.179485)
 
 [node name="Room" type="Node2D" parent="Level"]
 visibility_layer = 524289
@@ -1460,7 +1531,7 @@ stomp_offset = 100
 [node name="Player Spawn Point" type="Node2D" parent="Level"]
 visibility_layer = 524289
 z_index = 5
-position = Vector2(6835.123, -1211)
+position = Vector2(-1650.1667, -611)
 scale = Vector2(1.0023229, 1)
 script = ExtResource("39_kwxat")
 player = ExtResource("1_bo1nx")
@@ -1832,7 +1903,7 @@ effects = Array[PackedScene]([ExtResource("2_kry3j"), ExtResource("6_21xkr"), Ex
 
 [node name="Sounds" type="Node" parent="."]
 script = ExtResource("10_gt3je")
-effects = Array[AudioStream]([ExtResource("11_3pmx8"), ExtResource("12_cbgmd"), ExtResource("13_1w6v2"), ExtResource("14_ueoa1"), ExtResource("15_6vcvc"), ExtResource("16_7k868"), ExtResource("17_e08e2"), ExtResource("18_neg2b"), ExtResource("19_r33sp"), ExtResource("20_neg2b"), ExtResource("21_r33sp"), ExtResource("22_jwpg7"), ExtResource("23_k2e45"), ExtResource("49_xdkp6"), ExtResource("50_54nrm"), ExtResource("51_55jeb"), ExtResource("58_wl4bb")])
+effects = Array[AudioStream]([ExtResource("11_3pmx8"), ExtResource("12_cbgmd"), ExtResource("13_1w6v2"), ExtResource("14_ueoa1"), ExtResource("15_6vcvc"), ExtResource("16_7k868"), ExtResource("17_e08e2"), ExtResource("18_neg2b"), ExtResource("19_r33sp"), ExtResource("20_neg2b"), ExtResource("21_r33sp"), ExtResource("22_jwpg7"), ExtResource("23_k2e45"), ExtResource("49_xdkp6"), ExtResource("50_54nrm"), ExtResource("51_55jeb"), ExtResource("58_wl4bb"), ExtResource("65_33qc4")])
 prefab = ExtResource("12_u50mg")
 
 [node name="Line Drawer" type="Node" parent="." node_paths=PackedStringArray("line")]
@@ -1858,6 +1929,13 @@ area = NodePath("Area2D")
 attic_area = NodePath("Attic Area")
 attic_dark = NodePath("Darkness Attic")
 pickup = NodePath("Pickup")
+
+[node name="Map Marker" type="Sprite2D" parent="Hut"]
+modulate = Color(0, 0, 0, 1)
+visibility_layer = 524288
+position = Vector2(-21.414673, -297.14255)
+scale = Vector2(1.6233453, 1.6233453)
+texture = ExtResource("73_jekl6")
 
 [node name="Inside" type="Sprite2D" parent="Hut"]
 visible = false
@@ -2067,13 +2145,6 @@ script = ExtResource("71_pfx1i")
 items = [NodePath(".")]
 white = ExtResource("72_fg68e")
 
-[node name="Map Marker" type="Sprite2D" parent="Hut"]
-modulate = Color(0, 0, 0, 1)
-visibility_layer = 524288
-position = Vector2(-21.414612, -297.14255)
-scale = Vector2(1.6233454, 1.6233454)
-texture = ExtResource("73_jekl6")
-
 [node name="Hatch" type="StaticBody2D" parent="Hut"]
 position = Vector2(205.24927, -464.06528)
 rotation = 3.1415925
@@ -2130,6 +2201,41 @@ texture = ExtResource("77_tab3y")
 position = Vector2(10.372559, -45.611023)
 scale = Vector2(0.9999999, 1)
 shape = SubResource("RectangleShape2D_tab3y")
+
+[node name="Text Area" type="Area2D" parent="Hut" node_paths=PackedStringArray("text")]
+z_index = 999
+position = Vector2(6.6916347, -67.74581)
+scale = Vector2(0.6707506, 0.6707506)
+collision_mask = 256
+script = ExtResource("80_55idt")
+text = NodePath("Node2D/Label")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hut/Text Area"]
+shape = SubResource("CircleShape2D_ihvwq")
+
+[node name="Node2D" type="Node2D" parent="Hut/Text Area"]
+script = ExtResource("62_y86h7")
+moves = true
+move_direction = Vector2(0, -5)
+move_speed = 1.0
+single_direction = true
+
+[node name="Label" type="Label" parent="Hut/Text Area/Node2D"]
+material = SubResource("ShaderMaterial_k8rh3")
+offset_left = -693.3895
+offset_top = -350.0
+offset_right = 659.0558
+offset_bottom = -33.0
+scale = Vector2(0.60105747, 0.60105747)
+pivot_offset = Vector2(680.57263, 140.8576)
+text = "Good morning Weave!
+I went out to forage
+some mushrooms...
+                 ~Bob"
+label_settings = SubResource("LabelSettings_k8rh3")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("86_ihvwq")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -2280,7 +2386,7 @@ grow_horizontal = 2
 grow_vertical = 0
 pivot_offset = Vector2(911, 83)
 text = "qPress TAB or M to open the map..."
-label_settings = SubResource("LabelSettings_vxl7x")
+label_settings = ExtResource("85_ihvwq")
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("86_ihvwq")

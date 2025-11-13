@@ -500,6 +500,7 @@ texture = ExtResource("7_ypfnu")
 [node name="Gun" type="RigidBody2D" parent="." node_paths=PackedStringArray("aim_target", "barrel", "camera", "reticule", "muzzle", "flash", "ejector", "shot_sound", "reload_sound", "dry_shot_sound", "sprite_wrap", "hand_wrap", "ammo", "mag_ejector", "root")]
 z_index = 100
 position = Vector2(2, 19)
+collision_layer = 257
 continuous_cd = 1
 script = ExtResource("2_jc5ra")
 aim_target = NodePath("Aim Target")
