@@ -57,7 +57,7 @@ func _process(delta: float) -> void:
 #	hand_wrap.scale = Vector2(flipped, flipped)
 #	sprite_wrap.scale = Vector2(1, flipped)
 	
-	if clicked and root.gun_sprite.visible:
+	if clicked and root.gun_sprite.visible and GameState.has_gun:
 		just_shot = cooldown <= 0
 	else:
 		cooldown = 0

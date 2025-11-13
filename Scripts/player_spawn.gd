@@ -16,3 +16,9 @@ func respawn():
 	global_position = p
 	plr = player.instantiate()
 	add_child(plr)
+	
+func add_gun():
+	plr.gun_sprite.visible = true
+	plr.arm_left.visible = true
+	plr.arm_right.visible = true
+	SoundEffects.singleton.add(16, global_position)

@@ -16,7 +16,7 @@ func _process(_delta: float) -> void:
 	var distance := (center.position - mid / len(links)).length()
 	if distance > 50:
 		print("needs fixing? ", distance)
-		GameState.fix_player.emit()
+		GameState.request_player_fix()
 
 class PartOrigin:
 	var position: Vector2

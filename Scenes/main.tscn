@@ -1,4 +1,4 @@
-[gd_scene load_steps=94 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=98 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/player.tscn" id="1_bo1nx"]
@@ -58,6 +58,7 @@
 [ext_resource type="AudioStream" uid="uid://dq0spo1815aj3" path="res://Sounds/flag.wav" id="50_54nrm"]
 [ext_resource type="PackedScene" uid="uid://bpamcmqpiyf2j" path="res://Scenes/killbox.tscn" id="50_dmskm"]
 [ext_resource type="AudioStream" uid="uid://dk8rm3dvhj87i" path="res://Sounds/flag_boop.wav" id="51_55jeb"]
+[ext_resource type="AudioStream" uid="uid://c4ijxv5e2avwk" path="res://Sounds/reload.wav" id="58_wl4bb"]
 [ext_resource type="Script" uid="uid://bu70ibk77hcta" path="res://Scripts/hut.gd" id="59_lx3vj"]
 [ext_resource type="Texture2D" uid="uid://dd11kkfciaw2d" path="res://Sprites/hut-door-mask.png" id="60_my4ki"]
 [ext_resource type="Texture2D" uid="uid://ce0wpyjhyloy7" path="res://Sprites/hut-outside.png" id="60_qax2n"]
@@ -77,6 +78,8 @@
 [ext_resource type="Script" uid="uid://d21tebxx08yd3" path="res://Scripts/limb_live.gd" id="71_r7bbj"]
 [ext_resource type="Material" uid="uid://car0snn5yakqi" path="res://Misc/white_material.tres" id="72_fg68e"]
 [ext_resource type="Texture2D" uid="uid://go0giiad03jq" path="res://Sprites/circle.png" id="73_jekl6"]
+[ext_resource type="Script" uid="uid://d2v4gh8wpltpm" path="res://Scripts/gun_equip.gd" id="77_1tvlp"]
+[ext_resource type="Texture2D" uid="uid://c4624ijigoeqo" path="res://Sprites/ak47.png" id="77_tab3y"]
 [ext_resource type="Script" uid="uid://dd48kyy5w2jp2" path="res://Scripts/rotating_door.gd" id="78_v1mrv"]
 [ext_resource type="Texture2D" uid="uid://cthibwn7a8bjd" path="res://Sprites/switch.svg" id="79_fd3ed"]
 [ext_resource type="Script" uid="uid://b38n1sce3un4f" path="res://Scripts/switch.gd" id="79_qnggo"]
@@ -126,6 +129,9 @@ size = Vector2(330.583, 104.27097)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_jjvhh"]
 polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tab3y"]
+size = Vector2(59.55838, 228.05524)
 
 [node name="Main" type="Node2D"]
 visibility_layer = 524289
@@ -1810,7 +1816,7 @@ effects = Array[PackedScene]([ExtResource("2_kry3j"), ExtResource("6_21xkr"), Ex
 
 [node name="Sounds" type="Node" parent="."]
 script = ExtResource("10_gt3je")
-effects = Array[AudioStream]([ExtResource("11_3pmx8"), ExtResource("12_cbgmd"), ExtResource("13_1w6v2"), ExtResource("14_ueoa1"), ExtResource("15_6vcvc"), ExtResource("16_7k868"), ExtResource("17_e08e2"), ExtResource("18_neg2b"), ExtResource("19_r33sp"), ExtResource("20_neg2b"), ExtResource("21_r33sp"), ExtResource("22_jwpg7"), ExtResource("23_k2e45"), ExtResource("49_xdkp6"), ExtResource("50_54nrm"), ExtResource("51_55jeb")])
+effects = Array[AudioStream]([ExtResource("11_3pmx8"), ExtResource("12_cbgmd"), ExtResource("13_1w6v2"), ExtResource("14_ueoa1"), ExtResource("15_6vcvc"), ExtResource("16_7k868"), ExtResource("17_e08e2"), ExtResource("18_neg2b"), ExtResource("19_r33sp"), ExtResource("20_neg2b"), ExtResource("21_r33sp"), ExtResource("22_jwpg7"), ExtResource("23_k2e45"), ExtResource("49_xdkp6"), ExtResource("50_54nrm"), ExtResource("51_55jeb"), ExtResource("58_wl4bb")])
 prefab = ExtResource("12_u50mg")
 
 [node name="Line Drawer" type="Node" parent="." node_paths=PackedStringArray("line")]
@@ -1845,20 +1851,20 @@ texture = ExtResource("61_e5peh")
 [node name="Tip" type="Sprite2D" parent="Hut/Inside"]
 modulate = Color(0, 0.47843137, 0.2627451, 1)
 material = SubResource("ShaderMaterial_uv6w5")
-position = Vector2(-308.29343, -74.11958)
+position = Vector2(-308.39734, -82.1211)
 scale = Vector2(0.99999994, 1)
 texture = ExtResource("63_ovafv")
 
 [node name="Tip2" type="Sprite2D" parent="Hut/Inside"]
 modulate = Color(0, 0.47843137, 0.2627451, 1)
 material = SubResource("ShaderMaterial_uv6w5")
-position = Vector2(-204.568, -140.5239)
+position = Vector2(-204.6719, -148.5254)
 scale = Vector2(0.74007803, 0.7400781)
 texture = ExtResource("63_ovafv")
 
 [node name="Loop" type="Sprite2D" parent="Hut/Inside"]
 modulate = Color(0, 0.47843137, 0.2627451, 1)
-position = Vector2(-262.78806, -138.51164)
+position = Vector2(-262.89197, -146.51315)
 texture = ExtResource("64_owhal")
 
 [node name="Awning" type="Sprite2D" parent="Hut"]
@@ -2045,13 +2051,69 @@ script = ExtResource("71_pfx1i")
 items = [NodePath(".")]
 white = ExtResource("72_fg68e")
 
-[node name="Sprite2D" type="Sprite2D" parent="Hut"]
-visible = false
+[node name="Map Marker" type="Sprite2D" parent="Hut"]
 modulate = Color(0, 0, 0, 1)
 visibility_layer = 524288
 position = Vector2(-21.414612, -297.14255)
 scale = Vector2(1.6233454, 1.6233454)
 texture = ExtResource("73_jekl6")
+
+[node name="Hatch" type="StaticBody2D" parent="Hut"]
+position = Vector2(205.24927, -464.06528)
+rotation = 3.1415925
+scale = Vector2(7.705943, 1.4536546)
+collision_layer = 3
+script = ExtResource("78_v1mrv")
+_open_pos = -55.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hut/Hatch"]
+position = Vector2(9.861585, 8.060276)
+shape = SubResource("RectangleShape2D_bo1nx")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Hut/Hatch"]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(9.861585, 8.060276)
+occluder = SubResource("OccluderPolygon2D_jjvhh")
+
+[node name="Sprite" type="Sprite2D" parent="Hut/Hatch"]
+modulate = Color(0, 0, 0, 1)
+visibility_layer = 524289
+position = Vector2(0.121841416, 16.401596)
+scale = Vector2(19.999998, 20)
+texture = ExtResource("3_8gbba")
+offset = Vector2(0.48313236, -0.41412354)
+
+[node name="Switch" type="CharacterBody2D" parent="Hut"]
+position = Vector2(121.793335, -619.7737)
+rotation = 2.4422555
+scale = Vector2(0.78197193, 0.7819719)
+collision_layer = 2
+script = ExtResource("79_qnggo")
+change = 120.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hut/Switch"]
+polygon = PackedVector2Array(30.965332, -16.515991, 4.8496094, -31.37854, 8.394043, -69.68518, 8.348633, -127.04431, -8.602539, -126.580444, -9.260498, -68.194214, -3.814209, -29.76709, -31.690674, -11.136597, -23.25708, 38.387573, 33.598633, 26.019897)
+
+[node name="Sprite" type="Sprite2D" parent="Hut/Switch"]
+modulate = Color(0, 0, 0, 1)
+texture = ExtResource("79_fd3ed")
+offset = Vector2(0, -48)
+
+[node name="Gun Grab Area" type="Area2D" parent="Hut"]
+position = Vector2(593.57666, -24.817772)
+script = ExtResource("77_1tvlp")
+
+[node name="Ak47" type="Sprite2D" parent="Hut/Gun Grab Area"]
+position = Vector2(30.78302, 27.500778)
+rotation = -2.035137
+scale = Vector2(0.22617278, 0.22617278)
+texture = ExtResource("77_tab3y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hut/Gun Grab Area"]
+position = Vector2(10.372559, -45.611023)
+scale = Vector2(0.9999999, 1)
+shape = SubResource("RectangleShape2D_tab3y")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -2186,47 +2248,6 @@ target = NodePath("../Map Wrap/Map/Left/Hand/Arm Target")
 length = 400.0
 flip = true
 
-[node name="Hatch" type="StaticBody2D" parent="."]
-position = Vector2(-2615.2144, -1076.8596)
-rotation = 3.1415925
-scale = Vector2(11.488537, 2.1672058)
-collision_layer = 3
-script = ExtResource("78_v1mrv")
-_open_pos = -55.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hatch"]
-position = Vector2(9.861585, 8.060276)
-shape = SubResource("RectangleShape2D_bo1nx")
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="Hatch"]
-light_mask = 2
-visibility_layer = 2
-position = Vector2(9.861585, 8.060276)
-occluder = SubResource("OccluderPolygon2D_jjvhh")
-
-[node name="Sprite" type="Sprite2D" parent="Hatch"]
-modulate = Color(0, 0, 0, 1)
-visibility_layer = 524289
-position = Vector2(0.121841416, 16.401596)
-scale = Vector2(19.999998, 20)
-texture = ExtResource("3_8gbba")
-offset = Vector2(0.48313236, -0.41412354)
-
-[node name="Switch" type="CharacterBody2D" parent="."]
-position = Vector2(-2739.636, -1309.0001)
-rotation = -3.8409297
-scale = Vector2(1.1658161, 1.1658161)
-collision_layer = 2
-script = ExtResource("79_qnggo")
-change = 120.0
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Switch"]
-polygon = PackedVector2Array(30.965332, -16.515991, 4.8496094, -31.37854, 8.394043, -69.68518, 8.348633, -127.04431, -8.602539, -126.580444, -9.260498, -68.194214, -3.814209, -29.76709, -31.690674, -11.136597, -23.25708, 38.387573, 33.598633, 26.019897)
-
-[node name="Sprite" type="Sprite2D" parent="Switch"]
-modulate = Color(0, 0, 0, 1)
-texture = ExtResource("79_fd3ed")
-offset = Vector2(0, -48)
-
 [connection signal="timeout" from="Line Drawer/Timer" to="Line Drawer" method="_on_timer_timeout"]
-[connection signal="flipped" from="Switch" to="Hatch" method="change"]
+[connection signal="flipped" from="Hut/Switch" to="Hut/Hatch" method="change"]
+[connection signal="grab" from="Hut/Gun Grab Area" to="Level/Player Spawn Point" method="add_gun"]

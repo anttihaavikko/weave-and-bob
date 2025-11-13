@@ -104,7 +104,7 @@ size = Vector2(35, 20)
 [sub_resource type="CircleShape2D" id="CircleShape2D_vqq8p"]
 radius = 62.072536
 
-[node name="Player" type="Node2D" node_paths=PackedStringArray("control", "live_gun", "cam", "map_sprite", "gun_sprite")]
+[node name="Player" type="Node2D" node_paths=PackedStringArray("control", "live_gun", "cam", "map_sprite", "gun_sprite", "arm_left", "arm_right")]
 visibility_layer = 524289
 script = ExtResource("1_p1odr")
 control = NodePath("Control Node")
@@ -113,6 +113,8 @@ gun = ExtResource("2_0gysh")
 cam = NodePath("Gun/Camera2D")
 map_sprite = NodePath("Gun/Sprite Wrap/Map")
 gun_sprite = NodePath("Gun/Sprite Wrap/Ak47")
+arm_left = NodePath("Control Node/Orienter/Middle/Left Arm")
+arm_right = NodePath("Control Node/Orienter/Middle/Right Arm")
 
 [node name="Link Fixer" type="Node" parent="." node_paths=PackedStringArray("links", "center")]
 script = ExtResource("3_wohnl")
@@ -530,6 +532,16 @@ position = Vector2(12, 30)
 scale = Vector2(0.3414634, 0.3414634)
 texture = ExtResource("3_gxvcn")
 
+[node name="Rest Pos" type="Node2D" parent="Gun/Sprite Wrap/Ak47"]
+position = Vector2(67.35715, -23.428574)
+scale = Vector2(2.9285717, 2.9285717)
+
+[node name="Circle" type="Sprite2D" parent="Gun/Sprite Wrap/Ak47/Rest Pos"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(1.66893e-06, -4.7683716e-07)
+scale = Vector2(0.028000016, 0.018199947)
+texture = ExtResource("7_qc6ha")
+
 [node name="Map" type="Sprite2D" parent="Gun/Sprite Wrap"]
 visible = false
 modulate = Color(0.9372549, 0.8784314, 0.70980394, 1)
@@ -543,15 +555,6 @@ position = Vector2(-2, -19)
 
 [node name="Handle Pos" type="Node2D" parent="Gun/Hand Wrap"]
 position = Vector2(-20, 33)
-
-[node name="Rest Pos" type="Node2D" parent="Gun/Hand Wrap"]
-position = Vector2(35, 22)
-
-[node name="Circle" type="Sprite2D" parent="Gun/Hand Wrap/Rest Pos"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(1.66893e-06, -4.7683716e-07)
-scale = Vector2(0.028000016, 0.018199947)
-texture = ExtResource("7_qc6ha")
 
 [node name="Aim Target" type="CharacterBody2D" parent="Gun"]
 position = Vector2(95, 0)
@@ -754,7 +757,7 @@ joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
 script = ExtResource("8_5fh0x")
-target = NodePath("../../../../../Gun/Hand Wrap/Rest Pos")
+target = NodePath("../../../../../Gun/Sprite Wrap/Ak47/Rest Pos")
 length = 35.0
 
 [node name="Mask" type="Sprite2D" parent="Control Node/Orienter/Middle"]

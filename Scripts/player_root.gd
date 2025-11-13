@@ -7,10 +7,15 @@ extends Node2D
 @export var cam: ShakeableCamera
 @export var map_sprite: Node2D
 @export var gun_sprite: Node2D
+@export var arm_left: Node
+@export var arm_right: Node
 
 var dead := false
 
 func _ready() -> void:
+	gun_sprite.visible = GameState.has_gun
+	arm_left.visible = GameState.has_gun
+	arm_right.visible = GameState.has_gun
 	GameState.camera = cam
 	GameState.unique.clear()
 	var vp := get_tree().root.get_viewport()
@@ -19,7 +24,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	cam.extra_offset = cam.extra_offset.move_toward(Vector2(0, -230) if map_sprite.visible else Vector2(0, 0), delta * 500)
 
-	if Input.is_action_just_pressed("map"):
+	if Input.is_action_just_pressed("map") and GameState.has_gun:
 		map_sprite.visible = !map_sprite.visible
 		gun_sprite.visible = !gun_sprite.visible
 		SoundEffects.singleton.add(1, global_position)
