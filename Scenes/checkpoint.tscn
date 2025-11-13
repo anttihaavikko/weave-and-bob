@@ -81,7 +81,6 @@ shader_parameter/speed = 5.0
 shader_parameter/flip = false
 
 [node name="Checkpoint" type="Area2D" node_paths=PackedStringArray("pole")]
-modulate = Color(0.5686275, 0.32941177, 0.16470589, 1)
 z_index = 6
 collision_layer = 0
 script = ExtResource("1_i1pff")
@@ -97,11 +96,15 @@ libraries = {
 autoplay = "flag"
 
 [node name="Base" type="Sprite2D" parent="."]
+z_index = 13
+z_as_relative = false
 position = Vector2(-0.71026415, -20.213013)
 scale = Vector2(0.68654114, 0.68654114)
 texture = ExtResource("2_opoc8")
 
 [node name="Pole" type="Sprite2D" parent="."]
+z_index = 12
+z_as_relative = false
 position = Vector2(-0.24789906, -118.06379)
 rotation = 3.1415927
 scale = Vector2(1e-05, 1e-05)
@@ -109,6 +112,9 @@ texture = ExtResource("3_l0c30")
 offset = Vector2(0.003198266, -83.02489)
 
 [node name="Flag" type="Sprite2D" parent="Pole"]
+modulate = Color(0, 0.47843137, 0.2627451, 1)
+z_index = 11
+z_as_relative = false
 material = SubResource("ShaderMaterial_l0c30")
 position = Vector2(1, -118)
 rotation = 1.5707964
