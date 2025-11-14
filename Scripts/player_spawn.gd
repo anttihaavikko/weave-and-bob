@@ -15,9 +15,11 @@ func _ready() -> void:
 
 func respawn():
 	var p = plr.control.global_position
+	var life = plr.health
 	plr.queue_free()
 	global_position = p
 	spawn()
+	plr.health = life
 	
 func spawn():
 	plr = player.instantiate()

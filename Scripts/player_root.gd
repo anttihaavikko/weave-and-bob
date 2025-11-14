@@ -46,6 +46,7 @@ func die() -> void:
 		Gameplay.hit_stop(get_tree(), 0.25, 5 / 60.0)
 		Effects.singleton.add_many([4, 3, 0, 0, 0, 1, 9, 10, 2], control.global_position)
 		SoundEffects.singleton.add_many([2], control.global_position)
+		cam.shake(15, 0.3)
 		return
 	if dead: return
 	Musics.intensify(false)
