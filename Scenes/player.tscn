@@ -46,6 +46,7 @@ shader_parameter/amount = 5.0
 shader_parameter/frequency = 0.0
 shader_parameter/speed = 10.0
 shader_parameter/flip = false
+shader_parameter/mid = 0.5
 
 [sub_resource type="Shader" id="Shader_ypfnu"]
 code = "shader_type canvas_item;
@@ -953,8 +954,8 @@ shape = SubResource("CircleShape2D_vqq8p")
 modulate = Color(0, 0.47843137, 0.2627451, 1)
 visibility_layer = 524288
 z_index = 999
-position = Vector2(1, -463.00003)
-scale = Vector2(4.832418, 4.832418)
+position = Vector2(-2.0000005, -542)
+scale = Vector2(5.305986, 5.305986)
 texture = ExtResource("34_yh6i2")
 script = ExtResource("35_nv4vc")
 moves = true

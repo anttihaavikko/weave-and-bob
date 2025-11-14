@@ -82,6 +82,13 @@ map={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_2="walls"
+2d_physics/layer_4="enemies"
+2d_physics/layer_9="gun"
+2d_physics/layer_13="control node"
+
 [physics]
 
 2d/solver/contact_recycle_radius=1.5
