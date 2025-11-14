@@ -165,12 +165,6 @@ polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tab3y"]
 size = Vector2(59.55838, 228.05524)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ihvwq"]
-shader = ExtResource("84_vxl7x")
-shader_parameter/height = 2.0
-shader_parameter/frequency = 5.0
-shader_parameter/speed = 6.0
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_33qc4"]
 radius = 40.90503
 height = 286.0
@@ -215,6 +209,12 @@ shader_parameter/speed = 6.0
 shader_parameter/flip = true
 shader_parameter/mid = 0.5
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ihvwq"]
+shader = ExtResource("84_vxl7x")
+shader_parameter/height = 2.0
+shader_parameter/frequency = 5.0
+shader_parameter/speed = 6.0
+
 [node name="Main" type="Node2D"]
 visibility_layer = 524289
 scale = Vector2(1.0023229, 1)
@@ -225,8 +225,8 @@ script = ExtResource("1_6bp64")
 [node name="Bg" type="Sprite2D" parent="."]
 modulate = Color(0.8640645, 0.5525103, 0.35379764, 1)
 light_mask = 524289
-position = Vector2(2216.2268, -1819.6252)
-scale = Vector2(20278.148, 10880.75)
+position = Vector2(4928.9263, 169.50037)
+scale = Vector2(25703.547, 14859.001)
 texture = ExtResource("3_8gbba")
 
 [node name="Level" type="Node2D" parent="."]
@@ -529,8 +529,8 @@ modulate = Color(1, 1, 1, 1)
 position = Vector2(935.8262, 1096)
 
 [node name="Wall7" parent="Level/Starter" instance=ExtResource("4_344ge")]
-position = Vector2(-3976.8953, 360.60773)
-scale = Vector2(4641.103, 1348.0559)
+position = Vector2(-3208.496, 360.6076)
+scale = Vector2(3104.3044, 1348.0559)
 
 [node name="Wall8" parent="Level/Starter" instance=ExtResource("4_344ge")]
 position = Vector2(1690.2917, 40.27298)
@@ -577,8 +577,8 @@ position = Vector2(-1428.6812, 729.00006)
 scale = Vector2(611.38666, 2499.6785)
 
 [node name="Wall9" parent="Level/Starter" instance=ExtResource("4_344ge")]
-position = Vector2(-4035.6262, -1112.72)
-scale = Vector2(663.4349, 1068.5111)
+position = Vector2(-4480.934, -1112.7198)
+scale = Vector2(1554.0504, 1068.5111)
 
 [node name="Wall10" parent="Level/Starter" instance=ExtResource("4_344ge")]
 position = Vector2(-4124.133, -450.803)
@@ -732,8 +732,12 @@ position = Vector2(1486.5393, 1346.5175)
 scale = Vector2(902.6943, 782.3929)
 
 [node name="Wall4" parent="Level/Room" instance=ExtResource("4_344ge")]
-position = Vector2(-1578.021, 1422.466)
-scale = Vector2(910.0666, 1112.7468)
+position = Vector2(-1857.2454, 1422.466)
+scale = Vector2(351.61783, 1112.7468)
+
+[node name="Wall11" parent="Level/Room" instance=ExtResource("4_344ge")]
+position = Vector2(-1289.9923, 1422.466)
+scale = Vector2(334.00928, 1112.7468)
 
 [node name="Wall5" parent="Level/Room" instance=ExtResource("4_344ge")]
 position = Vector2(-755.5623, -254.58095)
@@ -1211,12 +1215,20 @@ position = Vector2(226.624, 1443.2216)
 scale = Vector2(3006.968, 523.15326)
 
 [node name="Wall8" parent="Level/Room2" instance=ExtResource("4_344ge")]
-position = Vector2(1089.839, -551.15955)
-scale = Vector2(672.4979, 1801.7179)
+position = Vector2(1089.8389, -985.0326)
+scale = Vector2(672.4979, 933.9716)
+
+[node name="Wall9" parent="Level/Room2" instance=ExtResource("4_344ge")]
+position = Vector2(1089.8391, 57.511353)
+scale = Vector2(672.4979, 584.37616)
 
 [node name="Wall3" parent="Level/Room2" instance=ExtResource("4_344ge")]
-position = Vector2(2557.8203, 147.98405)
-scale = Vector2(3045.2568, 3547.988)
+position = Vector2(2557.82, -1124.6693)
+scale = Vector2(3045.2568, 1002.68134)
+
+[node name="Wall6" parent="Level/Room2" instance=ExtResource("4_344ge")]
+position = Vector2(2932.8604, 991.2489)
+scale = Vector2(3795.3364, 1861.4581)
 
 [node name="Wall4" parent="Level/Room2" instance=ExtResource("4_344ge")]
 position = Vector2(-2178.8022, 1422.4661)
@@ -1506,12 +1518,12 @@ rotation = 2.6727705
 scale = Vector2(893.06506, 1189.1104)
 
 [node name="Wall7" parent="Level/Climb" instance=ExtResource("4_344ge")]
-position = Vector2(-1788.7301, -2158.951)
-scale = Vector2(2370.5254, 1961.7192)
+position = Vector2(-1788.7301, -1908.6692)
+scale = Vector2(2370.5254, 1461.1558)
 
 [node name="Wall8" parent="Level/Climb" instance=ExtResource("4_344ge")]
-position = Vector2(1943.5598, -1093.9204)
-scale = Vector2(2353.405, 1809.5282)
+position = Vector2(1490.3512, -1093.9203)
+scale = Vector2(1446.9878, 1809.5282)
 
 [node name="Spikes" type="TextureRect" parent="Level/Climb"]
 z_index = 100
@@ -1582,10 +1594,145 @@ rotation = -0.27908745
 scale = Vector2(0.37250674, 0.37250674)
 stomp_offset = 100
 
+[node name="Top" type="Node2D" parent="Level"]
+visibility_layer = 524289
+
+[node name="Wall7" parent="Level/Top" instance=ExtResource("4_344ge")]
+position = Vector2(10469.013, -3291.5156)
+scale = Vector2(774.89404, 362.1827)
+
+[node name="Wall9" parent="Level/Top" instance=ExtResource("4_344ge")]
+position = Vector2(12955.03, -3709.1675)
+scale = Vector2(1966.6328, 3730.787)
+
+[node name="Wall10" parent="Level/Top" instance=ExtResource("4_344ge")]
+position = Vector2(9715.433, -5242.2793)
+scale = Vector2(904.6092, 1599.0674)
+
+[node name="Wall11" parent="Level/Top" instance=ExtResource("4_344ge")]
+position = Vector2(11175.275, -5755.833)
+scale = Vector2(4744.159, 1972.8645)
+
+[node name="Wall8" parent="Level/Top" instance=ExtResource("4_344ge")]
+position = Vector2(11866.167, -3300.0005)
+scale = Vector2(1196.4666, 378.43494)
+
+[node name="Big" type="Node2D" parent="Level"]
+visibility_layer = 524289
+position = Vector2(12630.66, 534)
+
+[node name="Wall6" parent="Level/Big" instance=ExtResource("4_344ge")]
+position = Vector2(294.31567, 1568)
+scale = Vector2(4431.071, 1861.4581)
+
+[node name="Wall8" parent="Level/Big" instance=ExtResource("4_344ge")]
+position = Vector2(-206.96704, -387)
+scale = Vector2(1434.1365, 259.28522)
+
+[node name="Wall10" parent="Level/Big" instance=ExtResource("4_344ge")]
+position = Vector2(310.2789, -1339)
+scale = Vector2(772.3082, 259.28522)
+
+[node name="Wall11" parent="Level/Big" instance=ExtResource("4_344ge")]
+position = Vector2(-1307.962, -1635)
+scale = Vector2(772.3082, 259.28522)
+
+[node name="Wall9" parent="Level/Big" instance=ExtResource("4_344ge")]
+position = Vector2(-1180.607, -2560)
+scale = Vector2(1725.2668, 259.28522)
+
+[node name="Wall7" parent="Level/Big" instance=ExtResource("4_344ge")]
+position = Vector2(2024.2977, -1020.73645)
+scale = Vector2(1848.4995, 5106.184)
+
+[node name="Big2" type="Node2D" parent="Level"]
+visibility_layer = 524289
+position = Vector2(8182.9917, 6397)
+
+[node name="Wall6" parent="Level/Big2" instance=ExtResource("4_344ge")]
+position = Vector2(-1424.9115, -756.99994)
+scale = Vector2(5397.269, 1861.4581)
+
+[node name="Wall9" parent="Level/Big2" instance=ExtResource("4_344ge")]
+position = Vector2(-1101.4413, -2338)
+scale = Vector2(1725.2668, 259.28522)
+
+[node name="Wall7" parent="Level/Big2" instance=ExtResource("4_344ge")]
+position = Vector2(2024.2976, -1768.0066)
+scale = Vector2(1848.4995, 3611.6438)
+
+[node name="Edge" type="Node2D" parent="Level"]
+visibility_layer = 524289
+position = Vector2(-5368.5293, -763)
+
+[node name="Wall9" parent="Level/Edge" instance=ExtResource("4_344ge")]
+position = Vector2(-288.71863, 647.0343)
+scale = Vector2(1274.7935, 412.57956)
+
+[node name="Wall13" parent="Level/Edge" instance=ExtResource("4_344ge")]
+position = Vector2(-273.36514, -3681)
+scale = Vector2(1274.7935, 412.57956)
+
+[node name="Wall14" parent="Level/Edge" instance=ExtResource("4_344ge")]
+position = Vector2(622.1132, -5322.3267)
+scale = Vector2(4371.0513, 1183.2325)
+
+[node name="Wall11" parent="Level/Edge" instance=ExtResource("4_344ge")]
+position = Vector2(449.25372, 1868)
+scale = Vector2(1429.8386, 412.57956)
+
+[node name="Wall12" parent="Level/Edge" instance=ExtResource("4_344ge")]
+position = Vector2(1331.4741, 3094.9998)
+scale = Vector2(4042.9028, 412.57956)
+
+[node name="Wall10" parent="Level/Edge" instance=ExtResource("4_344ge")]
+position = Vector2(-955.09094, 860.3817)
+scale = Vector2(754.6206, 11368.095)
+
+[node name="Lower" type="Node2D" parent="Level"]
+visibility_layer = 524289
+position = Vector2(866.98584, 2341)
+
+[node name="Wall9" parent="Level/Lower" instance=ExtResource("4_344ge")]
+position = Vector2(-962.7634, 693.0001)
+scale = Vector2(1274.7935, 412.57956)
+
+[node name="Wall11" parent="Level/Lower" instance=ExtResource("4_344ge")]
+position = Vector2(449.25372, 1868)
+scale = Vector2(1429.8386, 412.57956)
+
+[node name="Wall16" parent="Level/Lower" instance=ExtResource("4_344ge")]
+position = Vector2(-5168.9917, 1202.4912)
+scale = Vector2(609.7465, 360.91348)
+
+[node name="Wall13" parent="Level/Lower" instance=ExtResource("4_344ge")]
+position = Vector2(3359.2239, 471.90588)
+scale = Vector2(919.0793, 1231.1526)
+
+[node name="Wall17" parent="Level/Lower" instance=ExtResource("4_344ge")]
+position = Vector2(3359.224, 2441.545)
+scale = Vector2(919.0793, 2034.9426)
+
+[node name="Wall14" parent="Level/Lower" instance=ExtResource("4_344ge")]
+position = Vector2(-3223.1445, 1176.581)
+scale = Vector2(688.87805, 2258.4683)
+
+[node name="Wall12" parent="Level/Lower" instance=ExtResource("4_344ge")]
+position = Vector2(-1968.5135, 3356.8303)
+scale = Vector2(10642.878, 936.2398)
+
+[node name="Wall10" parent="Level/Lower" instance=ExtResource("4_344ge")]
+position = Vector2(-955.0908, 2092.8657)
+scale = Vector2(754.6206, 2767.645)
+
+[node name="Wall15" parent="Level/Lower" instance=ExtResource("4_344ge")]
+position = Vector2(-5183.9575, 2648.999)
+scale = Vector2(1445.2244, 1606.7552)
+
 [node name="Player Spawn Point" type="Node2D" parent="Level" node_paths=PackedStringArray("main_text", "sub_text")]
 visibility_layer = 524289
 z_index = 5
-position = Vector2(2218.8457, -649)
+position = Vector2(-4597.323, -2141)
 scale = Vector2(1.0023229, 1)
 script = ExtResource("39_kwxat")
 player = ExtResource("1_bo1nx")
@@ -2294,6 +2441,122 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("86_ihvwq")
 
+[node name="Bob" type="RigidBody2D" parent="."]
+position = Vector2(1826.7566, -2077)
+collision_layer = 0
+collision_mask = 2
+lock_rotation = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bob"]
+position = Vector2(0, 72)
+shape = SubResource("CapsuleShape2D_33qc4")
+
+[node name="Wrap" type="Node2D" parent="Bob"]
+position = Vector2(0, 7)
+script = ExtResource("62_y86h7")
+moves = true
+move_direction = Vector2(0, 5)
+single_direction = true
+
+[node name="Leg Right" type="Line2D" parent="Bob/Wrap" node_paths=PackedStringArray("target")]
+position = Vector2(15.962887, 161)
+points = PackedVector2Array(0, 0, 23.94812, 18.06897, 13, 46)
+width = 13.0
+default_color = Color(0, 0, 0, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+script = ExtResource("71_r7bbj")
+target = NodePath("../../Leg Right Tip")
+length = 26.0
+flip = true
+
+[node name="Leg Left" type="Line2D" parent="Bob/Wrap" node_paths=PackedStringArray("target")]
+position = Vector2(-18.955927, 160)
+points = PackedVector2Array(0, 0, -21.95581, 20.443726, -8, 47)
+width = 13.0
+default_color = Color(0, 0, 0, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+script = ExtResource("71_r7bbj")
+target = NodePath("../../Leg Left Tip")
+length = 26.0
+
+[node name="Top" type="Sprite2D" parent="Bob/Wrap"]
+material = SubResource("ShaderMaterial_j2g22")
+position = Vector2(0, -47)
+texture = ExtResource("91_p4gyq")
+
+[node name="Mid" type="Sprite2D" parent="Bob/Wrap"]
+position = Vector2(0, 47)
+texture = ExtResource("92_jrou0")
+
+[node name="Bottom" type="Sprite2D" parent="Bob/Wrap"]
+material = SubResource("ShaderMaterial_32dfi")
+position = Vector2(0, 145)
+texture = ExtResource("92_32dfi")
+
+[node name="Face" type="Node2D" parent="Bob/Wrap" node_paths=PackedStringArray("left_eye", "right_eye")]
+position = Vector2(-2.993167, 17)
+scale = Vector2(1.4064906, 1.4064906)
+script = ExtResource("93_cf2bd")
+left_eye = NodePath("Eye Left")
+right_eye = NodePath("Eye Right")
+
+[node name="Eye Left" type="Sprite2D" parent="Bob/Wrap/Face"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-8.55888, 3.1590424)
+rotation = 3.1415925
+scale = Vector2(0.014, 0.014)
+texture = ExtResource("73_jekl6")
+offset = Vector2(0, 128)
+
+[node name="Eye Right" type="Sprite2D" parent="Bob/Wrap/Face"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(9.44112, 3.1590424)
+rotation = 3.1415925
+scale = Vector2(0.014, 0.014)
+texture = ExtResource("73_jekl6")
+offset = Vector2(0, 128)
+
+[node name="Blush Left" type="Sprite2D" parent="Bob/Wrap/Face"]
+modulate = Color(0.91764706, 0.3372549, 0.09411765, 1)
+position = Vector2(-20.25321, 4.5625844)
+rotation = 3.1415925
+scale = Vector2(0.026807755, 0.017097129)
+texture = ExtResource("73_jekl6")
+
+[node name="Blush Right" type="Sprite2D" parent="Bob/Wrap/Face"]
+modulate = Color(0.91764706, 0.3372549, 0.09411765, 1)
+position = Vector2(21.597956, 3.1406045)
+rotation = 3.1415925
+scale = Vector2(0.026531879, 0.015406427)
+texture = ExtResource("73_jekl6")
+
+[node name="Mouth" type="Sprite2D" parent="Bob/Wrap/Face"]
+visible = false
+modulate = Color(0, 0, 0, 1)
+position = Vector2(0, 3)
+scale = Vector2(0.066067554, 0.06606756)
+texture = ExtResource("94_lpdpw")
+
+[node name="ShirtString" type="Sprite2D" parent="Bob/Wrap"]
+material = SubResource("ShaderMaterial_jrou0")
+position = Vector2(11.972292, 103)
+texture = ExtResource("95_lpdpw")
+
+[node name="ShirtString2" type="Sprite2D" parent="Bob/Wrap"]
+material = SubResource("ShaderMaterial_jrou0")
+position = Vector2(-9.976723, 103)
+texture = ExtResource("95_lpdpw")
+
+[node name="Leg Right Tip" type="Node2D" parent="Bob"]
+position = Vector2(28.93279, 214)
+
+[node name="Leg Left Tip" type="Node2D" parent="Bob"]
+position = Vector2(-26.937424, 214)
+
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Dev Bg" type="ColorRect" parent="UI"]
@@ -2357,8 +2620,8 @@ size = Vector2i(1024, 512)
 render_target_update_mode = 4
 
 [node name="Camera2D" type="Camera2D" parent="UI/Map Wrap/Map/ColorRect/Fill/SubViewportContainer/SubViewport"]
-position = Vector2(2452.3035, -2123)
-zoom = Vector2(0.05, 0.05)
+position = Vector2(4225.185, -1107)
+zoom = Vector2(0.037, 0.037)
 
 [node name="Left" type="TextureRect" parent="UI/Map Wrap/Map"]
 modulate = Color(0.9372549, 0.8784314, 0.70980394, 1)
@@ -2489,119 +2752,6 @@ label_settings = ExtResource("85_ihvwq")
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("86_ihvwq")
-
-[node name="Bob" type="RigidBody2D" parent="."]
-position = Vector2(2477.2454, -748)
-collision_layer = 0
-collision_mask = 2
-lock_rotation = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bob"]
-position = Vector2(0, 72)
-shape = SubResource("CapsuleShape2D_33qc4")
-
-[node name="Wrap" type="Node2D" parent="Bob"]
-script = ExtResource("62_y86h7")
-moves = true
-move_direction = Vector2(0, 5)
-single_direction = true
-
-[node name="Leg Right" type="Line2D" parent="Bob/Wrap" node_paths=PackedStringArray("target")]
-position = Vector2(17.48864, 161)
-points = PackedVector2Array(0, 0, 17.159668, 24.60785, 7.470703, 53)
-default_color = Color(0, 0, 0, 1)
-joint_mode = 2
-begin_cap_mode = 2
-end_cap_mode = 2
-script = ExtResource("71_r7bbj")
-target = NodePath("../../Leg Right Tip")
-length = 27.0
-flip = true
-
-[node name="Leg Left" type="Line2D" parent="Bob/Wrap" node_paths=PackedStringArray("target")]
-position = Vector2(-22.418587, 160)
-points = PackedVector2Array(0, 0, -13.337891, 26.871948, -0.5292969, 54)
-default_color = Color(0, 0, 0, 1)
-joint_mode = 2
-begin_cap_mode = 2
-end_cap_mode = 2
-script = ExtResource("71_r7bbj")
-target = NodePath("../../Leg Left Tip")
-length = 27.0
-
-[node name="Top" type="Sprite2D" parent="Bob/Wrap"]
-material = SubResource("ShaderMaterial_j2g22")
-position = Vector2(0, -47)
-texture = ExtResource("91_p4gyq")
-
-[node name="Mid" type="Sprite2D" parent="Bob/Wrap"]
-position = Vector2(0, 47)
-texture = ExtResource("92_jrou0")
-
-[node name="Bottom" type="Sprite2D" parent="Bob/Wrap"]
-material = SubResource("ShaderMaterial_32dfi")
-position = Vector2(0, 145)
-texture = ExtResource("92_32dfi")
-
-[node name="Face" type="Node2D" parent="Bob/Wrap" node_paths=PackedStringArray("left_eye", "right_eye")]
-position = Vector2(-2.993167, 17)
-scale = Vector2(1.4064906, 1.4064906)
-script = ExtResource("93_cf2bd")
-left_eye = NodePath("Eye Left")
-right_eye = NodePath("Eye Right")
-
-[node name="Eye Left" type="Sprite2D" parent="Bob/Wrap/Face"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(-8.55888, 3.1590424)
-rotation = 3.1415925
-scale = Vector2(0.014, 0.014)
-texture = ExtResource("73_jekl6")
-offset = Vector2(0, 128)
-
-[node name="Eye Right" type="Sprite2D" parent="Bob/Wrap/Face"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(9.44112, 3.1590424)
-rotation = 3.1415925
-scale = Vector2(0.014, 0.014)
-texture = ExtResource("73_jekl6")
-offset = Vector2(0, 128)
-
-[node name="Blush Left" type="Sprite2D" parent="Bob/Wrap/Face"]
-modulate = Color(0.91764706, 0.3372549, 0.09411765, 1)
-position = Vector2(-20.25321, 4.5625844)
-rotation = 3.1415925
-scale = Vector2(0.026807755, 0.017097129)
-texture = ExtResource("73_jekl6")
-
-[node name="Blush Right" type="Sprite2D" parent="Bob/Wrap/Face"]
-modulate = Color(0.91764706, 0.3372549, 0.09411765, 1)
-position = Vector2(21.597956, 3.1406045)
-rotation = 3.1415925
-scale = Vector2(0.026531879, 0.015406427)
-texture = ExtResource("73_jekl6")
-
-[node name="Mouth" type="Sprite2D" parent="Bob/Wrap/Face"]
-visible = false
-modulate = Color(0, 0, 0, 1)
-position = Vector2(0, 3)
-scale = Vector2(0.066067554, 0.06606756)
-texture = ExtResource("94_lpdpw")
-
-[node name="ShirtString" type="Sprite2D" parent="Bob/Wrap"]
-material = SubResource("ShaderMaterial_jrou0")
-position = Vector2(11.972292, 103)
-texture = ExtResource("95_lpdpw")
-
-[node name="ShirtString2" type="Sprite2D" parent="Bob/Wrap"]
-material = SubResource("ShaderMaterial_jrou0")
-position = Vector2(-9.976723, 103)
-texture = ExtResource("95_lpdpw")
-
-[node name="Leg Right Tip" type="Node2D" parent="Bob"]
-position = Vector2(24.94206, 214)
-
-[node name="Leg Left Tip" type="Node2D" parent="Bob"]
-position = Vector2(-22.946695, 214)
 
 [connection signal="timeout" from="Line Drawer/Timer" to="Line Drawer" method="_on_timer_timeout"]
 [connection signal="flipped" from="Hut/Switch" to="Hut/Hatch" method="change"]
