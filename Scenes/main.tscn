@@ -729,11 +729,12 @@ rotation = 3.1415925
 scale = Vector2(1, 0.44570345)
 texture = ExtResource("21_phube")
 
-[node name="Body" type="StaticBody2D" parent="Level/Room/Fragile Wall" node_paths=PackedStringArray("others")]
+[node name="Body" type="StaticBody2D" parent="Level/Room/Fragile Wall" node_paths=PackedStringArray("flasher", "others")]
 scale = Vector2(0.050000004, 0.05)
 collision_layer = 3
 script = ExtResource("70_sasc4")
 id = "vertical_shortcut"
+flasher = NodePath("../ColorRect")
 break_effects = Array[int]([5])
 break_sounds = Array[int]([2, 13])
 others = [NodePath(".."), NodePath("../../Wall12")]
@@ -748,12 +749,15 @@ visibility_layer = 2
 scale = Vector2(256, 256)
 occluder = SubResource("OccluderPolygon2D_jjvhh")
 
-[node name="ColorRect" type="ColorRect" parent="Level/Room/Fragile Wall"]
+[node name="ColorRect" type="ColorRect" parent="Level/Room/Fragile Wall" node_paths=PackedStringArray("items")]
 modulate = Color(0, 0, 0, 0.78039217)
 offset_left = -128.29097
 offset_top = -127.20061
 offset_right = 128.09526
 offset_bottom = 128.27888
+script = ExtResource("71_pfx1i")
+items = [NodePath(".")]
+white = ExtResource("72_fg68e")
 
 [node name="Wall2" parent="Level/Room" instance=ExtResource("4_344ge")]
 z_index = 10
@@ -1256,11 +1260,12 @@ rotation = 3.1415925
 scale = Vector2(3.7076437, 1.1943913)
 texture = ExtResource("21_phube")
 
-[node name="Body" type="StaticBody2D" parent="Level/Room2/Fragile Wall" node_paths=PackedStringArray("others", "particle_points")]
+[node name="Body" type="StaticBody2D" parent="Level/Room2/Fragile Wall" node_paths=PackedStringArray("flasher", "others", "particle_points")]
 scale = Vector2(0.050000004, 0.05)
 collision_layer = 3
 script = ExtResource("70_sasc4")
 id = "middle_shortcut"
+flasher = NodePath("../ColorRect")
 break_effects = Array[int]([5])
 break_sounds = Array[int]([2, 13])
 others = [NodePath(".."), NodePath("../../Wall10")]
@@ -1276,12 +1281,15 @@ visibility_layer = 2
 scale = Vector2(256, 256)
 occluder = SubResource("OccluderPolygon2D_jjvhh")
 
-[node name="ColorRect" type="ColorRect" parent="Level/Room2/Fragile Wall"]
+[node name="ColorRect" type="ColorRect" parent="Level/Room2/Fragile Wall" node_paths=PackedStringArray("items")]
 modulate = Color(0, 0, 0, 0.78039217)
 offset_left = -128.29097
 offset_top = -127.20061
 offset_right = 128.09526
 offset_bottom = 128.27888
+script = ExtResource("71_pfx1i")
+items = [NodePath(".")]
+white = ExtResource("72_fg68e")
 
 [node name="Particle Point" type="Node2D" parent="Level/Room2/Fragile Wall"]
 position = Vector2(111.463844, -0.14063011)
