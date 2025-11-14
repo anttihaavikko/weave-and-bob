@@ -10,6 +10,8 @@ var spawn_point: Vector2
 var checkpoint: Checkpoint
 var camera: ShakeableCamera
 var help_text: Appearer
+var main_text: Appearer
+var sub_text: Appearer
 
 var ids: Array[String]
 var unique: Array[String]
@@ -40,3 +42,13 @@ func change_spawn(cp: Checkpoint) -> void:
 	checkpoint = cp
 	spawn_point = cp.global_position
 	spawn_set = true
+
+func show_texts(main: String, sub: String, delay: float = 0, hide_delay: float = 0):
+	main_text.show_with_text(main)
+	await get_tree().create_timer(delay).timeout
+	sub_text.show_with_text(sub)
+	if hide_delay > 0:
+		await get_tree().create_timer(hide_delay).timeout
+		sub_text.disappear()
+		await get_tree().create_timer(0.1).timeout
+		main_text.disappear()

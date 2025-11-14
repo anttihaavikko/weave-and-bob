@@ -18,20 +18,31 @@ const textures: Dictionary[Type, Texture2D] = {
 
 enum Type {None, Magazine, Map}
 
+var done := false
+
 func _ready() -> void:
 	sprite.texture = textures[type]
+	body_entered.connect(_picked)
 	if not Engine.is_editor_hint():
 		GameState.register(id)
 		if GameState.has(id):
 			queue_free()
 
 func _picked(_body: Node2D):
+	if done:
+		return
+	done = true
 	if type == Type.Magazine:
 		GameState.has_magazine = true
+		GameState.show_texts("Now we're talking!", "With bullets...", 0.5, 1.75)
 	if type == Type.Map:
 		GameState.map_upgrades += 1
 		if GameState.map_upgrades == 1:
 			GameState.help_text.show_with_text("Press TAB or M to open the map...")
+		if GameState.map_upgrades == 2:
+			GameState.show_texts("Lorem ipsum!", "Dolor sit amet...", 0.5, 2.5)
+		if GameState.map_upgrades == 3:
+			GameState.show_texts("Pickups visible on the map!", "That should be helpful...", 0.5, 2.5)
 		
 	GameState.mark(id)
 	Effects.singleton.add_many([0, 1, 3], global_position)

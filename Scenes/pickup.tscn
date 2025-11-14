@@ -119,5 +119,3 @@ visibility_layer = 131072
 z_index = 888
 scale = Vector2(4.438483, 4.438483)
 texture = ExtResource("9_6n8e5")
-
-[connection signal="body_entered" from="." to="." method="_picked"]

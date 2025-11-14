@@ -1,6 +1,8 @@
 extends Node2D
 
 @export var player: PackedScene
+@export var main_text: Appearer
+@export var sub_text: Appearer
 
 var plr: PlayerRoot
 
@@ -9,6 +11,8 @@ func _ready() -> void:
 	plr = player.instantiate()
 	add_child(plr)
 	GameState.fix_player.connect(respawn)
+	GameState.main_text = main_text
+	GameState.sub_text = sub_text
 
 func respawn():
 	var p = plr.control.global_position

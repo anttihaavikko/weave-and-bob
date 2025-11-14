@@ -7,16 +7,23 @@ extends Node2D
 
 var id: String
 var waves: Array[Wave]
+var max: int
 
 func start(enemy: Enemy):
 	id = enemy.id
 	print("starting encounter")
 	for door in doors: door.close()
 	
+	GameState.main_text.show_with_text("Enemies incoming!")
+	SoundEffects.singleton.add(12, global_position) # warn.wav
+	
+	await get_tree().create_timer(0.5).timeout
+	
 	for child in get_children():
 		if child is Wave:
 			waves.push_back(child)
-			
+	
+	max = len(waves)
 	next_wave()
 	
 func open_doors():
@@ -37,4 +44,4 @@ func next_wave() -> void:
 		add_child(pickup)
 		return
 	var wave = waves.pop_front()
-	wave.start(self)
+	wave.start(self, "%d/%d" % [max - len(waves), max])

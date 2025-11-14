@@ -857,6 +857,7 @@ _enemy = ExtResource("9_ynf5e")
 [node name="Wave2" type="Node2D" parent="Level/Room/Intro Encounter"]
 position = Vector2(0, -220)
 script = ExtResource("21_ee4r6")
+title = "There's more!"
 
 [node name="Spawn" type="Node2D" parent="Level/Room/Intro Encounter/Wave2"]
 position = Vector2(954.7821, 237)
@@ -1362,6 +1363,7 @@ _enemy = ExtResource("16_aa8k8")
 [node name="Wave2" type="Node2D" parent="Level/Room2/Onslaught Encounter"]
 position = Vector2(5.9604645e-08, -0.09260985)
 script = ExtResource("21_ee4r6")
+title = "Not over yet!"
 
 [node name="Spawn" type="Node2D" parent="Level/Room2/Onslaught Encounter/Wave2"]
 position = Vector2(935.82635, 196.09262)
@@ -1528,13 +1530,15 @@ rotation = -0.27908745
 scale = Vector2(0.37250674, 0.37250674)
 stomp_offset = 100
 
-[node name="Player Spawn Point" type="Node2D" parent="Level"]
+[node name="Player Spawn Point" type="Node2D" parent="Level" node_paths=PackedStringArray("main_text", "sub_text")]
 visibility_layer = 524289
 z_index = 5
-position = Vector2(-1650.1667, -611)
+position = Vector2(-1694.0652, -634)
 scale = Vector2(1.0023229, 1)
 script = ExtResource("39_kwxat")
 player = ExtResource("1_bo1nx")
+main_text = NodePath("../../UI/Main Text")
+sub_text = NodePath("../../UI/Sub Text")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Node2D" parent="Level/Player Spawn Point"]
@@ -2385,7 +2389,49 @@ offset_bottom = -49.0
 grow_horizontal = 2
 grow_vertical = 0
 pivot_offset = Vector2(911, 83)
-text = "qPress TAB or M to open the map..."
+text = "Press TAB or M to open the map..."
+label_settings = ExtResource("85_ihvwq")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("86_ihvwq")
+
+[node name="Main Text" type="Label" parent="UI"]
+material = SubResource("ShaderMaterial_ihvwq")
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -510.0
+offset_top = -768.0
+offset_right = 512.52295
+offset_bottom = -616.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.8004485, 1.8004485)
+pivot_offset = Vector2(514.3163, 74.66875)
+text = "Enemies incoming!"
+label_settings = ExtResource("85_ihvwq")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("86_ihvwq")
+
+[node name="Sub Text" type="Label" parent="UI"]
+material = SubResource("ShaderMaterial_ihvwq")
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -509.99997
+offset_top = -647.0
+offset_right = 512.52295
+offset_bottom = -495.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.3308277, 1.3308277)
+pivot_offset = Vector2(514.3163, 74.66875)
+text = "Wave 1/2"
 label_settings = ExtResource("85_ihvwq")
 horizontal_alignment = 1
 vertical_alignment = 1
