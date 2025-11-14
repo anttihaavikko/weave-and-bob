@@ -25,7 +25,7 @@ func mark(id: String):
 		ids.push_back(id)
 		
 func request_player_fix():
-	fix_player.emit()		
+	fix_player.emit()
 
 func has(id: String) -> bool:
 	return len(id) > 1 and ids.has(id)

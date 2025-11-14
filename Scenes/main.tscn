@@ -1,4 +1,4 @@
-[gd_scene load_steps=120 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=125 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/player.tscn" id="1_bo1nx"]
@@ -36,8 +36,10 @@
 [ext_resource type="PackedScene" uid="uid://b5cxgdqfrr4vr" path="res://Scenes/door.tscn" id="19_ee4r6"]
 [ext_resource type="Script" uid="uid://b6b2bur0hl2iu" path="res://Scripts/encounter.gd" id="19_fevyy"]
 [ext_resource type="AudioStream" uid="uid://c7qbt07jr3pr5" path="res://Sounds/pickup3.wav" id="19_r33sp"]
+[ext_resource type="Shader" uid="uid://dyfal4xww867k" path="res://Shaders/world_texture.gdshader" id="20_j2g22"]
 [ext_resource type="AudioStream" uid="uid://etiky1i8a4st" path="res://Sounds/stomp.wav" id="20_neg2b"]
 [ext_resource type="Script" uid="uid://h30wfqlv3joy" path="res://Scripts/wave.gd" id="21_ee4r6"]
+[ext_resource type="Texture2D" uid="uid://dudym0ngywlmw" path="res://Sprites/cracks.png" id="21_phube"]
 [ext_resource type="AudioStream" uid="uid://btdcfgsyegmvj" path="res://Sounds/throw1.wav" id="21_r33sp"]
 [ext_resource type="Script" uid="uid://c8ej1vfg86d5v" path="res://Scripts/spawn.gd" id="22_gt3je"]
 [ext_resource type="Script" uid="uid://d1ixyae7lf7j" path="res://Scripts/cloud.gd" id="22_jut3y"]
@@ -122,6 +124,14 @@ shader_parameter/speed = 5.0
 shader_parameter/flip = false
 shader_parameter/mid = 0.5
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_phube"]
+shader = ExtResource("20_j2g22")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bo1nx"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_jjvhh"]
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
+
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_s8vy0"]
 blend_mode = 1
 
@@ -157,9 +167,9 @@ radius = 346.73737
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e5peh"]
 size = Vector2(330.583, 104.27097)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bo1nx"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_phube"]
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_jjvhh"]
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_t014q"]
 polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tab3y"]
@@ -225,8 +235,8 @@ script = ExtResource("1_6bp64")
 [node name="Bg" type="Sprite2D" parent="."]
 modulate = Color(0.8640645, 0.5525103, 0.35379764, 1)
 light_mask = 524289
-position = Vector2(4928.9263, 169.50037)
-scale = Vector2(25703.547, 14859.001)
+position = Vector2(4488.574, -237.49994)
+scale = Vector2(23964.334, 14859)
 texture = ExtResource("3_8gbba")
 
 [node name="Level" type="Node2D" parent="."]
@@ -581,8 +591,8 @@ position = Vector2(-4480.934, -1112.7198)
 scale = Vector2(1554.0504, 1068.5111)
 
 [node name="Wall10" parent="Level/Starter" instance=ExtResource("4_344ge")]
-position = Vector2(-4124.133, -450.803)
-scale = Vector2(170.33983, 508.90515)
+position = Vector2(-4168.3286, -450.803)
+scale = Vector2(258.73175, 508.90515)
 
 [node name="Enemy3" parent="Level/Starter" instance=ExtResource("9_ynf5e")]
 position = Vector2(-812.1135, -404)
@@ -710,6 +720,41 @@ rotation = 0.78539824
 scale = Vector2(1.4394156, 1.4394156)
 texture = ExtResource("13_b3802")
 
+[node name="Fragile Wall" type="Sprite2D" parent="Level/Room"]
+visibility_layer = 524289
+z_index = 50
+material = SubResource("ShaderMaterial_phube")
+position = Vector2(-1569.0146, 1922.675)
+rotation = 3.1415925
+scale = Vector2(1, 0.44570345)
+texture = ExtResource("21_phube")
+
+[node name="Body" type="StaticBody2D" parent="Level/Room/Fragile Wall" node_paths=PackedStringArray("others")]
+scale = Vector2(0.050000004, 0.05)
+collision_layer = 3
+script = ExtResource("70_sasc4")
+id = "vertical_shortcut"
+break_effects = Array[int]([5])
+break_sounds = Array[int]([2, 13])
+others = [NodePath(".."), NodePath("../../Wall12")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Room/Fragile Wall/Body"]
+scale = Vector2(256, 256)
+shape = SubResource("RectangleShape2D_bo1nx")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Level/Room/Fragile Wall/Body"]
+light_mask = 2
+visibility_layer = 2
+scale = Vector2(256, 256)
+occluder = SubResource("OccluderPolygon2D_jjvhh")
+
+[node name="ColorRect" type="ColorRect" parent="Level/Room/Fragile Wall"]
+modulate = Color(0, 0, 0, 0.78039217)
+offset_left = -128.29097
+offset_top = -127.20061
+offset_right = 128.09526
+offset_bottom = 128.27888
+
 [node name="Wall2" parent="Level/Room" instance=ExtResource("4_344ge")]
 z_index = 10
 position = Vector2(226.62404, 1732.1985)
@@ -732,8 +777,16 @@ position = Vector2(1486.5393, 1346.5175)
 scale = Vector2(902.6943, 782.3929)
 
 [node name="Wall4" parent="Level/Room" instance=ExtResource("4_344ge")]
-position = Vector2(-1857.2454, 1422.466)
-scale = Vector2(351.61783, 1112.7468)
+position = Vector2(-1857.2454, 1781.3296)
+scale = Vector2(351.61783, 395.01944)
+
+[node name="Wall13" parent="Level/Room" instance=ExtResource("4_344ge")]
+position = Vector2(-1857.2454, 1024.5166)
+scale = Vector2(351.61783, 316.84793)
+
+[node name="Wall12" parent="Level/Room" instance=ExtResource("4_344ge")]
+position = Vector2(-1727.2676, 1379.6232)
+scale = Vector2(610.5418, 1027.0612)
 
 [node name="Wall11" parent="Level/Room" instance=ExtResource("4_344ge")]
 position = Vector2(-1289.9923, 1422.466)
@@ -1194,6 +1247,54 @@ rotation = 3.926991
 scale = Vector2(1.4394156, 1.4394156)
 texture = ExtResource("13_b3802")
 
+[node name="Fragile Wall" type="Sprite2D" parent="Level/Room2"]
+visibility_layer = 524289
+z_index = 50
+material = SubResource("ShaderMaterial_phube")
+position = Vector2(1230.7917, -374.16803)
+rotation = 3.1415925
+scale = Vector2(3.7076437, 1.1943913)
+texture = ExtResource("21_phube")
+
+[node name="Body" type="StaticBody2D" parent="Level/Room2/Fragile Wall" node_paths=PackedStringArray("others", "particle_points")]
+scale = Vector2(0.050000004, 0.05)
+collision_layer = 3
+script = ExtResource("70_sasc4")
+id = "middle_shortcut"
+break_effects = Array[int]([5])
+break_sounds = Array[int]([2, 13])
+others = [NodePath(".."), NodePath("../../Wall10")]
+particle_points = [NodePath("../Particle Point"), NodePath("../Particle Point2"), NodePath("../Particle Point3"), NodePath("../Particle Point4")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Room2/Fragile Wall/Body"]
+scale = Vector2(256, 256)
+shape = SubResource("RectangleShape2D_bo1nx")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Level/Room2/Fragile Wall/Body"]
+light_mask = 2
+visibility_layer = 2
+scale = Vector2(256, 256)
+occluder = SubResource("OccluderPolygon2D_jjvhh")
+
+[node name="ColorRect" type="ColorRect" parent="Level/Room2/Fragile Wall"]
+modulate = Color(0, 0, 0, 0.78039217)
+offset_left = -128.29097
+offset_top = -127.20061
+offset_right = 128.09526
+offset_bottom = 128.27888
+
+[node name="Particle Point" type="Node2D" parent="Level/Room2/Fragile Wall"]
+position = Vector2(111.463844, -0.14063011)
+
+[node name="Particle Point2" type="Node2D" parent="Level/Room2/Fragile Wall"]
+position = Vector2(-118.073204, -0.1407377)
+
+[node name="Particle Point3" type="Node2D" parent="Level/Room2/Fragile Wall"]
+position = Vector2(-56.863323, -0.14070901)
+
+[node name="Particle Point4" type="Node2D" parent="Level/Room2/Fragile Wall"]
+position = Vector2(46.495464, -0.14066057)
+
 [node name="Wall2" parent="Level/Room2" instance=ExtResource("4_344ge")]
 z_index = 10
 position = Vector2(226.624, 1443.2216)
@@ -1215,12 +1316,16 @@ position = Vector2(226.624, 1443.2216)
 scale = Vector2(3006.968, 523.15326)
 
 [node name="Wall8" parent="Level/Room2" instance=ExtResource("4_344ge")]
-position = Vector2(1089.8389, -985.0326)
-scale = Vector2(672.4979, 933.9716)
+position = Vector2(1234.4761, -985.0326)
+scale = Vector2(961.77246, 933.9716)
 
 [node name="Wall9" parent="Level/Room2" instance=ExtResource("4_344ge")]
-position = Vector2(1089.8391, 57.511353)
-scale = Vector2(672.4979, 584.37616)
+position = Vector2(1232.0764, 57.877357)
+scale = Vector2(956.97253, 583.6441)
+
+[node name="Wall10" parent="Level/Room2" instance=ExtResource("4_344ge")]
+position = Vector2(1230.5621, -361.65463)
+scale = Vector2(855.5656, 411.067)
 
 [node name="Wall3" parent="Level/Room2" instance=ExtResource("4_344ge")]
 position = Vector2(2557.82, -1124.6693)
@@ -1732,7 +1837,7 @@ scale = Vector2(1445.2244, 1606.7552)
 [node name="Player Spawn Point" type="Node2D" parent="Level" node_paths=PackedStringArray("main_text", "sub_text")]
 visibility_layer = 524289
 z_index = 5
-position = Vector2(-4597.323, -2141)
+position = Vector2(5823.4727, 590)
 scale = Vector2(1.0023229, 1)
 script = ExtResource("39_kwxat")
 player = ExtResource("1_bo1nx")
@@ -1749,7 +1854,7 @@ texture = ExtResource("41_8cuat")
 [node name="Mag Pickup" parent="Level" instance=ExtResource("16_k12tt")]
 position = Vector2(2144.0198, -1354)
 scale = Vector2(1.0023229, 1)
-type = 5
+type = 4
 
 [node name="Map Pickup" parent="Level" instance=ExtResource("16_k12tt")]
 position = Vector2(4909.0005, -2060)
@@ -2329,7 +2434,7 @@ position = Vector2(-30.782959, -571.6626)
 scale = Vector2(0.9999999, 1)
 shape = SubResource("RectangleShape2D_e5peh")
 
-[node name="Cork" type="StaticBody2D" parent="Hut" node_paths=PackedStringArray("flasher")]
+[node name="Cork" type="StaticBody2D" parent="Hut" node_paths=PackedStringArray("flasher", "particle_points")]
 position = Vector2(-163.95349, -816.30347)
 scale = Vector2(0.9051588, 0.9051589)
 collision_layer = 3
@@ -2338,6 +2443,8 @@ id = "hut_cork"
 flasher = NodePath("Sprite")
 break_effects = Array[int]([5])
 break_sounds = Array[int]([13, 2])
+particle_points = [NodePath("Node2D")]
+requires_breaker = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hut/Cork"]
 polygon = PackedVector2Array(-78.36719, -52.61316, 80.585205, -53.354248, 62.10254, 68.91589, -59.14502, 68.91589)
@@ -2349,6 +2456,9 @@ script = ExtResource("71_pfx1i")
 items = [NodePath(".")]
 white = ExtResource("72_fg68e")
 
+[node name="Node2D" type="Node2D" parent="Hut/Cork"]
+position = Vector2(0.00018049646, -40.756786)
+
 [node name="Hatch" type="StaticBody2D" parent="Hut"]
 position = Vector2(205.24927, -464.06528)
 rotation = 3.1415925
@@ -2359,13 +2469,13 @@ _open_pos = -55.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hut/Hatch"]
 position = Vector2(9.861585, 8.060276)
-shape = SubResource("RectangleShape2D_bo1nx")
+shape = SubResource("RectangleShape2D_phube")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Hut/Hatch"]
 light_mask = 2
 visibility_layer = 2
 position = Vector2(9.861585, 8.060276)
-occluder = SubResource("OccluderPolygon2D_jjvhh")
+occluder = SubResource("OccluderPolygon2D_t014q")
 
 [node name="Sprite" type="Sprite2D" parent="Hut/Hatch"]
 modulate = Color(0, 0, 0, 1)
@@ -2620,8 +2730,8 @@ size = Vector2i(1024, 512)
 render_target_update_mode = 4
 
 [node name="Camera2D" type="Camera2D" parent="UI/Map Wrap/Map/ColorRect/Fill/SubViewportContainer/SubViewport"]
-position = Vector2(4225.185, -1107)
-zoom = Vector2(0.037, 0.037)
+position = Vector2(4225.185, -293)
+zoom = Vector2(0.04, 0.04)
 
 [node name="Left" type="TextureRect" parent="UI/Map Wrap/Map"]
 modulate = Color(0.9372549, 0.8784314, 0.70980394, 1)
