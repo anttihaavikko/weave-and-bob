@@ -4,6 +4,8 @@ var has_magazine := true
 var map_upgrades := 1
 var damage := 100
 var has_gun := true
+var breaker_shots := false
+var max_life := 2
 
 var spawn_set := false
 var spawn_point: Vector2

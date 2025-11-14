@@ -7,7 +7,7 @@ extends Node2D
 
 var id: String
 var waves: Array[Wave]
-var max: int
+var wave_count: int
 
 func start(enemy: Enemy):
 	id = enemy.id
@@ -23,7 +23,7 @@ func start(enemy: Enemy):
 		if child is Wave:
 			waves.push_back(child)
 	
-	max = len(waves)
+	wave_count = len(waves)
 	next_wave()
 	
 func open_doors():
@@ -44,4 +44,4 @@ func next_wave() -> void:
 		add_child(pickup)
 		return
 	var wave = waves.pop_front()
-	wave.start(self, "%d/%d" % [max - len(waves), max])
+	wave.start(self, "%d/%d" % [wave_count - len(waves), wave_count])

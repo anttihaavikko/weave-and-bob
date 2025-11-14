@@ -1533,7 +1533,7 @@ stomp_offset = 100
 [node name="Player Spawn Point" type="Node2D" parent="Level" node_paths=PackedStringArray("main_text", "sub_text")]
 visibility_layer = 524289
 z_index = 5
-position = Vector2(-1694.0652, -634)
+position = Vector2(5840.433, 1525)
 scale = Vector2(1.0023229, 1)
 script = ExtResource("39_kwxat")
 player = ExtResource("1_bo1nx")
@@ -1550,6 +1550,7 @@ texture = ExtResource("41_8cuat")
 [node name="Mag Pickup" parent="Level" instance=ExtResource("16_k12tt")]
 position = Vector2(2144.0198, -1354)
 scale = Vector2(1.0023229, 1)
+type = 5
 
 [node name="Map Pickup" parent="Level" instance=ExtResource("16_k12tt")]
 position = Vector2(4909.0005, -2060)
