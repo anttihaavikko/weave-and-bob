@@ -1,4 +1,4 @@
 extends Node2D
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	global_rotation_degrees = 0

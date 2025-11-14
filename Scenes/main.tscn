@@ -1,4 +1,4 @@
-[gd_scene load_steps=109 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=120 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/player.tscn" id="1_bo1nx"]
@@ -90,6 +90,12 @@
 [ext_resource type="Shader" uid="uid://bae8cicg5bb45" path="res://Shaders/wobbly_text.gdshader" id="84_vxl7x"]
 [ext_resource type="LabelSettings" uid="uid://b36veepvgj1eg" path="res://Misc/label_settings.tres" id="85_ihvwq"]
 [ext_resource type="Script" uid="uid://bf838a0ggrmry" path="res://Scripts/appearer.gd" id="86_ihvwq"]
+[ext_resource type="Texture2D" uid="uid://eprfdntbkuox" path="res://Sprites/bob-top.png" id="91_p4gyq"]
+[ext_resource type="Texture2D" uid="uid://bfosmknaq6dsg" path="res://Sprites/bob-bottom.png" id="92_32dfi"]
+[ext_resource type="Texture2D" uid="uid://ctcg8sfcx5pne" path="res://Sprites/bob-mid.png" id="92_jrou0"]
+[ext_resource type="Script" uid="uid://b6wi31avwrvcy" path="res://Scripts/face.gd" id="93_cf2bd"]
+[ext_resource type="Texture2D" uid="uid://w5ubxh2dsi74" path="res://Sprites/mouth.png" id="94_lpdpw"]
+[ext_resource type="Texture2D" uid="uid://dlnnqgsjygpsm" path="res://Sprites/shirt-string.png" id="95_lpdpw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ihvwq"]
 radius = 82.303375
@@ -114,6 +120,7 @@ shader_parameter/amount = 5.0
 shader_parameter/frequency = 0.0
 shader_parameter/speed = 5.0
 shader_parameter/flip = false
+shader_parameter/mid = 0.5
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_s8vy0"]
 blend_mode = 1
@@ -124,6 +131,7 @@ shader_parameter/amount = 5.0
 shader_parameter/frequency = 0.0
 shader_parameter/speed = 5.0
 shader_parameter/flip = true
+shader_parameter/mid = 0.5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qax2n"]
 size = Vector2(547.04877, 50.275696)
@@ -162,6 +170,50 @@ shader = ExtResource("84_vxl7x")
 shader_parameter/height = 2.0
 shader_parameter/frequency = 5.0
 shader_parameter/speed = 6.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_33qc4"]
+radius = 40.90503
+height = 286.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j2g22"]
+shader = ExtResource("17_2daye")
+shader_parameter/amount = 3.0
+shader_parameter/frequency = 0.0
+shader_parameter/speed = 10.0
+shader_parameter/flip = false
+shader_parameter/mid = 0.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_32dfi"]
+shader = ExtResource("17_2daye")
+shader_parameter/amount = 3.0
+shader_parameter/frequency = 0.0
+shader_parameter/speed = 8.0
+shader_parameter/flip = true
+shader_parameter/mid = 0.5
+
+[sub_resource type="Shader" id="Shader_lpdpw"]
+code = "shader_type canvas_item;
+
+uniform float amount = 5.0;
+uniform float frequency = 0.0;
+uniform float speed = 5.0;
+uniform bool flip = false;
+uniform float mid = 0.5;
+
+void vertex() {
+	vec3 world = (MODEL_MATRIX * vec4(VERTEX, 1.0, 1.0)).xyz;
+	float phase = (frequency * world.x) + (speed * TIME);
+	VERTEX.x += (1.0 * float(!flip) - UV.y * UV.y) * amount * sin(phase);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jrou0"]
+shader = SubResource("Shader_lpdpw")
+shader_parameter/amount = 3.0
+shader_parameter/frequency = 0.0
+shader_parameter/speed = 6.0
+shader_parameter/flip = true
+shader_parameter/mid = 0.5
 
 [node name="Main" type="Node2D"]
 visibility_layer = 524289
@@ -1533,7 +1585,7 @@ stomp_offset = 100
 [node name="Player Spawn Point" type="Node2D" parent="Level" node_paths=PackedStringArray("main_text", "sub_text")]
 visibility_layer = 524289
 z_index = 5
-position = Vector2(5840.433, 1525)
+position = Vector2(2218.8457, -649)
 scale = Vector2(1.0023229, 1)
 script = ExtResource("39_kwxat")
 player = ExtResource("1_bo1nx")
@@ -2437,6 +2489,119 @@ label_settings = ExtResource("85_ihvwq")
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("86_ihvwq")
+
+[node name="Bob" type="RigidBody2D" parent="."]
+position = Vector2(2477.2454, -748)
+collision_layer = 0
+collision_mask = 2
+lock_rotation = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bob"]
+position = Vector2(0, 72)
+shape = SubResource("CapsuleShape2D_33qc4")
+
+[node name="Wrap" type="Node2D" parent="Bob"]
+script = ExtResource("62_y86h7")
+moves = true
+move_direction = Vector2(0, 5)
+single_direction = true
+
+[node name="Leg Right" type="Line2D" parent="Bob/Wrap" node_paths=PackedStringArray("target")]
+position = Vector2(17.48864, 161)
+points = PackedVector2Array(0, 0, 17.159668, 24.60785, 7.470703, 53)
+default_color = Color(0, 0, 0, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+script = ExtResource("71_r7bbj")
+target = NodePath("../../Leg Right Tip")
+length = 27.0
+flip = true
+
+[node name="Leg Left" type="Line2D" parent="Bob/Wrap" node_paths=PackedStringArray("target")]
+position = Vector2(-22.418587, 160)
+points = PackedVector2Array(0, 0, -13.337891, 26.871948, -0.5292969, 54)
+default_color = Color(0, 0, 0, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+script = ExtResource("71_r7bbj")
+target = NodePath("../../Leg Left Tip")
+length = 27.0
+
+[node name="Top" type="Sprite2D" parent="Bob/Wrap"]
+material = SubResource("ShaderMaterial_j2g22")
+position = Vector2(0, -47)
+texture = ExtResource("91_p4gyq")
+
+[node name="Mid" type="Sprite2D" parent="Bob/Wrap"]
+position = Vector2(0, 47)
+texture = ExtResource("92_jrou0")
+
+[node name="Bottom" type="Sprite2D" parent="Bob/Wrap"]
+material = SubResource("ShaderMaterial_32dfi")
+position = Vector2(0, 145)
+texture = ExtResource("92_32dfi")
+
+[node name="Face" type="Node2D" parent="Bob/Wrap" node_paths=PackedStringArray("left_eye", "right_eye")]
+position = Vector2(-2.993167, 17)
+scale = Vector2(1.4064906, 1.4064906)
+script = ExtResource("93_cf2bd")
+left_eye = NodePath("Eye Left")
+right_eye = NodePath("Eye Right")
+
+[node name="Eye Left" type="Sprite2D" parent="Bob/Wrap/Face"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-8.55888, 3.1590424)
+rotation = 3.1415925
+scale = Vector2(0.014, 0.014)
+texture = ExtResource("73_jekl6")
+offset = Vector2(0, 128)
+
+[node name="Eye Right" type="Sprite2D" parent="Bob/Wrap/Face"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(9.44112, 3.1590424)
+rotation = 3.1415925
+scale = Vector2(0.014, 0.014)
+texture = ExtResource("73_jekl6")
+offset = Vector2(0, 128)
+
+[node name="Blush Left" type="Sprite2D" parent="Bob/Wrap/Face"]
+modulate = Color(0.91764706, 0.3372549, 0.09411765, 1)
+position = Vector2(-20.25321, 4.5625844)
+rotation = 3.1415925
+scale = Vector2(0.026807755, 0.017097129)
+texture = ExtResource("73_jekl6")
+
+[node name="Blush Right" type="Sprite2D" parent="Bob/Wrap/Face"]
+modulate = Color(0.91764706, 0.3372549, 0.09411765, 1)
+position = Vector2(21.597956, 3.1406045)
+rotation = 3.1415925
+scale = Vector2(0.026531879, 0.015406427)
+texture = ExtResource("73_jekl6")
+
+[node name="Mouth" type="Sprite2D" parent="Bob/Wrap/Face"]
+visible = false
+modulate = Color(0, 0, 0, 1)
+position = Vector2(0, 3)
+scale = Vector2(0.066067554, 0.06606756)
+texture = ExtResource("94_lpdpw")
+
+[node name="ShirtString" type="Sprite2D" parent="Bob/Wrap"]
+material = SubResource("ShaderMaterial_jrou0")
+position = Vector2(11.972292, 103)
+texture = ExtResource("95_lpdpw")
+
+[node name="ShirtString2" type="Sprite2D" parent="Bob/Wrap"]
+material = SubResource("ShaderMaterial_jrou0")
+position = Vector2(-9.976723, 103)
+texture = ExtResource("95_lpdpw")
+
+[node name="Leg Right Tip" type="Node2D" parent="Bob"]
+position = Vector2(24.94206, 214)
+
+[node name="Leg Left Tip" type="Node2D" parent="Bob"]
+position = Vector2(-22.946695, 214)
 
 [connection signal="timeout" from="Line Drawer/Timer" to="Line Drawer" method="_on_timer_timeout"]
 [connection signal="flipped" from="Hut/Switch" to="Hut/Hatch" method="change"]
