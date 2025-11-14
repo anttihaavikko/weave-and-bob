@@ -1,4 +1,4 @@
-[gd_scene load_steps=125 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=130 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/player.tscn" id="1_bo1nx"]
@@ -38,6 +38,7 @@
 [ext_resource type="AudioStream" uid="uid://c7qbt07jr3pr5" path="res://Sounds/pickup3.wav" id="19_r33sp"]
 [ext_resource type="Shader" uid="uid://dyfal4xww867k" path="res://Shaders/world_texture.gdshader" id="20_j2g22"]
 [ext_resource type="AudioStream" uid="uid://etiky1i8a4st" path="res://Sounds/stomp.wav" id="20_neg2b"]
+[ext_resource type="Texture2D" uid="uid://gg7viyguxu1y" path="res://Sprites/cactus.png" id="20_t014q"]
 [ext_resource type="Script" uid="uid://h30wfqlv3joy" path="res://Scripts/wave.gd" id="21_ee4r6"]
 [ext_resource type="Texture2D" uid="uid://dudym0ngywlmw" path="res://Sprites/cracks.png" id="21_phube"]
 [ext_resource type="AudioStream" uid="uid://btdcfgsyegmvj" path="res://Sounds/throw1.wav" id="21_r33sp"]
@@ -51,7 +52,11 @@
 [ext_resource type="PackedScene" uid="uid://ba4e8lxoib43" path="res://Scenes/spawn_ring.tscn" id="30_nwwfm"]
 [ext_resource type="PackedScene" uid="uid://ccw01rqfuh3ys" path="res://Scenes/platform.tscn" id="33_o1aky"]
 [ext_resource type="PackedScene" uid="uid://dj4ia0fuy6eo6" path="res://Scenes/Effects/grass_particles.tscn" id="33_v2nl5"]
+[ext_resource type="Texture2D" uid="uid://bokd7gt8l8yvg" path="res://Sprites/winmill-base.png" id="34_nb1ia"]
 [ext_resource type="PackedScene" uid="uid://7825pf5ha5cw" path="res://Scenes/Effects/blood_big.tscn" id="34_xdkp6"]
+[ext_resource type="Texture2D" uid="uid://clammp4mdhrhm" path="res://Sprites/windmill-arms.png" id="35_3ahwd"]
+[ext_resource type="Script" uid="uid://bwtaepjv3mwab" path="res://Scripts/rotator.gd" id="36_b4xsn"]
+[ext_resource type="Texture2D" uid="uid://c0u1xf8vudw5" path="res://Sprites/fence.png" id="37_ot5ec"]
 [ext_resource type="Script" uid="uid://ban2bpqpuesw1" path="res://Scripts/player_spawn.gd" id="39_kwxat"]
 [ext_resource type="Texture2D" uid="uid://cqk6j01w8oul" path="res://Sprites/ring.png" id="41_8cuat"]
 [ext_resource type="PackedScene" uid="uid://c4dqyepeaha7h" path="res://Scenes/checkpoint.tscn" id="41_kwxat"]
@@ -538,6 +543,14 @@ position = Vector2(810.11816, 1068)
 modulate = Color(1, 1, 1, 1)
 position = Vector2(935.8262, 1096)
 
+[node name="Fence" type="Sprite2D" parent="Level/Starter/Background2"]
+position = Vector2(1928.9213, 622.5)
+texture = ExtResource("37_ot5ec")
+
+[node name="Fence2" type="Sprite2D" parent="Level/Starter/Background2"]
+position = Vector2(1612.3934, 622.5)
+texture = ExtResource("37_ot5ec")
+
 [node name="Wall7" parent="Level/Starter" instance=ExtResource("4_344ge")]
 position = Vector2(-3208.496, 360.6076)
 scale = Vector2(3104.3044, 1348.0559)
@@ -720,6 +733,28 @@ rotation = 0.78539824
 scale = Vector2(1.4394156, 1.4394156)
 texture = ExtResource("13_b3802")
 
+[node name="Cactus" type="Sprite2D" parent="Level/Room/Background"]
+position = Vector2(-1638.693, -912)
+scale = Vector2(1.2192748, 1.2192748)
+texture = ExtResource("20_t014q")
+
+[node name="Cactus3" type="Sprite2D" parent="Level/Room/Background"]
+position = Vector2(-1441.6096, -891)
+scale = Vector2(1.2192795, 1.2192795)
+texture = ExtResource("20_t014q")
+flip_h = true
+
+[node name="Cactus2" type="Sprite2D" parent="Level/Room/Background"]
+position = Vector2(-1544.1328, -850)
+scale = Vector2(0.8432877, 0.8432877)
+texture = ExtResource("20_t014q")
+flip_h = true
+
+[node name="Cactus4" type="Sprite2D" parent="Level/Room/Background"]
+position = Vector2(-1342.0725, -836)
+scale = Vector2(0.843291, 0.843291)
+texture = ExtResource("20_t014q")
+
 [node name="Fragile Wall" type="Sprite2D" parent="Level/Room"]
 visibility_layer = 524289
 z_index = 50
@@ -729,7 +764,7 @@ rotation = 3.1415925
 scale = Vector2(1, 0.44570345)
 texture = ExtResource("21_phube")
 
-[node name="Body" type="StaticBody2D" parent="Level/Room/Fragile Wall" node_paths=PackedStringArray("flasher", "others")]
+[node name="Body" type="StaticBody2D" parent="Level/Room/Fragile Wall" node_paths=PackedStringArray("flasher", "others", "particle_points")]
 scale = Vector2(0.050000004, 0.05)
 collision_layer = 3
 script = ExtResource("70_sasc4")
@@ -738,6 +773,7 @@ flasher = NodePath("../ColorRect")
 break_effects = Array[int]([5])
 break_sounds = Array[int]([2, 13])
 others = [NodePath(".."), NodePath("../../Wall12")]
+particle_points = [NodePath("../Point"), NodePath("../Point2"), NodePath("../Point3")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Room/Fragile Wall/Body"]
 scale = Vector2(256, 256)
@@ -758,6 +794,15 @@ offset_bottom = 128.27888
 script = ExtResource("71_pfx1i")
 items = [NodePath(".")]
 white = ExtResource("72_fg68e")
+
+[node name="Point" type="Node2D" parent="Level/Room/Fragile Wall"]
+position = Vector2(61.712955, 71.067566)
+
+[node name="Point2" type="Node2D" parent="Level/Room/Fragile Wall"]
+position = Vector2(-75.64816, 57.60565)
+
+[node name="Point3" type="Node2D" parent="Level/Room/Fragile Wall"]
+position = Vector2(-4.9768753, 201.19891)
 
 [node name="Wall2" parent="Level/Room" instance=ExtResource("4_344ge")]
 z_index = 10
@@ -1600,6 +1645,59 @@ _enemy = ExtResource("16_aa8k8")
 visibility_layer = 524289
 position = Vector2(7955, -1730)
 
+[node name="Background" type="Node2D" parent="Level/Climb"]
+modulate = Color(0.7647059, 0.4627451, 0.25882354, 1)
+
+[node name="Winmill" type="Sprite2D" parent="Level/Climb/Background"]
+position = Vector2(-900.38763, 429)
+scale = Vector2(2.348368, 2.348368)
+texture = ExtResource("34_nb1ia")
+
+[node name="Arms" type="Sprite2D" parent="Level/Climb/Background/Winmill"]
+position = Vector2(7.176399e-05, -56.20923)
+scale = Vector2(0.822257, 0.822257)
+texture = ExtResource("35_3ahwd")
+script = ExtResource("36_b4xsn")
+speed = 50.0
+
+[node name="Cactus" type="Sprite2D" parent="Level/Climb/Background"]
+position = Vector2(-648.9712, 626)
+rotation = 0.08144049
+scale = Vector2(1.0965364, 1.0965364)
+texture = ExtResource("20_t014q")
+
+[node name="Cactus5" type="Sprite2D" parent="Level/Climb/Background"]
+position = Vector2(-211.98633, 627.0001)
+rotation = -0.16378665
+scale = Vector2(1.0965364, 1.0965364)
+texture = ExtResource("20_t014q")
+flip_h = true
+
+[node name="Cactus3" type="Sprite2D" parent="Level/Climb/Background"]
+position = Vector2(-1117.8823, 622)
+scale = Vector2(1.0965407, 1.0965407)
+texture = ExtResource("20_t014q")
+flip_h = true
+
+[node name="Cactus2" type="Sprite2D" parent="Level/Climb/Background"]
+position = Vector2(-1232.3276, 653.0143)
+scale = Vector2(0.75839806, 0.7583981)
+texture = ExtResource("20_t014q")
+flip_h = true
+
+[node name="Cactus4" type="Sprite2D" parent="Level/Climb/Background"]
+position = Vector2(-1330.1001, 662.0143)
+scale = Vector2(0.758401, 0.75840104)
+texture = ExtResource("20_t014q")
+
+[node name="Fence" type="Sprite2D" parent="Level/Climb/Background"]
+position = Vector2(-2267.7651, 1227.5)
+texture = ExtResource("37_ot5ec")
+
+[node name="Fence2" type="Sprite2D" parent="Level/Climb/Background"]
+position = Vector2(-2648.88, 1227.5)
+texture = ExtResource("37_ot5ec")
+
 [node name="Wall3" parent="Level/Climb" instance=ExtResource("4_344ge")]
 position = Vector2(615.39795, 343.88843)
 rotation = 3.4894047
@@ -1845,7 +1943,7 @@ scale = Vector2(1445.2244, 1606.7552)
 [node name="Player Spawn Point" type="Node2D" parent="Level" node_paths=PackedStringArray("main_text", "sub_text")]
 visibility_layer = 524289
 z_index = 5
-position = Vector2(5823.4727, 590)
+position = Vector2(2499.1938, 1197)
 scale = Vector2(1.0023229, 1)
 script = ExtResource("39_kwxat")
 player = ExtResource("1_bo1nx")
