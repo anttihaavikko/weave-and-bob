@@ -37,6 +37,7 @@ scale_max = 1.1999999
 scale_curve = SubResource("CurveTexture_8b88t")
 
 [node name="Displace Pulse" type="GPUParticles2D"]
+visible = false
 modulate = Color(1, 1, 1, 0.5019608)
 z_index = 1
 material = SubResource("ShaderMaterial_c1wug")
