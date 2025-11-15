@@ -1,4 +1,4 @@
-[gd_scene load_steps=130 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=131 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/player.tscn" id="1_bo1nx"]
@@ -52,6 +52,7 @@
 [ext_resource type="PackedScene" uid="uid://ba4e8lxoib43" path="res://Scenes/spawn_ring.tscn" id="30_nwwfm"]
 [ext_resource type="PackedScene" uid="uid://ccw01rqfuh3ys" path="res://Scenes/platform.tscn" id="33_o1aky"]
 [ext_resource type="PackedScene" uid="uid://dj4ia0fuy6eo6" path="res://Scenes/Effects/grass_particles.tscn" id="33_v2nl5"]
+[ext_resource type="PackedScene" uid="uid://dtix6dfe6hdbn" path="res://Scenes/vines.tscn" id="34_aok0f"]
 [ext_resource type="Texture2D" uid="uid://bokd7gt8l8yvg" path="res://Sprites/winmill-base.png" id="34_nb1ia"]
 [ext_resource type="PackedScene" uid="uid://7825pf5ha5cw" path="res://Scenes/Effects/blood_big.tscn" id="34_xdkp6"]
 [ext_resource type="Texture2D" uid="uid://clammp4mdhrhm" path="res://Sprites/windmill-arms.png" id="35_3ahwd"]
@@ -1068,6 +1069,27 @@ dir = Vector2(1, 0)
 vertical_dir = 1.0
 _enemy = ExtResource("9_ynf5e")
 
+[node name="Vines" parent="Level/Room" instance=ExtResource("34_aok0f")]
+position = Vector2(292.32794, 235)
+
+[node name="Vines2" parent="Level/Room" instance=ExtResource("34_aok0f")]
+position = Vector2(419.73535, 204)
+
+[node name="Vines3" parent="Level/Room" instance=ExtResource("34_aok0f")]
+position = Vector2(958.2307, 253)
+
+[node name="Vines4" parent="Level/Room" instance=ExtResource("34_aok0f")]
+position = Vector2(830.8233, 153)
+
+[node name="Vines5" parent="Level/Room" instance=ExtResource("34_aok0f")]
+position = Vector2(147.00385, 164)
+
+[node name="Vines6" parent="Level/Room" instance=ExtResource("34_aok0f")]
+position = Vector2(324.17978, -1152)
+
+[node name="Vines7" parent="Level/Room" instance=ExtResource("34_aok0f")]
+position = Vector2(978.1382, -1084)
+
 [node name="Room2" type="Node2D" parent="Level"]
 visibility_layer = 524289
 position = Vector2(5456, 589)
@@ -1740,19 +1762,19 @@ texture = ExtResource("20_t014q")
 flip_h = true
 
 [node name="Cactus3" type="Sprite2D" parent="Level/Climb/Background"]
-position = Vector2(-1117.8823, 622)
+position = Vector2(-1117.8823, 603)
 scale = Vector2(1.0965407, 1.0965407)
 texture = ExtResource("20_t014q")
 flip_h = true
 
 [node name="Cactus2" type="Sprite2D" parent="Level/Climb/Background"]
-position = Vector2(-1232.3276, 653.0143)
+position = Vector2(-1232.6161, 632)
 scale = Vector2(0.75839806, 0.7583981)
 texture = ExtResource("20_t014q")
 flip_h = true
 
 [node name="Cactus4" type="Sprite2D" parent="Level/Climb/Background"]
-position = Vector2(-1330.1001, 662.0143)
+position = Vector2(-1330.3881, 632)
 scale = Vector2(0.758401, 0.75840104)
 texture = ExtResource("20_t014q")
 
@@ -1765,7 +1787,7 @@ position = Vector2(-2960.6018, -275)
 texture = ExtResource("37_ot5ec")
 
 [node name="Fence4" type="Sprite2D" parent="Level/Climb/Background"]
-position = Vector2(-3642.019, -275)
+position = Vector2(-3644.0144, -275)
 texture = ExtResource("37_ot5ec")
 
 [node name="Fence2" type="Sprite2D" parent="Level/Climb/Background"]
@@ -1820,6 +1842,53 @@ offset_top = -1068.0
 offset_right = 291.3648
 offset_bottom = -1011.0
 rotation = -0.63886255
+
+[node name="Decorations" type="Node2D" parent="Level/Climb"]
+position = Vector2(-1150.8057, 688)
+scale = Vector2(1, 0.6611515)
+
+[node name="Grass" parent="Level/Climb/Decorations" instance=ExtResource("12_wsu2k")]
+scale = Vector2(1.45682, 1.5526502)
+
+[node name="Grass2" parent="Level/Climb/Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(-53.874268, 0)
+scale = Vector2(1.45682, 1.5526502)
+
+[node name="Grass3" parent="Level/Climb/Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(-53.874268, 0)
+scale = Vector2(1.45682, 1.5526502)
+
+[node name="Grass4" parent="Level/Climb/Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(-119.721436, 6)
+scale = Vector2(1.45682, 1.5526502)
+
+[node name="Grass5" parent="Level/Climb/Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(-184.5708, 5)
+scale = Vector2(1.45682, 1.5526502)
+
+[node name="Grass6" parent="Level/Climb/Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(-257.4016, 10)
+scale = Vector2(1.45682, 1.5526502)
+
+[node name="Grass7" parent="Level/Climb/Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(67.84277, 8)
+scale = Vector2(1.4568233, 1.5526502)
+
+[node name="Grass8" parent="Level/Climb/Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(137.68066, 6)
+scale = Vector2(1.45682, 1.5526502)
+
+[node name="Grass9" parent="Level/Climb/Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(202.52979, 15)
+scale = Vector2(1.45682, 1.5526502)
+
+[node name="Grass10" parent="Level/Climb/Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(266.3816, 9)
+scale = Vector2(1.45682, 1.5526502)
+
+[node name="Grass11" parent="Level/Climb/Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(333.22632, 19)
+scale = Vector2(1.45682, 1.5526502)
 
 [node name="Wall3" parent="Level/Climb" instance=ExtResource("4_344ge")]
 position = Vector2(615.39795, 343.88843)
@@ -2066,7 +2135,7 @@ scale = Vector2(1445.2244, 1606.7552)
 [node name="Player Spawn Point" type="Node2D" parent="Level" node_paths=PackedStringArray("main_text", "sub_text")]
 visibility_layer = 524289
 z_index = 5
-position = Vector2(6656.5376, -1241)
+position = Vector2(6452.0127, -1318)
 scale = Vector2(1.0023229, 1)
 script = ExtResource("39_kwxat")
 player = ExtResource("1_bo1nx")
@@ -2799,7 +2868,7 @@ single_direction = true
 
 [node name="Leg Right" type="Line2D" parent="Bob/Wrap" node_paths=PackedStringArray("target")]
 position = Vector2(15.962887, 161)
-points = PackedVector2Array(0, 0, 23.94812, 18.06897, 13, 46)
+points = PackedVector2Array(0, 0, 16.348999, 20.216553, 13, 46)
 width = 13.0
 default_color = Color(0, 0, 0, 1)
 joint_mode = 2
@@ -2812,7 +2881,7 @@ flip = true
 
 [node name="Leg Left" type="Line2D" parent="Bob/Wrap" node_paths=PackedStringArray("target")]
 position = Vector2(-18.955927, 160)
-points = PackedVector2Array(0, 0, -21.95581, 20.443726, -8, 47)
+points = PackedVector2Array(0, 0, -14.233032, 21.758179, -8, 47)
 width = 13.0
 default_color = Color(0, 0, 0, 1)
 joint_mode = 2
