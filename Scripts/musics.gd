@@ -32,9 +32,10 @@ func pause():
 	combat.volume_linear = 0
 	
 func pitch(target: float, reset_after: float = -1):
-	_pitch_target = target
-	# AudioServer.set_bus_effect_enabled(1, 1, true)
-	if reset_after > 0:
-		await get_tree().create_timer(reset_after).timeout
-		_pitch_target = 1
-		# AudioServer.set_bus_effect_enabled(1, 1, false)
+	pass
+	# _pitch_target = target
+	# # AudioServer.set_bus_effect_enabled(1, 1, true)
+	# if reset_after > 0:
+	# 	await get_tree().create_timer(reset_after).timeout
+	# 	_pitch_target = 1
+	# 	# AudioServer.set_bus_effect_enabled(1, 1, false)

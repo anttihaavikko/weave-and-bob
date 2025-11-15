@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Weave & Bob"
 config/version="0.5.0"
-run/main_scene="uid://mnvjkmc1oomr"
+run/main_scene="uid://bkwhepgpfg8bk"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="uid://yak4dho0hlc4"
 

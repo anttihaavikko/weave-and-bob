@@ -1,14 +1,7 @@
 extends Node
 
-# var has_magazine := false
-# var map_upgrades := 0
-# var damage := 100
-# var has_gun := false
-# var breaker_shots := false
-# var max_life := 1
-
 var has_magazine := true
-var map_upgrades := 1
+var map_upgrades := 3
 var damage := 100
 var has_gun := true
 var breaker_shots := true
@@ -27,6 +20,15 @@ var ids: Array[String]
 var unique: Array[String]
 
 signal fix_player
+
+func _ready() -> void:
+	if not OS.is_debug_build():
+		has_magazine = false
+		map_upgrades = 0
+		damage = 100
+		has_gun = false
+		breaker_shots = false
+		max_life = 1
 
 func mark(id: String):
 	if len(id) > 1:
