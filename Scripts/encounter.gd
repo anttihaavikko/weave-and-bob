@@ -11,7 +11,7 @@ var wave_count: int
 
 func start(enemy: Enemy):
 	id = enemy.id
-	print("starting encounter")
+	# print("starting encounter")
 	for door in doors: door.close()
 	
 	GameState.main_text.show_with_text("Enemies incoming!")
@@ -31,7 +31,7 @@ func open_doors():
 
 func next_wave() -> void:
 	if waves.is_empty():
-		print("encounter complete")
+		# print("encounter complete")
 		await get_tree().create_timer(0.25).timeout
 		open_doors()
 		await get_tree().create_timer(0.5).timeout

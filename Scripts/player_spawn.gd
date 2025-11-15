@@ -6,7 +6,7 @@ extends Node2D
 @export var home_pos: Node2D
 
 var plr: PlayerRoot
-var home := false
+var home := true
 
 func _ready() -> void:
 	if GameState.spawn_set:

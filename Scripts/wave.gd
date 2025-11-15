@@ -16,7 +16,7 @@ func _ready() -> void:
 
 func start(enc: Encounter, count: String):
 	encounter = enc
-	print("activated wave")
+	# print("activated wave")
 	await get_tree().create_timer(0.5).timeout
 	if title:
 		GameState.main_text.show_with_text(title)
