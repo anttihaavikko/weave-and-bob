@@ -1,4 +1,4 @@
-[gd_scene load_steps=130 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=131 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/player.tscn" id="1_bo1nx"]
@@ -105,6 +105,7 @@
 [ext_resource type="PackedScene" uid="uid://basr4p7b2otct" path="res://Scenes/bob.tscn" id="95_nb1ia"]
 [ext_resource type="Texture2D" uid="uid://wbmugvdnyda8" path="res://Sprites/blanket.png" id="96_b4xsn"]
 [ext_resource type="Texture2D" uid="uid://ywc711su2ggn" path="res://Sprites/move-controls.png" id="98_aok0f"]
+[ext_resource type="Script" uid="uid://cffhama7guum2" path="res://Scripts/version_label.gd" id="101_urine"]
 [ext_resource type="Texture2D" uid="uid://dd77b0u1hlkno" path="res://Sprites/spotify.png" id="106_b4mik"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ihvwq"]
@@ -2865,7 +2866,7 @@ position = Vector2(-264.33282, -172.3829)
 scale = Vector2(0.6707506, 0.6707506)
 collision_mask = 256
 script = ExtResource("95_3ahwd")
-appearers = [NodePath("../../UI/Title"), NodePath("../../UI/Author"), NodePath("../../UI/Artist"), NodePath("../../UI/Artist Button")]
+appearers = [NodePath("../../UI/Title"), NodePath("../../UI/Author"), NodePath("../../UI/Artist"), NodePath("../../UI/Artist Button"), NodePath("../../UI/Version")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hut/Intro Hider"]
 position = Vector2(10.974507, -5)
@@ -2892,7 +2893,9 @@ shape = SubResource("RectangleShape2D_aok0f")
 [node name="Bob" parent="." instance=ExtResource("95_nb1ia")]
 position = Vector2(1826.7566, -2077)
 
-[node name="UI" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="." node_paths=PackedStringArray("label")]
+script = ExtResource("101_urine")
+label = NodePath("Version")
 
 [node name="Dev Bg" type="ColorRect" parent="UI"]
 visible = false
@@ -3129,6 +3132,28 @@ pivot_offset = Vector2(514.3163, 74.66875)
 text = "Antti Haavikko presents"
 label_settings = ExtResource("85_ihvwq")
 horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("86_ihvwq")
+appear_after = 0.3
+
+[node name="Version" type="Label" parent="UI"]
+self_modulate = Color(1, 1, 1, 0.35686275)
+material = SubResource("ShaderMaterial_ihvwq")
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 367.00012
+offset_top = -891.0
+offset_right = 1901.0
+offset_bottom = -737.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.3900983, 0.3900983)
+pivot_offset = Vector2(514.3163, 74.66875)
+text = "0.0.0"
+label_settings = ExtResource("85_ihvwq")
 vertical_alignment = 1
 script = ExtResource("86_ihvwq")
 appear_after = 0.3
