@@ -30,9 +30,8 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
-func _input(event):
-	if event is InputEventMouseButton:
-		clicked = !clicked
+func _input(_event):
+	clicked = Input.is_action_pressed("shoot")
 		
 func reload(wasteful: bool) -> void:
 	if !GameState.has_magazine: return

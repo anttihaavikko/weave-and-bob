@@ -1,18 +1,18 @@
 extends Node
 
-var has_magazine := false
-var map_upgrades := 0
-var damage := 100
-var has_gun := false
-var breaker_shots := false
-var max_life := 1
-
-# var has_magazine := true
-# var map_upgrades := 1
+# var has_magazine := false
+# var map_upgrades := 0
 # var damage := 100
-# var has_gun := true
-# var breaker_shots := true
+# var has_gun := false
+# var breaker_shots := false
 # var max_life := 1
+
+var has_magazine := true
+var map_upgrades := 1
+var damage := 100
+var has_gun := true
+var breaker_shots := true
+var max_life := 1
 
 var spawn_set := false
 var spawn_point: Vector2
