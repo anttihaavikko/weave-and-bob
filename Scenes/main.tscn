@@ -2533,6 +2533,7 @@ scale = Vector2(1.6233453, 1.6233453)
 texture = ExtResource("73_jekl6")
 
 [node name="Inside" type="Sprite2D" parent="Hut"]
+visible = false
 position = Vector2(-20.951416, -274)
 texture = ExtResource("61_e5peh")
 
@@ -2589,7 +2590,6 @@ scale = Vector2(0.99999994, 1)
 texture = ExtResource("66_e5peh")
 
 [node name="Outside" type="Sprite2D" parent="Hut"]
-visible = false
 z_index = 4
 position = Vector2(71.83301, -312)
 texture = ExtResource("60_qax2n")

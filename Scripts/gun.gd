@@ -45,6 +45,10 @@ func reload(wasteful: bool) -> void:
 
 func _process(delta: float) -> void:
 	reticule.position = camera.get_local_mouse_position()
+
+	if not root.visible:
+		return
+
 	mouse = reticule.global_position
 	
 	if cooldown > 0:
