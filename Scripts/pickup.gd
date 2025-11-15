@@ -19,7 +19,7 @@ const textures: Dictionary[Type, Texture2D] = {
 		type = val
 @export var sprite: Sprite2D
 
-enum Type { None, Magazine, Map, Damage, Breaker, Life }
+enum Type {None, Magazine, Map, Damage, Breaker, Life}
 
 var done := false
 

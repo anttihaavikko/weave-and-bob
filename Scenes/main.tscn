@@ -2132,7 +2132,7 @@ scale = Vector2(754.6206, 2767.645)
 position = Vector2(-5183.9575, 2648.999)
 scale = Vector2(1445.2244, 1606.7552)
 
-[node name="Player Spawn Point" type="Node2D" parent="Level" node_paths=PackedStringArray("main_text", "sub_text")]
+[node name="Player Spawn Point" type="Node2D" parent="Level" node_paths=PackedStringArray("main_text", "sub_text", "home_pos")]
 visibility_layer = 524289
 z_index = 5
 position = Vector2(6452.0127, -1318)
@@ -2141,6 +2141,7 @@ script = ExtResource("39_kwxat")
 player = ExtResource("1_bo1nx")
 main_text = NodePath("../../UI/Main Text")
 sub_text = NodePath("../../UI/Sub Text")
+home_pos = NodePath("../../Hut/Inside/Spawn")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Node2D" parent="Level/Player Spawn Point"]
@@ -2567,6 +2568,9 @@ texture = ExtResource("63_ovafv")
 modulate = Color(0, 0.47843137, 0.2627451, 1)
 position = Vector2(-262.89197, -146.51315)
 texture = ExtResource("64_owhal")
+
+[node name="Spawn" type="Node2D" parent="Hut/Inside"]
+position = Vector2(168.17426, -108.327866)
 
 [node name="Awning" type="Sprite2D" parent="Hut"]
 position = Vector2(485.83612, -108.6616)

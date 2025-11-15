@@ -3,11 +3,16 @@ extends Node2D
 @export var player: PackedScene
 @export var main_text: Appearer
 @export var sub_text: Appearer
+@export var home_pos: Node2D
 
 var plr: PlayerRoot
+var home := true
 
 func _ready() -> void:
-	if GameState.spawn_set: global_position = GameState.spawn_point
+	if GameState.spawn_set:
+		global_position = GameState.spawn_point
+	elif home:
+		global_position = home_pos.global_position
 	spawn()
 	GameState.fix_player.connect(respawn)
 	GameState.main_text = main_text

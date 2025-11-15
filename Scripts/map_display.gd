@@ -20,9 +20,9 @@ func _process(_delta: float) -> void:
 
 func toggle():
 	viewport.canvas_cull_mask = int(pow(2, 19))
-	if GameState.map_upgrades > 2:
+	if GameState.map_upgrades > 1:
 		viewport.canvas_cull_mask += int(pow(2, 18))
-	if GameState.map_upgrades > 3:
+	if GameState.map_upgrades > 2:
 		viewport.canvas_cull_mask += int(pow(2, 17))
 	if GameState.map_upgrades == 0:
 		return
