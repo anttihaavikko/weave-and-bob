@@ -3,7 +3,7 @@ extends Node
 var has_magazine := true
 var map_upgrades := 1
 var damage := 100
-var has_gun := false
+var has_gun := true
 var breaker_shots := true
 var max_life := 1
 

@@ -11,17 +11,23 @@ var plr: PlayerRoot
 var started := false
 
 func _ready() -> void:
+	var home := not GameState.spawn_set and not GameState.has_gun
 	if GameState.spawn_set:
 		global_position = GameState.spawn_point
-	else:
+	elif home:
+		GameState.spawn_set = true
+		GameState.spawn_point = home_pos.global_position
 		global_position = home_pos.global_position
 	spawn()
 	GameState.fix_player.connect(respawn)
 	GameState.main_text = main_text
 	GameState.sub_text = sub_text
-	if not GameState.has_gun and not GameState.spawn_set:
+	if home:
 		GameState.camera.zoom = Vector2.ONE * 1.5
 		plr.hide()
+	else:
+		moving_blanket.hide()
+		blanket.show()
 
 func _process(_delta: float) -> void:
 	if not started and (abs(Input.get_axis("left", "right")) > 0 or Input.is_action_just_pressed("jump")):
