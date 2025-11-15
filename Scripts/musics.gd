@@ -8,14 +8,32 @@ extends Node
 var intense := false
 var chill := true
 var _pitch_target := 1.0
+var prev: AudioStreamPlayer
+var needs_sync := false
+var has_synced := false
 
 func _ready() -> void:
+	prev = ambient
 	rhythm.beat.connect(func(_count: int):
 		if _count % 4 == 0:
-			normal.volume_linear = 0 if intense or chill else 1
-			combat.volume_linear = 1 if intense else 0
-			ambient.volume_linear = 1 if chill else 0
+			normal.volume_linear = 0.0 if intense or chill else 1.0
+			combat.volume_linear = 1.0 if intense else 0.0
+			ambient.volume_linear = 1.0 if chill else 0.0
+			if needs_sync and not has_synced:
+				has_synced = true
+				print("sync musics")
+				sync_pieces()
+				needs_sync = false
 	)
+
+func sync_pieces():
+	var pos = prev.get_playback_position() + AudioServer.get_time_since_last_mix()
+	if pos > 112:
+		pos -= 112
+	print("sync to ", pos)
+	normal.seek(pos)
+	combat.seek(pos)
+	ambient.seek(pos)
 
 func _process(delta: float) -> void:
 	var tp = move_toward(normal.pitch_scale, _pitch_target, delta * 10)
@@ -24,8 +42,19 @@ func _process(delta: float) -> void:
 		ps.pitch_scale = tp
 	
 func intensify(aggro: bool, mild: bool):
+	var cur = get_current_piece()
+	if cur != prev:
+		needs_sync = true
+		prev = cur
 	intense = aggro
 	chill = mild
+
+func get_current_piece() -> AudioStreamPlayer:
+	if intense:
+		return combat
+	if chill:
+		return ambient
+	return normal
 
 func pause():
 	normal.volume_linear = 0
