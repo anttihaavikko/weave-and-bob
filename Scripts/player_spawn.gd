@@ -4,9 +4,12 @@ extends Node2D
 @export var main_text: Appearer
 @export var sub_text: Appearer
 @export var home_pos: Node2D
+@export var moving_blanket: Node2D
+@export var blanket: Node2D
 
 var plr: PlayerRoot
 var home := true
+var started := false
 
 func _ready() -> void:
 	if GameState.spawn_set:
@@ -17,8 +20,18 @@ func _ready() -> void:
 	GameState.fix_player.connect(respawn)
 	GameState.main_text = main_text
 	GameState.sub_text = sub_text
-	if home:
+	if home and not GameState.spawn_set:
 		GameState.camera.zoom = Vector2.ONE * 1.5
+		plr.hide()
+
+func _process(_delta: float) -> void:
+	if not started and (abs(Input.get_axis("left", "right")) > 0 or Input.is_action_just_pressed("jump")):
+		started = true
+		plr.show()
+		moving_blanket.hide()
+		blanket.show()
+		SoundEffects.singleton.add(1, global_position)
+		SoundEffects.singleton.add(5, global_position, 0.1)
 
 func respawn():
 	var p = plr.control.global_position

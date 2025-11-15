@@ -1,4 +1,4 @@
-[gd_scene load_steps=123 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=126 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/player.tscn" id="1_bo1nx"]
@@ -99,8 +99,10 @@
 [ext_resource type="Shader" uid="uid://bae8cicg5bb45" path="res://Shaders/wobbly_text.gdshader" id="84_vxl7x"]
 [ext_resource type="LabelSettings" uid="uid://b36veepvgj1eg" path="res://Misc/label_settings.tres" id="85_ihvwq"]
 [ext_resource type="Script" uid="uid://bf838a0ggrmry" path="res://Scripts/appearer.gd" id="86_ihvwq"]
+[ext_resource type="Texture2D" uid="uid://jnmyh5y0jh7i" path="res://Sprites/blanket-moved.png" id="86_ot5ec"]
 [ext_resource type="Script" uid="uid://de1wudh210teg" path="res://Scripts/intro_hider.gd" id="95_3ahwd"]
 [ext_resource type="PackedScene" uid="uid://basr4p7b2otct" path="res://Scenes/bob.tscn" id="95_nb1ia"]
+[ext_resource type="Texture2D" uid="uid://wbmugvdnyda8" path="res://Sprites/blanket.png" id="96_b4xsn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ihvwq"]
 radius = 82.303375
@@ -125,7 +127,6 @@ shader_parameter/amount = 5.0
 shader_parameter/frequency = 0.0
 shader_parameter/speed = 5.0
 shader_parameter/flip = false
-shader_parameter/mid = 0.5
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_phube"]
 shader = ExtResource("20_j2g22")
@@ -144,7 +145,13 @@ shader_parameter/amount = 5.0
 shader_parameter/frequency = 0.0
 shader_parameter/speed = 5.0
 shader_parameter/flip = true
-shader_parameter/mid = 0.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ot5ec"]
+shader = ExtResource("17_2daye")
+shader_parameter/amount = 2.0
+shader_parameter/frequency = 0.0
+shader_parameter/speed = 3.0
+shader_parameter/flip = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qax2n"]
 size = Vector2(547.04877, 50.275696)
@@ -2104,7 +2111,7 @@ scale = Vector2(754.6206, 2767.645)
 position = Vector2(-5183.9575, 2648.999)
 scale = Vector2(1445.2244, 1606.7552)
 
-[node name="Player Spawn Point" type="Node2D" parent="Level" node_paths=PackedStringArray("main_text", "sub_text", "home_pos")]
+[node name="Player Spawn Point" type="Node2D" parent="Level" node_paths=PackedStringArray("main_text", "sub_text", "home_pos", "moving_blanket", "blanket")]
 visibility_layer = 524289
 z_index = 5
 position = Vector2(6785.239, -1261)
@@ -2114,6 +2121,8 @@ player = ExtResource("1_bo1nx")
 main_text = NodePath("../../UI/Main Text")
 sub_text = NodePath("../../UI/Sub Text")
 home_pos = NodePath("../../Hut/Inside/Spawn")
+moving_blanket = NodePath("../../Hut/Inside/Blanket")
+blanket = NodePath("../../Hut/Inside/BlanketMoved")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Node2D" parent="Level/Player Spawn Point"]
@@ -2518,6 +2527,7 @@ scale = Vector2(1.6233453, 1.6233453)
 texture = ExtResource("73_jekl6")
 
 [node name="Inside" type="Sprite2D" parent="Hut"]
+visible = false
 position = Vector2(-20.951416, -274)
 texture = ExtResource("61_e5peh")
 
@@ -2543,6 +2553,25 @@ texture = ExtResource("64_owhal")
 [node name="Spawn" type="Node2D" parent="Hut/Inside"]
 position = Vector2(168.17426, -108.327866)
 
+[node name="Blanket" type="Sprite2D" parent="Hut/Inside"]
+z_index = 100
+position = Vector2(153.452, -53.997044)
+scale = Vector2(0.93473667, 0.93473667)
+texture = ExtResource("96_b4xsn")
+offset = Vector2(3.059082, -42.15863)
+script = ExtResource("62_y86h7")
+scales = true
+scale_amount = Vector2(-0.1, 0.15)
+scale_speed = 1.5
+single_direction = true
+
+[node name="BlanketMoved" type="Sprite2D" parent="Hut/Inside"]
+visible = false
+material = SubResource("ShaderMaterial_ot5ec")
+position = Vector2(153.45197, -63.387566)
+scale = Vector2(0.9157269, 0.9157269)
+texture = ExtResource("86_ot5ec")
+
 [node name="Awning" type="Sprite2D" parent="Hut"]
 position = Vector2(485.83612, -108.6616)
 scale = Vector2(0.9999999, 1)
@@ -2555,7 +2584,6 @@ scale = Vector2(0.99999994, 1)
 texture = ExtResource("66_e5peh")
 
 [node name="Outside" type="Sprite2D" parent="Hut"]
-visible = false
 z_index = 4
 position = Vector2(71.83301, -312)
 texture = ExtResource("60_qax2n")
