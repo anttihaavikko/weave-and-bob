@@ -52,7 +52,6 @@ func die() -> void:
 		return
 	if dead: return
 	Musics.intensify(false, false)
-	Musics.pitch(0.5, 1.5)
 	Gameplay.hit_stop(get_tree(), 0.25, 5 / 60.0)
 	dead = true
 	hide()

@@ -100,7 +100,6 @@ func die():
 	SoundEffects.singleton.add(13, global_position)
 	Effects.singleton.add(7, left_wing.global_position) # feathers.tscn
 	Effects.singleton.add(7, right_wing.global_position) # feathers.tscn
-	Musics.pitch(1.3, 1)
 	var h: RigidBody2D = Effects.singleton.add(6, halo.global_position, 10)
 	for c in h.get_children():
 		if c is Node2D:
