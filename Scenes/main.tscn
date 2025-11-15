@@ -759,7 +759,7 @@ texture = ExtResource("20_t014q")
 visibility_layer = 524289
 z_index = 50
 material = SubResource("ShaderMaterial_phube")
-position = Vector2(-1569.0146, 1922.675)
+position = Vector2(-1569.0146, 1922)
 rotation = 3.1415925
 scale = Vector2(1, 0.44570345)
 texture = ExtResource("21_phube")
@@ -788,7 +788,7 @@ occluder = SubResource("OccluderPolygon2D_jjvhh")
 [node name="ColorRect" type="ColorRect" parent="Level/Room/Fragile Wall" node_paths=PackedStringArray("items")]
 modulate = Color(0, 0, 0, 0.78039217)
 offset_left = -128.29097
-offset_top = -127.20061
+offset_top = -128.90971
 offset_right = 128.09526
 offset_bottom = 128.27888
 script = ExtResource("71_pfx1i")
@@ -857,112 +857,145 @@ scale = Vector2(1175.7974, 1009.6941)
 position = Vector2(-799.14404, 1187)
 
 [node name="Grass" parent="Level/Room/Decorations" instance=ExtResource("12_wsu2k")]
+scale = Vector2(1.45682, 1.5526502)
 
 [node name="Grass2" parent="Level/Room/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(-53.874268, 0)
+scale = Vector2(1.45682, 1.5526502)
 
 [node name="Grass3" parent="Level/Room/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(-53.874268, 0)
+scale = Vector2(1.45682, 1.5526502)
 
 [node name="Grass4" parent="Level/Room/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(-119.721436, 6)
+scale = Vector2(1.45682, 1.5526502)
 
 [node name="Grass5" parent="Level/Room/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(-184.5708, 5)
+scale = Vector2(1.45682, 1.5526502)
 
 [node name="Grass6" parent="Level/Room/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(-257.4016, 10)
+scale = Vector2(1.45682, 1.5526502)
 
 [node name="Grass7" parent="Level/Room/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(67.84277, 8)
+scale = Vector2(1.4568233, 1.5526502)
 
 [node name="Grass8" parent="Level/Room/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(137.68066, 6)
+scale = Vector2(1.45682, 1.5526502)
 
 [node name="Grass9" parent="Level/Room/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(202.52979, 15)
+scale = Vector2(1.45682, 1.5526502)
 
 [node name="Grass10" parent="Level/Room/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(266.3816, 9)
+scale = Vector2(1.45682, 1.5526502)
 
 [node name="Grass11" parent="Level/Room/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(333.22632, 19)
+scale = Vector2(1.45682, 1.5526502)
 
 [node name="Grass12" parent="Level/Room/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(1394.76, -15)
+scale = Vector2(1.45682, 1.5526502)
 
 [node name="Grass13" parent="Level/Room/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(1340.8857, -15)
+scale = Vector2(1.4568166, 1.5526502)
 
 [node name="Grass14" parent="Level/Room/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(1340.8857, -15)
+scale = Vector2(1.4568166, 1.5526502)
 
 [node name="Grass15" parent="Level/Room/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(1275.0386, -9)
+scale = Vector2(1.45682, 1.5526502)
 
 [node name="Grass16" parent="Level/Room/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(1210.1892, -10)
+scale = Vector2(1.4568233, 1.5526502)
 
 [node name="Grass17" parent="Level/Room/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(1137.3584, -5)
+scale = Vector2(1.4568166, 1.5526502)
 
 [node name="Grass18" parent="Level/Room/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(1462.6028, -7)
+scale = Vector2(1.4568166, 1.5526502)
 
 [node name="Grass19" parent="Level/Room/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(1532.4407, -9)
+scale = Vector2(1.4568166, 1.5526502)
 
 [node name="Grass20" parent="Level/Room/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(1597.2898, 0)
+scale = Vector2(1.4568166, 1.5526502)
 
 [node name="Grass21" parent="Level/Room/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(1661.1416, -6)
+scale = Vector2(1.45682, 1.5526502)
 
 [node name="Grass22" parent="Level/Room/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(1727.9863, 4)
+scale = Vector2(1.4568233, 1.5526502)
 
 [node name="Letter" parent="Level/Room/Decorations" instance=ExtResource("17_h1bgf")]
 position = Vector2(1022.625, -9)
+scale = Vector2(1.2103765, 1.3285595)
 letter = "A"
 
 [node name="Letter2" parent="Level/Room/Decorations" instance=ExtResource("17_h1bgf")]
-position = Vector2(1118.4023, -8)
+position = Vector2(1125.3146, -8)
+scale = Vector2(1.210375, 1.3285595)
 letter = "N"
 
 [node name="Letter3" parent="Level/Room/Decorations" instance=ExtResource("17_h1bgf")]
-position = Vector2(1221.1641, -8)
+position = Vector2(1241.7728, -8)
+scale = Vector2(1.2103765, 1.3285595)
 letter = "G"
 
 [node name="Letter4" parent="Level/Room/Decorations" instance=ExtResource("17_h1bgf")]
-position = Vector2(1329.9111, -9)
+position = Vector2(1357.2357, -8)
+scale = Vector2(1.2103765, 1.3285595)
 letter = "L"
 
 [node name="Letter5" parent="Level/Room/Decorations" instance=ExtResource("17_h1bgf")]
-position = Vector2(1431.6748, -9)
+position = Vector2(1464.7358, -9)
+scale = Vector2(1.210375, 1.3285595)
 letter = "E"
 
 [node name="Letter6" parent="Level/Room/Decorations" instance=ExtResource("17_h1bgf")]
 position = Vector2(-71.83252, -9)
+scale = Vector2(1.2103734, 1.3285595)
 letter = "F"
 
 [node name="Letter7" parent="Level/Room/Decorations" instance=ExtResource("17_h1bgf")]
 position = Vector2(33.92212, -9)
+scale = Vector2(1.210375, 1.3285595)
 letter = "A"
 
 [node name="Letter8" parent="Level/Room/Decorations" instance=ExtResource("17_h1bgf")]
 position = Vector2(135.68506, -9)
+scale = Vector2(1.210375, 1.3285595)
 letter = "L"
 
 [node name="Letter9" parent="Level/Room/Decorations" instance=ExtResource("17_h1bgf")]
 position = Vector2(234.45605, -12)
+scale = Vector2(1.210375, 1.3285595)
 letter = "L"
 
 [node name="Letter10" parent="Level/Room/Decorations" instance=ExtResource("17_h1bgf")]
 position = Vector2(339.21265, -12)
+scale = Vector2(1.210375, 1.3285595)
 letter = "E"
 
 [node name="Letter11" parent="Level/Room/Decorations" instance=ExtResource("17_h1bgf")]
 position = Vector2(440.97656, -12)
+scale = Vector2(1.210375, 1.3285595)
 letter = "N"
 
 [node name="Enemy2" parent="Level/Room" instance=ExtResource("9_ynf5e")]
@@ -1396,112 +1429,145 @@ scale = Vector2(2111.6294, 1112.7468)
 position = Vector2(-799.14404, 1187)
 
 [node name="Grass" parent="Level/Room2/Decorations" instance=ExtResource("12_wsu2k")]
+scale = Vector2(1.1908001, 1.5242083)
 
 [node name="Grass2" parent="Level/Room2/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(-53.874268, 0)
+scale = Vector2(1.1908001, 1.5242083)
 
 [node name="Grass3" parent="Level/Room2/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(-53.874268, 0)
+scale = Vector2(1.1908001, 1.5242083)
 
 [node name="Grass4" parent="Level/Room2/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(-119.721436, 6)
+scale = Vector2(1.1908001, 1.5242083)
 
 [node name="Grass5" parent="Level/Room2/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(-184.5708, 5)
+scale = Vector2(1.1908001, 1.5242083)
 
 [node name="Grass6" parent="Level/Room2/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(-257.4016, 10)
+scale = Vector2(1.1908001, 1.5242083)
 
 [node name="Grass7" parent="Level/Room2/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(67.84277, 8)
+scale = Vector2(1.1908001, 1.5242083)
 
 [node name="Grass8" parent="Level/Room2/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(137.68066, 6)
+scale = Vector2(1.1907984, 1.5242083)
 
 [node name="Grass9" parent="Level/Room2/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(202.52979, 15)
+scale = Vector2(1.1908001, 1.5242083)
 
 [node name="Grass10" parent="Level/Room2/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(266.3816, 9)
+scale = Vector2(1.1908001, 1.5242083)
 
 [node name="Grass11" parent="Level/Room2/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(333.22632, 19)
+scale = Vector2(1.1908001, 1.5242083)
 
 [node name="Grass12" parent="Level/Room2/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(1394.76, -15)
+scale = Vector2(1.1908016, 1.5242083)
 
 [node name="Grass13" parent="Level/Room2/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(1340.8857, -15)
+scale = Vector2(1.1908001, 1.5242083)
 
 [node name="Grass14" parent="Level/Room2/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(1340.8857, -15)
+scale = Vector2(1.1908001, 1.5242083)
 
 [node name="Grass15" parent="Level/Room2/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(1275.0386, -9)
+scale = Vector2(1.1908016, 1.5242083)
 
 [node name="Grass16" parent="Level/Room2/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(1210.1892, -10)
+scale = Vector2(1.1908001, 1.5242083)
 
 [node name="Grass17" parent="Level/Room2/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(1137.3584, -5)
+scale = Vector2(1.1908001, 1.5242083)
 
 [node name="Grass18" parent="Level/Room2/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(1462.6028, -7)
+scale = Vector2(1.1908001, 1.5242083)
 
 [node name="Grass19" parent="Level/Room2/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(1532.4407, -9)
+scale = Vector2(1.1908001, 1.5242083)
 
 [node name="Grass20" parent="Level/Room2/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(1597.2898, 0)
+scale = Vector2(1.1908001, 1.5242083)
 
 [node name="Grass21" parent="Level/Room2/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(1661.1416, -6)
+scale = Vector2(1.1907984, 1.5242083)
 
 [node name="Grass22" parent="Level/Room2/Decorations" instance=ExtResource("12_wsu2k")]
 position = Vector2(1727.9863, 4)
+scale = Vector2(1.1908001, 1.5242083)
 
 [node name="Letter" parent="Level/Room2/Decorations" instance=ExtResource("17_h1bgf")]
 position = Vector2(1022.625, -9)
+scale = Vector2(1, 1.2296703)
 letter = "A"
 
 [node name="Letter2" parent="Level/Room2/Decorations" instance=ExtResource("17_h1bgf")]
 position = Vector2(1118.4023, -8)
+scale = Vector2(1, 1.2296703)
 letter = "N"
 
 [node name="Letter3" parent="Level/Room2/Decorations" instance=ExtResource("17_h1bgf")]
 position = Vector2(1221.1641, -8)
+scale = Vector2(1, 1.2296703)
 letter = "G"
 
 [node name="Letter4" parent="Level/Room2/Decorations" instance=ExtResource("17_h1bgf")]
 position = Vector2(1329.9111, -9)
+scale = Vector2(1, 1.2296703)
 letter = "L"
 
 [node name="Letter5" parent="Level/Room2/Decorations" instance=ExtResource("17_h1bgf")]
 position = Vector2(1431.6748, -9)
+scale = Vector2(1, 1.2296703)
 letter = "E"
 
 [node name="Letter6" parent="Level/Room2/Decorations" instance=ExtResource("17_h1bgf")]
 position = Vector2(-71.83252, -9)
+scale = Vector2(1, 1.2296703)
 letter = "F"
 
 [node name="Letter7" parent="Level/Room2/Decorations" instance=ExtResource("17_h1bgf")]
 position = Vector2(33.92212, -9)
+scale = Vector2(1, 1.2296703)
 letter = "A"
 
 [node name="Letter8" parent="Level/Room2/Decorations" instance=ExtResource("17_h1bgf")]
 position = Vector2(135.68506, -9)
+scale = Vector2(1, 1.2296703)
 letter = "L"
 
 [node name="Letter9" parent="Level/Room2/Decorations" instance=ExtResource("17_h1bgf")]
 position = Vector2(234.45605, -12)
+scale = Vector2(1, 1.2296703)
 letter = "L"
 
 [node name="Letter10" parent="Level/Room2/Decorations" instance=ExtResource("17_h1bgf")]
 position = Vector2(339.21265, -12)
+scale = Vector2(1, 1.2296703)
 letter = "E"
 
 [node name="Letter11" parent="Level/Room2/Decorations" instance=ExtResource("17_h1bgf")]
 position = Vector2(440.97656, -12)
+scale = Vector2(1, 1.2296703)
 letter = "N"
 
 [node name="Door" parent="Level/Room2" instance=ExtResource("19_ee4r6")]
@@ -1694,9 +1760,66 @@ texture = ExtResource("20_t014q")
 position = Vector2(-2267.7651, 1227.5)
 texture = ExtResource("37_ot5ec")
 
+[node name="Fence3" type="Sprite2D" parent="Level/Climb/Background"]
+position = Vector2(-2960.6018, -275)
+texture = ExtResource("37_ot5ec")
+
+[node name="Fence4" type="Sprite2D" parent="Level/Climb/Background"]
+position = Vector2(-3642.019, -275)
+texture = ExtResource("37_ot5ec")
+
 [node name="Fence2" type="Sprite2D" parent="Level/Climb/Background"]
 position = Vector2(-2648.88, 1227.5)
 texture = ExtResource("37_ot5ec")
+
+[node name="ColorRect" type="ColorRect" parent="Level/Climb/Background"]
+offset_left = -427.48596
+offset_top = -186.99998
+offset_right = 447.0033
+offset_bottom = -129.99998
+rotation = 0.32963717
+
+[node name="ColorRect2" type="ColorRect" parent="Level/Climb/Background"]
+offset_left = -318.7386
+offset_top = -403.99997
+offset_right = 555.7507
+offset_bottom = -346.99997
+rotation = 0.53446054
+
+[node name="ColorRect3" type="ColorRect" parent="Level/Climb/Background"]
+offset_left = -293.7965
+offset_top = -498.0
+offset_right = 580.69275
+offset_bottom = -441.0
+rotation = 0.18867037
+
+[node name="ColorRect4" type="ColorRect" parent="Level/Climb/Background"]
+offset_left = -471.38397
+offset_top = -903.83344
+offset_right = 403.1053
+offset_bottom = -846.83344
+rotation = -0.3330421
+
+[node name="ColorRect7" type="ColorRect" parent="Level/Climb/Background"]
+offset_left = -478.36777
+offset_top = -1002.0
+offset_right = 396.1215
+offset_bottom = -945.0
+rotation = -0.46930724
+
+[node name="ColorRect5" type="ColorRect" parent="Level/Climb/Background"]
+offset_left = -328.71536
+offset_top = -873.0
+offset_right = 545.7739
+offset_bottom = -816.0
+rotation = -0.12821871
+
+[node name="ColorRect6" type="ColorRect" parent="Level/Climb/Background"]
+offset_left = -583.12445
+offset_top = -1068.0
+offset_right = 291.3648
+offset_bottom = -1011.0
+rotation = -0.63886255
 
 [node name="Wall3" parent="Level/Climb" instance=ExtResource("4_344ge")]
 position = Vector2(615.39795, 343.88843)
@@ -1943,7 +2066,7 @@ scale = Vector2(1445.2244, 1606.7552)
 [node name="Player Spawn Point" type="Node2D" parent="Level" node_paths=PackedStringArray("main_text", "sub_text")]
 visibility_layer = 524289
 z_index = 5
-position = Vector2(2499.1938, 1197)
+position = Vector2(6656.5376, -1241)
 scale = Vector2(1.0023229, 1)
 script = ExtResource("39_kwxat")
 player = ExtResource("1_bo1nx")
