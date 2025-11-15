@@ -8,19 +8,18 @@ extends Node2D
 @export var blanket: Node2D
 
 var plr: PlayerRoot
-var home := true
 var started := false
 
 func _ready() -> void:
 	if GameState.spawn_set:
 		global_position = GameState.spawn_point
-	elif home:
+	else:
 		global_position = home_pos.global_position
 	spawn()
 	GameState.fix_player.connect(respawn)
 	GameState.main_text = main_text
 	GameState.sub_text = sub_text
-	if home and not GameState.spawn_set:
+	if not GameState.has_gun and not GameState.spawn_set:
 		GameState.camera.zoom = Vector2.ONE * 1.5
 		plr.hide()
 

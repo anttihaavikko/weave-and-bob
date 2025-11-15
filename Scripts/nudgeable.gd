@@ -12,6 +12,10 @@ var start := 0.0
 func _ready() -> void:
 	start = rotation_degrees
 
+	var s = self
+	if s is Area2D:
+		s.body_entered.connect(_body_entered)
+
 func _body_entered(body: Node2D):
 	if cooldown <= 0:
 		dir = 1 if body.global_position.x < global_position.x else -1

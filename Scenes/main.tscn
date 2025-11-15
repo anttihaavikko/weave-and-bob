@@ -1,4 +1,4 @@
-[gd_scene load_steps=126 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=130 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/player.tscn" id="1_bo1nx"]
@@ -52,6 +52,7 @@
 [ext_resource type="PackedScene" uid="uid://ba4e8lxoib43" path="res://Scenes/spawn_ring.tscn" id="30_nwwfm"]
 [ext_resource type="PackedScene" uid="uid://ccw01rqfuh3ys" path="res://Scenes/platform.tscn" id="33_o1aky"]
 [ext_resource type="PackedScene" uid="uid://dj4ia0fuy6eo6" path="res://Scenes/Effects/grass_particles.tscn" id="33_v2nl5"]
+[ext_resource type="Script" uid="uid://de5j4ushffq0u" path="res://Scripts/nudgeable.gd" id="34_5vy51"]
 [ext_resource type="PackedScene" uid="uid://dtix6dfe6hdbn" path="res://Scenes/vines.tscn" id="34_aok0f"]
 [ext_resource type="Texture2D" uid="uid://bokd7gt8l8yvg" path="res://Sprites/winmill-base.png" id="34_nb1ia"]
 [ext_resource type="PackedScene" uid="uid://7825pf5ha5cw" path="res://Scenes/Effects/blood_big.tscn" id="34_xdkp6"]
@@ -103,6 +104,8 @@
 [ext_resource type="Script" uid="uid://de1wudh210teg" path="res://Scripts/intro_hider.gd" id="95_3ahwd"]
 [ext_resource type="PackedScene" uid="uid://basr4p7b2otct" path="res://Scenes/bob.tscn" id="95_nb1ia"]
 [ext_resource type="Texture2D" uid="uid://wbmugvdnyda8" path="res://Sprites/blanket.png" id="96_b4xsn"]
+[ext_resource type="Texture2D" uid="uid://ywc711su2ggn" path="res://Sprites/move-controls.png" id="98_aok0f"]
+[ext_resource type="Texture2D" uid="uid://dd77b0u1hlkno" path="res://Sprites/spotify.png" id="106_b4mik"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ihvwq"]
 radius = 82.303375
@@ -184,6 +187,9 @@ polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tab3y"]
 size = Vector2(59.55838, 228.05524)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aok0f"]
+size = Vector2(97.03345, 92.5636)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ihvwq"]
 shader = ExtResource("84_vxl7x")
@@ -2527,7 +2533,6 @@ scale = Vector2(1.6233453, 1.6233453)
 texture = ExtResource("73_jekl6")
 
 [node name="Inside" type="Sprite2D" parent="Hut"]
-visible = false
 position = Vector2(-20.951416, -274)
 texture = ExtResource("61_e5peh")
 
@@ -2584,6 +2589,7 @@ scale = Vector2(0.99999994, 1)
 texture = ExtResource("66_e5peh")
 
 [node name="Outside" type="Sprite2D" parent="Hut"]
+visible = false
 z_index = 4
 position = Vector2(71.83301, -312)
 texture = ExtResource("60_qax2n")
@@ -2808,9 +2814,9 @@ position = Vector2(593.57666, -24.817772)
 script = ExtResource("77_1tvlp")
 
 [node name="Ak47" type="Sprite2D" parent="Hut/Gun Grab Area"]
-position = Vector2(30.78302, 27.500778)
+position = Vector2(37.474983, 21.464024)
 rotation = -2.035137
-scale = Vector2(0.22617278, 0.22617278)
+scale = Vector2(0.26023677, 0.26023677)
 texture = ExtResource("77_tab3y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hut/Gun Grab Area"]
@@ -2859,12 +2865,29 @@ position = Vector2(-264.33282, -172.3829)
 scale = Vector2(0.6707506, 0.6707506)
 collision_mask = 256
 script = ExtResource("95_3ahwd")
-appearers = [NodePath("../../UI/Title"), NodePath("../../UI/Author"), NodePath("../../UI/Artist")]
+appearers = [NodePath("../../UI/Title"), NodePath("../../UI/Author"), NodePath("../../UI/Artist"), NodePath("../../UI/Artist Button")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hut/Intro Hider"]
 position = Vector2(10.974507, -5)
 scale = Vector2(1.2929163, 1.2929163)
 shape = SubResource("CircleShape2D_ihvwq")
+
+[node name="Move Help Frame" type="Area2D" parent="Hut"]
+position = Vector2(-117.77885, -401.1089)
+collision_layer = 0
+collision_mask = 4864
+script = ExtResource("34_5vy51")
+amount = -3
+
+[node name="MoveControls" type="Sprite2D" parent="Hut/Move Help Frame"]
+position = Vector2(0.5022239, 28.743492)
+scale = Vector2(0.99999994, 1)
+texture = ExtResource("98_aok0f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hut/Move Help Frame"]
+position = Vector2(0.16750711, 28.072777)
+scale = Vector2(0.9999999, 1)
+shape = SubResource("RectangleShape2D_aok0f")
 
 [node name="Bob" parent="." instance=ExtResource("95_nb1ia")]
 position = Vector2(1826.7566, -2077)
@@ -3130,6 +3153,29 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("86_ihvwq")
 appear_after = 0.5
+
+[node name="Artist Button" type="LinkButton" parent="UI"]
+offset_left = 1493.0
+offset_top = 463.0
+offset_right = 1533.0
+offset_bottom = 503.0
+uri = "https://open.spotify.com/artist/6Nki8mJznJJMFqATdcJgj6"
+script = ExtResource("86_ihvwq")
+appear_after = 0.6
+
+[node name="Icon" type="TextureRect" parent="UI/Artist Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -17.0
+offset_top = -8.0
+offset_right = 4.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("106_b4mik")
+expand_mode = 2
 
 [connection signal="timeout" from="Line Drawer/Timer" to="Line Drawer" method="_on_timer_timeout"]
 [connection signal="flipped" from="Hut/Switch" to="Hut/Hatch" method="change"]
