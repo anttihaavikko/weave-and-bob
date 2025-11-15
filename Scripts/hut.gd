@@ -13,6 +13,7 @@ func _ready() -> void:
 	area.body_entered.connect(entered)
 	area.body_exited.connect(exited)
 	attic_area.body_entered.connect(entered_attic)
+	pickup.get_node("CPUParticles2D").hide()
 	
 func entered_attic(_node: Node2D):
 	var idx := inside_parts.find(attic_dark)
@@ -20,7 +21,7 @@ func entered_attic(_node: Node2D):
 		inside_parts.remove_at(idx)
 	attic_dark.hide()
 	if pickup:
-		pickup.show()
+		pickup.get_node("CPUParticles2D").show()
 
 func entered(_node: Node2D):
 	# if change_locked:

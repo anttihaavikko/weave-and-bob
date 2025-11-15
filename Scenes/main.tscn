@@ -2122,7 +2122,7 @@ scale = Vector2(1445.2244, 1606.7552)
 [node name="Player Spawn Point" type="Node2D" parent="Level" node_paths=PackedStringArray("main_text", "sub_text", "home_pos", "moving_blanket", "blanket")]
 visibility_layer = 524289
 z_index = 5
-position = Vector2(6785.239, -1261)
+position = Vector2(-1832.7437, -554)
 scale = Vector2(1.0023229, 1)
 script = ExtResource("39_kwxat")
 player = ExtResource("1_bo1nx")
@@ -2711,7 +2711,6 @@ color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(1522.3026, 4849.0786, 1370.395, 4908.1045, 1370.395, 4806.1504, 1516.2799, 4806.8213)
 
 [node name="Pickup" parent="Hut" instance=ExtResource("16_k12tt")]
-visible = false
 position = Vector2(-8.699924, -570.8088)
 scale = Vector2(0.6707506, 0.6707506)
 id = "attic_pick"
