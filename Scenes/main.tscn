@@ -1,4 +1,4 @@
-[gd_scene load_steps=131 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=132 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/player.tscn" id="1_bo1nx"]
@@ -58,6 +58,7 @@
 [ext_resource type="Texture2D" uid="uid://clammp4mdhrhm" path="res://Sprites/windmill-arms.png" id="35_3ahwd"]
 [ext_resource type="Script" uid="uid://bwtaepjv3mwab" path="res://Scripts/rotator.gd" id="36_b4xsn"]
 [ext_resource type="Texture2D" uid="uid://c0u1xf8vudw5" path="res://Sprites/fence.png" id="37_ot5ec"]
+[ext_resource type="PackedScene" uid="uid://dub36njkvj5pk" path="res://Scenes/enemy_charger.tscn" id="39_64lof"]
 [ext_resource type="Script" uid="uid://ban2bpqpuesw1" path="res://Scripts/player_spawn.gd" id="39_kwxat"]
 [ext_resource type="Texture2D" uid="uid://cqk6j01w8oul" path="res://Sprites/ring.png" id="41_8cuat"]
 [ext_resource type="PackedScene" uid="uid://c4dqyepeaha7h" path="res://Scenes/checkpoint.tscn" id="41_kwxat"]
@@ -612,21 +613,29 @@ scale = Vector2(258.73175, 508.90515)
 position = Vector2(-812.1135, -404)
 scale = Vector2(0.30418557, 0.3041856)
 respawns_after = 1
+speed = 1.0
+vision_range = 700.0
 
 [node name="Enemy5" parent="Level/Starter" instance=ExtResource("9_ynf5e")]
 position = Vector2(-363.15643, -411.00003)
 scale = Vector2(0.30418557, 0.3041856)
 respawns_after = 1
+speed = 1.0
+vision_range = 700.0
 
 [node name="Enemy6" parent="Level/Starter" instance=ExtResource("9_ynf5e")]
 position = Vector2(120.71958, -423.00003)
 scale = Vector2(0.30418557, 0.3041856)
 respawns_after = 1
+speed = 1.0
+vision_range = 700.0
 
 [node name="Enemy7" parent="Level/Starter" instance=ExtResource("9_ynf5e")]
 position = Vector2(604.5956, -431.00003)
 scale = Vector2(0.30418557, 0.3041856)
 respawns_after = 1
+speed = 1.0
+vision_range = 700.0
 
 [node name="Spikes" type="TextureRect" parent="Level/Starter"]
 z_index = 100
@@ -1003,6 +1012,8 @@ letter = "N"
 position = Vector2(1328.9131, 874)
 scale = Vector2(0.30418554, 0.3041856)
 title = "∞"
+speed = 1.0
+vision_range = 700.0
 stomp_offset = 120
 
 [node name="Door" parent="Level/Room" instance=ExtResource("19_ee4r6")]
@@ -1014,6 +1025,8 @@ position = Vector2(-55.87036, 1152)
 scale = Vector2(0.53731334, 0.53731334)
 id = "intro"
 respawns_after = 0
+speed = 1.0
+vision_range = 700.0
 stomp_offset = 40
 starts_encounter = NodePath("../Intro Encounter")
 
@@ -1602,6 +1615,8 @@ position = Vector2(-55.870117, 1152)
 scale = Vector2(0.53731334, 0.53731334)
 id = "onglaught"
 respawns_after = 0
+speed = 1.0
+vision_range = 700.0
 stomp_offset = 40
 starts_encounter = NodePath("../Onslaught Encounter")
 
@@ -1995,7 +2010,12 @@ scale = Vector2(1317.8744, 51.000023)
 position = Vector2(-1717, -748)
 rotation = -0.27908745
 scale = Vector2(0.37250674, 0.37250674)
+speed = 1.0
+vision_range = 700.0
 stomp_offset = 100
+
+[node name="Enemy Charger" parent="Level/Climb" instance=ExtResource("39_64lof")]
+position = Vector2(-223.95862, 430)
 
 [node name="Top" type="Node2D" parent="Level"]
 visibility_layer = 524289
@@ -2135,7 +2155,7 @@ scale = Vector2(1445.2244, 1606.7552)
 [node name="Player Spawn Point" type="Node2D" parent="Level" node_paths=PackedStringArray("main_text", "sub_text", "home_pos")]
 visibility_layer = 524289
 z_index = 5
-position = Vector2(6452.0127, -1318)
+position = Vector2(6785.239, -1261)
 scale = Vector2(1.0023229, 1)
 script = ExtResource("39_kwxat")
 player = ExtResource("1_bo1nx")

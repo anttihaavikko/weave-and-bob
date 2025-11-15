@@ -3,13 +3,17 @@ class_name Enemy
 extends CharacterBody2D
 
 @export var id: String
+@export var mode: Behaviour
 @export var title: String:
 	set(value):
 		title = value
 		title_label.text = value
 @export var respawns_after := 2
 @export var life := 500
+@export var speed := 1.0
+@export var vision_range := 700.0
 @export var stomp_offset := 20
+
 @export var starts_encounter: Encounter;
 @export var frame: Node2D
 @export var bump_cast: ShapeCast2D
@@ -17,15 +21,15 @@ extends CharacterBody2D
 @export var halo: Node2D
 @export var left_wing: Node2D
 @export var right_wing: Node2D
-
 @export var flasher: Flasher
+@export var vision_cast: RayCast2D
 
-enum Behaviour {None, Wave}
-var mode: Behaviour
+enum Behaviour {None, Wave, Charge}
 var dir: Vector2
 var vertical_dir: float
 var time := 0.0
 var turn_delay := 0.0
+var charging := false
 
 var max_life := life
 
@@ -40,10 +44,23 @@ func _ready() -> void:
 			GameState.register(id)
 	
 func _physics_process(delta: float) -> void:
+	if Engine.is_editor_hint():
+		return
+	if mode == Behaviour.Charge and GameState.player:
+		var pp := GameState.player.live_gun.global_position
+		vision_cast.target_position = vision_cast.to_local(pp)
+		if not charging and global_position.distance_to(pp) < vision_range and not vision_cast.is_colliding():
+			charging = true
+			dir = (pp - global_position).normalized()
+		velocity = dir * 30000 * speed * delta
+		move_and_slide()
+		if bump_cast.is_colliding():
+			dir = Vector2.ZERO
+			charging = false
 	if mode == Behaviour.Wave:
 		time += delta
 		turn_delay -= delta
-		velocity = (dir - dir.rotated(PI * vertical_dir * 0.5) * sin(time * 5) * 1) * 20000 * delta
+		velocity = (dir - dir.rotated(PI * vertical_dir * 0.5) * sin(time * 5) * 1) * 20000 * speed * delta
 		move_and_slide()
 		if turn_delay <= 0 and bump_cast.is_colliding():
 			dir = - dir

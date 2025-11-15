@@ -142,12 +142,14 @@ radius = 309.8
 font = ExtResource("7_1dp5w")
 font_size = 70
 
-[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("frame", "bump_cast", "title_label", "halo", "left_wing", "right_wing", "flasher")]
+[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("frame", "bump_cast", "title_label", "halo", "left_wing", "right_wing", "flasher", "vision_cast")]
 z_index = 4
 scale = Vector2(0.3041856, 0.3041856)
 collision_layer = 8
 collision_mask = 9
 script = ExtResource("1_1f0kj")
+speed = null
+vision_range = null
 frame = NodePath("Frame")
 bump_cast = NodePath("Bump Cast")
 title_label = NodePath("Label")
@@ -155,6 +157,7 @@ halo = NodePath("Halo")
 left_wing = NodePath("Wing Left/Spot")
 right_wing = NodePath("Wing Right/Spot")
 flasher = NodePath("Flasher")
+vision_cast = NodePath("Vision Cast")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_344ge")
@@ -291,3 +294,7 @@ moves = true
 move_direction = Vector2(0, -15)
 move_speed = 3.0
 single_direction = true
+
+[node name="Vision Cast" type="RayCast2D" parent="."]
+target_position = Vector2(752.8299, 131.49867)
+collision_mask = 2

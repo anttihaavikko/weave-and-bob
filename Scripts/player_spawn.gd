@@ -6,7 +6,7 @@ extends Node2D
 @export var home_pos: Node2D
 
 var plr: PlayerRoot
-var home := true
+var home := false
 
 func _ready() -> void:
 	if GameState.spawn_set:
@@ -29,6 +29,7 @@ func respawn():
 func spawn():
 	plr = player.instantiate()
 	add_child(plr)
+	GameState.player = plr
 	
 func add_gun():
 	plr.gun_sprite.visible = true

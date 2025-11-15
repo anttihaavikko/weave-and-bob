@@ -14,6 +14,7 @@ var camera: ShakeableCamera
 var help_text: Appearer
 var main_text: Appearer
 var sub_text: Appearer
+var player: PlayerRoot
 
 var ids: Array[String]
 var unique: Array[String]
