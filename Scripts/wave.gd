@@ -22,7 +22,7 @@ func start(enc: Encounter, count: String):
 		GameState.main_text.show_with_text(title)
 	GameState.sub_text.show_with_text("Wave %s" % [count])
 	SoundEffects.singleton.add(12, global_position) # warn.wav
-	Musics.intensify(true)
+	Musics.intensify(true, false)
 	await get_tree().create_timer(delay).timeout
 	for spawn in spawns:
 		spawn.start(self)

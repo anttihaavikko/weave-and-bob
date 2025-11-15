@@ -17,6 +17,8 @@ func _ready() -> void:
 	GameState.fix_player.connect(respawn)
 	GameState.main_text = main_text
 	GameState.sub_text = sub_text
+	if home:
+		GameState.camera.zoom = Vector2.ONE * 1.5
 
 func respawn():
 	var p = plr.control.global_position
@@ -32,6 +34,7 @@ func spawn():
 	GameState.player = plr
 	
 func add_gun():
+	plr.ammo_display.visible = true
 	plr.gun_sprite.visible = true
 	plr.arm_left.visible = true
 	plr.arm_right.visible = true

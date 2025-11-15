@@ -105,7 +105,7 @@ size = Vector2(35, 20)
 [sub_resource type="CircleShape2D" id="CircleShape2D_vqq8p"]
 radius = 62.072536
 
-[node name="Player" type="Node2D" node_paths=PackedStringArray("control", "live_gun", "cam", "map_sprite", "gun_sprite", "arm_left", "arm_right")]
+[node name="Player" type="Node2D" node_paths=PackedStringArray("control", "live_gun", "cam", "map_sprite", "gun_sprite", "arm_left", "arm_right", "ammo_display")]
 visibility_layer = 524289
 script = ExtResource("1_p1odr")
 control = NodePath("Control Node")
@@ -116,6 +116,7 @@ map_sprite = NodePath("Gun/Sprite Wrap/Map")
 gun_sprite = NodePath("Gun/Sprite Wrap/Ak47")
 arm_left = NodePath("Control Node/Orienter/Middle/Left Arm")
 arm_right = NodePath("Control Node/Orienter/Middle/Right Arm")
+ammo_display = NodePath("Control Node/Orienter/Ammo Display")
 
 [node name="Link Fixer" type="Node" parent="." node_paths=PackedStringArray("links", "center")]
 script = ExtResource("3_wohnl")

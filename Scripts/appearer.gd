@@ -17,19 +17,19 @@ func _ready() -> void:
 		
 	if appear_after > 0:
 		await get_tree().create_timer(appear_after).timeout
-		appear()	
+		appear()
 	if auto_hide_after:
 		await get_tree().create_timer(auto_hide_after).timeout
 		disappear()
 
 func appear():
-	if shown:
+	if shown or not get_tree():
 		return
 	shown = true
 	get_tree().create_tween().tween_property(obj, "scale", size, duration).set_trans(Tween.TRANS_BOUNCE)
 
 func disappear():
-	if not shown:
+	if not shown or not get_tree():
 		return
 	shown = false
 	get_tree().create_tween().tween_property(obj, "scale", Vector2.ZERO, duration).set_trans(Tween.TRANS_ELASTIC)

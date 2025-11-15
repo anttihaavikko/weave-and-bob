@@ -24,7 +24,7 @@ scale = Vector2(3.333, 3.333)
 
 [node name="Right Arm" type="Line2D" parent="Arms" index="0" node_paths=PackedStringArray("target")]
 position = Vector2(67.07103, 18.740433)
-points = PackedVector2Array(0, 0, -8.287991, 49.30831, 24.999992, 12.000004)
+points = PackedVector2Array(0, 0, -3.7360687, 39.82514, 24.999992, 12.000004)
 width = 15.0
 default_color = Color(0, 0, 0, 1)
 joint_mode = 2
@@ -32,11 +32,11 @@ begin_cap_mode = 2
 end_cap_mode = 2
 script = ExtResource("5_ml64x")
 target = NodePath("../../Spear Wrap/Right Arm Pos")
-length = 50.0
+length = 40.0
 
 [node name="Left Arm" type="Line2D" parent="Arms" index="1" node_paths=PackedStringArray("target")]
 position = Vector2(-64.112015, -15.781418)
-points = PackedVector2Array(0, 0, -48.113876, -13.603509, -29.999992, 33)
+points = PackedVector2Array(0, 0, -39.571693, -5.837901, -29.999992, 33)
 width = 15.0
 default_color = Color(0, 0, 0, 1)
 joint_mode = 2
@@ -44,7 +44,7 @@ begin_cap_mode = 2
 end_cap_mode = 2
 script = ExtResource("5_ml64x")
 target = NodePath("../../Spear Wrap/Left Arm Pos")
-length = 50.0
+length = 40.0
 
 [node name="Spear Wrap" type="Node2D" parent="." index="13" node_paths=PackedStringArray("enemy", "left_arm", "right_arm", "back_target", "front_target")]
 script = ExtResource("2_8lcl1")

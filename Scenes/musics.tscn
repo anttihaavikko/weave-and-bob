@@ -1,18 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://bipacvs38cr42"]
+[gd_scene load_steps=6 format=3 uid="uid://bipacvs38cr42"]
 
 [ext_resource type="Script" uid="uid://bocs0tl25rpeg" path="res://Scripts/musics.gd" id="1_7ikcg"]
 [ext_resource type="AudioStream" uid="uid://cychyvx6vrf11" path="res://Sounds/the-game-normal.wav" id="2_425ld"]
+[ext_resource type="AudioStream" uid="uid://cvqnw5t11v81s" path="res://Sounds/the-game-ambient.wav" id="2_b0jl2"]
 [ext_resource type="AudioStream" uid="uid://dg8hen6vfaisy" path="res://Sounds/the-game-agro.wav" id="3_b0jl2"]
 [ext_resource type="Script" uid="uid://dos3qhffr4v0a" path="res://addons/rhythm_notifier/rhythm_notifier.gd" id="4_425ld"]
 
-[node name="Musics" type="Node" node_paths=PackedStringArray("normal", "combat", "rhythm")]
+[node name="Musics" type="Node" node_paths=PackedStringArray("normal", "combat", "ambient", "rhythm")]
 script = ExtResource("1_7ikcg")
 normal = NodePath("Normal")
 combat = NodePath("Combat")
+ambient = NodePath("Chill")
 rhythm = NodePath("RhythmNotifier")
+
+[node name="Chill" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_b0jl2")
+autoplay = true
+bus = &"Music"
 
 [node name="Normal" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_425ld")
+volume_db = -80.0
 autoplay = true
 bus = &"Music"
 

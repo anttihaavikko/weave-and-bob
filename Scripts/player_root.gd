@@ -9,6 +9,7 @@ extends Node2D
 @export var gun_sprite: Node2D
 @export var arm_left: Node
 @export var arm_right: Node
+@export var ammo_display: Node
 
 var dead := false
 var health := 1
@@ -16,6 +17,7 @@ var immunity := 0.0
 
 func _ready() -> void:
 	gun_sprite.visible = GameState.has_gun
+	ammo_display.visible = GameState.has_gun
 	arm_left.visible = GameState.has_gun
 	arm_right.visible = GameState.has_gun
 	health = GameState.max_life
@@ -49,7 +51,7 @@ func die() -> void:
 		cam.shake(15, 0.3)
 		return
 	if dead: return
-	Musics.intensify(false)
+	Musics.intensify(false, false)
 	Musics.pitch(0.5, 1.5)
 	Gameplay.hit_stop(get_tree(), 0.25, 5 / 60.0)
 	dead = true

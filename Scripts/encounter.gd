@@ -35,7 +35,7 @@ func next_wave() -> void:
 		await get_tree().create_timer(0.25).timeout
 		open_doors()
 		await get_tree().create_timer(0.5).timeout
-		Musics.intensify(false)
+		Musics.intensify(false, true)
 		var pickup := reward.instantiate()
 		if pickup is Pickup:
 			pickup.id = id
