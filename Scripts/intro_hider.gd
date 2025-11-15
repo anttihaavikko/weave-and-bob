@@ -10,6 +10,7 @@ func _ready() -> void:
     body_entered.connect(entered)
 
 func entered(_node: Node2D):
+    GameState.spawn_set = true
     queue_free()
     for a in appearers:
         a.disappear()

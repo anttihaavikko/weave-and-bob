@@ -15,7 +15,6 @@ func _ready() -> void:
 	if GameState.spawn_set:
 		global_position = GameState.spawn_point
 	elif home:
-		GameState.spawn_set = true
 		GameState.spawn_point = home_pos.global_position
 		global_position = home_pos.global_position
 	spawn()
