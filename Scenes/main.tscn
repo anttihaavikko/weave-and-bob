@@ -1,4 +1,4 @@
-[gd_scene load_steps=131 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=132 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/player.tscn" id="1_bo1nx"]
@@ -107,6 +107,7 @@
 [ext_resource type="Texture2D" uid="uid://ywc711su2ggn" path="res://Sprites/move-controls.png" id="98_aok0f"]
 [ext_resource type="Script" uid="uid://cffhama7guum2" path="res://Scripts/version_label.gd" id="101_urine"]
 [ext_resource type="Texture2D" uid="uid://dd77b0u1hlkno" path="res://Sprites/spotify.png" id="106_b4mik"]
+[ext_resource type="Script" uid="uid://upwt3di6e84x" path="res://Scripts/blinders.gd" id="108_5vy51"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ihvwq"]
 radius = 82.303375
@@ -3202,6 +3203,37 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("106_b4mik")
 expand_mode = 2
+
+[node name="Blinders" type="Control" parent="UI" node_paths=PackedStringArray("left", "right")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("108_5vy51")
+left = NodePath("Left")
+right = NodePath("Right")
+
+[node name="Left" type="ColorRect" parent="UI/Blinders"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 960.0
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Right" type="ColorRect" parent="UI/Blinders"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -960.0
+grow_horizontal = 0
+grow_vertical = 2
+pivot_offset = Vector2(960, 0)
+color = Color(0, 0, 0, 1)
 
 [connection signal="timeout" from="Line Drawer/Timer" to="Line Drawer" method="_on_timer_timeout"]
 [connection signal="flipped" from="Hut/Switch" to="Hut/Hatch" method="change"]

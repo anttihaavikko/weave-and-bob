@@ -15,6 +15,7 @@ var help_text: Appearer
 var main_text: Appearer
 var sub_text: Appearer
 var player: PlayerRoot
+var blinders: Blinders
 
 var ids: Array[String]
 var unique: Array[String]
