@@ -18,3 +18,7 @@ func change():
 	var pos := _open_pos if state else _closed_pos
 	get_tree().create_tween().tween_property(body, "rotation_degrees", pos, 0.5).set_trans(Tween.TRANS_BOUNCE)
 	SoundEffects.singleton.add(10, global_position) # throw1.wav
+	
+func _notification(event: int):
+	if (event == NOTIFICATION_PREDELETE):
+		body.queue_free()

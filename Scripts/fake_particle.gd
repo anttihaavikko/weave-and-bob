@@ -20,3 +20,9 @@ func _physics_process(delta: float) -> void:
 	if lifetime <= 0 and len(points) > 0:
 		points.remove_at(0)
 		line.points = points
+	if lifetime <= 0 and len(points) == 0:
+		queue_free()
+		
+func _notification(event: int):
+	if (event == NOTIFICATION_PREDELETE):
+		line.queue_free()
