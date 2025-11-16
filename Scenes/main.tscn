@@ -1,4 +1,4 @@
-[gd_scene load_steps=153 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=155 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/player.tscn" id="1_bo1nx"]
@@ -119,6 +119,7 @@
 [ext_resource type="PackedScene" uid="uid://n66kgmcljlyc" path="res://Scenes/worm_tail.tscn" id="112_3h4bx"]
 [ext_resource type="AudioStream" uid="uid://cy5tryvrpsluk" path="res://Sounds/worm1.wav" id="113_na2ur"]
 [ext_resource type="AudioStream" uid="uid://6kbw5jt3xcnd" path="res://Sounds/worm2.wav" id="114_rlvdk"]
+[ext_resource type="Shader" uid="uid://dw5u0j1r1we5x" path="res://Shaders/blob.gdshader" id="115_b05pg"]
 [ext_resource type="AudioStream" uid="uid://lieglm7v8mcu" path="res://Sounds/worm11.wav" id="115_t6wb6"]
 [ext_resource type="AudioStream" uid="uid://dx3ersplisxnj" path="res://Sounds/worm12.wav" id="116_fvjqb"]
 [ext_resource type="AudioStream" uid="uid://moh4j3jiuimd" path="res://Sounds/worm13.wav" id="117_b05pg"]
@@ -215,6 +216,15 @@ shader = ExtResource("84_vxl7x")
 shader_parameter/height = 2.0
 shader_parameter/frequency = 5.0
 shader_parameter/speed = 6.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bdqux"]
+shader = ExtResource("115_b05pg")
+shader_parameter/amount = 24.0
+shader_parameter/rotation_speed = 6.0
+shader_parameter/offset = 0.0
+shader_parameter/speed = 0.1
+shader_parameter/peaks = 6.0
+shader_parameter/time_mod = 1.0
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_hfu3o"]
 random_pitch = 1.2
@@ -3437,6 +3447,7 @@ sound = NodePath("Head Segment/AudioStreamPlayer2D")
 pickup = ExtResource("16_k12tt")
 
 [node name="Outer Line" type="Line2D" parent="Worm"]
+material = SubResource("ShaderMaterial_bdqux")
 points = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 width = 450.0
 default_color = Color(0, 0, 0, 1)
@@ -3444,6 +3455,7 @@ begin_cap_mode = 2
 end_cap_mode = 2
 
 [node name="Inner Line" type="Line2D" parent="Worm"]
+material = SubResource("ShaderMaterial_bdqux")
 position = Vector2(-0.99768245, 0)
 points = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 width = 400.0

@@ -1,11 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://c5leh0u73pd6k"]
+[gd_scene load_steps=8 format=3 uid="uid://c5leh0u73pd6k"]
 
 [ext_resource type="Texture2D" uid="uid://go0giiad03jq" path="res://Sprites/circle.png" id="1_xd0du"]
 [ext_resource type="Script" uid="uid://dwe1vkc75ubha" path="res://Scripts/killbox.gd" id="2_16n7g"]
+[ext_resource type="Shader" uid="uid://dw5u0j1r1we5x" path="res://Shaders/blob.gdshader" id="2_edyf1"]
 [ext_resource type="Texture2D" uid="uid://cyh1gteviu5lp" path="res://Sprites/worm_belly.png" id="2_qqksh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5vy51"]
 radius = 249.4209
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0grf3"]
+shader = ExtResource("2_edyf1")
+shader_parameter/amount = 24.0
+shader_parameter/rotation_speed = 3.0
+shader_parameter/offset = 0.0
+shader_parameter/speed = 0.1
+shader_parameter/peaks = 7.0
+shader_parameter/time_mod = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o2owy"]
 radius = 253.46045
@@ -51,6 +61,7 @@ texture = ExtResource("1_xd0du")
 z_index = 2
 z_as_relative = false
 y_sort_enabled = true
+material = SubResource("ShaderMaterial_0grf3")
 position = Vector2(1.0124612, 11.1370735)
 scale = Vector2(1.1553658, 0.7710721)
 texture = ExtResource("2_qqksh")
