@@ -6,6 +6,7 @@ var damage := 100
 var has_gun := true
 var breaker_shots := true
 var max_life := 1
+var accuracy := 0
 
 var spawn_set := false
 var spawn_point: Vector2
@@ -31,6 +32,7 @@ func _ready() -> void:
 		has_gun = false
 		breaker_shots = false
 		max_life = 1
+		accuracy = 0
 
 func mark(id: String):
 	if len(id) > 1:

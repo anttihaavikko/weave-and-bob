@@ -94,9 +94,11 @@ func _physics_process(delta: float) -> void:
 		cooldown = 0.1
 		just_shot = false
 		var space_state := get_world_2d().direct_space_state
-		var dir := Vector2.RIGHT.rotated(global_rotation + randf_range(-0.1, 0.1)).normalized() * 2000
-		var p := barrel.global_position - dir.normalized() * 50
-		var result := _get_shot_end(space_state, p, dir, [])
+		var diff = randf_range(-0.1, 0.1)
+		var dir := Vector2.from_angle(rotate_toward(Vector2.RIGHT.rotated(global_rotation + diff).normalized().angle(), d.angle(), 0.1 * GameState.accuracy))
+		var end := dir * 2000
+		var p := barrel.global_position - end.normalized() * 50
+		var result := _get_shot_end(space_state, p, end, [])
 		camera.shake(3, 0.05)
 		
 		if result.has("collider"):
@@ -109,9 +111,9 @@ func _physics_process(delta: float) -> void:
 			if result.collider is WormBlister:
 				result.collider.hit()
 			if result.collider is RigidBody2D:
-				result.collider.apply_impulse(dir.normalized() * 2000, result.position - result.collider.global_position)
+				result.collider.apply_impulse(end.normalized() * 2000, result.position - result.collider.global_position)
 		
-		var pos = result.position if result.has("position") else p + dir
+		var pos = result.position if result.has("position") else p + end
 		Effects.singleton.add_many([0, 1], pos)
 		LineDrawer.singleton.add(p, pos)
 		

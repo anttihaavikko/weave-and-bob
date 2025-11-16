@@ -8,7 +8,8 @@ const textures: Dictionary[Type, Texture2D] = {
 	Type.Map: preload("res://Sprites/map.png"),
 	Type.Damage: preload("res://Sprites/damage-pickup.png"),
 	Type.Breaker: preload("res://Sprites/breaker-pickup.png"),
-	Type.Life: preload("res://Sprites/life-pickup.png")
+	Type.Life: preload("res://Sprites/life-pickup.png"),
+	Type.Scope: preload("res://Sprites/scope_pickup.png"),
 }
 
 @export var id: String
@@ -19,7 +20,7 @@ const textures: Dictionary[Type, Texture2D] = {
 		type = val
 @export var sprite: Sprite2D
 
-enum Type {None, Magazine, Map, Damage, Breaker, Life}
+enum Type {None, Magazine, Map, Damage, Breaker, Life, Scope}
 
 var done := false
 
@@ -44,6 +45,9 @@ func _picked(_body: Node2D):
 	if type == Type.Breaker:
 		GameState.breaker_shots = true
 		GameState.show_texts("Shots break weak walls!", "Time for some shortcuts...", 0.5, 2.5)
+	if type == Type.Scope:
+		GameState.accuracy += 1
+		GameState.show_texts("Increased accuracy!", "Land your shots...", 0.5, 2.5)
 	if type == Type.Life:
 		GameState.max_life += 1
 		GameState.show_texts("You feel healthier!", "Like you could take on anything...", 0.5, 2.5)
