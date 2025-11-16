@@ -642,12 +642,14 @@ scale_amount_curve = SubResource("Curve_ag0hk")
 position = Vector2(-8, -4)
 scale = Vector2(0.9912767, 1)
 script = ExtResource("8_301kd")
+pool_id = "casings"
 casing = ExtResource("9_8816d")
 
 [node name="Clip Ejector" type="Node2D" parent="Gun"]
 position = Vector2(7.999999, 2.9999995)
 scale = Vector2(0.9912767, 1)
 script = ExtResource("8_301kd")
+pool_id = "clips"
 casing = ExtResource("9_ag0hk")
 limit = 10
 eject_dir = Vector2(-1, -3)

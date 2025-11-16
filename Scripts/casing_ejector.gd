@@ -1,13 +1,20 @@
 class_name CasingEjector
 extends Node2D
 
+@export var pool_id: String
 @export var casing: PackedScene
 @export var limit := 100
 @export var eject_dir := Vector2(-12, 5)
 
-var casings: Array[Node]
+func _ready() -> void:
+	if not GameState.pools.has(pool_id):
+		GameState.pools[pool_id] = []
+
+func get_pool() -> Array:
+	return GameState.pools[pool_id]
 
 func get_next() -> Node:
+	var casings := get_pool()
 	if len(casings) > limit:
 		return casings.pop_front()
 	else:
@@ -16,8 +23,9 @@ func get_next() -> Node:
 		return c
 
 func eject():
+	# print("%s count: %d" % [pool_id, len(get_pool())])
 	var c := get_next()
-	casings.push_back(c)
+	get_pool().push_back(c)
 	if c is MovableRigidbody:
 		c.freeze = true
 		c.global_position = global_position

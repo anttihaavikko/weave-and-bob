@@ -19,6 +19,7 @@ var blinders: Blinders
 
 var ids: Array[String]
 var unique: Array[String]
+var pools: Dictionary
 
 signal fix_player
 
