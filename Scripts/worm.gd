@@ -44,6 +44,7 @@ func respawn_blister():
 				get_parent().add_child(pick)
 		GameState.camera.shake(30, 0.5)
 		GameState.camera.target_zoom = 1
+		GameState.boss_fight = false
 		var p := segments[0].global_position
 		SoundEffects.singleton.add(13, p)
 		SoundEffects.singleton.add(2, p)
