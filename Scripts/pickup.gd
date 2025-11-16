@@ -10,6 +10,7 @@ const textures: Dictionary[Type, Texture2D] = {
 	Type.Breaker: preload("res://Sprites/breaker-pickup.png"),
 	Type.Life: preload("res://Sprites/life-pickup.png"),
 	Type.Scope: preload("res://Sprites/scope_pickup.png"),
+	Type.Track: preload("res://Sprites/track_pickup.png"),
 }
 
 @export var id: String
@@ -20,7 +21,7 @@ const textures: Dictionary[Type, Texture2D] = {
 		type = val
 @export var sprite: Sprite2D
 
-enum Type {None, Magazine, Map, Damage, Breaker, Life, Scope}
+enum Type {None, Magazine, Map, Damage, Breaker, Life, Scope, Track}
 
 var done := false
 
@@ -39,6 +40,9 @@ func _picked(_body: Node2D):
 	if type == Type.Magazine:
 		GameState.has_magazine = true
 		GameState.show_texts("Now we're talking!", "With bullets...", 0.5, 1.75)
+	if type == Type.Track:
+		GameState.has_tracking = true
+		GameState.show_texts("Enemy tracking!", "Zoom out on bosses...", 0.5, 1.75)
 	if type == Type.Damage:
 		GameState.damage += 30
 		GameState.show_texts("Shot damage up!", "By a whopping 30%...", 0.5, 2.5)

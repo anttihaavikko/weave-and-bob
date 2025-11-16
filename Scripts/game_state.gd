@@ -7,6 +7,7 @@ var has_gun := true
 var breaker_shots := true
 var max_life := 1
 var accuracy := 0
+var has_tracking := true
 
 var spawn_set := false
 var spawn_point: Vector2
@@ -17,10 +18,10 @@ var main_text: Appearer
 var sub_text: Appearer
 var player: PlayerRoot
 var blinders: Blinders
-
 var ids: Array[String]
 var unique: Array[String]
 var pools: Dictionary
+var boss_fight := false
 
 signal fix_player
 
@@ -33,6 +34,7 @@ func _ready() -> void:
 		breaker_shots = false
 		max_life = 1
 		accuracy = 0
+		has_tracking = false
 
 func mark(id: String):
 	if len(id) > 1:

@@ -17,11 +17,13 @@ var sound_cooldown := 0.0
 var prev_blister: WormBlister
 	
 func activate():
+	GameState.boss_fight = true
 	GameState.show_texts("Mother is coming!", "Better start running...", 0.2, 2.5)
 	SoundEffects.singleton.add(12, global_position) # warn.wav
 	Musics.intensify(true, false)
 	await get_tree().create_timer(2.5).timeout
-	# GameState.camera.target_zoom = 0.8
+	if GameState.has_tracking:
+		GameState.camera.target_zoom = 0.7
 	points.resize(len(segments) * segment_length)
 	points.fill(global_position)
 	angles.resize(len(points))
@@ -41,6 +43,7 @@ func respawn_blister():
 				pick.global_position = prev_blister.global_position
 				get_parent().add_child(pick)
 		GameState.camera.shake(30, 0.5)
+		GameState.camera.target_zoom = 1
 		var p := segments[0].global_position
 		SoundEffects.singleton.add(13, p)
 		SoundEffects.singleton.add(2, p)

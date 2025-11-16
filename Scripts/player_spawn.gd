@@ -46,6 +46,8 @@ func respawn():
 	global_position = p
 	spawn()
 	plr.health = life
+	if GameState.boss_fight:
+		GameState.camera.target_zoom = 0.7
 	
 func spawn():
 	plr = player.instantiate()
