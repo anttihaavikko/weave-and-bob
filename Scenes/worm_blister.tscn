@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://bi44qailjxvyw"]
+
+[ext_resource type="Shader" uid="uid://dw5u0j1r1we5x" path="res://Shaders/blob.gdshader" id="1_cyek8"]
+[ext_resource type="Texture2D" uid="uid://d1wc02kl5kcgp" path="res://Sprites/worm_blister.png" id="2_cv56l"]
+[ext_resource type="Script" uid="uid://c26faw2casac2" path="res://Scripts/flasher.gd" id="3_kcgbc"]
+[ext_resource type="Material" uid="uid://car0snn5yakqi" path="res://Misc/white_material.tres" id="4_nrg6i"]
+[ext_resource type="Script" uid="uid://gktuvlae73ur" path="res://Scripts/worm_blister.gd" id="5_u51ty"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rxhyq"]
+shader = ExtResource("1_cyek8")
+shader_parameter/amount = 24.0
+shader_parameter/rotation_speed = 3.0
+shader_parameter/offset = 0.0
+shader_parameter/speed = 0.1
+shader_parameter/peaks = 7.0
+shader_parameter/time_mod = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2c6tb"]
+radius = 65.88002
+
+[node name="Blister" type="Node2D"]
+
+[node name="Sprite" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_rxhyq")
+texture = ExtResource("2_cv56l")
+offset = Vector2(62.7726, 3.0373807)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Sprite"]
+remote_path = NodePath("../../Body")
+
+[node name="Flasher" type="Node" parent="Sprite" node_paths=PackedStringArray("items")]
+script = ExtResource("3_kcgbc")
+items = [NodePath("..")]
+white = ExtResource("4_nrg6i")
+metadata/_custom_type_script = "uid://c26faw2casac2"
+
+[node name="Body" type="AnimatableBody2D" parent="." node_paths=PackedStringArray("flasher")]
+collision_layer = 3
+script = ExtResource("5_u51ty")
+flasher = NodePath("../Sprite/Flasher")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body"]
+position = Vector2(71.88476, -7.0872283)
+shape = SubResource("CircleShape2D_2c6tb")

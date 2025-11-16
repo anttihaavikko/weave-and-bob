@@ -106,6 +106,8 @@ func _physics_process(delta: float) -> void:
 				result.collider.hit()
 			if result.collider is Switch:
 				result.collider.flip()
+			if result.collider is WormBlister:
+				result.collider.hit()
 		
 		var pos = result.position if result.has("position") else p + dir
 		Effects.singleton.add_many([0, 1], pos)

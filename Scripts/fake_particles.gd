@@ -24,11 +24,11 @@ func _ready() -> void:
 		p.line.width = width * get_variation(width_variation)
 		p.line.width_curve = width_curve
 		p.line.modulate = modulate.darkened(randf() * color_dark_variation).lightened(randf() * color_light_variation)
-		# add_child(p)
 		call_deferred("add_child", p)
 	await get_tree().create_timer(0.01).timeout
 	for p in particles:
-		p.apply_impulse(Vector2.from_angle(randf() * TAU) * 1000 * velocity * get_variation(velocity_variation))
+		if p:
+			p.apply_impulse(Vector2.from_angle(randf() * TAU) * 1000 * velocity * get_variation(velocity_variation))
 		
 func get_variation(variation: float) -> float:
 	return 1 + randf_range(-variation, variation)

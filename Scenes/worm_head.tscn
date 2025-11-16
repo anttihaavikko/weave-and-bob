@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=3 uid="uid://ney7663ddmo5"]
+
+[ext_resource type="PackedScene" uid="uid://c5leh0u73pd6k" path="res://Scenes/worm_segment.tscn" id="1_hmw58"]
+[ext_resource type="Texture2D" uid="uid://go0giiad03jq" path="res://Sprites/circle.png" id="2_oimpn"]
+[ext_resource type="Texture2D" uid="uid://drd125ptv1eoi" path="res://Sprites/worm_face.png" id="3_r5u0y"]
+
+[node name="Segment" instance=ExtResource("1_hmw58")]
+
+[node name="Outline2" parent="AnimatableBody2D" index="3"]
+position = Vector2(0.1555553, 77.10261)
+scale = Vector2(0.5918996, 0.5919002)
+
+[node name="Fill2" parent="AnimatableBody2D" index="4"]
+position = Vector2(0.15555528, 77.1026)
+scale = Vector2(0.5248079, 0.52964705)
+
+[node name="Eye Left" type="Node2D" parent="AnimatableBody2D" index="5"]
+position = Vector2(-137.38194, -206.72542)
+scale = Vector2(0.2239926, 0.22605799)
+
+[node name="Fill4" type="Sprite2D" parent="AnimatableBody2D/Eye Left" index="0"]
+modulate = Color(0, 0, 0, 1)
+z_as_relative = false
+scale = Vector2(1, 0.99999994)
+texture = ExtResource("2_oimpn")
+
+[node name="Fill5" type="Sprite2D" parent="AnimatableBody2D/Eye Left" index="1"]
+z_as_relative = false
+scale = Vector2(0.66738546, 0.6673854)
+texture = ExtResource("2_oimpn")
+
+[node name="Fill6" type="Sprite2D" parent="AnimatableBody2D/Eye Left" index="2"]
+modulate = Color(0, 0, 0, 1)
+z_as_relative = false
+scale = Vector2(0.23293987, 0.23293984)
+texture = ExtResource("2_oimpn")
+
+[node name="Eye Right" type="Node2D" parent="AnimatableBody2D" index="6"]
+position = Vector2(138.70717, -206.54208)
+scale = Vector2(0.2239926, 0.22605799)
+
+[node name="Fill4" type="Sprite2D" parent="AnimatableBody2D/Eye Right" index="0"]
+modulate = Color(0, 0, 0, 1)
+z_as_relative = false
+scale = Vector2(1, 0.99999994)
+texture = ExtResource("2_oimpn")
+
+[node name="Fill5" type="Sprite2D" parent="AnimatableBody2D/Eye Right" index="1"]
+z_as_relative = false
+scale = Vector2(0.66738546, 0.6673854)
+texture = ExtResource("2_oimpn")
+
+[node name="Fill7" type="Sprite2D" parent="AnimatableBody2D/Eye Right" index="2"]
+modulate = Color(0, 0, 0, 1)
+z_as_relative = false
+position = Vector2(9.040405, 2.348423e-05)
+scale = Vector2(0.23293985, 0.23293982)
+texture = ExtResource("2_oimpn")
+
+[node name="Mandibles" type="Sprite2D" parent="AnimatableBody2D" index="7"]
+position = Vector2(0, -173.13087)
+scale = Vector2(1.7912083, 1.7912083)
+texture = ExtResource("3_r5u0y")
+
+[node name="WormBelly" parent="AnimatableBody2D" index="8"]
+position = Vector2(-2.0249224, 63.785053)
+scale = Vector2(1.1130377, 0.6346237)

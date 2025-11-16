@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://n66kgmcljlyc"]
+
+[ext_resource type="PackedScene" uid="uid://c5leh0u73pd6k" path="res://Scenes/worm_segment.tscn" id="1_lmfrh"]
+
+[node name="Segment" instance=ExtResource("1_lmfrh")]
+
+[node name="Outline2" parent="AnimatableBody2D" index="3"]
+visible = false
+
+[node name="Fill2" parent="AnimatableBody2D" index="4"]
+visible = false
+
+[node name="WormBelly" parent="AnimatableBody2D" index="5"]
+visible = false

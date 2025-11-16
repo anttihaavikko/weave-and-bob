@@ -1,4 +1,4 @@
-[gd_scene load_steps=130 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=135 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/player.tscn" id="1_bo1nx"]
@@ -107,7 +107,12 @@
 [ext_resource type="Script" uid="uid://cffhama7guum2" path="res://Scripts/version_label.gd" id="101_urine"]
 [ext_resource type="Texture2D" uid="uid://dd77b0u1hlkno" path="res://Sprites/spotify.png" id="106_b4mik"]
 [ext_resource type="Script" uid="uid://upwt3di6e84x" path="res://Scripts/blinders.gd" id="108_5vy51"]
+[ext_resource type="Script" uid="uid://sxcx6ryr8r8s" path="res://Scripts/worm.gd" id="109_ceghn"]
 [ext_resource type="PackedScene" uid="uid://b717m4xp3kdqg" path="res://Scenes/Effects/blood.tscn" id="109_o2owy"]
+[ext_resource type="PackedScene" uid="uid://ney7663ddmo5" path="res://Scenes/worm_head.tscn" id="110_ceghn"]
+[ext_resource type="PackedScene" uid="uid://bi44qailjxvyw" path="res://Scenes/worm_blister.tscn" id="110_xg142"]
+[ext_resource type="PackedScene" uid="uid://c5leh0u73pd6k" path="res://Scenes/worm_segment.tscn" id="110_ylsbi"]
+[ext_resource type="PackedScene" uid="uid://n66kgmcljlyc" path="res://Scenes/worm_tail.tscn" id="112_3h4bx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ihvwq"]
 radius = 82.303375
@@ -204,6 +209,7 @@ script = ExtResource("1_6bp64")
 [node name="Bg" type="Sprite2D" parent="."]
 modulate = Color(0.8640645, 0.5525103, 0.35379764, 1)
 light_mask = 524289
+z_index = -100
 position = Vector2(4488.574, -237.49994)
 scale = Vector2(23964.334, 14859)
 texture = ExtResource("3_8gbba")
@@ -2181,7 +2187,7 @@ scale = Vector2(1445.2244, 1606.7552)
 [node name="Player Spawn Point" type="Node2D" parent="Level" node_paths=PackedStringArray("main_text", "sub_text", "home_pos", "moving_blanket", "blanket")]
 visibility_layer = 524289
 z_index = 5
-position = Vector2(-1794.8306, -810)
+position = Vector2(9260.488, -1504)
 scale = Vector2(1.0023229, 1)
 script = ExtResource("39_kwxat")
 player = ExtResource("1_bo1nx")
@@ -3267,6 +3273,55 @@ grow_horizontal = 0
 grow_vertical = 2
 pivot_offset = Vector2(960, 0)
 color = Color(0, 0, 0, 1)
+
+[node name="Worm" type="Node2D" parent="." node_paths=PackedStringArray("segments", "line", "inner_line")]
+z_index = -49
+position = Vector2(12525.903, 2438)
+script = ExtResource("109_ceghn")
+segments = [NodePath("Head Segment"), NodePath("Segment"), NodePath("Segment2"), NodePath("Segment3"), NodePath("Segment4"), NodePath("Segment5"), NodePath("Segment6"), NodePath("Segment7"), NodePath("Segment8"), NodePath("Segment9"), NodePath("Segment10"), NodePath("Tail Segment")]
+line = NodePath("Outer Line")
+inner_line = NodePath("Inner Line")
+blister = ExtResource("110_xg142")
+
+[node name="Outer Line" type="Line2D" parent="Worm"]
+points = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+width = 450.0
+default_color = Color(0, 0, 0, 1)
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Inner Line" type="Line2D" parent="Worm"]
+position = Vector2(-0.99768245, 0)
+points = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+width = 400.0
+default_color = Color(0, 0.47843137, 0.2627451, 1)
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Head Segment" parent="Worm" instance=ExtResource("110_ceghn")]
+scale = Vector2(0.9876921, 0.9876922)
+
+[node name="Segment" parent="Worm" instance=ExtResource("110_ylsbi")]
+
+[node name="Segment2" parent="Worm" instance=ExtResource("110_ylsbi")]
+
+[node name="Segment3" parent="Worm" instance=ExtResource("110_ylsbi")]
+
+[node name="Segment4" parent="Worm" instance=ExtResource("110_ylsbi")]
+
+[node name="Segment5" parent="Worm" instance=ExtResource("110_ylsbi")]
+
+[node name="Segment6" parent="Worm" instance=ExtResource("110_ylsbi")]
+
+[node name="Segment7" parent="Worm" instance=ExtResource("110_ylsbi")]
+
+[node name="Segment8" parent="Worm" instance=ExtResource("110_ylsbi")]
+
+[node name="Segment9" parent="Worm" instance=ExtResource("110_ylsbi")]
+
+[node name="Segment10" parent="Worm" instance=ExtResource("110_ylsbi")]
+
+[node name="Tail Segment" parent="Worm" instance=ExtResource("112_3h4bx")]
 
 [connection signal="timeout" from="Line Drawer/Timer" to="Line Drawer" method="_on_timer_timeout"]
 [connection signal="grab" from="Hut/Gun Grab Area" to="Level/Player Spawn Point" method="add_gun"]
