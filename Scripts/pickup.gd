@@ -43,7 +43,7 @@ func _picked(_body: Node2D):
 		GameState.show_texts("Shot damage up!", "By a whopping 30%...", 0.5, 2.5)
 	if type == Type.Breaker:
 		GameState.breaker_shots = true
-		GameState.show_texts("Shots can break weak walls!", "Time for some shortcuts...", 0.5, 2.5)
+		GameState.show_texts("Shots break weak walls!", "Time for some shortcuts...", 0.5, 2.5)
 	if type == Type.Life:
 		GameState.max_life += 1
 		GameState.show_texts("You feel healthier!", "Like you could take on anything...", 0.5, 2.5)

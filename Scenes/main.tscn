@@ -1,4 +1,4 @@
-[gd_scene load_steps=150 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=152 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/player.tscn" id="1_bo1nx"]
@@ -63,7 +63,9 @@
 [ext_resource type="PackedScene" uid="uid://c4dqyepeaha7h" path="res://Scenes/checkpoint.tscn" id="41_kwxat"]
 [ext_resource type="PackedScene" uid="uid://74o4w71qcsuo" path="res://Scenes/switch.tscn" id="41_ylsbi"]
 [ext_resource type="Texture2D" uid="uid://bu6dbpfohefw3" path="res://Sprites/egg.png" id="42_rlvxq"]
+[ext_resource type="Texture2D" uid="uid://4pfbr155kw4k" path="res://Sprites/ring-thick.svg" id="43_rlvdk"]
 [ext_resource type="Script" uid="uid://cjo6s8hrhyh8l" path="res://Scripts/dev_sprite.gd" id="44_aa8k8"]
+[ext_resource type="Script" uid="uid://bn5frx2t4b5xp" path="res://Scripts/free_if_marked.gd" id="44_t6wb6"]
 [ext_resource type="Texture2D" uid="uid://bjy00gdxmeg1a" path="res://Sprites/cloud1.png" id="47_s8vy0"]
 [ext_resource type="AudioStream" uid="uid://6icsnrsowbyq" path="res://Sounds/bass.wav" id="49_xdkp6"]
 [ext_resource type="PackedScene" uid="uid://dvbvt8kxd6pqp" path="res://Scenes/Effects/blood_small.tscn" id="50_5vy51"]
@@ -2132,6 +2134,7 @@ rotation = 2.1602666
 rotating_door = NodePath("../Rotating Door")
 
 [node name="Egg" type="RigidBody2D" parent="Level/Big" node_paths=PackedStringArray("flasher", "particle_points")]
+visibility_layer = 524289
 position = Vector2(-155.63882, -649)
 collision_layer = 3
 mass = 20.0
@@ -2156,6 +2159,15 @@ white = ExtResource("72_fg68e")
 
 [node name="Node2D" type="Node2D" parent="Level/Big/Egg"]
 position = Vector2(0.00018049646, -40.756786)
+
+[node name="Map Marker" type="Sprite2D" parent="Level/Big/Egg"]
+modulate = Color(0.91764706, 0.3372549, 0.09411765, 1)
+visibility_layer = 131072
+z_index = 888
+scale = Vector2(4.438483, 4.438483)
+texture = ExtResource("43_rlvdk")
+script = ExtResource("44_t6wb6")
+id = "worm"
 
 [node name="Big2" type="Node2D" parent="Level"]
 visibility_layer = 524289
@@ -2244,7 +2256,7 @@ scale = Vector2(1445.2244, 1606.7552)
 [node name="Player Spawn Point" type="Node2D" parent="Level" node_paths=PackedStringArray("main_text", "sub_text", "home_pos", "moving_blanket", "blanket")]
 visibility_layer = 524289
 z_index = 5
-position = Vector2(9260.488, -1504)
+position = Vector2(11925.297, -407)
 scale = Vector2(1.0023229, 1)
 script = ExtResource("39_kwxat")
 player = ExtResource("1_bo1nx")
@@ -3154,14 +3166,14 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -510.0
-offset_top = -768.0
-offset_right = 512.52295
+offset_left = -593.7385
+offset_top = -770.0
+offset_right = 596.2615
 offset_bottom = -616.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(1.0567483, 1.0567483)
-pivot_offset = Vector2(514.3163, 74.66875)
+pivot_offset = Vector2(584.74207, 68.35812)
 text = "Enemies incoming!"
 label_settings = ExtResource("85_ihvwq")
 horizontal_alignment = 1
@@ -3175,9 +3187,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -509.99997
-offset_top = -647.0
-offset_right = 512.52295
+offset_left = -1042.5781
+offset_top = -649.0
+offset_right = 1338.6453
 offset_bottom = -495.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -3340,6 +3352,7 @@ line = NodePath("Outer Line")
 inner_line = NodePath("Inner Line")
 blister = ExtResource("110_xg142")
 sound = NodePath("Head Segment/AudioStreamPlayer2D")
+pickup = ExtResource("16_k12tt")
 
 [node name="Outer Line" type="Line2D" parent="Worm"]
 points = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)

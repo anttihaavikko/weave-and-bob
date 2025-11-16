@@ -5,6 +5,7 @@ extends Node2D
 @export var inner_line: Line2D
 @export var blister: PackedScene
 @export var sound: AudioStreamPlayer2D
+@export var pickup: PackedScene
 
 var dir := Vector2.UP
 var points: PackedVector2Array
@@ -13,6 +14,7 @@ var segment_length := 20
 var life := 6
 var active := false
 var sound_cooldown := 0.0
+var prev_blister: WormBlister
 	
 func activate():
 	GameState.show_texts("Mother is coming!", "Better start running...", 0.2, 2.5)
@@ -31,10 +33,18 @@ func respawn_blister():
 	life -= 1
 
 	if life <= 0:
+		if not GameState.has("worm"):
+			var pick := pickup.instantiate()
+			if pick is Pickup:
+				pick.type = Pickup.Type.Life
+				pick.id = "worm"
+				pick.global_position = prev_blister.global_position
+				get_parent().add_child(pick)
 		GameState.camera.shake(30, 0.5)
 		var p := segments[0].global_position
 		SoundEffects.singleton.add(13, p)
 		SoundEffects.singleton.add(2, p)
+		Musics.intensify(false, true)
 		for s in segments:
 			Effects.singleton.add_many([4, 3, 10, 2, 0, 0, 0, 1], s.global_position)
 		queue_free()
@@ -48,9 +58,9 @@ func respawn_blister():
 		b.position = Vector2(190 * flip, 0)
 		b.scale = Vector2(flip, 1)
 		segments[i].add_child(b)
-		var bls = b.get_node("Body")
-		if bls is WormBlister:
-			bls.died.connect(respawn_blister)
+		prev_blister = b.get_node("Body")
+		if prev_blister is WormBlister:
+			prev_blister.died.connect(respawn_blister)
 
 func _process(delta: float) -> void:
 	if not active:
