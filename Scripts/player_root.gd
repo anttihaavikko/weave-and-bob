@@ -69,7 +69,7 @@ func launch_gun():
 	var g := gun.instantiate() as RigidBody2D
 	g.global_position = live_gun.global_position
 	g.rotation = live_gun.rotation
-	Effects.singleton.add_child(g)
+	Effects.singleton.call_deferred("add_child", g)
 	cam.enabled = false
 	g.apply_impulse(live_gun.linear_velocity * 1)
 	await get_tree().create_timer(0.1).timeout
