@@ -4,6 +4,7 @@ extends Node2D
 @export var line: Line2D
 @export var inner_line: Line2D
 @export var blister: PackedScene
+@export var sound: AudioStreamPlayer2D
 
 var dir := Vector2.UP
 var points: PackedVector2Array
@@ -11,6 +12,7 @@ var angles: PackedFloat32Array
 var segment_length := 20
 var life := 6
 var active := false
+var sound_cooldown := 0.0
 	
 func activate():
 	GameState.show_texts("Mother is coming!", "Better start running...", 0.2, 2.5)
@@ -40,9 +42,10 @@ func respawn_blister():
 
 	var b := blister.instantiate()
 	if b is Node2D:
+		scream()
 		var i = randi_range(1, len(segments) - 2)
 		var flip := -1 if randf() < 0.5 else 1
-		b.position = Vector2(185 * flip, 0)
+		b.position = Vector2(190 * flip, 0)
 		b.scale = Vector2(flip, 1)
 		segments[i].add_child(b)
 		var bls = b.get_node("Body")
@@ -52,10 +55,16 @@ func respawn_blister():
 func _process(delta: float) -> void:
 	if not active:
 		return
+	
+	sound_cooldown -= delta
 
 	if GameState.player:
 		var pp = GameState.player.live_gun.global_position
 		dir = Vector2.from_angle(rotate_toward(dir.angle(), segments[0].global_position.angle_to_point(pp), delta))
+
+		if (pp - sound.global_position).length() < 700 and sound_cooldown <= 0:
+			scream()
+			sound_cooldown = 2.5
 		
 	var count := len(points)
 	for i in range(len(points)):
@@ -74,3 +83,8 @@ func _process(delta: float) -> void:
 
 	line.points = line_points
 	inner_line.points = line_points
+
+func scream():
+	sound.play()
+	sound.play()
+	GameState.camera.shake(8, 0.4)
