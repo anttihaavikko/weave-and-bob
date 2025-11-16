@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://74o4w71qcsuo"]
+
+[ext_resource type="Script" uid="uid://b38n1sce3un4f" path="res://Scripts/switch.gd" id="1_swbo4"]
+[ext_resource type="Texture2D" uid="uid://cthibwn7a8bjd" path="res://Sprites/switch.svg" id="2_v71cw"]
+
+[node name="Switch" type="CharacterBody2D"]
+rotation = 5.448347
+scale = Vector2(1.3161955, 1.3161954)
+collision_layer = 2
+script = ExtResource("1_swbo4")
+change = 120.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(30.965332, -16.515991, 4.8496094, -31.37854, 8.394043, -69.68518, 8.348633, -127.04431, -8.602539, -126.580444, -9.260498, -68.194214, -3.814209, -29.76709, -31.690674, -11.136597, -23.25708, 38.387573, 33.598633, 26.019897)
+
+[node name="Sprite" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+texture = ExtResource("2_v71cw")
+offset = Vector2(0, -48)

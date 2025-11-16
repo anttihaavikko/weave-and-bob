@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://d15bns0qk1sjg"]
+
+[ext_resource type="Texture2D" uid="uid://dggvv625tmn04" path="res://Sprites/square.png" id="1_38pu1"]
+[ext_resource type="Script" uid="uid://dd48kyy5w2jp2" path="res://Scripts/rotating_door.gd" id="2_qbha6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ylsbi"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ceghn"]
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
+
+[node name="Rotating Door" type="Sprite2D" node_paths=PackedStringArray("body")]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(1, 1, 1, 0)
+visibility_layer = 524289
+z_index = 50
+rotation = 3.1415925
+scale = Vector2(644.30634, 126.120026)
+texture = ExtResource("1_38pu1")
+offset = Vector2(0.4676447, 0.018746853)
+script = ExtResource("2_qbha6")
+body = NodePath("Body")
+
+[node name="Body" type="AnimatableBody2D" parent="."]
+scale = Vector2(0.050000004, 0.05)
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body"]
+position = Vector2(9.352878, 0.021436062)
+shape = SubResource("RectangleShape2D_ylsbi")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Body"]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(9.414816, 0.25708753)
+occluder = SubResource("OccluderPolygon2D_ceghn")
+
+[node name="Sprite2D" type="Sprite2D" parent="Body"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(9.389004, 0.26383686)
+scale = Vector2(20.025902, 19.89066)
+texture = ExtResource("1_38pu1")
