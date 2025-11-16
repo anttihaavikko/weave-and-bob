@@ -25,19 +25,17 @@ font_size = 120
 size = Vector2(64, 87)
 
 [node name="Letter" type="Node2D" node_paths=PackedStringArray("label")]
-modulate = Color(0.5686275, 0.32941177, 0.16470589, 1)
 script = ExtResource("1_cfy4y")
 letter = "X"
 label = NodePath("Wrap/Sprite2D/Label")
 amount = 5
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." node_paths=PackedStringArray("stub", "full", "particle_point")]
+[node name="StaticBody2D" type="StaticBody2D" parent="." node_paths=PackedStringArray("stub", "full")]
 collision_layer = 16
 collision_mask = 0
 script = ExtResource("2_is782")
 stub = NodePath("../Wrap/Stub")
 full = NodePath("../Wrap/Sprite2D")
-particle_point = NodePath("Particle Point")
 effect_ids = Array[int]([5])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]

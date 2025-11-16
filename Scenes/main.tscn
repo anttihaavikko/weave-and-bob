@@ -1,4 +1,4 @@
-[gd_scene load_steps=152 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=153 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/player.tscn" id="1_bo1nx"]
@@ -59,6 +59,7 @@
 [ext_resource type="PackedScene" uid="uid://dub36njkvj5pk" path="res://Scenes/enemy_charger.tscn" id="39_64lof"]
 [ext_resource type="Script" uid="uid://ban2bpqpuesw1" path="res://Scripts/player_spawn.gd" id="39_kwxat"]
 [ext_resource type="PackedScene" uid="uid://d15bns0qk1sjg" path="res://Scenes/rotating_door.tscn" id="40_ceghn"]
+[ext_resource type="Texture2D" uid="uid://cludpgi85lhv5" path="res://Sprites/egg_back.png" id="40_fvjqb"]
 [ext_resource type="Texture2D" uid="uid://cqk6j01w8oul" path="res://Sprites/ring.png" id="41_8cuat"]
 [ext_resource type="PackedScene" uid="uid://c4dqyepeaha7h" path="res://Scenes/checkpoint.tscn" id="41_kwxat"]
 [ext_resource type="PackedScene" uid="uid://74o4w71qcsuo" path="res://Scenes/switch.tscn" id="41_ylsbi"]
@@ -857,6 +858,7 @@ position = Vector2(-333.73376, -660.4278)
 scale = Vector2(1175.7974, 1009.6941)
 
 [node name="Decorations" type="Node2D" parent="Level/Room"]
+modulate = Color(0.5686275, 0.32941177, 0.16470589, 1)
 position = Vector2(-799.14404, 1187)
 
 [node name="Grass" parent="Level/Room/Decorations" instance=ExtResource("12_wsu2k")]
@@ -1001,6 +1003,34 @@ position = Vector2(440.97656, -12)
 scale = Vector2(1.210375, 1.3285595)
 letter = "N"
 
+[node name="Vines" parent="Level/Room/Decorations" instance=ExtResource("34_aok0f")]
+position = Vector2(1091.4717, -952)
+rotation = 3.1415925
+
+[node name="Vines2" parent="Level/Room/Decorations" instance=ExtResource("34_aok0f")]
+position = Vector2(1218.8794, -983)
+rotation = 3.1415925
+
+[node name="Vines3" parent="Level/Room/Decorations" instance=ExtResource("34_aok0f")]
+position = Vector2(1757.3745, -934)
+rotation = 3.1415925
+
+[node name="Vines4" parent="Level/Room/Decorations" instance=ExtResource("34_aok0f")]
+position = Vector2(1629.9673, -1034)
+rotation = 3.1415925
+
+[node name="Vines5" parent="Level/Room/Decorations" instance=ExtResource("34_aok0f")]
+position = Vector2(946.14795, -1023)
+rotation = 3.1415925
+
+[node name="Vines6" parent="Level/Room/Decorations" instance=ExtResource("34_aok0f")]
+position = Vector2(1123.3237, -2339)
+rotation = 3.1415925
+
+[node name="Vines7" parent="Level/Room/Decorations" instance=ExtResource("34_aok0f")]
+position = Vector2(1777.2822, -2271)
+rotation = 3.1415925
+
 [node name="Enemy2" parent="Level/Room" instance=ExtResource("9_ynf5e")]
 position = Vector2(1328.9131, 874)
 scale = Vector2(0.30418554, 0.3041856)
@@ -1070,27 +1100,6 @@ mode = 1
 dir = Vector2(1, 0)
 vertical_dir = 1.0
 _enemy = ExtResource("9_ynf5e")
-
-[node name="Vines" parent="Level/Room" instance=ExtResource("34_aok0f")]
-position = Vector2(292.32794, 235)
-
-[node name="Vines2" parent="Level/Room" instance=ExtResource("34_aok0f")]
-position = Vector2(419.73535, 204)
-
-[node name="Vines3" parent="Level/Room" instance=ExtResource("34_aok0f")]
-position = Vector2(958.2307, 253)
-
-[node name="Vines4" parent="Level/Room" instance=ExtResource("34_aok0f")]
-position = Vector2(830.8233, 153)
-
-[node name="Vines5" parent="Level/Room" instance=ExtResource("34_aok0f")]
-position = Vector2(147.00385, 164)
-
-[node name="Vines6" parent="Level/Room" instance=ExtResource("34_aok0f")]
-position = Vector2(324.17978, -1152)
-
-[node name="Vines7" parent="Level/Room" instance=ExtResource("34_aok0f")]
-position = Vector2(978.1382, -1084)
 
 [node name="Room2" type="Node2D" parent="Level"]
 visibility_layer = 524289
@@ -2071,6 +2080,80 @@ scale = Vector2(0.30418557, 0.3041856)
 visibility_layer = 524289
 position = Vector2(12630.66, 534)
 
+[node name="Back" type="Node2D" parent="Level/Big"]
+modulate = Color(0.7647059, 0.4627451, 0.25882354, 1)
+
+[node name="Polygon2D" type="Polygon2D" parent="Level/Big/Back"]
+position = Vector2(413.04004, -73)
+offset = Vector2(-413.04004, 73)
+polygon = PackedVector2Array(-903.9004, -271, -683.4131, -34, -529.76953, 208, -581.6494, 395, -676.4287, 516, -986.708, 680, 547.72754, 707, 352.18164, 526, 330.23242, 426, 273.36426, 24, 207.51758, -32, 478.8877, -279)
+
+[node name="Polygon2D2" type="Polygon2D" parent="Level/Big/Back"]
+position = Vector2(797.1481, -1282)
+offset = Vector2(-371.13867, 1211)
+polygon = PackedVector2Array(-458.93262, -1142, -383.10938, -1027, -383.10938, -903, -261.3916, -796, -196.54199, -675, -262.38965, -588, -471.90234, -566, -730.30273, -416, 51.88086, -417, 29.93164, -530, 96.77637, -613, 223.48242, -848, 126.70703, -910, 31.926758, -1064, 257.40332, -1164)
+
+[node name="Polygon2D3" type="Polygon2D" parent="Level/Big/Back"]
+position = Vector2(-727.3107, -2223)
+offset = Vector2(-371.13867, 1211)
+polygon = PackedVector2Array(-562.69336, -521, -372.13574, -353, -386.10352, -146, -172.59961, -24, -86.79883, 26, -12.969727, 250, 155.6377, 238, 464.91992, 248, 465.917, 341, 403.06348, 390, 264.38574, 501, 786.1738, 502, 609.584, 355, 646.49805, 310, 648.49316, 117, 599.60645, 106, 320.25586, 90, 97.77246, 81, 73.828125, -2, 84.802734, -72, -40.905273, -146, -87.796875, -232, -110.743164, -275, -71.83301, -406, 129.69824, -529)
+
+[node name="EggBack" type="Sprite2D" parent="Level/Big/Back"]
+position = Vector2(-954.78186, -1005.00006)
+scale = Vector2(0.41474205, 0.41474205)
+texture = ExtResource("40_fvjqb")
+
+[node name="EggBack2" type="Sprite2D" parent="Level/Big/Back"]
+position = Vector2(-854.0162, -979.00006)
+rotation = -0.18179175
+scale = Vector2(0.35530165, 0.35530162)
+texture = ExtResource("40_fvjqb")
+
+[node name="EggBack3" type="Sprite2D" parent="Level/Big/Back"]
+position = Vector2(-766.2199, -962.99994)
+rotation = 0.19429864
+scale = Vector2(0.28059843, 0.28059843)
+texture = ExtResource("40_fvjqb")
+
+[node name="Decos" type="Node2D" parent="Level/Big"]
+modulate = Color(0.5686275, 0.32941177, 0.16470589, 1)
+
+[node name="Vines" parent="Level/Big/Decos" instance=ExtResource("34_aok0f")]
+position = Vector2(-988.7051, -1438)
+rotation = 3.1415925
+
+[node name="Vines2" parent="Level/Big/Decos" instance=ExtResource("34_aok0f")]
+position = Vector2(-1113.4135, -1501.0001)
+rotation = 3.1415925
+
+[node name="Vines3" parent="Level/Big/Decos" instance=ExtResource("34_aok0f")]
+position = Vector2(-1236.1284, -1448.0001)
+rotation = 3.1415925
+
+[node name="Vines4" parent="Level/Big/Decos" instance=ExtResource("34_aok0f")]
+position = Vector2(-1387.7761, -1535)
+rotation = 3.1415925
+
+[node name="Vines5" parent="Level/Big/Decos" instance=ExtResource("34_aok0f")]
+position = Vector2(637.5193, -1178.0001)
+rotation = 3.1415925
+
+[node name="Vines6" parent="Level/Big/Decos" instance=ExtResource("34_aok0f")]
+position = Vector2(517.79736, -1239.0001)
+rotation = 3.1415925
+
+[node name="Vines7" parent="Level/Big/Decos" instance=ExtResource("34_aok0f")]
+position = Vector2(451.95032, -312)
+rotation = 3.1415925
+
+[node name="Vines8" parent="Level/Big/Decos" instance=ExtResource("34_aok0f")]
+position = Vector2(308.28406, -285)
+rotation = 3.1415925
+
+[node name="Vines9" parent="Level/Big/Decos" instance=ExtResource("34_aok0f")]
+position = Vector2(-798.14575, -308)
+rotation = 3.1415925
+
 [node name="Wall6" parent="Level/Big" instance=ExtResource("4_344ge")]
 position = Vector2(294.31567, 1568)
 scale = Vector2(4431.071, 1861.4581)
@@ -2256,7 +2339,7 @@ scale = Vector2(1445.2244, 1606.7552)
 [node name="Player Spawn Point" type="Node2D" parent="Level" node_paths=PackedStringArray("main_text", "sub_text", "home_pos", "moving_blanket", "blanket")]
 visibility_layer = 524289
 z_index = 5
-position = Vector2(11925.297, -407)
+position = Vector2(11933.28, -342)
 scale = Vector2(1.0023229, 1)
 script = ExtResource("39_kwxat")
 player = ExtResource("1_bo1nx")
@@ -3344,7 +3427,6 @@ pivot_offset = Vector2(960, 0)
 color = Color(0, 0, 0, 1)
 
 [node name="Worm" type="Node2D" parent="." node_paths=PackedStringArray("segments", "line", "inner_line", "sound")]
-z_index = -49
 position = Vector2(12525.903, 2438)
 script = ExtResource("109_ceghn")
 segments = [NodePath("Head Segment"), NodePath("Segment"), NodePath("Segment2"), NodePath("Segment3"), NodePath("Segment4"), NodePath("Segment5"), NodePath("Segment6"), NodePath("Segment7"), NodePath("Segment8"), NodePath("Segment9"), NodePath("Segment10"), NodePath("Tail Segment")]

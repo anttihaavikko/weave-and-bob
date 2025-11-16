@@ -15,13 +15,11 @@ shader_parameter/amount = 5.0
 shader_parameter/frequency = 0.0
 shader_parameter/speed = 5.0
 shader_parameter/flip = false
-shader_parameter/mid = 0.5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k12tt"]
 size = Vector2(48.579937, 262.01083)
 
 [node name="Vines" type="Node2D"]
-modulate = Color(0.5686275, 0.32941177, 0.16470589, 1)
 rotation = -3.1415927
 scale = Vector2(1.6053418, 1.6053418)
 script = ExtResource("1_70x04")

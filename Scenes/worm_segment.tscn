@@ -23,33 +23,32 @@ shape = SubResource("CircleShape2D_5vy51")
 [node name="Outline" type="Sprite2D" parent="AnimatableBody2D"]
 visible = false
 modulate = Color(0, 0, 0, 1)
-z_index = -3
 z_as_relative = false
 texture = ExtResource("1_xd0du")
 
 [node name="Fill" type="Sprite2D" parent="AnimatableBody2D"]
 visible = false
 modulate = Color(0, 0.47843137, 0.2627451, 1)
-z_index = -2
+z_index = 1
 z_as_relative = false
 scale = Vector2(0.93910444, 0.93910444)
 texture = ExtResource("1_xd0du")
 
 [node name="Outline2" type="Sprite2D" parent="AnimatableBody2D"]
 modulate = Color(0, 0, 0, 1)
-z_index = -1
 z_as_relative = false
 scale = Vector2(0.5918996, 0.87538934)
 texture = ExtResource("1_xd0du")
 
 [node name="Fill2" type="Sprite2D" parent="AnimatableBody2D"]
 modulate = Color(0.827451, 0.64705884, 0.12156863, 1)
+z_index = 1
 z_as_relative = false
 scale = Vector2(0.52829134, 0.8058352)
 texture = ExtResource("1_xd0du")
 
 [node name="WormBelly" type="Sprite2D" parent="AnimatableBody2D"]
-z_index = 1
+z_index = 2
 z_as_relative = false
 y_sort_enabled = true
 position = Vector2(1.0124612, 11.1370735)
