@@ -2203,6 +2203,11 @@ position = Vector2(2144.0198, -1354)
 scale = Vector2(1.0023229, 1)
 type = 4
 
+[node name="Mag Pickup2" parent="Level" instance=ExtResource("16_k12tt")]
+position = Vector2(-5384.4927, -4788)
+scale = Vector2(1.0023229, 1)
+type = 5
+
 [node name="Map Pickup" parent="Level" instance=ExtResource("16_k12tt")]
 position = Vector2(4909.0005, -2060)
 scale = Vector2(1.0023229, 1)
