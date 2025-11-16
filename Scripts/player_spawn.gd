@@ -14,6 +14,7 @@ func _ready() -> void:
 	var home := not GameState.spawn_set and not GameState.has_gun
 	if GameState.spawn_set:
 		global_position = GameState.spawn_point
+		Musics.start(0.5)
 	elif home:
 		GameState.spawn_point = home_pos.global_position
 		global_position = home_pos.global_position
@@ -36,6 +37,7 @@ func _process(_delta: float) -> void:
 		blanket.show()
 		SoundEffects.singleton.add(1, global_position)
 		SoundEffects.singleton.add(5, global_position, 0.1)
+		Musics.start()
 
 func respawn():
 	var p = plr.control.global_position
