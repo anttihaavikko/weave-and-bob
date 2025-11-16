@@ -108,6 +108,8 @@ func _physics_process(delta: float) -> void:
 				result.collider.flip()
 			if result.collider is WormBlister:
 				result.collider.hit()
+			if result.collider is RigidBody2D:
+				result.collider.apply_impulse(dir.normalized() * 2000, result.position - result.collider.global_position)
 		
 		var pos = result.position if result.has("position") else p + dir
 		Effects.singleton.add_many([0, 1], pos)

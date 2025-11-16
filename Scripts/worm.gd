@@ -13,7 +13,11 @@ var life := 6
 var active := false
 	
 func activate():
-	GameState.camera.target_zoom = 0.75
+	GameState.show_texts("Mother is coming!", "Better start running...", 0.2, 2.5)
+	SoundEffects.singleton.add(12, global_position) # warn.wav
+	Musics.intensify(true, false)
+	await get_tree().create_timer(2.5).timeout
+	# GameState.camera.target_zoom = 0.8
 	points.resize(len(segments) * segment_length)
 	points.fill(global_position)
 	angles.resize(len(points))

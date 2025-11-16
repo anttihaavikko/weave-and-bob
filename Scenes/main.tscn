@@ -1,4 +1,4 @@
-[gd_scene load_steps=135 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=136 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/player.tscn" id="1_bo1nx"]
@@ -62,6 +62,7 @@
 [ext_resource type="Texture2D" uid="uid://cqk6j01w8oul" path="res://Sprites/ring.png" id="41_8cuat"]
 [ext_resource type="PackedScene" uid="uid://c4dqyepeaha7h" path="res://Scenes/checkpoint.tscn" id="41_kwxat"]
 [ext_resource type="PackedScene" uid="uid://74o4w71qcsuo" path="res://Scenes/switch.tscn" id="41_ylsbi"]
+[ext_resource type="Texture2D" uid="uid://bu6dbpfohefw3" path="res://Sprites/egg.png" id="42_rlvxq"]
 [ext_resource type="Script" uid="uid://cjo6s8hrhyh8l" path="res://Scripts/dev_sprite.gd" id="44_aa8k8"]
 [ext_resource type="Texture2D" uid="uid://bjy00gdxmeg1a" path="res://Sprites/cloud1.png" id="47_s8vy0"]
 [ext_resource type="AudioStream" uid="uid://6icsnrsowbyq" path="res://Sounds/bass.wav" id="49_xdkp6"]
@@ -2100,6 +2101,32 @@ position = Vector2(-2829.4275, -2432.0002)
 rotation = 2.1602666
 rotating_door = NodePath("../Rotating Door")
 
+[node name="Egg" type="RigidBody2D" parent="Level/Big" node_paths=PackedStringArray("flasher", "particle_points")]
+position = Vector2(-155.63882, -649)
+collision_layer = 3
+mass = 20.0
+script = ExtResource("70_sasc4")
+flasher = NodePath("Sprite")
+break_effects = Array[int]([4, 3, 10, 2, 0, 1, 0, 0])
+break_sounds = Array[int]([13, 2])
+particle_points = [NodePath("Node2D")]
+requires_breaker = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level/Big/Egg"]
+scale = Vector2(0.6710975, 0.6710975)
+polygon = PackedVector2Array(30.862305, 211.0126, -25.351563, 211.0126, -109.12012, 170.1358, -154.31055, 95.01087, -151.0039, -7.7335205, -98.09766, -123.735245, -44.088867, -194.44106, 4.4091797, -209.90797, 56.21289, -193.33629, 100.30176, -128.15437, 128.95898, -55.238983, 154.31055, 40.876724, 138.87988, 133.67812, 89.2793, 184.49792)
+
+[node name="Sprite" type="Sprite2D" parent="Level/Big/Egg" node_paths=PackedStringArray("items")]
+position = Vector2(0, -0.00012207031)
+scale = Vector2(0.6710975, 0.6710975)
+texture = ExtResource("42_rlvxq")
+script = ExtResource("71_pfx1i")
+items = [NodePath(".")]
+white = ExtResource("72_fg68e")
+
+[node name="Node2D" type="Node2D" parent="Level/Big/Egg"]
+position = Vector2(0.00018049646, -40.756786)
+
 [node name="Big2" type="Node2D" parent="Level"]
 visibility_layer = 524289
 position = Vector2(8182.9917, 6397)
@@ -3323,5 +3350,6 @@ scale = Vector2(0.9876921, 0.9876922)
 
 [node name="Tail Segment" parent="Worm" instance=ExtResource("112_3h4bx")]
 
+[connection signal="broke" from="Level/Big/Egg" to="Worm" method="activate"]
 [connection signal="timeout" from="Line Drawer/Timer" to="Line Drawer" method="_on_timer_timeout"]
 [connection signal="grab" from="Hut/Gun Grab Area" to="Level/Player Spawn Point" method="add_gun"]

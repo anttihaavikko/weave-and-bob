@@ -10,6 +10,8 @@ extends Node2D
 @export var particle_points: Array[Node2D]
 @export var requires_breaker := true
 
+signal broke
+
 func _ready() -> void:
 	GameState.register(id)
 	if GameState.has(id):
@@ -27,6 +29,7 @@ func hit():
 	if flasher:
 		flasher.flash()
 	if life <= 0:
+		broke.emit()
 		GameState.mark(id)
 		destroy()
 		if len(break_effects) > 0:
