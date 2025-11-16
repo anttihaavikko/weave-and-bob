@@ -12,7 +12,7 @@ func get_next() -> Node:
 		return casings.pop_front()
 	else:
 		var c := casing.instantiate()
-		get_tree().root.get_child(0).add_child(c)
+		get_tree().root.call_deferred("add_child", c)
 		return c
 
 func eject():

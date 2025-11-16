@@ -92,7 +92,6 @@ visible = false
 amount = 10
 texture = ExtResource("6_qxdh1")
 explosiveness = 0.41
-trail_enabled = true
 trail_lifetime = 0.1
 process_material = SubResource("ParticleProcessMaterial_fevyy")
 

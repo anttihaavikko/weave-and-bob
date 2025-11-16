@@ -20,7 +20,7 @@ func _init() -> void:
 
 @export var effects: Array[PackedScene]
 
-var pools: Array[Array] 
+var pools: Array[Array]
 
 func _ready() -> void:
 	pools = []
@@ -37,7 +37,7 @@ func add(index: int, pos: Vector2, pool_size: int = -1) -> Node:
 		if len(pools[index]) > pool_size:
 			(pools[index].pop_front() as Node).queue_free()
 		
-	add_child(effect)
+	call_deferred("add_child", effect)
 	
 	if effect is MovableRigidbody:
 		effect.move_to(pos, 0)
@@ -49,4 +49,4 @@ func add(index: int, pos: Vector2, pool_size: int = -1) -> Node:
 	if effect is GPUParticles2D:
 		effect.restart()
 		
-	return effect	
+	return effect

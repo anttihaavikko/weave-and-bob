@@ -1,20 +1,18 @@
-[gd_scene load_steps=132 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=133 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/player.tscn" id="1_bo1nx"]
-[ext_resource type="PackedScene" uid="uid://3j32spfokv3d" path="res://Scenes/Effects/white_bits.tscn" id="2_kry3j"]
+[ext_resource type="PackedScene" uid="uid://go8yepyde14f" path="res://Scenes/Effects/white_bits.tscn" id="2_kry3j"]
 [ext_resource type="Texture2D" uid="uid://dggvv625tmn04" path="res://Sprites/square.png" id="3_8gbba"]
 [ext_resource type="Script" uid="uid://b2gfrikyseqk" path="res://Scripts/line_drawer.gd" id="3_jjvhh"]
 [ext_resource type="Texture2D" uid="uid://dqk4jiffpdlow" path="res://Sprites/note.svg" id="4_87bhu"]
 [ext_resource type="PackedScene" uid="uid://dsh5hka8p1olw" path="res://Scenes/wall.tscn" id="4_344ge"]
 [ext_resource type="Script" uid="uid://iea5t2xob5o7" path="res://Scripts/effects.gd" id="5_kry3j"]
 [ext_resource type="PackedScene" uid="uid://bespa4vyxw6ny" path="res://Scenes/Effects/black_bits.tscn" id="6_21xkr"]
-[ext_resource type="PackedScene" uid="uid://487ovkxtb45u" path="res://Scenes/Effects/destroyed_grass.tscn" id="9_k12tt"]
 [ext_resource type="PackedScene" uid="uid://cuiocul8q8du7" path="res://Scenes/tree.tscn" id="9_wsu2k"]
 [ext_resource type="PackedScene" uid="uid://biww1pdu4di3l" path="res://Scenes/enemy.tscn" id="9_ynf5e"]
 [ext_resource type="PackedScene" uid="uid://dpon26r25h1rq" path="res://Scenes/Effects/pulse.tscn" id="10_d1ilt"]
 [ext_resource type="Script" uid="uid://e88pkdwyw65u" path="res://Scripts/sound_effects.gd" id="10_gt3je"]
-[ext_resource type="PackedScene" uid="uid://oamh1nmk7jrt" path="res://Scenes/Effects/blood.tscn" id="10_hptm8"]
 [ext_resource type="AudioStream" uid="uid://d3ivffpwlf2en" path="res://Sounds/jump.wav" id="11_3pmx8"]
 [ext_resource type="PackedScene" uid="uid://bhr0ejaysdti2" path="res://Scenes/Effects/pulse_displace.tscn" id="12_6iyac"]
 [ext_resource type="AudioStream" uid="uid://7crcfiktt7y4" path="res://Sounds/throw2.wav" id="12_cbgmd"]
@@ -51,11 +49,10 @@
 [ext_resource type="PackedScene" uid="uid://lmvlns352qp4" path="res://Scenes/Effects/feathers.tscn" id="29_kqrg6"]
 [ext_resource type="PackedScene" uid="uid://ba4e8lxoib43" path="res://Scenes/spawn_ring.tscn" id="30_nwwfm"]
 [ext_resource type="PackedScene" uid="uid://ccw01rqfuh3ys" path="res://Scenes/platform.tscn" id="33_o1aky"]
-[ext_resource type="PackedScene" uid="uid://dj4ia0fuy6eo6" path="res://Scenes/Effects/grass_particles.tscn" id="33_v2nl5"]
+[ext_resource type="PackedScene" uid="uid://dj4ia0fuy6eo6" path="res://Scenes/Effects/bush_particles.tscn" id="33_v2nl5"]
 [ext_resource type="Script" uid="uid://de5j4ushffq0u" path="res://Scripts/nudgeable.gd" id="34_5vy51"]
 [ext_resource type="PackedScene" uid="uid://dtix6dfe6hdbn" path="res://Scenes/vines.tscn" id="34_aok0f"]
 [ext_resource type="Texture2D" uid="uid://bokd7gt8l8yvg" path="res://Sprites/winmill-base.png" id="34_nb1ia"]
-[ext_resource type="PackedScene" uid="uid://7825pf5ha5cw" path="res://Scenes/Effects/blood_big.tscn" id="34_xdkp6"]
 [ext_resource type="Texture2D" uid="uid://clammp4mdhrhm" path="res://Sprites/windmill-arms.png" id="35_3ahwd"]
 [ext_resource type="Script" uid="uid://bwtaepjv3mwab" path="res://Scripts/rotator.gd" id="36_b4xsn"]
 [ext_resource type="Texture2D" uid="uid://c0u1xf8vudw5" path="res://Sprites/fence.png" id="37_ot5ec"]
@@ -66,11 +63,14 @@
 [ext_resource type="Script" uid="uid://cjo6s8hrhyh8l" path="res://Scripts/dev_sprite.gd" id="44_aa8k8"]
 [ext_resource type="Texture2D" uid="uid://bjy00gdxmeg1a" path="res://Sprites/cloud1.png" id="47_s8vy0"]
 [ext_resource type="AudioStream" uid="uid://6icsnrsowbyq" path="res://Sounds/bass.wav" id="49_xdkp6"]
+[ext_resource type="PackedScene" uid="uid://dvbvt8kxd6pqp" path="res://Scenes/Effects/blood_small.tscn" id="50_5vy51"]
 [ext_resource type="AudioStream" uid="uid://dq0spo1815aj3" path="res://Sounds/flag.wav" id="50_54nrm"]
 [ext_resource type="PackedScene" uid="uid://bpamcmqpiyf2j" path="res://Scenes/killbox.tscn" id="50_dmskm"]
 [ext_resource type="AudioStream" uid="uid://dk8rm3dvhj87i" path="res://Sounds/flag_boop.wav" id="51_55jeb"]
+[ext_resource type="PackedScene" uid="uid://cbp0i7r7pvfar" path="res://Scenes/Effects/breakable.tscn" id="53_5vy51"]
 [ext_resource type="AudioStream" uid="uid://c4ijxv5e2avwk" path="res://Sounds/reload.wav" id="58_wl4bb"]
 [ext_resource type="Script" uid="uid://bu70ibk77hcta" path="res://Scripts/hut.gd" id="59_lx3vj"]
+[ext_resource type="PackedScene" uid="uid://1wu8l44j3pi2" path="res://Scenes/Effects/breakable_wall.tscn" id="59_o2owy"]
 [ext_resource type="Texture2D" uid="uid://dd11kkfciaw2d" path="res://Sprites/hut-door-mask.png" id="60_my4ki"]
 [ext_resource type="Texture2D" uid="uid://ce0wpyjhyloy7" path="res://Sprites/hut-outside.png" id="60_qax2n"]
 [ext_resource type="Texture2D" uid="uid://b5j61xklopg4o" path="res://Sprites/hut-inside.svg" id="61_e5peh"]
@@ -108,6 +108,7 @@
 [ext_resource type="Script" uid="uid://cffhama7guum2" path="res://Scripts/version_label.gd" id="101_urine"]
 [ext_resource type="Texture2D" uid="uid://dd77b0u1hlkno" path="res://Sprites/spotify.png" id="106_b4mik"]
 [ext_resource type="Script" uid="uid://upwt3di6e84x" path="res://Scripts/blinders.gd" id="108_5vy51"]
+[ext_resource type="PackedScene" uid="uid://b717m4xp3kdqg" path="res://Scenes/Effects/blood.tscn" id="109_o2owy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ihvwq"]
 radius = 82.303375
@@ -580,29 +581,21 @@ scale = Vector2(258.73175, 508.90515)
 position = Vector2(-812.1135, -404)
 scale = Vector2(0.30418557, 0.3041856)
 respawns_after = 1
-speed = 1.0
-vision_range = 700.0
 
 [node name="Enemy5" parent="Level/Starter" instance=ExtResource("9_ynf5e")]
 position = Vector2(-363.15643, -411.00003)
 scale = Vector2(0.30418557, 0.3041856)
 respawns_after = 1
-speed = 1.0
-vision_range = 700.0
 
 [node name="Enemy6" parent="Level/Starter" instance=ExtResource("9_ynf5e")]
 position = Vector2(120.71958, -423.00003)
 scale = Vector2(0.30418557, 0.3041856)
 respawns_after = 1
-speed = 1.0
-vision_range = 700.0
 
 [node name="Enemy7" parent="Level/Starter" instance=ExtResource("9_ynf5e")]
 position = Vector2(604.5956, -431.00003)
 scale = Vector2(0.30418557, 0.3041856)
 respawns_after = 1
-speed = 1.0
-vision_range = 700.0
 
 [node name="Spikes" type="TextureRect" parent="Level/Starter"]
 z_index = 100
@@ -747,7 +740,7 @@ collision_layer = 3
 script = ExtResource("70_sasc4")
 id = "vertical_shortcut"
 flasher = NodePath("../ColorRect")
-break_effects = Array[int]([5])
+break_effects = Array[int]([11])
 break_sounds = Array[int]([2, 13])
 others = [NodePath(".."), NodePath("../../Wall12")]
 particle_points = [NodePath("../Point"), NodePath("../Point2"), NodePath("../Point3")]
@@ -979,8 +972,6 @@ letter = "N"
 position = Vector2(1328.9131, 874)
 scale = Vector2(0.30418554, 0.3041856)
 title = "∞"
-speed = 1.0
-vision_range = 700.0
 stomp_offset = 120
 
 [node name="Door" parent="Level/Room" instance=ExtResource("19_ee4r6")]
@@ -992,8 +983,6 @@ position = Vector2(-55.87036, 1152)
 scale = Vector2(0.53731334, 0.53731334)
 id = "intro"
 respawns_after = 0
-speed = 1.0
-vision_range = 700.0
 stomp_offset = 40
 starts_encounter = NodePath("../Intro Encounter")
 
@@ -1346,7 +1335,7 @@ collision_layer = 3
 script = ExtResource("70_sasc4")
 id = "middle_shortcut"
 flasher = NodePath("../ColorRect")
-break_effects = Array[int]([5])
+break_effects = Array[int]([11])
 break_sounds = Array[int]([2, 13])
 others = [NodePath(".."), NodePath("../../Wall10")]
 particle_points = [NodePath("../Particle Point"), NodePath("../Particle Point2"), NodePath("../Particle Point3"), NodePath("../Particle Point4")]
@@ -1582,8 +1571,6 @@ position = Vector2(-55.870117, 1152)
 scale = Vector2(0.53731334, 0.53731334)
 id = "onglaught"
 respawns_after = 0
-speed = 1.0
-vision_range = 700.0
 stomp_offset = 40
 starts_encounter = NodePath("../Onslaught Encounter")
 
@@ -1977,8 +1964,6 @@ scale = Vector2(1317.8744, 51.000023)
 position = Vector2(-1717, -748)
 rotation = -0.27908745
 scale = Vector2(0.37250674, 0.37250674)
-speed = 1.0
-vision_range = 700.0
 stomp_offset = 100
 
 [node name="Enemy Charger" parent="Level/Climb" instance=ExtResource("39_64lof")]
@@ -2122,7 +2107,7 @@ scale = Vector2(1445.2244, 1606.7552)
 [node name="Player Spawn Point" type="Node2D" parent="Level" node_paths=PackedStringArray("main_text", "sub_text", "home_pos", "moving_blanket", "blanket")]
 visibility_layer = 524289
 z_index = 5
-position = Vector2(-1832.7437, -554)
+position = Vector2(5835.4443, 575)
 scale = Vector2(1.0023229, 1)
 script = ExtResource("39_kwxat")
 player = ExtResource("1_bo1nx")
@@ -2496,7 +2481,7 @@ script = ExtResource("22_jut3y")
 
 [node name="Effects" type="Node" parent="."]
 script = ExtResource("5_kry3j")
-effects = Array[PackedScene]([ExtResource("2_kry3j"), ExtResource("6_21xkr"), ExtResource("10_hptm8"), ExtResource("10_d1ilt"), ExtResource("12_6iyac"), ExtResource("9_k12tt"), ExtResource("28_kqrg6"), ExtResource("29_kqrg6"), ExtResource("30_nwwfm"), ExtResource("33_v2nl5"), ExtResource("34_xdkp6")])
+effects = Array[PackedScene]([ExtResource("2_kry3j"), ExtResource("6_21xkr"), ExtResource("50_5vy51"), ExtResource("10_d1ilt"), ExtResource("12_6iyac"), ExtResource("53_5vy51"), ExtResource("28_kqrg6"), ExtResource("29_kqrg6"), ExtResource("30_nwwfm"), ExtResource("33_v2nl5"), ExtResource("109_o2owy"), ExtResource("59_o2owy")])
 
 [node name="Sounds" type="Node" parent="."]
 script = ExtResource("10_gt3je")

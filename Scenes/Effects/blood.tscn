@@ -1,50 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://oamh1nmk7jrt"]
+[gd_scene load_steps=4 format=3 uid="uid://b717m4xp3kdqg"]
 
-[ext_resource type="Texture2D" uid="uid://go0giiad03jq" path="res://Sprites/circle.png" id="1_8amu8"]
-[ext_resource type="Script" uid="uid://cnqkxei24emlb" path="res://Scripts/free_after.gd" id="2_p1b8m"]
+[ext_resource type="Script" uid="uid://djvkoe3th0d8e" path="res://Scripts/fake_particles.gd" id="1_vtyq0"]
+[ext_resource type="PackedScene" uid="uid://bdhdb2dkm6po3" path="res://Scenes/fake_particle.tscn" id="2_prg0j"]
 
-[sub_resource type="Curve" id="Curve_8amu8"]
-_data = [Vector2(0, 0.2274487), 0.0, 2.3184352, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
+[sub_resource type="Curve" id="Curve_ylsbi"]
+_data = [Vector2(0, 0), 0.0, 4.568529, 0, 0, Vector2(0.65400004, 1), -0.01466513, -0.01466513, 0, 0, Vector2(1, 0.32690358), 0.020751413, 0.0, 0, 0]
+point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_p1b8m"]
-curve = SubResource("Curve_8amu8")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8amu8"]
-particle_flag_disable_z = true
-angle_min = -720.0
-angle_max = 720.0
-direction = Vector3(0, 0, 0)
-spread = 180.0
-initial_velocity_min = -1500.0
-initial_velocity_max = 1500.0
-gravity = Vector3(0, 1000, 0)
-scale_min = 0.01
-scale_max = 0.02
-hue_variation_min = -0.010000022
-hue_variation_max = 0.009999977
-turbulence_enabled = true
-turbulence_noise_scale = 20.0
-turbulence_noise_speed_random = 0.0
-turbulence_influence_max = 0.231
-turbulence_influence_over_life = SubResource("CurveTexture_p1b8m")
-collision_mode = 1
-collision_friction = 0.0
-collision_bounce = 0.0
-
-[node name="Blood" type="GPUParticles2D"]
-modulate = Color(0.9202336, 0.30798864, 0.3580894, 1)
-emitting = false
-amount = 5
-texture = ExtResource("1_8amu8")
-lifetime = 1.5
-one_shot = true
-explosiveness = 1.0
-randomness = 0.18
-collision_base_size = 0.01
-visibility_rect = Rect2(-1000, -1000, 2000, 2000)
-trail_enabled = true
-trail_lifetime = 0.2
-process_material = SubResource("ParticleProcessMaterial_8amu8")
-script = ExtResource("2_p1b8m")
-delay = 2.0
+[node name="Blood" type="Node2D"]
+modulate = Color(0.89142495, 0.12244945, 0.17903769, 1)
+script = ExtResource("1_vtyq0")
+particle = ExtResource("2_prg0j")
+amount = 15
+lifetime = 0.25
+lifetime_variation = 0.3
+velocity_variation = 0.7
+width = 20
+width_curve = SubResource("Curve_ylsbi")
+color_dark_variation = 0.2
+color_light_variation = 0.2
+metadata/_custom_type_script = "uid://djvkoe3th0d8e"

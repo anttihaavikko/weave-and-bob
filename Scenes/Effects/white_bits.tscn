@@ -1,34 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://3j32spfokv3d"]
+[gd_scene load_steps=4 format=3 uid="uid://go8yepyde14f"]
 
-[ext_resource type="Texture2D" uid="uid://go0giiad03jq" path="res://Sprites/circle.png" id="1_32g55"]
-[ext_resource type="Script" uid="uid://cnqkxei24emlb" path="res://Scripts/free_after.gd" id="2_wh7gi"]
+[ext_resource type="Script" uid="uid://djvkoe3th0d8e" path="res://Scripts/fake_particles.gd" id="1_u2gyj"]
+[ext_resource type="PackedScene" uid="uid://bdhdb2dkm6po3" path="res://Scenes/fake_particle.tscn" id="2_t8gnt"]
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jjvhh"]
-particle_flag_disable_z = true
-angle_min = -720.0
-angle_max = 720.0
-direction = Vector3(0, 0, 0)
-spread = 180.0
-initial_velocity_min = -500.0
-initial_velocity_max = 500.0
-gravity = Vector3(0, 900.8, 0)
-scale_min = 0.01
-scale_max = 0.01
-collision_mode = 1
-collision_friction = 0.0
-collision_bounce = 0.0
+[sub_resource type="Curve" id="Curve_ylsbi"]
+_data = [Vector2(0, 0), 0.0, 4.568529, 0, 0, Vector2(0.65400004, 1), -0.01466513, -0.01466513, 0, 0, Vector2(1, 0.32690358), 0.020751413, 0.0, 0, 0]
+point_count = 3
 
-[node name="White Bits" type="GPUParticles2D"]
-emitting = false
-amount = 3
-texture = ExtResource("1_32g55")
-lifetime = 0.5
-one_shot = true
-explosiveness = 1.0
-randomness = 0.18
-collision_base_size = 0.01
-visibility_rect = Rect2(-1000, -1000, 2000, 2000)
-trail_enabled = true
-trail_lifetime = 0.1
-process_material = SubResource("ParticleProcessMaterial_jjvhh")
-script = ExtResource("2_wh7gi")
+[node name="Bits" type="Node2D"]
+script = ExtResource("1_u2gyj")
+particle = ExtResource("2_t8gnt")
+lifetime = 0.05
+velocity = 0.3
+velocity_variation = 0.7
+width = 8
+width_variation = 0.5
+width_curve = SubResource("Curve_ylsbi")
+metadata/_custom_type_script = "uid://djvkoe3th0d8e"

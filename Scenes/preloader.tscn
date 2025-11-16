@@ -1,29 +1,16 @@
-[gd_scene load_steps=12 format=3 uid="uid://bkwhepgpfg8bk"]
+[gd_scene load_steps=8 format=3 uid="uid://bkwhepgpfg8bk"]
 
 [ext_resource type="PackedScene" uid="uid://bespa4vyxw6ny" path="res://Scenes/Effects/black_bits.tscn" id="1_8w0xj"]
-[ext_resource type="PackedScene" uid="uid://oamh1nmk7jrt" path="res://Scenes/Effects/blood.tscn" id="2_rtxyp"]
-[ext_resource type="PackedScene" uid="uid://7825pf5ha5cw" path="res://Scenes/Effects/blood_big.tscn" id="3_wqb73"]
-[ext_resource type="PackedScene" uid="uid://487ovkxtb45u" path="res://Scenes/Effects/destroyed_grass.tscn" id="4_0ps2j"]
 [ext_resource type="PackedScene" uid="uid://lmvlns352qp4" path="res://Scenes/Effects/feathers.tscn" id="5_q0ckb"]
-[ext_resource type="PackedScene" uid="uid://dj4ia0fuy6eo6" path="res://Scenes/Effects/grass_particles.tscn" id="6_oi7tf"]
+[ext_resource type="PackedScene" uid="uid://dj4ia0fuy6eo6" path="res://Scenes/Effects/bush_particles.tscn" id="6_oi7tf"]
 [ext_resource type="PackedScene" uid="uid://dpon26r25h1rq" path="res://Scenes/Effects/pulse.tscn" id="7_mf1w2"]
 [ext_resource type="PackedScene" uid="uid://bhr0ejaysdti2" path="res://Scenes/Effects/pulse_displace.tscn" id="8_g2pid"]
-[ext_resource type="PackedScene" uid="uid://3j32spfokv3d" path="res://Scenes/Effects/white_bits.tscn" id="9_qpke4"]
 [ext_resource type="Script" uid="uid://j0f2hsoximvf" path="res://Scripts/scene_change.gd" id="10_rtxyp"]
 [ext_resource type="PackedScene" uid="uid://mnvjkmc1oomr" path="res://Scenes/main.tscn" id="11_wqb73"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Black Bits" parent="." instance=ExtResource("1_8w0xj")]
-position = Vector2(968, 565)
-
-[node name="Blood" parent="." instance=ExtResource("2_rtxyp")]
-position = Vector2(968, 565)
-
-[node name="Blood2" parent="." instance=ExtResource("3_wqb73")]
-position = Vector2(968, 565)
-
-[node name="Grass Particles" parent="." instance=ExtResource("4_0ps2j")]
 position = Vector2(968, 565)
 
 [node name="Feathers" parent="." instance=ExtResource("5_q0ckb")]
@@ -37,9 +24,6 @@ position = Vector2(968, 565)
 
 [node name="Displace Pulse" parent="." instance=ExtResource("8_g2pid")]
 position = Vector2(830, 516)
-
-[node name="White Bits" parent="." instance=ExtResource("9_qpke4")]
-position = Vector2(968, 565)
 
 [node name="Shot Line" type="Line2D" parent="."]
 position = Vector2(-172, -167)

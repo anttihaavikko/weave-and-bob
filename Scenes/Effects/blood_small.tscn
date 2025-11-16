@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvbvt8kxd6pqp"]
+
+[ext_resource type="PackedScene" uid="uid://b717m4xp3kdqg" path="res://Scenes/Effects/blood.tscn" id="1_msnw1"]
+
+[node name="Blood" instance=ExtResource("1_msnw1")]
+amount = 5
+lifetime = 0.1
+velocity = 0.7
+velocity_variation = 0.5
+width = 5
