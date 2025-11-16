@@ -1960,15 +1960,6 @@ stretch_mode = 1
 position = Vector2(668.79816, 32.50004)
 scale = Vector2(1317.8744, 51.000023)
 
-[node name="Enemy" parent="Level/Climb" instance=ExtResource("9_ynf5e")]
-position = Vector2(-1717, -748)
-rotation = -0.27908745
-scale = Vector2(0.37250674, 0.37250674)
-stomp_offset = 100
-
-[node name="Enemy Charger" parent="Level/Climb" instance=ExtResource("39_64lof")]
-position = Vector2(-223.95862, 430)
-
 [node name="Top" type="Node2D" parent="Level"]
 visibility_layer = 524289
 
@@ -1981,8 +1972,16 @@ position = Vector2(12955.03, -3709.1675)
 scale = Vector2(1966.6328, 3730.787)
 
 [node name="Wall10" parent="Level/Top" instance=ExtResource("4_344ge")]
-position = Vector2(9715.433, -5242.2793)
-scale = Vector2(904.6092, 1599.0674)
+position = Vector2(10850.356, -5273.405)
+scale = Vector2(3174.4563, 1536.8169)
+
+[node name="Wall12" parent="Level/Top" instance=ExtResource("4_344ge")]
+position = Vector2(9388.594, -4779.7593)
+scale = Vector2(161.39485, 1657.5492)
+
+[node name="Wall13" parent="Level/Top" instance=ExtResource("4_344ge")]
+position = Vector2(10059.916, -4781.582)
+scale = Vector2(171.8142, 1665.9034)
 
 [node name="Wall11" parent="Level/Top" instance=ExtResource("4_344ge")]
 position = Vector2(11175.275, -5755.833)
@@ -1991,6 +1990,34 @@ scale = Vector2(4744.159, 1972.8645)
 [node name="Wall8" parent="Level/Top" instance=ExtResource("4_344ge")]
 position = Vector2(11866.167, -3300.0005)
 scale = Vector2(1196.4666, 378.43494)
+
+[node name="Enemy" parent="Level/Top" instance=ExtResource("9_ynf5e")]
+position = Vector2(11060.308, -3478)
+scale = Vector2(0.5785841, 0.5785841)
+title = "JAM"
+respawns_after = 0
+
+[node name="Enemy2" parent="Level/Top" instance=ExtResource("9_ynf5e")]
+position = Vector2(6238.0005, -2478)
+rotation = -0.27908742
+scale = Vector2(0.3725067, 0.3725067)
+stomp_offset = 100
+
+[node name="Enemy Charger" parent="Level/Top" instance=ExtResource("39_64lof")]
+position = Vector2(9716.43, -4392)
+scale = Vector2(0.30418557, 0.3041856)
+
+[node name="Enemy Charger2" parent="Level/Top" instance=ExtResource("39_64lof")]
+position = Vector2(10523.555, -4325)
+scale = Vector2(0.30418557, 0.3041856)
+
+[node name="Enemy Charger3" parent="Level/Top" instance=ExtResource("39_64lof")]
+position = Vector2(11571.121, -4334)
+scale = Vector2(0.30418557, 0.3041856)
+
+[node name="Enemy Charger4" parent="Level/Top" instance=ExtResource("39_64lof")]
+position = Vector2(11048.336, -4266)
+scale = Vector2(0.30418557, 0.3041856)
 
 [node name="Big" type="Node2D" parent="Level"]
 visibility_layer = 524289
@@ -2107,7 +2134,7 @@ scale = Vector2(1445.2244, 1606.7552)
 [node name="Player Spawn Point" type="Node2D" parent="Level" node_paths=PackedStringArray("main_text", "sub_text", "home_pos", "moving_blanket", "blanket")]
 visibility_layer = 524289
 z_index = 5
-position = Vector2(1144.3413, -698)
+position = Vector2(7065.588, -4492)
 scale = Vector2(1.0023229, 1)
 script = ExtResource("39_kwxat")
 player = ExtResource("1_bo1nx")

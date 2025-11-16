@@ -30,6 +30,7 @@ var vertical_dir: float
 var time := 0.0
 var turn_delay := 0.0
 var charging := false
+var is_ready := false
 
 var max_life := life
 
@@ -42,6 +43,8 @@ func _ready() -> void:
 			queue_free()
 		else:
 			GameState.register(id)
+	await get_tree().create_timer(0.5).timeout
+	is_ready = true
 	
 func _physics_process(delta: float) -> void:
 	if Engine.is_editor_hint():
@@ -49,7 +52,7 @@ func _physics_process(delta: float) -> void:
 	if mode == Behaviour.Charge and GameState.player:
 		var pp := GameState.player.live_gun.global_position
 		vision_cast.target_position = vision_cast.to_local(pp)
-		if not charging and global_position.distance_to(pp) < vision_range and not vision_cast.is_colliding():
+		if is_ready and not charging and global_position.distance_to(pp) < vision_range and not vision_cast.is_colliding():
 			charging = true
 			dir = (pp - global_position).normalized()
 		velocity = dir * 30000 * speed * delta
