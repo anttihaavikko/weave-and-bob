@@ -29,6 +29,8 @@ func _ready() -> void:
 	)
 	
 func start(delay: float = 0):
+	if started:
+		return
 	await get_tree().create_timer(delay).timeout
 	normal.seek(0)
 	combat.seek(0)

@@ -266,7 +266,7 @@ pivot_offset = Vector2(680.57263, 140.8576)
 text = "Hope you got your gun.
 There seems to be some
 evil forces lurking about...
-                                --Bob"
+                                  -Bob"
 label_settings = SubResource("LabelSettings_k8rh3")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -2206,6 +2206,7 @@ type = 4
 [node name="Mag Pickup2" parent="Level" instance=ExtResource("16_k12tt")]
 position = Vector2(-5384.4927, -4788)
 scale = Vector2(1.0023229, 1)
+id = "extra_life1"
 type = 5
 
 [node name="Map Pickup" parent="Level" instance=ExtResource("16_k12tt")]
@@ -2876,7 +2877,7 @@ pivot_offset = Vector2(680.57263, 140.8576)
 text = "Good morning Weave!
 I went out to forage
 some mushrooms...
-                 --Bob"
+                    -Bob"
 label_settings = SubResource("LabelSettings_k8rh3")
 horizontal_alignment = 1
 vertical_alignment = 1
