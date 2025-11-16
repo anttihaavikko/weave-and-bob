@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://ney7663ddmo5"]
+[gd_scene load_steps=5 format=3 uid="uid://ney7663ddmo5"]
 
 [ext_resource type="PackedScene" uid="uid://c5leh0u73pd6k" path="res://Scenes/worm_segment.tscn" id="1_hmw58"]
 [ext_resource type="Texture2D" uid="uid://go0giiad03jq" path="res://Sprites/circle.png" id="2_oimpn"]
 [ext_resource type="Texture2D" uid="uid://drd125ptv1eoi" path="res://Sprites/worm_face.png" id="3_r5u0y"]
+[ext_resource type="Script" uid="uid://b6wi31avwrvcy" path="res://Scripts/face.gd" id="4_hqaby"]
 
 [node name="Segment" instance=ExtResource("1_hmw58")]
 
@@ -57,10 +58,13 @@ position = Vector2(9.040405, 2.348423e-05)
 scale = Vector2(0.23293985, 0.23293982)
 texture = ExtResource("2_oimpn")
 
-[node name="Mandibles" type="Sprite2D" parent="AnimatableBody2D" index="7"]
+[node name="Mandibles" type="Sprite2D" parent="AnimatableBody2D" index="7" node_paths=PackedStringArray("left_eye", "right_eye")]
 position = Vector2(0, -173.13087)
 scale = Vector2(1.7912083, 1.7912083)
 texture = ExtResource("3_r5u0y")
+script = ExtResource("4_hqaby")
+left_eye = NodePath("../Eye Left")
+right_eye = NodePath("../Eye Right")
 
 [node name="WormBelly" parent="AnimatableBody2D" index="8"]
 position = Vector2(-2.0249224, 63.785053)

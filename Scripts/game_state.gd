@@ -7,7 +7,7 @@ var has_gun := true
 var breaker_shots := true
 var max_life := 1
 var accuracy := 0
-var has_tracking := false
+var has_tracking := true
 var has_double_jump := true
 
 var spawn_set := false
