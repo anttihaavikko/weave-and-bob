@@ -94,8 +94,8 @@ func _physics_process(delta: float) -> void:
 		cooldown = 0.1
 		just_shot = false
 		var space_state := get_world_2d().direct_space_state
-		var p := barrel.global_position
 		var dir := Vector2.RIGHT.rotated(global_rotation + randf_range(-0.1, 0.1)).normalized() * 2000
+		var p := barrel.global_position - dir.normalized() * 50
 		var result := _get_shot_end(space_state, p, dir, [])
 		camera.shake(3, 0.05)
 		
