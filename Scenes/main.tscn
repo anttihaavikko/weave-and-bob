@@ -2401,6 +2401,14 @@ polygon = PackedVector2Array(-15.962891, -72, 74.82617, -54, 88.793945, 30, 28.9
 [node name="Grass37" parent="Level/Big/Decos" instance=ExtResource("12_wsu2k")]
 position = Vector2(-1206.1982, 643)
 
+[node name="Fence" type="Sprite2D" parent="Level/Big/Decos"]
+position = Vector2(-3299.336, -1648)
+texture = ExtResource("37_ot5ec")
+
+[node name="Fence2" type="Sprite2D" parent="Level/Big/Decos"]
+position = Vector2(-3680.4507, -1648)
+texture = ExtResource("37_ot5ec")
+
 [node name="Wall6" parent="Level/Big" instance=ExtResource("4_344ge")]
 position = Vector2(294.31567, 1568)
 scale = Vector2(4431.071, 1861.4581)
@@ -3539,14 +3547,14 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -1042.5781
+offset_left = -1188.0
 offset_top = -649.0
-offset_right = 1338.6453
+offset_right = 1193.2234
 offset_bottom = -495.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.7811111, 0.7811111)
-pivot_offset = Vector2(514.3163, 74.66875)
+pivot_offset = Vector2(1199.5616, 69.122925)
 text = "Wave 1/2"
 label_settings = ExtResource("85_ihvwq")
 horizontal_alignment = 1
