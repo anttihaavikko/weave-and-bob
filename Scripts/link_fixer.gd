@@ -10,6 +10,8 @@ func _ready() -> void:
 		origins.push_back(PartOrigin.new(l.position, l.rotation))
 		
 func _process(_delta: float) -> void:
+	if GameState.attached:
+		return
 	var mid := Vector2.ZERO
 	for l in links:
 		mid += l.position

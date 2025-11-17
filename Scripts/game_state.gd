@@ -22,7 +22,10 @@ var blinders: Blinders
 var ids: Array[String]
 var unique: Array[String]
 var pools: Dictionary
+var checkpoints: Array[Checkpoint]
 var boss_fight := false
+var attached := false
+var worm: Worm
 
 signal fix_player
 
@@ -72,3 +75,10 @@ func show_texts(main: String, sub: String, delay: float = 0, hide_delay: float =
 		sub_text.disappear()
 		await get_tree().create_timer(0.1).timeout
 		main_text.disappear()
+
+func restart():
+	checkpoints.clear()
+	blinders.close()
+	boss_fight = false
+	await get_tree().create_timer(GameState.blinders.duration + 0.2).timeout
+	get_tree().reload_current_scene()

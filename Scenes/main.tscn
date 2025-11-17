@@ -1,4 +1,4 @@
-[gd_scene load_steps=155 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=137 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/player.tscn" id="1_bo1nx"]
@@ -111,26 +111,10 @@
 [ext_resource type="Script" uid="uid://cffhama7guum2" path="res://Scripts/version_label.gd" id="101_urine"]
 [ext_resource type="Texture2D" uid="uid://dd77b0u1hlkno" path="res://Sprites/spotify.png" id="106_b4mik"]
 [ext_resource type="Script" uid="uid://upwt3di6e84x" path="res://Scripts/blinders.gd" id="108_5vy51"]
-[ext_resource type="Script" uid="uid://sxcx6ryr8r8s" path="res://Scripts/worm.gd" id="109_ceghn"]
 [ext_resource type="PackedScene" uid="uid://b717m4xp3kdqg" path="res://Scenes/Effects/blood.tscn" id="109_o2owy"]
-[ext_resource type="PackedScene" uid="uid://ney7663ddmo5" path="res://Scenes/worm_head.tscn" id="110_ceghn"]
-[ext_resource type="PackedScene" uid="uid://bi44qailjxvyw" path="res://Scenes/worm_blister.tscn" id="110_xg142"]
-[ext_resource type="PackedScene" uid="uid://c5leh0u73pd6k" path="res://Scenes/worm_segment.tscn" id="110_ylsbi"]
-[ext_resource type="PackedScene" uid="uid://n66kgmcljlyc" path="res://Scenes/worm_tail.tscn" id="112_3h4bx"]
-[ext_resource type="AudioStream" uid="uid://cy5tryvrpsluk" path="res://Sounds/worm1.wav" id="113_na2ur"]
-[ext_resource type="AudioStream" uid="uid://6kbw5jt3xcnd" path="res://Sounds/worm2.wav" id="114_rlvdk"]
-[ext_resource type="Shader" uid="uid://dw5u0j1r1we5x" path="res://Shaders/blob.gdshader" id="115_b05pg"]
-[ext_resource type="AudioStream" uid="uid://lieglm7v8mcu" path="res://Sounds/worm11.wav" id="115_t6wb6"]
-[ext_resource type="AudioStream" uid="uid://dx3ersplisxnj" path="res://Sounds/worm12.wav" id="116_fvjqb"]
-[ext_resource type="AudioStream" uid="uid://moh4j3jiuimd" path="res://Sounds/worm13.wav" id="117_b05pg"]
-[ext_resource type="AudioStream" uid="uid://cb6g3t26ligve" path="res://Sounds/worm3.wav" id="118_bdqux"]
-[ext_resource type="AudioStream" uid="uid://b1qx5obcnhuct" path="res://Sounds/worm4.wav" id="119_e1jjv"]
-[ext_resource type="AudioStream" uid="uid://doltuteaqj2u6" path="res://Sounds/worm5.wav" id="120_stool"]
-[ext_resource type="AudioStream" uid="uid://b1wx5ikadenjy" path="res://Sounds/worm6.wav" id="121_ci23i"]
-[ext_resource type="AudioStream" uid="uid://be441geedch5v" path="res://Sounds/worm7.wav" id="122_myryv"]
-[ext_resource type="AudioStream" uid="uid://bevmyfejbj6j" path="res://Sounds/worm8.wav" id="123_bpr0e"]
-[ext_resource type="AudioStream" uid="uid://75rrocxrtc1s" path="res://Sounds/worm9.wav" id="124_14mkc"]
-[ext_resource type="AudioStream" uid="uid://d0n53ivngnpq5" path="res://Sounds/worm10.wav" id="125_l78ku"]
+[ext_resource type="Script" uid="uid://bm7d82m38cnnb" path="res://Scripts/worm_spawner.gd" id="113_xg142"]
+[ext_resource type="PackedScene" uid="uid://biwhx5suil4e0" path="res://Scenes/worm.tscn" id="114_0fjpc"]
+[ext_resource type="PackedScene" uid="uid://0uv2v0ugkper" path="res://Scenes/worm_friend.tscn" id="115_gdwd6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ihvwq"]
 radius = 82.303375
@@ -216,32 +200,6 @@ shader = ExtResource("84_vxl7x")
 shader_parameter/height = 2.0
 shader_parameter/frequency = 5.0
 shader_parameter/speed = 6.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_bdqux"]
-shader = ExtResource("115_b05pg")
-shader_parameter/amount = 24.0
-shader_parameter/rotation_speed = 6.0
-shader_parameter/offset = 0.0
-shader_parameter/speed = 0.1
-shader_parameter/peaks = 6.0
-shader_parameter/time_mod = 1.0
-
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_hfu3o"]
-random_pitch = 1.2
-streams_count = 13
-stream_0/stream = ExtResource("113_na2ur")
-stream_1/stream = ExtResource("114_rlvdk")
-stream_2/stream = ExtResource("118_bdqux")
-stream_3/stream = ExtResource("119_e1jjv")
-stream_4/stream = ExtResource("120_stool")
-stream_5/stream = ExtResource("121_ci23i")
-stream_6/stream = ExtResource("122_myryv")
-stream_7/stream = ExtResource("123_bpr0e")
-stream_8/stream = ExtResource("124_14mkc")
-stream_9/stream = ExtResource("125_l78ku")
-stream_10/stream = ExtResource("115_t6wb6")
-stream_11/stream = ExtResource("116_fvjqb")
-stream_12/stream = ExtResource("117_b05pg")
 
 [node name="Main" type="Node2D"]
 visibility_layer = 524289
@@ -1469,6 +1427,7 @@ position = Vector2(-2178.8022, 1422.4661)
 scale = Vector2(2111.6294, 1112.7468)
 
 [node name="Decorations" type="Node2D" parent="Level/Room2"]
+modulate = Color(0.5686275, 0.32941177, 0.16470589, 1)
 position = Vector2(-799.14404, 1187)
 
 [node name="Grass" parent="Level/Room2/Decorations" instance=ExtResource("12_wsu2k")]
@@ -1865,6 +1824,7 @@ offset_bottom = -1011.0
 rotation = -0.63886255
 
 [node name="Decorations" type="Node2D" parent="Level/Climb"]
+modulate = Color(0.5686275, 0.32941177, 0.16470589, 1)
 position = Vector2(-1150.8057, 688)
 scale = Vector2(1, 0.6611515)
 
@@ -2230,6 +2190,7 @@ rotating_door = NodePath("../Rotating Door")
 visibility_layer = 524289
 position = Vector2(-155.63882, -649)
 collision_layer = 3
+collision_mask = 3
 mass = 20.0
 script = ExtResource("70_sasc4")
 flasher = NodePath("Sprite")
@@ -3436,65 +3397,12 @@ grow_vertical = 2
 pivot_offset = Vector2(960, 0)
 color = Color(0, 0, 0, 1)
 
-[node name="Worm" type="Node2D" parent="." node_paths=PackedStringArray("segments", "line", "inner_line", "sound")]
-position = Vector2(12525.903, 2438)
-script = ExtResource("109_ceghn")
-segments = [NodePath("Head Segment"), NodePath("Segment"), NodePath("Segment2"), NodePath("Segment3"), NodePath("Segment4"), NodePath("Segment5"), NodePath("Segment6"), NodePath("Segment7"), NodePath("Segment8"), NodePath("Segment9"), NodePath("Segment10"), NodePath("Tail Segment")]
-line = NodePath("Outer Line")
-inner_line = NodePath("Inner Line")
-blister = ExtResource("110_xg142")
-sound = NodePath("Head Segment/AudioStreamPlayer2D")
-pickup = ExtResource("16_k12tt")
+[node name="Worm Spawner" type="Node2D" parent="."]
+visibility_layer = 524289
+script = ExtResource("113_xg142")
+worm = ExtResource("114_0fjpc")
+friendly = ExtResource("115_gdwd6")
 
-[node name="Outer Line" type="Line2D" parent="Worm"]
-material = SubResource("ShaderMaterial_bdqux")
-points = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-width = 450.0
-default_color = Color(0, 0, 0, 1)
-begin_cap_mode = 2
-end_cap_mode = 2
-
-[node name="Inner Line" type="Line2D" parent="Worm"]
-material = SubResource("ShaderMaterial_bdqux")
-position = Vector2(-0.99768245, 0)
-points = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-width = 400.0
-default_color = Color(0, 0.47843137, 0.2627451, 1)
-begin_cap_mode = 2
-end_cap_mode = 2
-
-[node name="Head Segment" parent="Worm" instance=ExtResource("110_ceghn")]
-scale = Vector2(0.9876921, 0.9876922)
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Worm/Head Segment"]
-position = Vector2(0, -254.12776)
-stream = SubResource("AudioStreamRandomizer_hfu3o")
-volume_db = 10.0
-max_polyphony = 4
-bus = &"Sounds"
-
-[node name="Segment" parent="Worm" instance=ExtResource("110_ylsbi")]
-
-[node name="Segment2" parent="Worm" instance=ExtResource("110_ylsbi")]
-
-[node name="Segment3" parent="Worm" instance=ExtResource("110_ylsbi")]
-
-[node name="Segment4" parent="Worm" instance=ExtResource("110_ylsbi")]
-
-[node name="Segment5" parent="Worm" instance=ExtResource("110_ylsbi")]
-
-[node name="Segment6" parent="Worm" instance=ExtResource("110_ylsbi")]
-
-[node name="Segment7" parent="Worm" instance=ExtResource("110_ylsbi")]
-
-[node name="Segment8" parent="Worm" instance=ExtResource("110_ylsbi")]
-
-[node name="Segment9" parent="Worm" instance=ExtResource("110_ylsbi")]
-
-[node name="Segment10" parent="Worm" instance=ExtResource("110_ylsbi")]
-
-[node name="Tail Segment" parent="Worm" instance=ExtResource("112_3h4bx")]
-
-[connection signal="broke" from="Level/Big/Egg" to="Worm" method="activate"]
+[connection signal="broke" from="Level/Big/Egg" to="Worm Spawner" method="spawn"]
 [connection signal="timeout" from="Line Drawer/Timer" to="Line Drawer" method="_on_timer_timeout"]
 [connection signal="grab" from="Hut/Gun Grab Area" to="Level/Player Spawn Point" method="add_gun"]

@@ -1,0 +1,109 @@
+[gd_scene load_steps=23 format=3 uid="uid://biwhx5suil4e0"]
+
+[ext_resource type="Script" uid="uid://sxcx6ryr8r8s" path="res://Scripts/worm.gd" id="1_inj1u"]
+[ext_resource type="PackedScene" uid="uid://bi44qailjxvyw" path="res://Scenes/worm_blister.tscn" id="2_t1niu"]
+[ext_resource type="PackedScene" uid="uid://tmp3aao5rcrn" path="res://Scenes/pickup.tscn" id="3_qyf4v"]
+[ext_resource type="Shader" uid="uid://dw5u0j1r1we5x" path="res://Shaders/blob.gdshader" id="4_y6fhb"]
+[ext_resource type="PackedScene" uid="uid://ney7663ddmo5" path="res://Scenes/worm_head.tscn" id="5_6xnms"]
+[ext_resource type="AudioStream" uid="uid://cy5tryvrpsluk" path="res://Sounds/worm1.wav" id="6_e5v8n"]
+[ext_resource type="AudioStream" uid="uid://6kbw5jt3xcnd" path="res://Sounds/worm2.wav" id="7_1frpx"]
+[ext_resource type="AudioStream" uid="uid://lieglm7v8mcu" path="res://Sounds/worm11.wav" id="8_14ptq"]
+[ext_resource type="AudioStream" uid="uid://dx3ersplisxnj" path="res://Sounds/worm12.wav" id="9_i56tf"]
+[ext_resource type="AudioStream" uid="uid://moh4j3jiuimd" path="res://Sounds/worm13.wav" id="10_ectg3"]
+[ext_resource type="AudioStream" uid="uid://cb6g3t26ligve" path="res://Sounds/worm3.wav" id="11_mus4x"]
+[ext_resource type="AudioStream" uid="uid://b1qx5obcnhuct" path="res://Sounds/worm4.wav" id="12_76bsb"]
+[ext_resource type="AudioStream" uid="uid://doltuteaqj2u6" path="res://Sounds/worm5.wav" id="13_rsbe4"]
+[ext_resource type="AudioStream" uid="uid://b1wx5ikadenjy" path="res://Sounds/worm6.wav" id="14_xtj16"]
+[ext_resource type="AudioStream" uid="uid://be441geedch5v" path="res://Sounds/worm7.wav" id="15_g8kg0"]
+[ext_resource type="AudioStream" uid="uid://bevmyfejbj6j" path="res://Sounds/worm8.wav" id="16_pm3ve"]
+[ext_resource type="AudioStream" uid="uid://75rrocxrtc1s" path="res://Sounds/worm9.wav" id="17_l7cfb"]
+[ext_resource type="AudioStream" uid="uid://d0n53ivngnpq5" path="res://Sounds/worm10.wav" id="18_7674h"]
+[ext_resource type="PackedScene" uid="uid://c5leh0u73pd6k" path="res://Scenes/worm_segment.tscn" id="19_p3v2y"]
+[ext_resource type="PackedScene" uid="uid://n66kgmcljlyc" path="res://Scenes/worm_tail.tscn" id="20_r5hnn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bdqux"]
+shader = ExtResource("4_y6fhb")
+shader_parameter/amount = 24.0
+shader_parameter/rotation_speed = 6.0
+shader_parameter/offset = 0.0
+shader_parameter/speed = 0.1
+shader_parameter/peaks = 6.0
+shader_parameter/time_mod = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_hfu3o"]
+random_pitch = 1.2
+streams_count = 13
+stream_0/stream = ExtResource("6_e5v8n")
+stream_1/stream = ExtResource("7_1frpx")
+stream_2/stream = ExtResource("11_mus4x")
+stream_3/stream = ExtResource("12_76bsb")
+stream_4/stream = ExtResource("13_rsbe4")
+stream_5/stream = ExtResource("14_xtj16")
+stream_6/stream = ExtResource("15_g8kg0")
+stream_7/stream = ExtResource("16_pm3ve")
+stream_8/stream = ExtResource("17_l7cfb")
+stream_9/stream = ExtResource("18_7674h")
+stream_10/stream = ExtResource("8_14ptq")
+stream_11/stream = ExtResource("9_i56tf")
+stream_12/stream = ExtResource("10_ectg3")
+
+[node name="Worm" type="Node2D" node_paths=PackedStringArray("segments", "line", "inner_line", "sound")]
+visibility_layer = 524289
+script = ExtResource("1_inj1u")
+segments = [NodePath("Head Segment"), NodePath("Segment"), NodePath("Segment2"), NodePath("Segment3"), NodePath("Segment4"), NodePath("Segment5"), NodePath("Segment6"), NodePath("Segment7"), NodePath("Segment8"), NodePath("Segment9"), NodePath("Segment10"), NodePath("Tail Segment")]
+line = NodePath("Outer Line")
+inner_line = NodePath("Inner Line")
+blister = ExtResource("2_t1niu")
+sound = NodePath("Head Segment/AudioStreamPlayer2D")
+pickup = ExtResource("3_qyf4v")
+
+[node name="Outer Line" type="Line2D" parent="."]
+visibility_layer = 524289
+material = SubResource("ShaderMaterial_bdqux")
+points = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+width = 450.0
+default_color = Color(0, 0, 0, 1)
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Inner Line" type="Line2D" parent="."]
+visibility_layer = 524289
+material = SubResource("ShaderMaterial_bdqux")
+position = Vector2(-0.99768245, 0)
+points = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+width = 400.0
+default_color = Color(0, 0.47843137, 0.2627451, 1)
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Segment" parent="." instance=ExtResource("19_p3v2y")]
+
+[node name="Segment2" parent="." instance=ExtResource("19_p3v2y")]
+
+[node name="Segment3" parent="." instance=ExtResource("19_p3v2y")]
+
+[node name="Segment4" parent="." instance=ExtResource("19_p3v2y")]
+
+[node name="Segment5" parent="." instance=ExtResource("19_p3v2y")]
+
+[node name="Segment6" parent="." instance=ExtResource("19_p3v2y")]
+
+[node name="Segment7" parent="." instance=ExtResource("19_p3v2y")]
+
+[node name="Segment8" parent="." instance=ExtResource("19_p3v2y")]
+
+[node name="Segment9" parent="." instance=ExtResource("19_p3v2y")]
+
+[node name="Segment10" parent="." instance=ExtResource("19_p3v2y")]
+
+[node name="Tail Segment" parent="." instance=ExtResource("20_r5hnn")]
+
+[node name="Head Segment" parent="." instance=ExtResource("5_6xnms")]
+scale = Vector2(0.9876921, 0.9876922)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Head Segment"]
+position = Vector2(0, -254.12776)
+stream = SubResource("AudioStreamRandomizer_hfu3o")
+volume_db = 10.0
+max_polyphony = 4
+bus = &"Sounds"

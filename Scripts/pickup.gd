@@ -35,7 +35,7 @@ func _ready() -> void:
 			queue_free()
 
 func _picked(_body: Node2D):
-	if done:
+	if done or GameState.attached:
 		return
 	done = true
 	if type == Type.Magazine:

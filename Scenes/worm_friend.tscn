@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://0uv2v0ugkper"]
+
+[ext_resource type="PackedScene" uid="uid://biwhx5suil4e0" path="res://Scenes/worm.tscn" id="1_mwtne"]
+[ext_resource type="Texture2D" uid="uid://go0giiad03jq" path="res://Sprites/circle.png" id="2_e3y4f"]
+
+[node name="Worm" instance=ExtResource("1_mwtne")]
+friendly = true
+
+[node name="Blush Right" type="Sprite2D" parent="Head Segment" index="4"]
+modulate = Color(0.91764706, 0.3372549, 0.09411765, 1)
+position = Vector2(71.88476, -128.58258)
+rotation = -2.1015623
+scale = Vector2(0.121339515, 0.07071643)
+texture = ExtResource("2_e3y4f")
+
+[node name="Blush Left" type="Sprite2D" parent="Head Segment" index="5"]
+modulate = Color(0.91764706, 0.3372549, 0.09411765, 1)
+position = Vector2(-71.885, -128.583)
+rotation = 2.1013765
+scale = Vector2(0.121339515, 0.07071643)
+texture = ExtResource("2_e3y4f")

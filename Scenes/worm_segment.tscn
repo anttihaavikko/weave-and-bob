@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://c5leh0u73pd6k"]
+[gd_scene load_steps=9 format=3 uid="uid://c5leh0u73pd6k"]
 
+[ext_resource type="Script" uid="uid://tjk34cdlb5fx" path="res://Scripts/attach_point.gd" id="1_edyf1"]
 [ext_resource type="Texture2D" uid="uid://go0giiad03jq" path="res://Sprites/circle.png" id="1_xd0du"]
 [ext_resource type="Script" uid="uid://dwe1vkc75ubha" path="res://Scripts/killbox.gd" id="2_16n7g"]
 [ext_resource type="Shader" uid="uid://dw5u0j1r1we5x" path="res://Shaders/blob.gdshader" id="2_edyf1"]
@@ -24,7 +25,8 @@ radius = 253.46045
 scale = Vector2(0.9876922, 0.9876922)
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
-collision_layer = 3
+collision_layer = 67
+script = ExtResource("1_edyf1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
 visible = false

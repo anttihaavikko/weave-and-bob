@@ -61,9 +61,7 @@ func die() -> void:
 	if gun_sprite.visible:
 		launch_gun()
 	await get_tree().create_timer(1.5).timeout
-	GameState.blinders.close()
-	await get_tree().create_timer(GameState.blinders.duration + 0.2).timeout
-	get_tree().reload_current_scene()
+	GameState.restart()
 
 func launch_gun():
 	var g := gun.instantiate() as RigidBody2D

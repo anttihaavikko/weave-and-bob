@@ -11,6 +11,9 @@ var grounded := false
 var double_jumped := false
 
 func _process(delta: float) -> void:
+	if GameState.attached:
+		return
+		
 	var x: float = Input.get_axis("left", "right")
 	apply_force(Vector2(x * 200000, 0) * delta)
 	
@@ -40,6 +43,9 @@ func _process(delta: float) -> void:
 		gun.reload(false)
 		
 func _hit_enemy(enemy: Node2D):
+	if GameState.attached:
+		return
+		
 	if stomp_cooldown <= 0:
 		stomp_cooldown = 0.2
 		linear_velocity = Vector2.ZERO

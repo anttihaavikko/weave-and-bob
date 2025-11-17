@@ -3,7 +3,12 @@ extends Area2D
 
 @export var pole: Node2D
 
+func _ready() -> void:
+	GameState.checkpoints.push_back(self)
+
 func _activate(other: Node2D):
+	if GameState.attached:
+		return
 	if other is Gun:
 		var tween := get_tree().create_tween()
 		tween.tween_property(pole, "scale", Vector2.ONE, 0.4).set_trans(Tween.TRANS_BOUNCE)

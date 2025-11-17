@@ -1,0 +1,2 @@
+class_name AttachPoint
+extends PhysicsBody2D

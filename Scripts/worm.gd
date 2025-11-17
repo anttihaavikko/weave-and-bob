@@ -1,5 +1,7 @@
+class_name Worm
 extends Node2D
 
+@export var friendly: bool
 @export var segments: Array[Node2D]
 @export var line: Line2D
 @export var inner_line: Line2D
@@ -15,21 +17,35 @@ var life := 6
 var active := false
 var sound_cooldown := 0.0
 var prev_blister: WormBlister
+var goal: Node2D
+var leaving := false
+
+func _ready() -> void:
+	activate()
+	
+	if friendly:
+		for s in segments:
+			s.get_node("Area2D").queue_free()
 	
 func activate():
-	GameState.boss_fight = true
-	GameState.show_texts("Mother is coming!", "Better start running...", 0.2, 2.5)
-	SoundEffects.singleton.add(12, global_position) # warn.wav
-	Musics.intensify(true, false)
+	if not friendly:
+		GameState.boss_fight = true
+		GameState.show_texts("Mother is coming!", "Better start running...", 0.2, 2.5)
+		respawn_blister()
+		Musics.intensify(true, false)
+	else:
+		GameState.show_texts("Mother is coming!", "Catch a ride...", 0.2, 2.5)
+
+	SoundEffects.singleton.add(12, GameState.player.live_gun.global_position) # warn.wav
 	await get_tree().create_timer(2.5).timeout
-	if GameState.has_tracking:
+	if GameState.has_tracking and not friendly:
 		GameState.camera.target_zoom = 0.7
 	points.resize(len(segments) * segment_length)
 	points.fill(global_position)
 	angles.resize(len(points))
 	angles.fill(0)
 	active = true
-	respawn_blister()
+	GameState.worm = self
 			
 func respawn_blister():
 	life -= 1
@@ -65,6 +81,19 @@ func respawn_blister():
 		prev_blister = b.get_node("Body")
 		if prev_blister is WormBlister:
 			prev_blister.died.connect(respawn_blister)
+			
+func change_goal():
+	if not leaving and len(GameState.checkpoints) > 0:
+		goal = GameState.checkpoints[randi_range(0, len(GameState.checkpoints) - 1)]
+		scream()
+		await get_tree().create_timer(5).timeout
+		change_goal()
+	
+func leave():
+	leaving = true
+	goal = null
+	await get_tree().create_timer(5).timeout
+	queue_free()
 
 func _process(delta: float) -> void:
 	if not active:
@@ -72,8 +101,11 @@ func _process(delta: float) -> void:
 	
 	sound_cooldown -= delta
 
-	if GameState.player:
-		var pp = GameState.player.live_gun.global_position
+	if (not friendly or not goal) and not leaving:
+		goal = GameState.player.live_gun
+
+	if goal:
+		var pp = goal.global_position
 		dir = Vector2.from_angle(rotate_toward(dir.angle(), segments[0].global_position.angle_to_point(pp), delta))
 
 		if (pp - sound.global_position).length() < 700 and sound_cooldown <= 0:
