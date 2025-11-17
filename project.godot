@@ -103,6 +103,7 @@ taxi={
 2d_physics/layer_9="gun"
 2d_physics/layer_10="links"
 2d_physics/layer_13="control node"
+2d_physics/layer_15="plate"
 
 [physics]
 

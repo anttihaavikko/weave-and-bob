@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://ct6y2bvu4gb2k"]
+
+[ext_resource type="PackedScene" uid="uid://biww1pdu4di3l" path="res://Scenes/enemy.tscn" id="1_7hd02"]
+[ext_resource type="Texture2D" uid="uid://bes7085ivvvhm" path="res://Sprites/plate.png" id="2_k8124"]
+
+[node name="Enemy" instance=ExtResource("1_7hd02")]
+
+[node name="Bump Cast" parent="." index="9"]
+collision_mask = 4874
+
+[node name="Node2D" type="RemoteTransform2D" parent="." index="13"]
+position = Vector2(0, 190.67307)
+scale = Vector2(2.3322854, 2.3322854)
+remote_path = NodePath("../Plate")
+
+[node name="Plate" type="Sprite2D" parent="." index="14"]
+modulate = Color(0.6052743, 0.6052743, 0.6052743, 1)
+position = Vector2(0, 190.67307)
+scale = Vector2(2.3322854, 2.3322854)
+texture = ExtResource("2_k8124")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="Plate" index="0"]
+collision_layer = 16384
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Plate/AnimatableBody2D" index="0"]
+polygon = PackedVector2Array(-59.20099, -33.82913, -90.21103, -9.866821, -53.562798, 22.552765, 0, 35.238693, 43.69597, 25.371857, 88.80148, -12.685921, 52.15325, -35.238678, 22.552757, -18.324108, -26.781399, -19.733658)

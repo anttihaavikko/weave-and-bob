@@ -1,4 +1,4 @@
-[gd_scene load_steps=138 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=139 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/player.tscn" id="1_bo1nx"]
@@ -67,6 +67,7 @@
 [ext_resource type="Texture2D" uid="uid://4pfbr155kw4k" path="res://Sprites/ring-thick.svg" id="43_rlvdk"]
 [ext_resource type="Script" uid="uid://cjo6s8hrhyh8l" path="res://Scripts/dev_sprite.gd" id="44_aa8k8"]
 [ext_resource type="Script" uid="uid://bn5frx2t4b5xp" path="res://Scripts/free_if_marked.gd" id="44_t6wb6"]
+[ext_resource type="PackedScene" uid="uid://ct6y2bvu4gb2k" path="res://Scenes/enemy_plated.tscn" id="46_cmq5c"]
 [ext_resource type="Texture2D" uid="uid://bjy00gdxmeg1a" path="res://Sprites/cloud1.png" id="47_s8vy0"]
 [ext_resource type="AudioStream" uid="uid://6icsnrsowbyq" path="res://Sounds/bass.wav" id="49_xdkp6"]
 [ext_resource type="PackedScene" uid="uid://dvbvt8kxd6pqp" path="res://Scenes/Effects/blood_small.tscn" id="50_5vy51"]
@@ -549,8 +550,8 @@ position = Vector2(1284.1836, 736.51605)
 scale = Vector2(611.38666, 2499.6785)
 
 [node name="Wall4" parent="Level/Starter" instance=ExtResource("4_344ge")]
-position = Vector2(-1428.6812, 729.00006)
-scale = Vector2(611.38666, 2499.6785)
+position = Vector2(-1686.4907, 558.97925)
+scale = Vector2(1127.0056, 2159.6367)
 
 [node name="Wall9" parent="Level/Starter" instance=ExtResource("4_344ge")]
 position = Vector2(-4480.934, -1112.7198)
@@ -2545,16 +2546,168 @@ position = Vector2(622.1132, -5322.3267)
 scale = Vector2(4371.0513, 1183.2325)
 
 [node name="Wall11" parent="Level/Edge" instance=ExtResource("4_344ge")]
-position = Vector2(449.25372, 1868)
-scale = Vector2(1429.8386, 412.57956)
+position = Vector2(451.50958, 1868)
+scale = Vector2(1434.3503, 412.57956)
 
 [node name="Wall12" parent="Level/Edge" instance=ExtResource("4_344ge")]
-position = Vector2(1331.4741, 3094.9998)
-scale = Vector2(4042.9028, 412.57956)
+position = Vector2(1411.116, 3094.9998)
+scale = Vector2(4202.1865, 412.57956)
+
+[node name="Wall15" parent="Level/Edge" instance=ExtResource("4_344ge")]
+position = Vector2(662.66864, 2880.022)
+scale = Vector2(1008.27924, 288.15024)
+
+[node name="Wall16" parent="Level/Edge" instance=ExtResource("4_344ge")]
+position = Vector2(3387.3223, 2948.4688)
+scale = Vector2(540.8063, 438.32434)
 
 [node name="Wall10" parent="Level/Edge" instance=ExtResource("4_344ge")]
 position = Vector2(-955.09094, 860.3817)
 scale = Vector2(754.6206, 11368.095)
+
+[node name="Door" parent="Level/Edge" instance=ExtResource("19_ee4r6")]
+position = Vector2(3167.6418, 2555)
+scale = Vector2(101.53343, 393.08835)
+
+[node name="Door2" parent="Level/Edge" instance=ExtResource("19_ee4r6")]
+position = Vector2(1117.4045, 2396.648)
+scale = Vector2(101.53343, 703.7929)
+
+[node name="Spikes" type="TextureRect" parent="Level/Edge"]
+z_index = 100
+offset_left = 1167.2885
+offset_top = 2843.0
+offset_right = 3669.3618
+offset_bottom = 2904.0
+scale = Vector2(0.78266805, 0.78266805)
+texture = ExtResource("65_ynmfv")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Killbox" parent="Level/Edge/Spikes" instance=ExtResource("50_dmskm")]
+position = Vector2(1245.5419, 32.50004)
+scale = Vector2(2471.3618, 51.000023)
+can_kill_enemies = false
+
+[node name="Enemy3" parent="Level/Edge" node_paths=PackedStringArray("starts_encounter") instance=ExtResource("9_ynf5e")]
+position = Vector2(2151.0034, 2588)
+scale = Vector2(0.5444815, 0.5432197)
+id = "edge_boss"
+title = "BOSS"
+respawns_after = 0
+starts_encounter = NodePath("../Encounter")
+
+[node name="Enemy4" parent="Level/Edge" instance=ExtResource("9_ynf5e")]
+position = Vector2(2689.752, 2622)
+scale = Vector2(0.30489218, 0.3041856)
+title = "+PI"
+
+[node name="Enemy5" parent="Level/Edge" instance=ExtResource("9_ynf5e")]
+position = Vector2(1552.3943, 2622)
+scale = Vector2(0.30489218, 0.3041856)
+title = "-PI"
+
+[node name="Encounter" type="Node2D" parent="Level/Edge" node_paths=PackedStringArray("doors")]
+position = Vector2(2141.0264, 2167)
+script = ExtResource("19_fevyy")
+doors = [NodePath("../Door"), NodePath("../Door2")]
+reward = ExtResource("16_k12tt")
+reward_type = 3
+metadata/_custom_type_script = "uid://b6b2bur0hl2iu"
+
+[node name="Wave" type="Node2D" parent="Level/Edge/Encounter"]
+script = ExtResource("21_ee4r6")
+metadata/_custom_type_script = "uid://h30wfqlv3joy"
+
+[node name="Spawn" type="Node2D" parent="Level/Edge/Encounter/Wave"]
+position = Vector2(811.1161, 160)
+script = ExtResource("22_gt3je")
+title = "SIN(0)"
+mode = 1
+dir = Vector2(-1, 0.5)
+vertical_dir = -1.0
+_enemy = ExtResource("46_cmq5c")
+metadata/_custom_type_script = "uid://c8ej1vfg86d5v"
+
+[node name="Spawn2" type="Node2D" parent="Level/Edge/Encounter/Wave"]
+position = Vector2(-814.10864, 160)
+script = ExtResource("22_gt3je")
+title = "COS(0)"
+mode = 1
+dir = Vector2(1, 0.5)
+vertical_dir = 1.0
+_enemy = ExtResource("46_cmq5c")
+metadata/_custom_type_script = "uid://c8ej1vfg86d5v"
+
+[node name="Wave2" type="Node2D" parent="Level/Edge/Encounter"]
+position = Vector2(0.00024357482, -139)
+script = ExtResource("21_ee4r6")
+metadata/_custom_type_script = "uid://h30wfqlv3joy"
+
+[node name="Spawn" type="Node2D" parent="Level/Edge/Encounter/Wave2"]
+position = Vector2(811.1161, 160)
+script = ExtResource("22_gt3je")
+title = "SIN(0)"
+mode = 1
+dir = Vector2(-1, 0)
+vertical_dir = -1.0
+_enemy = ExtResource("46_cmq5c")
+metadata/_custom_type_script = "uid://c8ej1vfg86d5v"
+
+[node name="Spawn2" type="Node2D" parent="Level/Edge/Encounter/Wave2"]
+position = Vector2(-814.10864, 160)
+script = ExtResource("22_gt3je")
+title = "COS(0)"
+mode = 1
+dir = Vector2(1, 0)
+vertical_dir = 1.0
+_enemy = ExtResource("46_cmq5c")
+metadata/_custom_type_script = "uid://c8ej1vfg86d5v"
+
+[node name="Wave3" type="Node2D" parent="Level/Edge/Encounter"]
+position = Vector2(0.00024414063, 180)
+script = ExtResource("21_ee4r6")
+metadata/_custom_type_script = "uid://h30wfqlv3joy"
+
+[node name="Spawn" type="Node2D" parent="Level/Edge/Encounter/Wave3"]
+position = Vector2(811.1161, 160)
+script = ExtResource("22_gt3je")
+title = "SIN(90)"
+mode = 1
+dir = Vector2(-1, -0.5)
+vertical_dir = -1.0
+_enemy = ExtResource("46_cmq5c")
+metadata/_custom_type_script = "uid://c8ej1vfg86d5v"
+
+[node name="Spawn3" type="Node2D" parent="Level/Edge/Encounter/Wave3"]
+position = Vector2(332.22827, 238)
+script = ExtResource("22_gt3je")
+title = "SIN(-90)"
+mode = 1
+dir = Vector2(-1, 0)
+vertical_dir = -1.0
+_enemy = ExtResource("46_cmq5c")
+metadata/_custom_type_script = "uid://c8ej1vfg86d5v"
+
+[node name="Spawn2" type="Node2D" parent="Level/Edge/Encounter/Wave3"]
+position = Vector2(-814.10864, 160)
+script = ExtResource("22_gt3je")
+title = "COS(90)"
+mode = 1
+dir = Vector2(1, -0.5)
+vertical_dir = 1.0
+_enemy = ExtResource("46_cmq5c")
+metadata/_custom_type_script = "uid://c8ej1vfg86d5v"
+
+[node name="Spawn4" type="Node2D" parent="Level/Edge/Encounter/Wave3"]
+position = Vector2(-363.1564, 236)
+script = ExtResource("22_gt3je")
+title = "COS(-90)"
+mode = 1
+dir = Vector2(1, 0)
+vertical_dir = 1.0
+_enemy = ExtResource("46_cmq5c")
+metadata/_custom_type_script = "uid://c8ej1vfg86d5v"
 
 [node name="Lower" type="Node2D" parent="Level"]
 visibility_layer = 524289
@@ -2599,7 +2752,7 @@ scale = Vector2(1445.2244, 1606.7552)
 [node name="Player Spawn Point" type="Node2D" parent="Level" node_paths=PackedStringArray("main_text", "sub_text", "home_pos", "moving_blanket", "blanket")]
 visibility_layer = 524289
 z_index = 5
-position = Vector2(11827.525, -137)
+position = Vector2(-4450.663, 1733)
 scale = Vector2(1.0023229, 1)
 script = ExtResource("39_kwxat")
 player = ExtResource("1_bo1nx")
