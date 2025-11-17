@@ -54,7 +54,7 @@ func respawn_blister():
 		if not GameState.has("worm"):
 			var pick := pickup.instantiate()
 			if pick is Pickup:
-				pick.type = Pickup.Type.Life
+				pick.type = Pickup.Type.WormTaxi
 				pick.id = "worm"
 				pick.global_position = prev_blister.global_position
 				get_parent().add_child(pick)

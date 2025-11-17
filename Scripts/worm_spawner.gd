@@ -15,5 +15,10 @@ func spawn_with(prefab: PackedScene):
 	add_child(w)
 	
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("taxi") and not GameState.worm:
+	if Input.is_action_just_pressed("taxi"):
+		spawn_friend()
+		
+func spawn_friend():
+	if not GameState.worm and GameState.has_taxi:
+		GameState.help_text.disappear()
 		spawn(true)

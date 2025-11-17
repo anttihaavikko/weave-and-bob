@@ -9,6 +9,7 @@ var max_life := 1
 var accuracy := 0
 var has_tracking := true
 var has_double_jump := true
+var has_taxi := false
 
 var spawn_set := false
 var spawn_point: Vector2
@@ -40,6 +41,7 @@ func _ready() -> void:
 		accuracy = 0
 		has_tracking = false
 		has_double_jump = false
+		has_taxi = false
 
 func mark(id: String):
 	if len(id) > 1:
@@ -82,3 +84,7 @@ func restart():
 	boss_fight = false
 	await get_tree().create_timer(GameState.blinders.duration + 0.2).timeout
 	get_tree().reload_current_scene()
+
+func show_help(text: String, delay: float):
+	await get_tree().create_timer(delay).timeout
+	help_text.show_with_text(text)

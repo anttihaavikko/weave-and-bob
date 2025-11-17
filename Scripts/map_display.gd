@@ -7,6 +7,7 @@ extends Control
 @export var root: Control
 @export var viewport: SubViewport
 @export var help: Appearer
+@export var taxi_button: Button
 
 var state := false
 
@@ -19,6 +20,7 @@ func _process(_delta: float) -> void:
 		viewport.world_2d = GameState.camera.get_world_2d()
 
 func toggle():
+	taxi_button.visible = GameState.has_taxi
 	viewport.canvas_cull_mask = int(pow(2, 19))
 	if GameState.map_upgrades > 1:
 		viewport.canvas_cull_mask += int(pow(2, 18))

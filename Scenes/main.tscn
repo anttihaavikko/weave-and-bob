@@ -1,4 +1,4 @@
-[gd_scene load_steps=137 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=138 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/player.tscn" id="1_bo1nx"]
@@ -111,6 +111,7 @@
 [ext_resource type="Script" uid="uid://cffhama7guum2" path="res://Scripts/version_label.gd" id="101_urine"]
 [ext_resource type="Texture2D" uid="uid://dd77b0u1hlkno" path="res://Sprites/spotify.png" id="106_b4mik"]
 [ext_resource type="Script" uid="uid://upwt3di6e84x" path="res://Scripts/blinders.gd" id="108_5vy51"]
+[ext_resource type="Texture2D" uid="uid://douu5e6kewbug" path="res://Sprites/worm_icon.png" id="109_gdwd6"]
 [ext_resource type="PackedScene" uid="uid://b717m4xp3kdqg" path="res://Scenes/Effects/blood.tscn" id="109_o2owy"]
 [ext_resource type="Script" uid="uid://bm7d82m38cnnb" path="res://Scripts/worm_spawner.gd" id="113_xg142"]
 [ext_resource type="PackedScene" uid="uid://biwhx5suil4e0" path="res://Scenes/worm.tscn" id="114_0fjpc"]
@@ -777,7 +778,6 @@ position = Vector2(-75.64816, 57.60565)
 position = Vector2(-4.9768753, 201.19891)
 
 [node name="Wall2" parent="Level/Room" instance=ExtResource("4_344ge")]
-z_index = 10
 position = Vector2(226.62404, 1732.1985)
 scale = Vector2(3006.968, 1101.107)
 
@@ -1383,7 +1383,6 @@ position = Vector2(-56.863323, -0.14070901)
 position = Vector2(46.495464, -0.14066057)
 
 [node name="Wall2" parent="Level/Room2" instance=ExtResource("4_344ge")]
-z_index = 10
 position = Vector2(226.624, 1443.2216)
 scale = Vector2(3006.968, 523.15326)
 
@@ -2310,7 +2309,7 @@ scale = Vector2(1445.2244, 1606.7552)
 [node name="Player Spawn Point" type="Node2D" parent="Level" node_paths=PackedStringArray("main_text", "sub_text", "home_pos", "moving_blanket", "blanket")]
 visibility_layer = 524289
 z_index = 5
-position = Vector2(11933.28, -342)
+position = Vector2(1452.6256, -760)
 scale = Vector2(1.0023229, 1)
 script = ExtResource("39_kwxat")
 player = ExtResource("1_bo1nx")
@@ -2330,7 +2329,7 @@ texture = ExtResource("41_8cuat")
 [node name="Mag Pickup" parent="Level" instance=ExtResource("16_k12tt")]
 position = Vector2(2144.0198, -1354)
 scale = Vector2(1.0023229, 1)
-type = 8
+type = 9
 
 [node name="Mag Pickup2" parent="Level" instance=ExtResource("16_k12tt")]
 position = Vector2(-5384.4927, -4788)
@@ -3074,7 +3073,7 @@ move_direction = Vector2(0, 15)
 move_speed = 3.0
 single_direction = true
 
-[node name="Map" type="Control" parent="UI/Map Wrap" node_paths=PackedStringArray("left", "right", "paper", "root", "viewport", "help")]
+[node name="Map" type="Control" parent="UI/Map Wrap" node_paths=PackedStringArray("left", "right", "paper", "root", "viewport", "help", "taxi_button")]
 layout_mode = 3
 anchors_preset = 0
 offset_left = -548.72534
@@ -3089,6 +3088,7 @@ paper = NodePath("ColorRect")
 root = NodePath(".")
 viewport = NodePath("ColorRect/Fill/SubViewportContainer/SubViewport")
 help = NodePath("../../Help Text")
+taxi_button = NodePath("ColorRect/Taxi Button")
 
 [node name="ColorRect" type="ColorRect" parent="UI/Map Wrap/Map"]
 layout_mode = 0
@@ -3123,6 +3123,23 @@ render_target_update_mode = 4
 [node name="Camera2D" type="Camera2D" parent="UI/Map Wrap/Map/ColorRect/Fill/SubViewportContainer/SubViewport"]
 position = Vector2(4225.185, -293)
 zoom = Vector2(0.04, 0.04)
+
+[node name="Taxi Button" type="Button" parent="UI/Map Wrap/Map/ColorRect"]
+visible = false
+modulate = Color(0, 0, 0, 0.7137255)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -103.34766
+offset_top = 32.0
+offset_right = 4.6523438
+offset_bottom = 114.0
+grow_horizontal = 0
+scale = Vector2(0.69715106, 0.69715106)
+focus_mode = 0
+icon = ExtResource("109_gdwd6")
+flat = true
 
 [node name="Left" type="TextureRect" parent="UI/Map Wrap/Map"]
 modulate = Color(0.9372549, 0.8784314, 0.70980394, 1)
@@ -3373,6 +3390,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("108_5vy51")
 left = NodePath("Left")
 right = NodePath("Right")
@@ -3383,6 +3401,7 @@ anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 960.0
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Right" type="ColorRect" parent="UI/Blinders"]
@@ -3395,6 +3414,7 @@ offset_left = -960.0
 grow_horizontal = 0
 grow_vertical = 2
 pivot_offset = Vector2(960, 0)
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Worm Spawner" type="Node2D" parent="."]
@@ -3406,3 +3426,4 @@ friendly = ExtResource("115_gdwd6")
 [connection signal="broke" from="Level/Big/Egg" to="Worm Spawner" method="spawn"]
 [connection signal="timeout" from="Line Drawer/Timer" to="Line Drawer" method="_on_timer_timeout"]
 [connection signal="grab" from="Hut/Gun Grab Area" to="Level/Player Spawn Point" method="add_gun"]
+[connection signal="pressed" from="UI/Map Wrap/Map/ColorRect/Taxi Button" to="Worm Spawner" method="spawn_friend"]
