@@ -249,6 +249,10 @@ scale = Vector2(1.0023229, 1)
 position = Vector2(7038.6494, 3838)
 scale = Vector2(1.0023229, 1)
 
+[node name="Checkpoint8" parent="Level" instance=ExtResource("41_kwxat")]
+position = Vector2(-3316.2964, 5148)
+scale = Vector2(1.0023229, 1)
+
 [node name="Note" type="Sprite2D" parent="Level"]
 modulate = Color(0.9372549, 0.8784314, 0.70980394, 1)
 z_index = 13

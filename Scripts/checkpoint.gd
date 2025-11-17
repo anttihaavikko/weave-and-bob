@@ -2,8 +2,10 @@ class_name Checkpoint
 extends Area2D
 
 @export var pole: Node2D
+@export var marker: Node
 
 func _ready() -> void:
+	marker.show()
 	GameState.checkpoints.push_back(self)
 
 func _activate(other: Node2D):

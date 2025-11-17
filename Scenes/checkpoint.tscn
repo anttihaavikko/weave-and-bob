@@ -88,12 +88,13 @@ shader_parameter/frequency = 0.2
 shader_parameter/speed = 6.0
 shader_parameter/flip = false
 
-[node name="Checkpoint" type="Area2D" node_paths=PackedStringArray("pole")]
+[node name="Checkpoint" type="Area2D" node_paths=PackedStringArray("pole", "marker")]
 visibility_layer = 524289
 z_index = 6
 collision_layer = 0
 script = ExtResource("1_i1pff")
 pole = NodePath("Pole")
+marker = NodePath("Marker")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_jwpg7")
@@ -167,6 +168,7 @@ script = ExtResource("6_w8ggu")
 speed = -200.0
 
 [node name="Marker" type="Sprite2D" parent="."]
+visible = false
 visibility_layer = 524288
 z_index = 777
 material = SubResource("ShaderMaterial_naa5w")
