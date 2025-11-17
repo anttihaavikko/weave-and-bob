@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://d37cu7ne2sexo"]
+
+[ext_resource type="Texture2D" uid="uid://bokd7gt8l8yvg" path="res://Sprites/winmill-base.png" id="1_bp374"]
+[ext_resource type="Texture2D" uid="uid://clammp4mdhrhm" path="res://Sprites/windmill-arms.png" id="2_d7weh"]
+[ext_resource type="Script" uid="uid://bwtaepjv3mwab" path="res://Scripts/rotator.gd" id="3_v6wqj"]
+
+[node name="Winmill" type="Sprite2D"]
+scale = Vector2(2.348368, 2.348368)
+texture = ExtResource("1_bp374")
+
+[node name="Arms" type="Sprite2D" parent="."]
+position = Vector2(7.176399e-05, -56.20923)
+scale = Vector2(0.822257, 0.822257)
+texture = ExtResource("2_d7weh")
+script = ExtResource("3_v6wqj")
+speed = 50.0
