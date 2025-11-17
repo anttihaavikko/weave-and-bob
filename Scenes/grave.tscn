@@ -1,0 +1,65 @@
+[gd_scene load_steps=8 format=3 uid="uid://ci4hq8hbkpmm6"]
+
+[ext_resource type="Script" uid="uid://de5j4ushffq0u" path="res://Scripts/nudgeable.gd" id="1_rl222"]
+[ext_resource type="Script" uid="uid://5c5aa7t0gfjh" path="res://Scripts/destroyable.gd" id="2_kw3q2"]
+[ext_resource type="Script" uid="uid://djtpca2xxdput" path="res://Scripts/randomizer.gd" id="3_epgq3"]
+[ext_resource type="Texture2D" uid="uid://dvwdkrji75phw" path="res://Sprites/grass_cut.png" id="4_3xtca"]
+[ext_resource type="Texture2D" uid="uid://bhm4007jkyvdw" path="res://Sprites/grave1.png" id="6_rl222"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b3802"]
+size = Vector2(51.29888, 119)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k12tt"]
+size = Vector2(57, 122)
+
+[node name="Grave" type="Node2D"]
+script = ExtResource("1_rl222")
+amount = 3
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." node_paths=PackedStringArray("stub", "full", "particle_points")]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("2_kw3q2")
+stub = NodePath("../Wrap/Stub")
+full = NodePath("../Wrap/Sprite2D")
+particle_points = [NodePath("Particle Point"), NodePath("Particle Point2")]
+effect_ids = Array[int]([5])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
+position = Vector2(8.350559, -58.5)
+shape = SubResource("RectangleShape2D_b3802")
+
+[node name="Particle Point" type="Node2D" parent="StaticBody2D"]
+position = Vector2(7, -93)
+
+[node name="Particle Point2" type="Node2D" parent="StaticBody2D"]
+position = Vector2(7, -49)
+
+[node name="Wrap" type="Node2D" parent="."]
+script = ExtResource("3_epgq3")
+randomize_scale = true
+min_scale = 0.8
+max_scale = 1.3
+
+[node name="Stub" type="Sprite2D" parent="Wrap"]
+position = Vector2(8, -3)
+scale = Vector2(0.682804, 0.682804)
+texture = ExtResource("4_3xtca")
+
+[node name="Sprite2D" type="Sprite2D" parent="Wrap"]
+position = Vector2(7, -11)
+texture = ExtResource("6_rl222")
+offset = Vector2(0, -50)
+
+[node name="Area2D" type="Area2D" parent="Wrap/Sprite2D"]
+visible = false
+collision_layer = 0
+collision_mask = 13
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wrap/Sprite2D/Area2D"]
+position = Vector2(-0.50000095, -47)
+shape = SubResource("RectangleShape2D_k12tt")
+
+[connection signal="body_entered" from="Wrap/Sprite2D/Area2D" to="." method="_body_entered"]

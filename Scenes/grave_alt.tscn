@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnnbi0dgye4i7"]
+
+[ext_resource type="PackedScene" uid="uid://ci4hq8hbkpmm6" path="res://Scenes/grave.tscn" id="1_xcn8n"]
+[ext_resource type="Texture2D" uid="uid://dvhy3tx7iko8b" path="res://Sprites/grave2.png" id="2_2milc"]
+
+[node name="Grave Alt" instance=ExtResource("1_xcn8n")]
+
+[node name="Sprite2D" parent="Wrap" index="1"]
+texture = ExtResource("2_2milc")

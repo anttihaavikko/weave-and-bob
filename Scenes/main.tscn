@@ -1,4 +1,4 @@
-[gd_scene load_steps=138 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=140 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/player.tscn" id="1_bo1nx"]
@@ -61,8 +61,10 @@
 [ext_resource type="PackedScene" uid="uid://d15bns0qk1sjg" path="res://Scenes/rotating_door.tscn" id="40_ceghn"]
 [ext_resource type="Texture2D" uid="uid://cludpgi85lhv5" path="res://Sprites/egg_back.png" id="40_fvjqb"]
 [ext_resource type="Texture2D" uid="uid://cqk6j01w8oul" path="res://Sprites/ring.png" id="41_8cuat"]
+[ext_resource type="PackedScene" uid="uid://ci4hq8hbkpmm6" path="res://Scenes/grave.tscn" id="41_cmq5c"]
 [ext_resource type="PackedScene" uid="uid://c4dqyepeaha7h" path="res://Scenes/checkpoint.tscn" id="41_kwxat"]
 [ext_resource type="PackedScene" uid="uid://74o4w71qcsuo" path="res://Scenes/switch.tscn" id="41_ylsbi"]
+[ext_resource type="PackedScene" uid="uid://cnnbi0dgye4i7" path="res://Scenes/grave_alt.tscn" id="42_7t1gx"]
 [ext_resource type="Texture2D" uid="uid://bu6dbpfohefw3" path="res://Sprites/egg.png" id="42_rlvxq"]
 [ext_resource type="Texture2D" uid="uid://4pfbr155kw4k" path="res://Sprites/ring-thick.svg" id="43_rlvdk"]
 [ext_resource type="Script" uid="uid://cjo6s8hrhyh8l" path="res://Scripts/dev_sprite.gd" id="44_aa8k8"]
@@ -2122,6 +2124,108 @@ rotation = 3.1415925
 [node name="Vines9" parent="Level/Big/Decos" instance=ExtResource("34_aok0f")]
 position = Vector2(-798.14575, -308)
 rotation = 3.1415925
+
+[node name="Grave" parent="Level/Big/Decos" instance=ExtResource("41_cmq5c")]
+position = Vector2(388.09845, -522)
+rotation = 0.06729908
+scale = Vector2(1.2465291, 1.2465291)
+
+[node name="Grave2" parent="Level/Big/Decos" instance=ExtResource("41_cmq5c")]
+position = Vector2(281.34644, -507.99994)
+rotation = -0.14704786
+scale = Vector2(1.2465291, 1.2465291)
+
+[node name="Grave Alt" parent="Level/Big/Decos" instance=ExtResource("42_7t1gx")]
+position = Vector2(173.59651, -490)
+rotation = -0.13676608
+scale = Vector2(1.2511221, 1.2511221)
+
+[node name="Grave3" parent="Level/Big/Decos" instance=ExtResource("41_cmq5c")]
+position = Vector2(-1550.3984, -1758)
+rotation = -0.14704786
+scale = Vector2(1.2465291, 1.2465291)
+
+[node name="Grave Alt2" parent="Level/Big/Decos" instance=ExtResource("42_7t1gx")]
+position = Vector2(-1658.1484, -1740)
+rotation = -0.13676608
+scale = Vector2(1.2511221, 1.2511221)
+
+[node name="Grave4" parent="Level/Big/Decos" instance=ExtResource("41_cmq5c")]
+position = Vector2(535.7554, -1457)
+rotation = 0.018409774
+scale = Vector2(1.2465291, 1.2465291)
+
+[node name="Grave5" parent="Level/Big/Decos" instance=ExtResource("41_cmq5c")]
+position = Vector2(352.1818, -1459.9999)
+rotation = -0.1361622
+scale = Vector2(1.2465291, 1.2465291)
+
+[node name="Grave Alt3" parent="Level/Big/Decos" instance=ExtResource("42_7t1gx")]
+position = Vector2(594.6186, -1400.0001)
+rotation = 0.14901978
+scale = Vector2(1.2511221, 1.2511221)
+
+[node name="Grave Alt4" parent="Level/Big/Decos" instance=ExtResource("42_7t1gx")]
+position = Vector2(470.90598, -1441.0001)
+rotation = -0.2999186
+scale = Vector2(1.2511221, 1.2511221)
+
+[node name="Grass" parent="Level/Big/Decos" instance=ExtResource("12_wsu2k")]
+position = Vector2(440.9756, -519)
+
+[node name="Grass2" parent="Level/Big/Decos" instance=ExtResource("12_wsu2k")]
+position = Vector2(363.15634, -515)
+
+[node name="Grass3" parent="Level/Big/Decos" instance=ExtResource("12_wsu2k")]
+position = Vector2(295.31393, -522)
+
+[node name="Grass4" parent="Level/Big/Decos" instance=ExtResource("12_wsu2k")]
+position = Vector2(232.45993, -511)
+
+[node name="Grass5" parent="Level/Big/Decos" instance=ExtResource("12_wsu2k")]
+position = Vector2(159.62912, -519)
+
+[node name="Grass6" parent="Level/Big/Decos" instance=ExtResource("12_wsu2k")]
+position = Vector2(50.88173, -515)
+
+[node name="Grass7" parent="Level/Big/Decos" instance=ExtResource("12_wsu2k")]
+position = Vector2(-23.944452, -505)
+
+[node name="Grass8" parent="Level/Big/Decos" instance=ExtResource("12_wsu2k")]
+position = Vector2(-79.81467, -509)
+
+[node name="Grass9" parent="Level/Big/Decos" instance=ExtResource("12_wsu2k")]
+position = Vector2(-258.39984, -510)
+
+[node name="Grass10" parent="Level/Big/Decos" instance=ExtResource("12_wsu2k")]
+position = Vector2(-323.2492, -496)
+
+[node name="Grass11" parent="Level/Big/Decos" instance=ExtResource("12_wsu2k")]
+position = Vector2(297.3086, -1456)
+
+[node name="Grass12" parent="Level/Big/Decos" instance=ExtResource("12_wsu2k")]
+position = Vector2(402.06622, -1453)
+
+[node name="Grass13" parent="Level/Big/Decos" instance=ExtResource("12_wsu2k")]
+position = Vector2(497.84375, -1452)
+
+[node name="Grass14" parent="Level/Big/Decos" instance=ExtResource("12_wsu2k")]
+position = Vector2(644.50305, -1460)
+
+[node name="Grass15" parent="Level/Big/Decos" instance=ExtResource("12_wsu2k")]
+position = Vector2(-1642.1852, -1762)
+
+[node name="Grass16" parent="Level/Big/Decos" instance=ExtResource("12_wsu2k")]
+position = Vector2(-1590.3057, -1752)
+
+[node name="Grass17" parent="Level/Big/Decos" instance=ExtResource("12_wsu2k")]
+position = Vector2(-1498.5189, -1755)
+
+[node name="Grass18" parent="Level/Big/Decos" instance=ExtResource("12_wsu2k")]
+position = Vector2(-1428.6812, -1761)
+
+[node name="Grass19" parent="Level/Big/Decos" instance=ExtResource("12_wsu2k")]
+position = Vector2(-1368.8202, -1748)
 
 [node name="Wall6" parent="Level/Big" instance=ExtResource("4_344ge")]
 position = Vector2(294.31567, 1568)
