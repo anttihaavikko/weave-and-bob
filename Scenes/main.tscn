@@ -241,6 +241,14 @@ scale = Vector2(1.0023229, 1)
 position = Vector2(3693, 1373)
 scale = Vector2(1.0023229, 1)
 
+[node name="Checkpoint6" parent="Level" instance=ExtResource("41_kwxat")]
+position = Vector2(-5091.1733, 1888)
+scale = Vector2(1.0023229, 1)
+
+[node name="Checkpoint7" parent="Level" instance=ExtResource("41_kwxat")]
+position = Vector2(7038.6494, 3838)
+scale = Vector2(1.0023229, 1)
+
 [node name="Note" type="Sprite2D" parent="Level"]
 modulate = Color(0.9372549, 0.8784314, 0.70980394, 1)
 z_index = 13
@@ -550,8 +558,12 @@ position = Vector2(1284.1836, 736.51605)
 scale = Vector2(611.38666, 2499.6785)
 
 [node name="Wall4" parent="Level/Starter" instance=ExtResource("4_344ge")]
-position = Vector2(-1686.4907, 558.97925)
-scale = Vector2(1127.0056, 2159.6367)
+position = Vector2(-1411.9402, 558.9792)
+scale = Vector2(577.90454, 2159.6367)
+
+[node name="Wall5" parent="Level/Starter" instance=ExtResource("4_344ge")]
+position = Vector2(-1686.4906, 967.67505)
+scale = Vector2(1127.0056, 1342.2451)
 
 [node name="Wall9" parent="Level/Starter" instance=ExtResource("4_344ge")]
 position = Vector2(-4480.934, -1112.7198)
@@ -2742,7 +2754,7 @@ position = Vector2(-1968.5135, 3356.8303)
 scale = Vector2(10642.878, 936.2398)
 
 [node name="Wall10" parent="Level/Lower" instance=ExtResource("4_344ge")]
-position = Vector2(-955.0908, 2092.8657)
+position = Vector2(-940.8144, 2093.0005)
 scale = Vector2(754.6206, 2767.645)
 
 [node name="Wall15" parent="Level/Lower" instance=ExtResource("4_344ge")]
@@ -2752,7 +2764,7 @@ scale = Vector2(1445.2244, 1606.7552)
 [node name="Player Spawn Point" type="Node2D" parent="Level" node_paths=PackedStringArray("main_text", "sub_text", "home_pos", "moving_blanket", "blanket")]
 visibility_layer = 524289
 z_index = 5
-position = Vector2(-4450.663, 1733)
+position = Vector2(-2202.8828, -1038)
 scale = Vector2(1.0023229, 1)
 script = ExtResource("39_kwxat")
 player = ExtResource("1_bo1nx")

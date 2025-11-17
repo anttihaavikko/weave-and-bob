@@ -36,8 +36,8 @@
 [ext_resource type="Texture2D" uid="uid://cah2h840espky" path="res://Sprites/bush.png" id="28_11gg7"]
 [ext_resource type="Shader" uid="uid://dw5u0j1r1we5x" path="res://Shaders/blob.gdshader" id="28_qpa8y"]
 [ext_resource type="Texture2D" uid="uid://c0nfiejcfw6dx" path="res://Sprites/mask.png" id="31_xuaoq"]
-[ext_resource type="Texture2D" uid="uid://ctsk5e0rtv3w7" path="res://Sprites/marker.svg" id="34_yh6i2"]
 [ext_resource type="Script" uid="uid://uxu8p38o38ip" path="res://Scripts/mover.gd" id="35_nv4vc"]
+[ext_resource type="Texture2D" uid="uid://cba4uvvukbanv" path="res://Sprites/marker.png" id="37_qpa8y"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8gbba"]
 radius = 5.0
@@ -1011,12 +1011,11 @@ collision_mask = 8
 shape = SubResource("CircleShape2D_vqq8p")
 
 [node name="Map Marker" type="Sprite2D" parent="Control Node/Orienter"]
-modulate = Color(0, 0.47843137, 0.2627451, 1)
 visibility_layer = 524288
 z_index = 999
 position = Vector2(-2.0000005, -542)
 scale = Vector2(5.305986, 5.305986)
-texture = ExtResource("34_yh6i2")
+texture = ExtResource("37_qpa8y")
 script = ExtResource("35_nv4vc")
 moves = true
 move_direction = Vector2(0, 100)
