@@ -114,7 +114,6 @@ _data = {
 }
 
 [node name="Tree" type="Node2D" node_paths=PackedStringArray("anim")]
-modulate = Color(0.7647059, 0.4627451, 0.25882354, 1)
 script = ExtResource("1_l7sa7")
 anim = NodePath("AnimationPlayer")
 randomize_scale = true

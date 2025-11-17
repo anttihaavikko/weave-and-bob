@@ -415,43 +415,33 @@ scale = Vector2(37.466763, 240)
 texture = ExtResource("3_8gbba")
 
 [node name="Tree" parent="Level/Starter/Background" instance=ExtResource("9_wsu2k")]
-modulate = Color(1, 1, 1, 1)
 position = Vector2(-729.3059, 1082)
 
 [node name="Tree2" parent="Level/Starter/Background" instance=ExtResource("9_wsu2k")]
-modulate = Color(1, 1, 1, 1)
 position = Vector2(-615.5701, 1082)
 
 [node name="Tree3" parent="Level/Starter/Background" instance=ExtResource("9_wsu2k")]
-modulate = Color(1, 1, 1, 1)
 position = Vector2(-505.825, 1075)
 
 [node name="Tree4" parent="Level/Starter/Background" instance=ExtResource("9_wsu2k")]
-modulate = Color(1, 1, 1, 1)
 position = Vector2(-383.11008, 1080)
 
 [node name="Tree5" parent="Level/Starter/Background" instance=ExtResource("9_wsu2k")]
-modulate = Color(1, 1, 1, 1)
 position = Vector2(295.314, 1070)
 
 [node name="Tree6" parent="Level/Starter/Background" instance=ExtResource("9_wsu2k")]
-modulate = Color(1, 1, 1, 1)
 position = Vector2(434.98956, 1091)
 
 [node name="Tree7" parent="Level/Starter/Background" instance=ExtResource("9_wsu2k")]
-modulate = Color(1, 1, 1, 1)
 position = Vector2(578.6558, 1072)
 
 [node name="Tree8" parent="Level/Starter/Background" instance=ExtResource("9_wsu2k")]
-modulate = Color(1, 1, 1, 1)
 position = Vector2(702.36847, 1092)
 
 [node name="Tree9" parent="Level/Starter/Background" instance=ExtResource("9_wsu2k")]
-modulate = Color(1, 1, 1, 1)
 position = Vector2(810.11816, 1068)
 
 [node name="Tree10" parent="Level/Starter/Background" instance=ExtResource("9_wsu2k")]
-modulate = Color(1, 1, 1, 1)
 position = Vector2(935.8262, 1096)
 
 [node name="Background2" type="Node2D" parent="Level/Starter"]
@@ -479,43 +469,33 @@ scale = Vector2(37.466763, 240)
 texture = ExtResource("3_8gbba")
 
 [node name="Tree" parent="Level/Starter/Background2" instance=ExtResource("9_wsu2k")]
-modulate = Color(1, 1, 1, 1)
 position = Vector2(-729.3059, 1082)
 
 [node name="Tree2" parent="Level/Starter/Background2" instance=ExtResource("9_wsu2k")]
-modulate = Color(1, 1, 1, 1)
 position = Vector2(-615.5701, 1082)
 
 [node name="Tree3" parent="Level/Starter/Background2" instance=ExtResource("9_wsu2k")]
-modulate = Color(1, 1, 1, 1)
 position = Vector2(-505.825, 1075)
 
 [node name="Tree4" parent="Level/Starter/Background2" instance=ExtResource("9_wsu2k")]
-modulate = Color(1, 1, 1, 1)
 position = Vector2(-383.11008, 1080)
 
 [node name="Tree5" parent="Level/Starter/Background2" instance=ExtResource("9_wsu2k")]
-modulate = Color(1, 1, 1, 1)
 position = Vector2(295.314, 1070)
 
 [node name="Tree6" parent="Level/Starter/Background2" instance=ExtResource("9_wsu2k")]
-modulate = Color(1, 1, 1, 1)
 position = Vector2(434.98956, 1091)
 
 [node name="Tree7" parent="Level/Starter/Background2" instance=ExtResource("9_wsu2k")]
-modulate = Color(1, 1, 1, 1)
 position = Vector2(578.6558, 1072)
 
 [node name="Tree8" parent="Level/Starter/Background2" instance=ExtResource("9_wsu2k")]
-modulate = Color(1, 1, 1, 1)
 position = Vector2(702.36847, 1092)
 
 [node name="Tree9" parent="Level/Starter/Background2" instance=ExtResource("9_wsu2k")]
-modulate = Color(1, 1, 1, 1)
 position = Vector2(810.11816, 1068)
 
 [node name="Tree10" parent="Level/Starter/Background2" instance=ExtResource("9_wsu2k")]
-modulate = Color(1, 1, 1, 1)
 position = Vector2(935.8262, 1096)
 
 [node name="Fence" type="Sprite2D" parent="Level/Starter/Background2"]
@@ -663,43 +643,33 @@ scale = Vector2(37.466763, 240)
 texture = ExtResource("3_8gbba")
 
 [node name="Tree" parent="Level/Room/Background" instance=ExtResource("9_wsu2k")]
-modulate = Color(1, 1, 1, 1)
 position = Vector2(-729.3059, 1082)
 
 [node name="Tree2" parent="Level/Room/Background" instance=ExtResource("9_wsu2k")]
-modulate = Color(1, 1, 1, 1)
 position = Vector2(-615.5701, 1082)
 
 [node name="Tree3" parent="Level/Room/Background" instance=ExtResource("9_wsu2k")]
-modulate = Color(1, 1, 1, 1)
 position = Vector2(-505.825, 1075)
 
 [node name="Tree4" parent="Level/Room/Background" instance=ExtResource("9_wsu2k")]
-modulate = Color(1, 1, 1, 1)
 position = Vector2(-383.11008, 1080)
 
 [node name="Tree5" parent="Level/Room/Background" instance=ExtResource("9_wsu2k")]
-modulate = Color(1, 1, 1, 1)
 position = Vector2(295.314, 1070)
 
 [node name="Tree6" parent="Level/Room/Background" instance=ExtResource("9_wsu2k")]
-modulate = Color(1, 1, 1, 1)
 position = Vector2(434.98956, 1091)
 
 [node name="Tree7" parent="Level/Room/Background" instance=ExtResource("9_wsu2k")]
-modulate = Color(1, 1, 1, 1)
 position = Vector2(578.6558, 1072)
 
 [node name="Tree8" parent="Level/Room/Background" instance=ExtResource("9_wsu2k")]
-modulate = Color(1, 1, 1, 1)
 position = Vector2(702.36847, 1092)
 
 [node name="Tree9" parent="Level/Room/Background" instance=ExtResource("9_wsu2k")]
-modulate = Color(1, 1, 1, 1)
 position = Vector2(810.11816, 1068)
 
 [node name="Tree10" parent="Level/Room/Background" instance=ExtResource("9_wsu2k")]
-modulate = Color(1, 1, 1, 1)
 position = Vector2(935.8262, 1096)
 
 [node name="Angle" type="Sprite2D" parent="Level/Room/Background"]
@@ -1271,59 +1241,45 @@ scale = Vector2(37.466763, 240)
 texture = ExtResource("3_8gbba")
 
 [node name="Tree" parent="Level/Room2/Background" instance=ExtResource("9_wsu2k")]
-modulate = Color(1, 1, 1, 1)
 position = Vector2(-191.55505, 1069)
 
 [node name="Tree2" parent="Level/Room2/Background" instance=ExtResource("9_wsu2k")]
-modulate = Color(1, 1, 1, 1)
 position = Vector2(-77.819275, 1069)
 
 [node name="Tree3" parent="Level/Room2/Background" instance=ExtResource("9_wsu2k")]
-modulate = Color(1, 1, 1, 1)
 position = Vector2(31.925842, 1062)
 
 [node name="Tree4" parent="Level/Room2/Background" instance=ExtResource("9_wsu2k")]
-modulate = Color(1, 1, 1, 1)
 position = Vector2(154.64078, 1067)
 
 [node name="Tree11" parent="Level/Room2/Background" instance=ExtResource("9_wsu2k")]
-modulate = Color(1, 1, 1, 1)
 position = Vector2(-1932.511, 883)
 
 [node name="Tree12" parent="Level/Room2/Background" instance=ExtResource("9_wsu2k")]
-modulate = Color(1, 1, 1, 1)
 position = Vector2(-1818.7751, 883)
 
 [node name="Tree13" parent="Level/Room2/Background" instance=ExtResource("9_wsu2k")]
-modulate = Color(1, 1, 1, 1)
 position = Vector2(-1709.03, 876)
 
 [node name="Tree14" parent="Level/Room2/Background" instance=ExtResource("9_wsu2k")]
-modulate = Color(1, 1, 1, 1)
 position = Vector2(-1586.3152, 881)
 
 [node name="Tree5" parent="Level/Room2/Background" instance=ExtResource("9_wsu2k")]
-modulate = Color(1, 1, 1, 1)
 position = Vector2(295.314, 1070)
 
 [node name="Tree6" parent="Level/Room2/Background" instance=ExtResource("9_wsu2k")]
-modulate = Color(1, 1, 1, 1)
 position = Vector2(434.98956, 1091)
 
 [node name="Tree7" parent="Level/Room2/Background" instance=ExtResource("9_wsu2k")]
-modulate = Color(1, 1, 1, 1)
 position = Vector2(578.6558, 1072)
 
 [node name="Tree8" parent="Level/Room2/Background" instance=ExtResource("9_wsu2k")]
-modulate = Color(1, 1, 1, 1)
 position = Vector2(702.36847, 1092)
 
 [node name="Tree9" parent="Level/Room2/Background" instance=ExtResource("9_wsu2k")]
-modulate = Color(1, 1, 1, 1)
 position = Vector2(810.11816, 1068)
 
 [node name="Tree10" parent="Level/Room2/Background" instance=ExtResource("9_wsu2k")]
-modulate = Color(1, 1, 1, 1)
 position = Vector2(935.8262, 1096)
 
 [node name="Angle" type="Sprite2D" parent="Level/Room2/Background"]
@@ -1992,8 +1948,8 @@ position = Vector2(10469.013, -3291.5156)
 scale = Vector2(774.89404, 362.1827)
 
 [node name="Wall9" parent="Level/Top" instance=ExtResource("4_344ge")]
-position = Vector2(12955.03, -3709.1675)
-scale = Vector2(1966.6328, 3730.787)
+position = Vector2(12955.03, -3643.4214)
+scale = Vector2(1966.6328, 3862.2793)
 
 [node name="Wall10" parent="Level/Top" instance=ExtResource("4_344ge")]
 position = Vector2(10850.356, -5273.405)
@@ -2086,6 +2042,69 @@ rotation = 0.19429864
 scale = Vector2(0.28059843, 0.28059843)
 texture = ExtResource("40_fvjqb")
 
+[node name="Polygon2D4" type="Polygon2D" parent="Level/Big/Back"]
+position = Vector2(512.8086, 670)
+offset = Vector2(-512.8086, -670)
+polygon = PackedVector2Array(-743.27344, 626, -1292.9971, 507, -1655.1553, 543, -1804.8076, 447, -2045.249, 470, -2024.2979, 672, -2148.0107, 720, -2015.3193, 752, -1813.7871, 1024, -1868.6592, 1490, -2098.127, 1609, -1854.6924, 1671, -2015.3193, 1766, -1820.7705, 1796, 595.6162, 943, 1330.9082, 679, 1256.082, 176, 934.8281, 279, 902.90234, 401, 680.41895, 523, 521.7881, 463, 581.64844, 553, 364.15332, 608)
+
+[node name="Polygon2D5" type="Polygon2D" parent="Level/Big/Back"]
+position = Vector2(-1806.8037, 844)
+offset = Vector2(1806.8037, -844)
+polygon = PackedVector2Array(-2395.4355, 865, -2112.0938, 948, -2109.1006, 1035, -2391.4453, 1109, -2209.8672, 1127, -2411.3984, 1265, -2414.3916, 1557, -2225.83, 1853, -2503.1855, 1855, -2601.956, 968)
+
+[node name="Tree" parent="Level/Big/Back" instance=ExtResource("9_wsu2k")]
+position = Vector2(-1951.4668, 459)
+
+[node name="Tree2" parent="Level/Big/Back" instance=ExtResource("9_wsu2k")]
+position = Vector2(-1835.7356, 458)
+
+[node name="Tree3" parent="Level/Big/Back" instance=ExtResource("9_wsu2k")]
+position = Vector2(-1569.3544, 539)
+
+[node name="Tree4" parent="Level/Big/Back" instance=ExtResource("9_wsu2k")]
+position = Vector2(-1453.6232, 538)
+
+[node name="Tree5" parent="Level/Big/Back" instance=ExtResource("9_wsu2k")]
+position = Vector2(-1328.9128, 518)
+
+[node name="Tree6" parent="Level/Big/Back" instance=ExtResource("9_wsu2k")]
+position = Vector2(-934.82825, 599)
+
+[node name="Tree7" parent="Level/Big/Back" instance=ExtResource("9_wsu2k")]
+position = Vector2(-787.17126, 591)
+
+[node name="Tree8" parent="Level/Big/Back" instance=ExtResource("9_wsu2k")]
+position = Vector2(586.63745, 500)
+
+[node name="Tree9" parent="Level/Big/Back" instance=ExtResource("9_wsu2k")]
+position = Vector2(702.3686, 525)
+
+[node name="Tree10" parent="Level/Big/Back" instance=ExtResource("9_wsu2k")]
+position = Vector2(839.0511, 443)
+
+[node name="Tree12" parent="Level/Big/Back" instance=ExtResource("9_wsu2k")]
+position = Vector2(-2257.7554, 910)
+
+[node name="Tree11" parent="Level/Big/Back" instance=ExtResource("9_wsu2k")]
+position = Vector2(980.722, 272)
+
+[node name="Polygon2D6" type="Polygon2D" parent="Level/Big/Back"]
+position = Vector2(-2306.642, -1107)
+offset = Vector2(-1087.4736, -243)
+polygon = PackedVector2Array(251.41602, 264, 524.78125, 22, 432.99414, -240, 476.89258, -346, 702.36816, -465, 187.56445, -530, -14.964844, -653, 86.79883, -755, -41.902344, -835, -58.86328, -1000, -786.1738, -425, -248.42285, 504, 228.46973, 533, 416.03418, 375)
+
+[node name="Tree13" parent="Level/Big/Back" instance=ExtResource("9_wsu2k")]
+position = Vector2(-2831.4229, -1831)
+
+[node name="Tree14" parent="Level/Big/Back" instance=ExtResource("9_wsu2k")]
+position = Vector2(-2976.087, -1838)
+
+[node name="Tree15" parent="Level/Big/Back" instance=ExtResource("9_wsu2k")]
+position = Vector2(-3104.7878, -1860)
+
+[node name="Tree16" parent="Level/Big/Back" instance=ExtResource("9_wsu2k")]
+position = Vector2(-3221.5166, -1876)
+
 [node name="Decos" type="Node2D" parent="Level/Big"]
 modulate = Color(0.5686275, 0.32941177, 0.16470589, 1)
 
@@ -2129,6 +2148,16 @@ rotation = 3.1415925
 position = Vector2(388.09845, -522)
 rotation = 0.06729908
 scale = Vector2(1.2465291, 1.2465291)
+
+[node name="Grave6" parent="Level/Big/Decos" instance=ExtResource("41_cmq5c")]
+position = Vector2(312.2746, 636)
+rotation = 0.06729908
+scale = Vector2(1.2465291, 1.2465291)
+
+[node name="Grave7" parent="Level/Big/Decos" instance=ExtResource("41_cmq5c")]
+position = Vector2(-655.4774, 646)
+rotation = -0.084710434
+scale = Vector2(1.4372988, 1.4372988)
 
 [node name="Grave2" parent="Level/Big/Decos" instance=ExtResource("41_cmq5c")]
 position = Vector2(281.34644, -507.99994)
@@ -2226,6 +2255,158 @@ position = Vector2(-1428.6812, -1761)
 
 [node name="Grass19" parent="Level/Big/Decos" instance=ExtResource("12_wsu2k")]
 position = Vector2(-1368.8202, -1748)
+
+[node name="Grass20" parent="Level/Big/Decos" instance=ExtResource("12_wsu2k")]
+position = Vector2(-599.6074, 647)
+
+[node name="Grass21" parent="Level/Big/Decos" instance=ExtResource("12_wsu2k")]
+position = Vector2(-559.70013, 651)
+
+[node name="Grass22" parent="Level/Big/Decos" instance=ExtResource("12_wsu2k")]
+position = Vector2(-522.7859, 651)
+
+[node name="Grass23" parent="Level/Big/Decos" instance=ExtResource("12_wsu2k")]
+position = Vector2(204.5246, 648)
+
+[node name="Grass24" parent="Level/Big/Decos" instance=ExtResource("12_wsu2k")]
+position = Vector2(245.42958, 635)
+
+[node name="Grass25" parent="Level/Big/Decos" instance=ExtResource("12_wsu2k")]
+position = Vector2(289.3276, 652)
+
+[node name="Grass26" parent="Level/Big/Decos" instance=ExtResource("12_wsu2k")]
+position = Vector2(346.1955, 646)
+
+[node name="Grass27" parent="Level/Big/Decos" instance=ExtResource("12_wsu2k")]
+position = Vector2(980.72156, 642)
+
+[node name="Grass28" parent="Level/Big/Decos" instance=ExtResource("12_wsu2k")]
+position = Vector2(1037.5895, 631)
+
+[node name="Grass29" parent="Level/Big/Decos" instance=ExtResource("12_wsu2k")]
+position = Vector2(920.86066, 645)
+
+[node name="Grass30" parent="Level/Big/Decos" instance=ExtResource("12_wsu2k")]
+position = Vector2(-704.3641, 642)
+
+[node name="Grass31" parent="Level/Big/Decos" instance=ExtResource("12_wsu2k")]
+position = Vector2(-754.24817, 656)
+
+[node name="Grass32" parent="Level/Big/Decos" instance=ExtResource("12_wsu2k")]
+position = Vector2(-811.1161, 649)
+
+[node name="Grass33" parent="Level/Big/Decos" instance=ExtResource("12_wsu2k")]
+position = Vector2(-1828.7522, 635)
+
+[node name="Grass34" parent="Level/Big/Decos" instance=ExtResource("12_wsu2k")]
+position = Vector2(-1787.8472, 635)
+
+[node name="Grass35" parent="Level/Big/Decos" instance=ExtResource("12_wsu2k")]
+position = Vector2(-1721.0024, 637)
+
+[node name="Grass36" parent="Level/Big/Decos" instance=ExtResource("12_wsu2k")]
+position = Vector2(-1262.0685, 648)
+
+[node name="Polygon2D" type="Polygon2D" parent="Level/Big/Decos"]
+position = Vector2(60.859055, 614)
+rotation = 1.0803162
+offset = Vector2(-6.9833984, 0)
+polygon = PackedVector2Array(-15.962891, -72, 74.82617, -54, 88.793945, 30, 28.932617, 65, -58.86328, 64, -80.8125, 0)
+
+[node name="Polygon2D12" type="Polygon2D" parent="Level/Big/Decos"]
+position = Vector2(49.88455, -1453.9998)
+rotation = 1.0803162
+offset = Vector2(-6.9833984, 0)
+polygon = PackedVector2Array(-15.962891, -72, 74.82617, -54, 88.793945, 30, 28.932617, 65, -58.86328, 64, -80.8125, 0)
+
+[node name="Polygon2D13" type="Polygon2D" parent="Level/Big/Decos"]
+position = Vector2(-1197.2186, -1750)
+rotation = 1.0803162
+offset = Vector2(-6.9833984, 0)
+polygon = PackedVector2Array(-15.962891, -72, 74.82617, -54, 88.793945, 30, 28.932617, 65, -58.86328, 64, -80.8125, 0)
+
+[node name="Polygon2D14" type="Polygon2D" parent="Level/Big/Decos"]
+position = Vector2(-946.80035, -1662.0001)
+rotation = -0.43936265
+offset = Vector2(-6.9833984, 0)
+polygon = PackedVector2Array(-15.962891, -72, 74.82617, -54, 88.793945, 30, 28.932617, 65, -58.86328, 64, -80.8125, 0)
+
+[node name="Polygon2D15" type="Polygon2D" parent="Level/Big/Decos"]
+position = Vector2(-1086.4758, -1745)
+rotation = -1.3295462
+scale = Vector2(0.58765936, 0.58765936)
+offset = Vector2(-6.9833984, 0)
+polygon = PackedVector2Array(-15.962891, -72, 74.82617, -54, 88.793945, 30, 28.932617, 65, -58.86328, 64, -80.8125, 0)
+
+[node name="Polygon2D16" type="Polygon2D" parent="Level/Big/Decos"]
+position = Vector2(155.63892, -1448)
+rotation = -1.3295462
+scale = Vector2(0.58765936, 0.58765936)
+offset = Vector2(-6.9833984, 0)
+polygon = PackedVector2Array(-15.962891, -72, 74.82617, -54, 88.793945, 30, 28.932617, 65, -58.86328, 64, -80.8125, 0)
+
+[node name="Polygon2D10" type="Polygon2D" parent="Level/Big/Decos"]
+position = Vector2(1116.407, 467)
+offset = Vector2(-6.9833984, 0)
+polygon = PackedVector2Array(-15.962891, -72, 74.82617, -54, 88.793945, 30, 28.932617, 65, -58.86328, 64, -80.8125, 0)
+
+[node name="Polygon2D9" type="Polygon2D" parent="Level/Big/Decos"]
+position = Vector2(-945.80255, 653)
+rotation = -1.1043427
+offset = Vector2(-6.9833984, 0)
+polygon = PackedVector2Array(-15.962891, -72, 74.82617, -54, 88.793945, 30, 28.932617, 65, -58.86328, 64, -80.8125, 0)
+
+[node name="Polygon2D2" type="Polygon2D" parent="Level/Big/Decos"]
+position = Vector2(-128.7006, 656)
+rotation = -0.610116
+offset = Vector2(-6.9833984, 0)
+polygon = PackedVector2Array(-15.962891, -72, 74.82617, -54, 88.793945, 30, 28.932617, 65, -58.86328, 64, -80.8125, 0)
+
+[node name="Polygon2D3" type="Polygon2D" parent="Level/Big/Decos"]
+position = Vector2(-457.9358, 630)
+offset = Vector2(-6.9833984, 0)
+polygon = PackedVector2Array(-15.962891, -72, 74.82617, -54, 88.793945, 30, 28.932617, 65, -58.86328, 64, -80.8125, 0)
+
+[node name="Polygon2D4" type="Polygon2D" parent="Level/Big/Decos"]
+position = Vector2(-349.1884, 642)
+scale = Vector2(0.45837834, 0.45837834)
+offset = Vector2(-6.9833984, 0)
+polygon = PackedVector2Array(-15.962891, -72, 74.82617, -54, 88.793945, 30, 28.932617, 65, -58.86328, 64, -80.8125, 0)
+
+[node name="Polygon2D5" type="Polygon2D" parent="Level/Big/Decos"]
+position = Vector2(-257.4016, 638)
+scale = Vector2(0.45837834, 0.45837834)
+offset = Vector2(-6.9833984, 0)
+polygon = PackedVector2Array(-15.962891, -72, 74.82617, -54, 88.793945, 30, 28.932617, 65, -58.86328, 64, -80.8125, 0)
+
+[node name="Polygon2D6" type="Polygon2D" parent="Level/Big/Decos"]
+position = Vector2(-257.4016, 638)
+rotation = 1.0612824
+scale = Vector2(0.45837834, 0.45837834)
+offset = Vector2(-6.9833984, 0)
+polygon = PackedVector2Array(-15.962891, -72, 74.82617, -54, 88.793945, 30, 28.932617, 65, -58.86328, 64, -80.8125, 0)
+
+[node name="Polygon2D7" type="Polygon2D" parent="Level/Big/Decos"]
+position = Vector2(444.96674, 636)
+scale = Vector2(0.45837834, 0.45837834)
+offset = Vector2(-6.9833984, 0)
+polygon = PackedVector2Array(-15.962891, -72, 74.82617, -54, 88.793945, 30, 28.932617, 65, -58.86328, 64, -80.8125, 0)
+
+[node name="Polygon2D8" type="Polygon2D" parent="Level/Big/Decos"]
+position = Vector2(538.7489, 637)
+rotation = 1.2988083
+scale = Vector2(0.45837834, 0.45837834)
+offset = Vector2(-6.9833984, 0)
+polygon = PackedVector2Array(-15.962891, -72, 74.82617, -54, 88.793945, 30, 28.932617, 65, -58.86328, 64, -80.8125, 0)
+
+[node name="Polygon2D11" type="Polygon2D" parent="Level/Big/Decos"]
+position = Vector2(1103.437, 351)
+scale = Vector2(0.45837834, 0.45837834)
+offset = Vector2(-6.9833984, 0)
+polygon = PackedVector2Array(-15.962891, -72, 74.82617, -54, 88.793945, 30, 28.932617, 65, -58.86328, 64, -80.8125, 0)
+
+[node name="Grass37" parent="Level/Big/Decos" instance=ExtResource("12_wsu2k")]
+position = Vector2(-1206.1982, 643)
 
 [node name="Wall6" parent="Level/Big" instance=ExtResource("4_344ge")]
 position = Vector2(294.31567, 1568)
