@@ -1,6 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://n66kgmcljlyc"]
+[gd_scene load_steps=5 format=3 uid="uid://n66kgmcljlyc"]
 
 [ext_resource type="PackedScene" uid="uid://c5leh0u73pd6k" path="res://Scenes/worm_segment.tscn" id="1_lmfrh"]
+[ext_resource type="Shader" uid="uid://7gwbqnj5dg4s" path="res://Shaders/wavy.gdshader" id="2_2c6tb"]
+[ext_resource type="Texture2D" uid="uid://blumrxbusgh3x" path="res://Sprites/worm_tail.png" id="2_td6cj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rxhyq"]
+shader = ExtResource("2_2c6tb")
+shader_parameter/amount = 50.0
+shader_parameter/frequency = 0.02
+shader_parameter/speed = 8.0
+shader_parameter/flip = true
 
 [node name="Segment" instance=ExtResource("1_lmfrh")]
 
@@ -12,3 +21,9 @@ visible = false
 
 [node name="WormBelly" parent="AnimatableBody2D" index="5"]
 visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="3"]
+material = SubResource("ShaderMaterial_rxhyq")
+position = Vector2(9.11215, 357.3988)
+scale = Vector2(1.615903, 1.615903)
+texture = ExtResource("2_td6cj")

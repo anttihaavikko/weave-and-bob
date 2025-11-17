@@ -9,7 +9,7 @@ var max_life := 1
 var accuracy := 0
 var has_tracking := true
 var has_double_jump := true
-var has_taxi := false
+var has_taxi := true
 
 var spawn_set := false
 var spawn_point: Vector2

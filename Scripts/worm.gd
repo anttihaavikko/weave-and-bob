@@ -75,7 +75,7 @@ func respawn_blister():
 		scream()
 		var i = randi_range(1, len(segments) - 2)
 		var flip := -1 if randf() < 0.5 else 1
-		b.position = Vector2(190 * flip, 0)
+		b.position = Vector2(185 * flip, 0)
 		b.scale = Vector2(flip, 1)
 		segments[i].add_child(b)
 		prev_blister = b.get_node("Body")
