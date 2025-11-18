@@ -48,7 +48,7 @@
 [ext_resource type="PackedScene" uid="uid://cd1lfv8xg8ha8" path="res://Scenes/halo.tscn" id="28_kqrg6"]
 [ext_resource type="PackedScene" uid="uid://lmvlns352qp4" path="res://Scenes/Effects/feathers.tscn" id="29_kqrg6"]
 [ext_resource type="PackedScene" uid="uid://ba4e8lxoib43" path="res://Scenes/spawn_ring.tscn" id="30_nwwfm"]
-[ext_resource type="PackedScene" uid="uid://ccw01rqfuh3ys" path="res://Scenes/platform.tscn" id="33_o1aky"]
+[ext_resource type="PackedScene" uid="uid://degysomjrn5mi" path="res://Scenes/platform.tscn" id="33_o1aky"]
 [ext_resource type="PackedScene" uid="uid://dj4ia0fuy6eo6" path="res://Scenes/Effects/bush_particles.tscn" id="33_v2nl5"]
 [ext_resource type="Script" uid="uid://de5j4ushffq0u" path="res://Scripts/nudgeable.gd" id="34_5vy51"]
 [ext_resource type="PackedScene" uid="uid://dtix6dfe6hdbn" path="res://Scenes/vines.tscn" id="34_aok0f"]
@@ -524,34 +524,6 @@ scale = Vector2(3104.3044, 1348.0559)
 [node name="Wall8" parent="Level/Starter" instance=ExtResource("4_344ge")]
 position = Vector2(1690.2917, 40.27298)
 scale = Vector2(719.0284, 1321.1271)
-
-[node name="Platform" type="Node2D" parent="Level/Starter"]
-position = Vector2(1975.4113, -1216)
-
-[node name="Platform" parent="Level/Starter/Platform" instance=ExtResource("33_o1aky")]
-position = Vector2(74.3135, -1.1221026e-05)
-scale = Vector2(570.40137, 41.373005)
-
-[node name="Platform Support" type="Sprite2D" parent="Level/Starter/Platform"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(245.4299, 61.000034)
-rotation = 3.7837226
-scale = Vector2(210.89182, 29.583363)
-texture = ExtResource("3_8gbba")
-
-[node name="Platform2" type="Node2D" parent="Level/Starter"]
-position = Vector2(1975.4113, -1824)
-
-[node name="Platform" parent="Level/Starter/Platform2" instance=ExtResource("33_o1aky")]
-position = Vector2(74.3135, -1.1221026e-05)
-scale = Vector2(570.40137, 41.373005)
-
-[node name="Platform Support" type="Sprite2D" parent="Level/Starter/Platform2"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(245.4299, 61.000034)
-rotation = 3.7837226
-scale = Vector2(210.89182, 29.583363)
-texture = ExtResource("3_8gbba")
 
 [node name="Wall2" parent="Level/Starter" instance=ExtResource("4_344ge")]
 position = Vector2(3.4026768, 208.54889)
@@ -2768,7 +2740,7 @@ scale = Vector2(1445.2244, 1606.7552)
 [node name="Player Spawn Point" type="Node2D" parent="Level" node_paths=PackedStringArray("main_text", "sub_text", "home_pos", "moving_blanket", "blanket")]
 visibility_layer = 524289
 z_index = 5
-position = Vector2(-2202.8828, -1038)
+position = Vector2(1596.2925, -1080)
 scale = Vector2(1.0023229, 1)
 script = ExtResource("39_kwxat")
 player = ExtResource("1_bo1nx")
@@ -3513,6 +3485,7 @@ _open_pos = -60.0
 
 [node name="Bob" parent="." instance=ExtResource("95_nb1ia")]
 position = Vector2(1826.7566, -2077)
+collision_mask = 130
 
 [node name="UI" type="CanvasLayer" parent="." node_paths=PackedStringArray("label")]
 script = ExtResource("101_urine")
@@ -3880,6 +3853,21 @@ visibility_layer = 524289
 script = ExtResource("113_xg142")
 worm = ExtResource("114_0fjpc")
 friendly = ExtResource("115_gdwd6")
+
+[node name="Platform" parent="." instance=ExtResource("33_o1aky")]
+position = Vector2(1880.6315, 2380)
+show_left = false
+size = Vector2(700, 40)
+
+[node name="Platform2" parent="." instance=ExtResource("33_o1aky")]
+position = Vector2(1969.4252, -1784)
+show_left = false
+size = Vector2(650, 40)
+
+[node name="Platform3" parent="." instance=ExtResource("33_o1aky")]
+position = Vector2(2008.3348, -1244)
+show_left = false
+size = Vector2(600, 40)
 
 [connection signal="broke" from="Level/Big/Egg" to="Worm Spawner" method="spawn"]
 [connection signal="timeout" from="Line Drawer/Timer" to="Line Drawer" method="_on_timer_timeout"]

@@ -1,28 +1,39 @@
-[gd_scene load_steps=4 format=3 uid="uid://ccw01rqfuh3ys"]
+[gd_scene load_steps=4 format=3 uid="uid://degysomjrn5mi"]
 
-[ext_resource type="Texture2D" uid="uid://dggvv625tmn04" path="res://Sprites/square.png" id="1_1rc8e"]
+[ext_resource type="Script" uid="uid://djmtj6ec46j5h" path="res://Scripts/platform.gd" id="1_8igbo"]
+[ext_resource type="Texture2D" uid="uid://dggvv625tmn04" path="res://Sprites/square.png" id="2_joxgn"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bo1nx"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cmq5c"]
+size = Vector2(500, 40)
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_jjvhh"]
-polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
-
-[node name="Platform" type="Sprite2D"]
+[node name="Platform" type="Node2D" node_paths=PackedStringArray("sprite", "left", "right", "collider")]
 modulate = Color(0, 0, 0, 1)
-rotation = 3.1415925
-scale = Vector2(719.0284, 41.373005)
-texture = ExtResource("1_1rc8e")
+script = ExtResource("1_8igbo")
+sprite = NodePath("Sprite2D")
+left = NodePath("Left")
+right = NodePath("Right")
+collider = NodePath("StaticBody2D/CollisionShape2D")
 
-[node name="Body" type="StaticBody2D" parent="."]
-scale = Vector2(0.050000004, 0.05)
-collision_layer = 3
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 128
+collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Body"]
-rotation = 3.1415927
-shape = SubResource("RectangleShape2D_bo1nx")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_cmq5c")
 one_way_collision = true
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="Body"]
-light_mask = 2
-visibility_layer = 2
-occluder = SubResource("OccluderPolygon2D_jjvhh")
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(500, 40)
+texture = ExtResource("2_joxgn")
+
+[node name="Left" type="Sprite2D" parent="."]
+position = Vector2(-160, 51.94647)
+rotation = -0.58817595
+scale = Vector2(186.78807, 30)
+texture = ExtResource("2_joxgn")
+
+[node name="Right" type="Sprite2D" parent="."]
+position = Vector2(160, 51.94647)
+rotation = 0.58859426
+scale = Vector2(187.90506, 30)
+texture = ExtResource("2_joxgn")
