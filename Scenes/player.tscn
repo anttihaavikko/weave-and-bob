@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://il0jdy8qi06w"]
+[gd_scene load_steps=53 format=3 uid="uid://il0jdy8qi06w"]
 
 [ext_resource type="Script" uid="uid://dpfddv6k670sg" path="res://Scripts/player_root.gd" id="1_p1odr"]
 [ext_resource type="Script" uid="uid://cys6813rck58c" path="res://Scripts/player_part.gd" id="1_p7hy0"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://bh32aybxf4kht" path="res://Scripts/link_fixer.gd" id="3_wohnl"]
 [ext_resource type="Script" uid="uid://d3a61hkqywjrn" path="res://Scripts/travel_mode.gd" id="4_8gxox"]
 [ext_resource type="Script" uid="uid://bwknch2pvkg4u" path="res://Scripts/line.gd" id="4_jc5ra"]
+[ext_resource type="Script" uid="uid://bkr3w3wxtfl4s" path="res://Scripts/platform_faller.gd" id="4_sbwqj"]
 [ext_resource type="Shader" uid="uid://7gwbqnj5dg4s" path="res://Shaders/wavy.gdshader" id="5_83xs0"]
 [ext_resource type="Script" uid="uid://b3lmgbo0i5l43" path="res://Scripts/poly_from_line.gd" id="5_gxvcn"]
 [ext_resource type="Texture2D" uid="uid://bbgmkple2xchu" path="res://Sprites/tuft.png" id="5_y6uwr"]
@@ -133,6 +134,12 @@ ammo_display = NodePath("Control Node/Orienter/Ammo Display")
 script = ExtResource("3_wohnl")
 links = [NodePath("../Link N"), NodePath("../Link NE"), NodePath("../Link E"), NodePath("../Link SE"), NodePath("../Link S"), NodePath("../Link SW"), NodePath("../Link W"), NodePath("../Link NW")]
 center = NodePath("../Gun")
+
+[node name="Platform Dropper" type="Node" parent="." node_paths=PackedStringArray("bodies")]
+script = ExtResource("4_sbwqj")
+bodies = [NodePath("../Link N"), NodePath("../Link NE"), NodePath("../Link E"), NodePath("../Link SE"), NodePath("../Link S"), NodePath("../Link SW"), NodePath("../Link W"), NodePath("../Link NW"), NodePath("../Gun"), NodePath("../Control Node")]
+normal_layers = 3
+platform_layers = 128
 
 [node name="Travel Mode" type="Node" parent="." node_paths=PackedStringArray("bodies", "links", "spring", "sprite", "nodes_to_hide", "line")]
 script = ExtResource("4_8gxox")
