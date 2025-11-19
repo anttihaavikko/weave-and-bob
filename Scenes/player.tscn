@@ -1003,7 +1003,7 @@ expand_mode = 3
 position = Vector2(0, 31)
 shape = SubResource("RectangleShape2D_rkwq6")
 target_position = Vector2(0, 27)
-collision_mask = 2
+collision_mask = 130
 
 [node name="Enemy Detect" type="Area2D" parent="Control Node/Orienter"]
 collision_layer = 0

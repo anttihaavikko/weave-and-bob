@@ -1,4 +1,4 @@
-[gd_scene load_steps=142 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=141 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/player.tscn" id="1_bo1nx"]
@@ -58,14 +58,12 @@
 [ext_resource type="Script" uid="uid://ban2bpqpuesw1" path="res://Scripts/player_spawn.gd" id="39_kwxat"]
 [ext_resource type="PackedScene" uid="uid://d15bns0qk1sjg" path="res://Scenes/rotating_door.tscn" id="40_ceghn"]
 [ext_resource type="Texture2D" uid="uid://cludpgi85lhv5" path="res://Sprites/egg_back.png" id="40_fvjqb"]
-[ext_resource type="Texture2D" uid="uid://cqk6j01w8oul" path="res://Sprites/ring.png" id="41_8cuat"]
 [ext_resource type="PackedScene" uid="uid://ci4hq8hbkpmm6" path="res://Scenes/grave.tscn" id="41_cmq5c"]
 [ext_resource type="PackedScene" uid="uid://c4dqyepeaha7h" path="res://Scenes/checkpoint.tscn" id="41_kwxat"]
 [ext_resource type="PackedScene" uid="uid://74o4w71qcsuo" path="res://Scenes/switch.tscn" id="41_ylsbi"]
 [ext_resource type="PackedScene" uid="uid://cnnbi0dgye4i7" path="res://Scenes/grave_alt.tscn" id="42_7t1gx"]
 [ext_resource type="Texture2D" uid="uid://bu6dbpfohefw3" path="res://Sprites/egg.png" id="42_rlvxq"]
 [ext_resource type="Texture2D" uid="uid://4pfbr155kw4k" path="res://Sprites/ring-thick.svg" id="43_rlvdk"]
-[ext_resource type="Script" uid="uid://cjo6s8hrhyh8l" path="res://Scripts/dev_sprite.gd" id="44_aa8k8"]
 [ext_resource type="Script" uid="uid://bn5frx2t4b5xp" path="res://Scripts/free_if_marked.gd" id="44_t6wb6"]
 [ext_resource type="Texture2D" uid="uid://5jswmafvbw38" path="res://Sprites/capsule.png" id="45_7t1gx"]
 [ext_resource type="PackedScene" uid="uid://ct6y2bvu4gb2k" path="res://Scenes/enemy_plated.tscn" id="46_cmq5c"]
@@ -120,6 +118,7 @@
 [ext_resource type="Script" uid="uid://bm7d82m38cnnb" path="res://Scripts/worm_spawner.gd" id="113_xg142"]
 [ext_resource type="PackedScene" uid="uid://biwhx5suil4e0" path="res://Scenes/worm.tscn" id="114_0fjpc"]
 [ext_resource type="PackedScene" uid="uid://0uv2v0ugkper" path="res://Scenes/worm_friend.tscn" id="115_gdwd6"]
+[ext_resource type="Script" uid="uid://cahkyqjkmgnwc" path="res://Scripts/visible_node.gd" id="121_xjjvj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ihvwq"]
 radius = 82.303375
@@ -212,14 +211,6 @@ scale = Vector2(1.0023229, 1)
 
 [node name="Reloader" type="Node" parent="."]
 script = ExtResource("1_6bp64")
-
-[node name="Bg" type="Sprite2D" parent="."]
-modulate = Color(0.8640645, 0.5525103, 0.35379764, 1)
-light_mask = 524289
-z_index = -100
-position = Vector2(4488.574, -237.49994)
-scale = Vector2(23964.334, 14859)
-texture = ExtResource("3_8gbba")
 
 [node name="Level" type="Node2D" parent="."]
 visibility_layer = 524289
@@ -1030,6 +1021,24 @@ mode = 1
 dir = Vector2(1, 0)
 vertical_dir = 1.0
 _enemy = ExtResource("9_ynf5e")
+
+[node name="Platform" parent="Level/Room" instance=ExtResource("33_o1aky")]
+position = Vector2(-2123.436, 3763)
+scale = Vector2(0.9976825, 1)
+show_left = false
+size = Vector2(700, 40)
+
+[node name="Platform2" parent="Level/Room" instance=ExtResource("33_o1aky")]
+position = Vector2(-2034.8479, -401)
+scale = Vector2(0.9976825, 1)
+show_left = false
+size = Vector2(650, 40)
+
+[node name="Platform3" parent="Level/Room" instance=ExtResource("33_o1aky")]
+position = Vector2(-1996.0286, 139)
+scale = Vector2(0.9976825, 1)
+show_left = false
+size = Vector2(600, 40)
 
 [node name="Room2" type="Node2D" parent="Level"]
 visibility_layer = 524289
@@ -2500,6 +2509,21 @@ texture = ExtResource("43_rlvdk")
 script = ExtResource("44_t6wb6")
 id = "worm"
 
+[node name="Platform" parent="Level/Big" instance=ExtResource("33_o1aky")]
+position = Vector2(-1074.5043, -432)
+show_left = false
+size = Vector2(400, 40)
+
+[node name="Platform2" parent="Level/Big" instance=ExtResource("33_o1aky")]
+position = Vector2(-235.45331, -1387)
+show_left = false
+size = Vector2(400, 40)
+
+[node name="Platform3" parent="Level/Big" instance=ExtResource("33_o1aky")]
+position = Vector2(-1849.7036, -1679)
+show_left = false
+size = Vector2(400, 40)
+
 [node name="Big2" type="Node2D" parent="Level"]
 visibility_layer = 524289
 position = Vector2(8182.9917, 6397)
@@ -2519,6 +2543,11 @@ scale = Vector2(1848.4995, 3611.6438)
 [node name="Wall8" parent="Level/Big2" instance=ExtResource("4_344ge")]
 position = Vector2(-308.2838, -4052)
 scale = Vector2(1691.7593, 1190.0856)
+
+[node name="Platform" parent="Level/Big2" instance=ExtResource("33_o1aky")]
+position = Vector2(892.92554, -3037)
+show_left = false
+size = Vector2(450, 40)
 
 [node name="Edge" type="Node2D" parent="Level"]
 visibility_layer = 524289
@@ -2817,30 +2846,29 @@ scale = Vector2(754.6206, 2767.645)
 position = Vector2(-5183.9575, 2648.999)
 scale = Vector2(1445.2244, 1606.7552)
 
-[node name="Player Spawn Point" type="Node2D" parent="Level" node_paths=PackedStringArray("main_text", "sub_text", "home_pos", "moving_blanket", "blanket")]
-visibility_layer = 524289
-z_index = 5
-position = Vector2(-4592.3325, 1745)
+[node name="Player Spawn" type="Node2D" parent="Level"]
+position = Vector2(1430.6748, -851)
 scale = Vector2(1.0023229, 1)
-script = ExtResource("39_kwxat")
-player = ExtResource("1_bo1nx")
-main_text = NodePath("../../UI/Main Text")
-sub_text = NodePath("../../UI/Sub Text")
-home_pos = NodePath("../../Hut/Inside/Spawn")
-moving_blanket = NodePath("../../Hut/Inside/Blanket")
-blanket = NodePath("../../Hut/Inside/BlanketMoved")
+script = ExtResource("121_xjjvj")
+size = 150
+metadata/_custom_type_script = "uid://cahkyqjkmgnwc"
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Node2D" parent="Level/Player Spawn Point"]
-visibility_layer = 524288
-scale = Vector2(1.3888413, 1.3888413)
-script = ExtResource("44_aa8k8")
-texture = ExtResource("41_8cuat")
+[node name="Player Spawn Point" type="Node2D" parent="Level/Player Spawn" node_paths=PackedStringArray("main_text", "sub_text", "home_pos", "moving_blanket", "blanket")]
+visibility_layer = 524289
+z_index = 5
+script = ExtResource("39_kwxat")
+player = ExtResource("1_bo1nx")
+main_text = NodePath("../../../UI/Main Text")
+sub_text = NodePath("../../../UI/Sub Text")
+home_pos = NodePath("../../../Hut/Inside/Spawn")
+moving_blanket = NodePath("../../../Hut/Inside/Blanket")
+blanket = NodePath("../../../Hut/Inside/BlanketMoved")
 
 [node name="Mag Pickup" parent="Level" instance=ExtResource("16_k12tt")]
 position = Vector2(2144.0198, -1354)
 scale = Vector2(1.0023229, 1)
-type = 9
+type = 10
 
 [node name="Mag Pickup2" parent="Level" instance=ExtResource("16_k12tt")]
 position = Vector2(-5384.4927, -4788)
@@ -3934,22 +3962,7 @@ script = ExtResource("113_xg142")
 worm = ExtResource("114_0fjpc")
 friendly = ExtResource("115_gdwd6")
 
-[node name="Platform" parent="." instance=ExtResource("33_o1aky")]
-position = Vector2(1880.6315, 2380)
-show_left = false
-size = Vector2(700, 40)
-
-[node name="Platform2" parent="." instance=ExtResource("33_o1aky")]
-position = Vector2(1969.4252, -1784)
-show_left = false
-size = Vector2(650, 40)
-
-[node name="Platform3" parent="." instance=ExtResource("33_o1aky")]
-position = Vector2(2008.3348, -1244)
-show_left = false
-size = Vector2(600, 40)
-
 [connection signal="broke" from="Level/Big/Egg" to="Worm Spawner" method="spawn"]
 [connection signal="timeout" from="Line Drawer/Timer" to="Line Drawer" method="_on_timer_timeout"]
-[connection signal="grab" from="Hut/Gun Grab Area" to="Level/Player Spawn Point" method="add_gun"]
+[connection signal="grab" from="Hut/Gun Grab Area" to="Level/Player Spawn/Player Spawn Point" method="add_gun"]
 [connection signal="pressed" from="UI/Map Wrap/Map/ColorRect/Taxi Button" to="Worm Spawner" method="spawn_friend"]

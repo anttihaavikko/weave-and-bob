@@ -9,6 +9,7 @@ extends MovableRigidbody
 var stomp_cooldown := 0.0
 var grounded := false
 var double_jumped := false
+var dash_cooldown := 0.0
 
 func _process(delta: float) -> void:
 	if GameState.attached:
@@ -20,6 +21,9 @@ func _process(delta: float) -> void:
 	if stomp_cooldown > 0:
 		stomp_cooldown -= delta
 		
+	if dash_cooldown > 0:
+		dash_cooldown -= delta
+		
 	var was_grounded := grounded
 	grounded = ground_cast.is_colliding()
 	
@@ -29,6 +33,13 @@ func _process(delta: float) -> void:
 
 	if (global_position - gun.global_position).length() > 60:
 		move_to(gun.global_position, 0)
+		
+	if not grounded and dash_cooldown <= 0 and Input.is_action_just_pressed("down") and GameState.has_dash:
+		_nudge(Vector2(0, 999 * jump_force * 1.5))
+		jump_particles.emitting = true
+		SoundEffects.singleton.add(0, global_position, 0.5)
+		SoundEffects.singleton.add(1, global_position, 1.5)
+		dash_cooldown = 0.5
 	
 	if (grounded or not double_jumped and GameState.has_double_jump) && Input.is_action_just_pressed("jump"):
 		if not grounded:

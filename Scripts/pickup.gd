@@ -13,6 +13,7 @@ const textures: Dictionary[Type, Texture2D] = {
 	Type.Track: preload("res://Sprites/track_pickup.png"),
 	Type.DoubleJump: preload("res://Sprites/double_jump.png"),
 	Type.WormTaxi: preload("res://Sprites/worm_icon.png"),
+	Type.Stomp: preload("res://Sprites/stomp_pickup.png"),
 }
 
 @export var id: String
@@ -23,7 +24,7 @@ const textures: Dictionary[Type, Texture2D] = {
 		type = val
 @export var sprite: Sprite2D
 
-enum Type {None, Magazine, Map, Damage, Breaker, Life, Scope, Track, DoubleJump, WormTaxi}
+enum Type {None, Magazine, Map, Damage, Breaker, Life, Scope, Track, DoubleJump, WormTaxi, Stomp}
 
 var done := false
 
@@ -51,6 +52,9 @@ func _picked(_body: Node2D):
 	if type == Type.Magazine:
 		GameState.has_magazine = true
 		GameState.show_texts("Now we're talking!", "With bullets...", 0.5, 1.75)
+	if type == Type.Stomp:
+		GameState.has_dash = true
+		GameState.show_texts("Downward dash!", "Press down to do a dash...", 0.5, 2.25)
 	if type == Type.WormTaxi:
 		GameState.has_taxi = true
 		GameState.show_texts("Call Mother!", "Taxi on demand...", 0.5, 2.25)

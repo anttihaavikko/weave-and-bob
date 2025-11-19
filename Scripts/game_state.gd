@@ -10,6 +10,7 @@ var accuracy := 0
 var has_tracking := true
 var has_double_jump := true
 var has_taxi := true
+var has_dash := false
 
 var spawn_set := false
 var spawn_point: Vector2
@@ -42,6 +43,7 @@ func _ready() -> void:
 		has_tracking = false
 		has_double_jump = false
 		has_taxi = false
+		has_dash = false
 
 func mark(id: String):
 	if len(id) > 1:
