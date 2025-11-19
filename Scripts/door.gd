@@ -17,6 +17,15 @@ func change(pos: Vector2):
 	
 func open():
 	change(_open_pos)
+	opened = true
 	
 func close():
 	change(_closed_pos)
+	opened = false
+
+func toggle():
+	opened = !opened
+	if opened:
+		open()
+	else:
+		close()
