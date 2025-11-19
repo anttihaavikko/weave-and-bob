@@ -2004,6 +2004,32 @@ position = Vector2(12630.66, 534)
 [node name="Back" type="Node2D" parent="Level/Big"]
 modulate = Color(0.7647059, 0.4627451, 0.25882354, 1)
 
+[node name="ColorRect" type="ColorRect" parent="Level/Big/Back"]
+offset_left = -2967.1074
+offset_top = -1607.0
+offset_right = -2822.4434
+offset_bottom = -1589.0
+
+[node name="ColorRect2" type="ColorRect" parent="Level/Big/Back"]
+offset_left = -2900.6445
+offset_top = -1594.9375
+offset_right = -2755.9805
+offset_bottom = -1580.7163
+rotation = 2.4612808
+
+[node name="ColorRect3" type="ColorRect" parent="Level/Big/Back"]
+offset_left = -665.38586
+offset_top = 209.0
+offset_right = -520.7218
+offset_bottom = 227.0
+
+[node name="ColorRect4" type="ColorRect" parent="Level/Big/Back"]
+offset_left = -575.6629
+offset_top = 211.0
+offset_right = -430.99884
+offset_bottom = 223.24707
+rotation = 0.71579444
+
 [node name="Polygon2D" type="Polygon2D" parent="Level/Big/Back"]
 position = Vector2(413.04004, -73)
 offset = Vector2(-413.04004, 73)
@@ -2847,7 +2873,7 @@ position = Vector2(-5183.9575, 2648.999)
 scale = Vector2(1445.2244, 1606.7552)
 
 [node name="Player Spawn" type="Node2D" parent="Level"]
-position = Vector2(1430.6748, -851)
+position = Vector2(11840.496, -238)
 scale = Vector2(1.0023229, 1)
 script = ExtResource("121_xjjvj")
 size = 150

@@ -27,13 +27,13 @@ scale = Vector2(500, 40)
 texture = ExtResource("2_joxgn")
 
 [node name="Left" type="Sprite2D" parent="."]
-position = Vector2(-160, 51.94647)
+position = Vector2(-161.5875, 49.566116)
 rotation = -0.58817595
-scale = Vector2(186.78807, 30)
+scale = Vector2(186.78807, 24.277683)
 texture = ExtResource("2_joxgn")
 
 [node name="Right" type="Sprite2D" parent="."]
-position = Vector2(160, 51.94647)
+position = Vector2(161.69136, 49.412674)
 rotation = 0.58859426
-scale = Vector2(187.90506, 30)
+scale = Vector2(187.90506, 23.907116)
 texture = ExtResource("2_joxgn")
