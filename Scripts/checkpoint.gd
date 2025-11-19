@@ -5,8 +5,9 @@ extends Area2D
 @export var marker: Node
 
 func _ready() -> void:
-	marker.show()
 	GameState.checkpoints.push_back(self)
+	if GameState.has(name):
+		marker.show()
 
 func _activate(other: Node2D):
 	if GameState.attached:
@@ -20,6 +21,8 @@ func _activate(other: Node2D):
 			SoundEffects.singleton.add(14, global_position, 0.75)
 			SoundEffects.singleton.add(15, global_position, 1.5)
 		GameState.change_spawn(self)
+		marker.show()
+		GameState.mark(name)
 
 func deactivate():
 	var tween := get_tree().create_tween()

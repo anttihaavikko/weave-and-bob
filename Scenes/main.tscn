@@ -1,4 +1,4 @@
-[gd_scene load_steps=141 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=142 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/player.tscn" id="1_bo1nx"]
@@ -118,6 +118,7 @@
 [ext_resource type="Script" uid="uid://bm7d82m38cnnb" path="res://Scripts/worm_spawner.gd" id="113_xg142"]
 [ext_resource type="PackedScene" uid="uid://biwhx5suil4e0" path="res://Scenes/worm.tscn" id="114_0fjpc"]
 [ext_resource type="PackedScene" uid="uid://0uv2v0ugkper" path="res://Scenes/worm_friend.tscn" id="115_gdwd6"]
+[ext_resource type="PackedScene" uid="uid://51pawwymqdog" path="res://Scenes/mark_masker.tscn" id="120_ilwxp"]
 [ext_resource type="Script" uid="uid://cahkyqjkmgnwc" path="res://Scripts/visible_node.gd" id="121_xjjvj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ihvwq"]
@@ -2873,7 +2874,8 @@ position = Vector2(-5183.9575, 2648.999)
 scale = Vector2(1445.2244, 1606.7552)
 
 [node name="Player Spawn" type="Node2D" parent="Level"]
-position = Vector2(11840.496, -238)
+visibility_layer = 524289
+position = Vector2(-2814.4639, -1840)
 scale = Vector2(1.0023229, 1)
 script = ExtResource("121_xjjvj")
 size = 150
@@ -3987,6 +3989,269 @@ visibility_layer = 524289
 script = ExtResource("113_xg142")
 worm = ExtResource("114_0fjpc")
 friendly = ExtResource("115_gdwd6")
+
+[node name="Map Masks" type="Node2D" parent="."]
+visibility_layer = 524289
+
+[node name="Mark Masker" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(-2099.123, -1749)
+
+[node name="Mark Masker2" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(-4840.7554, -1744)
+
+[node name="Mark Masker3" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(-7329.973, -1753)
+
+[node name="Mark Masker4" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(495.84814, -1762)
+
+[node name="Mark Masker5" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(1201.2097, -3114)
+
+[node name="Mark Masker6" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(3918.8967, -3082)
+
+[node name="Mark Masker7" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(3075.855, -4750)
+
+[node name="Mark Masker8" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(5740.665, -4729)
+
+[node name="Mark Masker9" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(6561.7573, -3061)
+
+[node name="Mark Masker10" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(3159.6606, -1667)
+
+[node name="Mark Masker11" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(5593.008, -1540)
+
+[node name="Mark Masker12" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(8163.0376, -1413)
+
+[node name="Mark Masker13" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(9226.567, -3070)
+
+[node name="Mark Masker14" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(8299.721, -4706)
+
+[node name="Mark Masker15" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(8531.183, -6237)
+
+[node name="Mark Masker16" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(10858.774, -4653)
+
+[node name="Mark Masker17" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(12028.061, -3048)
+
+[node name="Mark Masker18" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(10722.094, -1422)
+
+[node name="Mark Masker19" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(13229.27, -1422)
+
+[node name="Mark Masker20" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(13081.612, 193)
+
+[node name="Mark Masker21" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(10437.754, 130)
+
+[node name="Mark Masker22" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(7731.0415, 151)
+
+[node name="Mark Masker23" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(4979.433, 2)
+
+[node name="Mark Masker24" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(2391.445, 77)
+
+[node name="Mark Masker25" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(-273.365, -166)
+
+[node name="Mark Masker26" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(-3045.9246, -166)
+
+[node name="Mark Masker27" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(-5791.547, -150)
+
+[node name="Mark Masker28" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(-7392.827, -65)
+
+[node name="Mark Masker29" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(-7392.827, -3347)
+
+[node name="Mark Masker30" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(-7382.85, -4969)
+
+[node name="Mark Masker31" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(-7382.85, -4969)
+
+[node name="Mark Masker32" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(-7382.85, -6629)
+
+[node name="Mark Masker33" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(-4673.1445, -6706)
+
+[node name="Mark Masker34" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(-7217.235, 1594)
+
+[node name="Mark Masker35" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(-4534.467, 1470)
+
+[node name="Mark Masker36" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(-1882.627, 1578)
+
+[node name="Mark Masker37" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(800.1411, 1578)
+
+[node name="Mark Masker38" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(3406.088, 1702)
+
+[node name="Mark Masker39" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(6104.819, 1640)
+
+[node name="Mark Masker40" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(8572.088, 1717)
+
+[node name="Mark Masker41" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(11223.928, 1794)
+
+[node name="Mark Masker42" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(13567.483, 1779)
+
+[node name="Mark Masker43" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(13520.593, -2395)
+
+[node name="Mark Masker62" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(13258.202, -3616)
+
+[node name="Mark Masker63" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(10050.653, 3324)
+
+[node name="Mark Masker64" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(-7358.9053, -7233)
+
+[node name="Mark Masker65" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(2530.123, -351)
+
+[node name="Mark Masker44" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(11778.639, -4991)
+
+[node name="Mark Masker45" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(11284.787, -6212)
+
+[node name="Mark Masker46" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(8602.018, -7309)
+
+[node name="Mark Masker47" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(11192.999, -7278)
+
+[node name="Mark Masker48" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(-7372.873, 3140)
+
+[node name="Mark Masker49" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(-7403.8013, 4794)
+
+[node name="Mark Masker50" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(-4751.962, 3017)
+
+[node name="Mark Masker51" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(-4706.068, 4594)
+
+[node name="Mark Masker52" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(-2192.9063, 3064)
+
+[node name="Mark Masker53" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(-2008.3346, 4733)
+
+[node name="Mark Masker54" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(397.0776, 3203)
+
+[node name="Mark Masker55" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(473.89917, 4749)
+
+[node name="Mark Masker56" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(2895.2744, 3265)
+
+[node name="Mark Masker57" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(3126.7368, 4888)
+
+[node name="Mark Masker58" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(5608.9707, 3296)
+
+[node name="Mark Masker59" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(5871.3613, 4903)
+
+[node name="Mark Masker60" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(8276.773, 3265)
+
+[node name="Mark Masker61" parent="Map Masks" instance=ExtResource("120_ilwxp")]
+visible = false
+position = Vector2(8508.235, 4903)
 
 [connection signal="broke" from="Level/Big/Egg" to="Worm Spawner" method="spawn"]
 [connection signal="timeout" from="Line Drawer/Timer" to="Line Drawer" method="_on_timer_timeout"]

@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://51pawwymqdog"]
+
+[ext_resource type="Script" uid="uid://ce6m0ko4nelax" path="res://Scripts/map_mask.gd" id="1_05hh5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mfvrx"]
+size = Vector2(2819.4734, 1757)
+
+[node name="Mark Masker" type="Area2D"]
+visibility_layer = 524288
+z_index = 1000
+z_as_relative = false
+collision_layer = 0
+collision_mask = 4096
+script = ExtResource("1_05hh5")
+
+[node name="Color" type="ColorRect" parent="."]
+modulate = Color(0.9372549, 0.8784314, 0.70980394, 1)
+visibility_layer = 524288
+offset_left = -0.0007324219
+offset_right = 2816.4568
+offset_bottom = 1747.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1399.7355, 868.5)
+shape = SubResource("RectangleShape2D_mfvrx")

@@ -116,6 +116,7 @@ scale_amount_max = 0.05
 [node name="Map Marker" type="Sprite2D" parent="."]
 modulate = Color(0.91764706, 0.3372549, 0.09411765, 1)
 visibility_layer = 131072
-z_index = 888
+z_index = 1001
+z_as_relative = false
 scale = Vector2(4.438483, 4.438483)
 texture = ExtResource("9_6n8e5")

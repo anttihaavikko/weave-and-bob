@@ -1021,7 +1021,8 @@ shape = SubResource("CircleShape2D_vqq8p")
 
 [node name="Map Marker" type="Sprite2D" parent="Control Node/Orienter"]
 visibility_layer = 524288
-z_index = 999
+z_index = 4096
+z_as_relative = false
 position = Vector2(-2.0000005, -542)
 scale = Vector2(5.305986, 5.305986)
 texture = ExtResource("37_qpa8y")

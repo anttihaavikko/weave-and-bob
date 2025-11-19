@@ -170,7 +170,8 @@ speed = -200.0
 [node name="Marker" type="Sprite2D" parent="."]
 visible = false
 visibility_layer = 262144
-z_index = 777
+z_index = 1001
+z_as_relative = false
 material = SubResource("ShaderMaterial_naa5w")
 position = Vector2(265, -438)
 scale = Vector2(5.7113004, 5.7113004)
