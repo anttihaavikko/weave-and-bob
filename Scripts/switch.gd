@@ -1,5 +1,5 @@
 class_name Switch
-extends CharacterBody2D
+extends AnimatableBody2D
 
 @export var change := 45.0
 @export var doors: Array[Door]

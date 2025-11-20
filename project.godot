@@ -112,6 +112,7 @@ down={
 2d_physics/layer_13="control node"
 2d_physics/layer_14="spider"
 2d_physics/layer_15="plate"
+2d_physics/layer_16="switches"
 
 [physics]
 

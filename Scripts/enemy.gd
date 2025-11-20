@@ -109,7 +109,10 @@ func die():
 			c.scale *= global_scale
 	h.apply_impulse(Vector2.UP * 500 + dir * 300)
 	died.emit()
-	await get_tree().create_timer(0.1).timeout
+	var tree := get_tree()
+	if not tree: return
+	await tree.create_timer(0.1).timeout
+	if not tree: return
 	Gameplay.hit_stop(get_tree(), 0.5, 3 / 60.0)
 	h.apply_torque_impulse(2000 * randf_range(-1, 1))
 	if starts_encounter: starts_encounter.start(self)

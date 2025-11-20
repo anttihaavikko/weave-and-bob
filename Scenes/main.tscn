@@ -1,4 +1,4 @@
-[gd_scene load_steps=147 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=150 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/player.tscn" id="1_bo1nx"]
@@ -68,8 +68,10 @@
 [ext_resource type="Texture2D" uid="uid://5jswmafvbw38" path="res://Sprites/capsule.png" id="45_7t1gx"]
 [ext_resource type="PackedScene" uid="uid://ct6y2bvu4gb2k" path="res://Scenes/enemy_plated.tscn" id="46_cmq5c"]
 [ext_resource type="Texture2D" uid="uid://bhm4007jkyvdw" path="res://Sprites/grave1.png" id="46_ilwxp"]
+[ext_resource type="Script" uid="uid://cf40cjpsa4s1u" path="res://Scripts/hidden_area.gd" id="46_jab21"]
 [ext_resource type="Texture2D" uid="uid://bjy00gdxmeg1a" path="res://Sprites/cloud1.png" id="47_s8vy0"]
 [ext_resource type="Texture2D" uid="uid://dvhy3tx7iko8b" path="res://Sprites/grave2.png" id="47_xjjvj"]
+[ext_resource type="Texture2D" uid="uid://cjhashibcly6h" path="res://Sprites/down.png" id="48_8dylv"]
 [ext_resource type="AudioStream" uid="uid://6icsnrsowbyq" path="res://Sounds/bass.wav" id="49_xdkp6"]
 [ext_resource type="PackedScene" uid="uid://dvbvt8kxd6pqp" path="res://Scenes/Effects/blood_small.tscn" id="50_5vy51"]
 [ext_resource type="AudioStream" uid="uid://dq0spo1815aj3" path="res://Sounds/flag.wav" id="50_54nrm"]
@@ -153,6 +155,9 @@ shader = ExtResource("20_j2g22")
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_jjvhh"]
 polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xjjvj"]
+size = Vector2(484.8723, 644)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_s8vy0"]
 blend_mode = 1
@@ -2574,8 +2579,16 @@ visibility_layer = 524289
 position = Vector2(8182.9917, 6397)
 
 [node name="Wall6" parent="Level/Big2" instance=ExtResource("4_344ge")]
-position = Vector2(-1424.9115, -756.99994)
-scale = Vector2(5397.269, 1861.4581)
+position = Vector2(190.78828, -755.6262)
+scale = Vector2(2165.8694, 1858.7102)
+
+[node name="Wall13" parent="Level/Big2" instance=ExtResource("4_344ge")]
+position = Vector2(-2695.913, -755.73627)
+scale = Vector2(2855.2656, 1858.9312)
+
+[node name="Wall14" parent="Level/Big2" instance=ExtResource("4_344ge")]
+position = Vector2(-1112.2374, -445.63443)
+scale = Vector2(1344.6829, 1238.727)
 
 [node name="Wall9" parent="Level/Big2" instance=ExtResource("4_344ge")]
 position = Vector2(-1101.4413, -2338)
@@ -2611,6 +2624,61 @@ z_index = 100
 position = Vector2(-4620.267, -2467)
 show_left = false
 size = Vector2(450, 40)
+
+[node name="Hidden" type="Node2D" parent="Level/Big2" node_paths=PackedStringArray("area", "hider")]
+visibility_layer = 524289
+position = Vector2(-1081.4878, -1496)
+script = ExtResource("46_jab21")
+area = NodePath("Area2D")
+hider = NodePath("ColorRect")
+
+[node name="Platform3" parent="Level/Big2/Hidden" instance=ExtResource("33_o1aky")]
+z_index = 999
+position = Vector2(-0.99756086, -169)
+
+[node name="ColorRect" type="ColorRect" parent="Level/Big2/Hidden"]
+modulate = Color(0, 0, 0, 1)
+visibility_layer = 524289
+z_index = 999
+offset_left = -199.53662
+offset_top = -176.0
+offset_right = 212.50635
+offset_bottom = 451.0
+
+[node name="Pickup" parent="Level/Big2/Hidden" instance=ExtResource("16_k12tt")]
+position = Vector2(-5.986328, 311)
+id = "hidden_scope"
+type = 6
+
+[node name="Area2D" type="Area2D" parent="Level/Big2/Hidden"]
+collision_layer = 0
+collision_mask = 4096
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Big2/Hidden/Area2D"]
+position = Vector2(-19.955078, 159)
+shape = SubResource("RectangleShape2D_xjjvj")
+
+[node name="Bricks & Marker" type="Node2D" parent="Level/Big2/Hidden"]
+modulate = Color(0.91764706, 0.3372549, 0.09411765, 0.16470589)
+z_index = 1000
+position = Vector2(-1.9953766, -223)
+
+[node name="Brick2" type="Sprite2D" parent="Level/Big2/Hidden/Bricks & Marker"]
+position = Vector2(278.35324, 85.99997)
+scale = Vector2(2.5642173, 2.5642173)
+texture = ExtResource("25_1semv")
+
+[node name="Brick3" type="Sprite2D" parent="Level/Big2/Hidden/Bricks & Marker"]
+position = Vector2(-268.37674, 84.99997)
+scale = Vector2(2.5642173, 2.5642173)
+texture = ExtResource("25_1semv")
+flip_h = true
+
+[node name="Brick4" type="Sprite2D" parent="Level/Big2/Hidden/Bricks & Marker"]
+position = Vector2(3.99057, 51.99997)
+scale = Vector2(0.55115056, 0.55115056)
+texture = ExtResource("48_8dylv")
+flip_h = true
 
 [node name="Edge" type="Node2D" parent="Level"]
 visibility_layer = 524289
@@ -2924,7 +2992,7 @@ respawns_after = 5
 
 [node name="Player Spawn" type="Node2D" parent="Level"]
 visibility_layer = 524289
-position = Vector2(1851.6985, 3805)
+position = Vector2(6161.6865, 3114)
 scale = Vector2(1.0023229, 1)
 script = ExtResource("121_xjjvj")
 size = 150
@@ -2966,15 +3034,14 @@ id = "midair"
 
 [node name="Bricks" type="Node2D" parent="Level"]
 modulate = Color(0.91764706, 0.3372549, 0.09411765, 0.16470589)
+z_index = 250
 
 [node name="Brick1" type="Sprite2D" parent="Level/Bricks"]
-z_index = 50
 position = Vector2(3713.703, 1505.4083)
 scale = Vector2(2.5642173, 2.5642173)
 texture = ExtResource("25_1semv")
 
 [node name="Brick2" type="Sprite2D" parent="Level/Bricks"]
-z_index = 50
 position = Vector2(-1373.8088, -470.00003)
 scale = Vector2(2.5642173, 2.5642173)
 texture = ExtResource("25_1semv")
@@ -2991,8 +3058,9 @@ position = Vector2(3938.8503, 3599)
 opened = false
 
 [node name="Switch" parent="Level" node_paths=PackedStringArray("doors") instance=ExtResource("41_ylsbi")]
-position = Vector2(6054.935, 3553)
-rotation = 3.6476293
+position = Vector2(6056.93, 3612.9998)
+rotation = -0.62092733
+change = -120.0
 doors = [NodePath("../Door"), NodePath("../Door2")]
 
 [node name="Clouds" type="Node2D" parent="."]
@@ -4341,7 +4409,7 @@ rotation = -0.3976062
 position = Vector2(31.611206, -258.48828)
 rotation = 0.8462244
 scale = Vector2(0.99999994, 1)
-points = PackedVector2Array(172.59912, 197.00024, 681.4175, 647, 696.3823, 1347.0002)
+points = PackedVector2Array(172.59912, 197, 681.4175, 647, 696.38184, 1346.9995)
 width = 120.0
 width_curve = SubResource("Curve_xjjvj")
 default_color = Color(0, 0, 0, 1)
@@ -4407,7 +4475,7 @@ rotation = 2.1584435
 position = Vector2(31.611206, -258.48828)
 rotation = 0.8462244
 scale = Vector2(0.99999994, 1)
-points = PackedVector2Array(172.59912, 196.99976, 681.41724, 647, 1366.8633, 492.71265)
+points = PackedVector2Array(172.59961, 196.99976, 681.4175, 647, 1366.8635, 492.7129)
 width = 120.0
 width_curve = SubResource("Curve_xjjvj")
 default_color = Color(0, 0, 0, 1)
@@ -4473,7 +4541,7 @@ rotation = 3.6935034
 position = Vector2(31.611206, -258.48828)
 rotation = 0.8462244
 scale = Vector2(0.99999994, 1)
-points = PackedVector2Array(172.59961, 197, 681.4177, 647, 696.38257, 1347)
+points = PackedVector2Array(172.59961, 197, 681.4177, 647, 696.3823, 1346.9998)
 width = 120.0
 width_curve = SubResource("Curve_xjjvj")
 default_color = Color(0, 0, 0, 1)

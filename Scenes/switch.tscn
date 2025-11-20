@@ -3,10 +3,11 @@
 [ext_resource type="Script" uid="uid://b38n1sce3un4f" path="res://Scripts/switch.gd" id="1_swbo4"]
 [ext_resource type="Texture2D" uid="uid://cthibwn7a8bjd" path="res://Sprites/switch.svg" id="2_v71cw"]
 
-[node name="Switch" type="CharacterBody2D"]
+[node name="Switch" type="AnimatableBody2D"]
 rotation = 5.448347
 scale = Vector2(1.3161955, 1.3161954)
-collision_layer = 2
+collision_layer = 32768
+collision_mask = 0
 script = ExtResource("1_swbo4")
 change = 120.0
 
