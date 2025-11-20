@@ -13,7 +13,7 @@ size = Vector2(6, 2)
 
 [node name="Casing" type="RigidBody2D"]
 collision_layer = 4
-collision_mask = 10
+collision_mask = 8202
 physics_material_override = SubResource("PhysicsMaterial_frouj")
 contact_monitor = true
 max_contacts_reported = 1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=142 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=147 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/player.tscn" id="1_bo1nx"]
@@ -119,6 +119,7 @@
 [ext_resource type="PackedScene" uid="uid://biwhx5suil4e0" path="res://Scenes/worm.tscn" id="114_0fjpc"]
 [ext_resource type="PackedScene" uid="uid://0uv2v0ugkper" path="res://Scenes/worm_friend.tscn" id="115_gdwd6"]
 [ext_resource type="PackedScene" uid="uid://51pawwymqdog" path="res://Scenes/mark_masker.tscn" id="120_ilwxp"]
+[ext_resource type="Script" uid="uid://bwknch2pvkg4u" path="res://Scripts/line.gd" id="121_jab21"]
 [ext_resource type="Script" uid="uid://cahkyqjkmgnwc" path="res://Scripts/visible_node.gd" id="121_xjjvj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ihvwq"]
@@ -205,6 +206,19 @@ shader = ExtResource("84_vxl7x")
 shader_parameter/height = 2.0
 shader_parameter/frequency = 5.0
 shader_parameter/speed = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ilwxp"]
+radius = 290.9562
+
+[sub_resource type="Curve" id="Curve_xjjvj"]
+_data = [Vector2(0, 0.8012764), 0.0, 0.0, 0, 0, Vector2(0.49384886, 0.5060849), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ilwxp"]
+size = Vector2(64.77557, 711.6787)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xjjvj"]
+radius = 14.286073
 
 [node name="Main" type="Node2D"]
 visibility_layer = 524289
@@ -2910,7 +2924,7 @@ respawns_after = 5
 
 [node name="Player Spawn" type="Node2D" parent="Level"]
 visibility_layer = 524289
-position = Vector2(6578.7183, 3740)
+position = Vector2(1851.6985, 3805)
 scale = Vector2(1.0023229, 1)
 script = ExtResource("121_xjjvj")
 size = 150
@@ -4303,6 +4317,219 @@ position = Vector2(8276.773, 3265)
 [node name="Mark Masker61" parent="Map Masks" instance=ExtResource("120_ilwxp")]
 visible = false
 position = Vector2(8508.235, 4903)
+
+[node name="Spider" type="Node2D" parent="."]
+position = Vector2(2633.8818, 3479)
+
+[node name="Body" type="AnimatableBody2D" parent="Spider"]
+collision_layer = 8192
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spider/Body"]
+shape = SubResource("CircleShape2D_ilwxp")
+
+[node name="Sprite2D" type="Sprite2D" parent="Spider/Body"]
+modulate = Color(0, 0, 0, 1)
+scale = Vector2(1.17503, 1.17503)
+texture = ExtResource("73_jekl6")
+
+[node name="Leg1" type="Node2D" parent="Spider"]
+position = Vector2(172.59937, 195)
+rotation = -0.3976062
+
+[node name="Line2D" type="Line2D" parent="Spider/Leg1" node_paths=PackedStringArray("targets")]
+position = Vector2(31.611206, -258.48828)
+rotation = 0.8462244
+scale = Vector2(0.99999994, 1)
+points = PackedVector2Array(172.59912, 197.00024, 681.4175, 647, 696.3823, 1347.0002)
+width = 120.0
+width_curve = SubResource("Curve_xjjvj")
+default_color = Color(0, 0, 0, 1)
+joint_mode = 2
+end_cap_mode = 2
+script = ExtResource("121_jab21")
+targets = [NodePath("../Leg Upper/Crotch"), NodePath("../Leg Upper/Knee"), NodePath("../Leg Upper/Leg Lower/Tip")]
+
+[node name="Leg Upper" type="RigidBody2D" parent="Spider/Leg1"]
+collision_layer = 8192
+collision_mask = 0
+mass = 10.0
+gravity_scale = 0.0
+
+[node name="Crotch" type="PinJoint2D" parent="Spider/Leg1/Leg Upper"]
+position = Vector2(-1.4975586, 1.3256836)
+node_a = NodePath("../../../Body")
+node_b = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spider/Leg1/Leg Upper"]
+position = Vector2(-0.817749, 344.33984)
+shape = SubResource("RectangleShape2D_ilwxp")
+
+[node name="Leg Lower" type="RigidBody2D" parent="Spider/Leg1/Leg Upper"]
+position = Vector2(0.29968262, 679.2612)
+rotation = 0.82546186
+collision_layer = 8192
+collision_mask = 0
+mass = 10.0
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spider/Leg1/Leg Upper/Leg Lower"]
+position = Vector2(0, 344.33984)
+shape = SubResource("RectangleShape2D_ilwxp")
+
+[node name="Tip" type="AnimatableBody2D" parent="Spider/Leg1/Leg Upper/Leg Lower"]
+position = Vector2(0.38745117, 702.1592)
+rotation = 0.020762684
+scale = Vector2(0.99999994, 1)
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spider/Leg1/Leg Upper/Leg Lower/Tip"]
+shape = SubResource("CircleShape2D_xjjvj")
+
+[node name="Leg Tip" type="PinJoint2D" parent="Spider/Leg1/Leg Upper/Leg Lower/Tip"]
+position = Vector2(0.00024414063, 0)
+rotation = -0.020762563
+node_a = NodePath("../..")
+node_b = NodePath("..")
+
+[node name="Knee" type="PinJoint2D" parent="Spider/Leg1/Leg Upper"]
+position = Vector2(-1.197876, 680.5869)
+rotation = 0.82546186
+node_a = NodePath("..")
+node_b = NodePath("../Leg Lower")
+
+[node name="Leg2" type="Node2D" parent="Spider"]
+position = Vector2(-258.39948, -20.000015)
+rotation = 2.1584435
+
+[node name="Line2D" type="Line2D" parent="Spider/Leg2" node_paths=PackedStringArray("targets")]
+position = Vector2(31.611206, -258.48828)
+rotation = 0.8462244
+scale = Vector2(0.99999994, 1)
+points = PackedVector2Array(172.59912, 196.99976, 681.41724, 647, 1366.8633, 492.71265)
+width = 120.0
+width_curve = SubResource("Curve_xjjvj")
+default_color = Color(0, 0, 0, 1)
+joint_mode = 2
+end_cap_mode = 2
+script = ExtResource("121_jab21")
+targets = [NodePath("../Leg Upper/Crotch"), NodePath("../Leg Upper/Knee"), NodePath("../Leg Upper/Leg Lower/Tip")]
+
+[node name="Leg Upper" type="RigidBody2D" parent="Spider/Leg2"]
+collision_layer = 8192
+collision_mask = 0
+mass = 10.0
+gravity_scale = 0.0
+
+[node name="Crotch" type="PinJoint2D" parent="Spider/Leg2/Leg Upper"]
+position = Vector2(-1.4975586, 1.3256836)
+node_a = NodePath("../../../Body")
+node_b = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spider/Leg2/Leg Upper"]
+position = Vector2(-0.817749, 344.33984)
+shape = SubResource("RectangleShape2D_ilwxp")
+
+[node name="Leg Lower" type="RigidBody2D" parent="Spider/Leg2/Leg Upper"]
+position = Vector2(0.29968262, 679.2612)
+rotation = -0.94264114
+collision_layer = 8192
+collision_mask = 0
+mass = 10.0
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spider/Leg2/Leg Upper/Leg Lower"]
+position = Vector2(0, 344.33984)
+shape = SubResource("RectangleShape2D_ilwxp")
+
+[node name="Tip" type="AnimatableBody2D" parent="Spider/Leg2/Leg Upper/Leg Lower"]
+position = Vector2(0.38745117, 702.1592)
+rotation = 0.020762684
+scale = Vector2(0.99999994, 1)
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spider/Leg2/Leg Upper/Leg Lower/Tip"]
+shape = SubResource("CircleShape2D_xjjvj")
+
+[node name="Leg Tip" type="PinJoint2D" parent="Spider/Leg2/Leg Upper/Leg Lower/Tip"]
+position = Vector2(0.00024414063, 0)
+rotation = -0.020762563
+node_a = NodePath("../..")
+node_b = NodePath("..")
+
+[node name="Knee" type="PinJoint2D" parent="Spider/Leg2/Leg Upper"]
+position = Vector2(-1.197876, 680.5869)
+rotation = 0.82546186
+node_a = NodePath("..")
+node_b = NodePath("../Leg Lower")
+
+[node name="Leg3" type="Node2D" parent="Spider"]
+position = Vector2(95.77774, -198.99992)
+rotation = 3.6935034
+
+[node name="Line2D" type="Line2D" parent="Spider/Leg3" node_paths=PackedStringArray("targets")]
+position = Vector2(31.611206, -258.48828)
+rotation = 0.8462244
+scale = Vector2(0.99999994, 1)
+points = PackedVector2Array(172.59961, 197, 681.4177, 647, 696.38257, 1347)
+width = 120.0
+width_curve = SubResource("Curve_xjjvj")
+default_color = Color(0, 0, 0, 1)
+joint_mode = 2
+end_cap_mode = 2
+script = ExtResource("121_jab21")
+targets = [NodePath("../Leg Upper/Crotch"), NodePath("../Leg Upper/Knee"), NodePath("../Leg Upper/Leg Lower/Tip")]
+
+[node name="Leg Upper" type="RigidBody2D" parent="Spider/Leg3"]
+collision_layer = 8192
+collision_mask = 0
+mass = 10.0
+gravity_scale = 0.0
+
+[node name="Crotch" type="PinJoint2D" parent="Spider/Leg3/Leg Upper"]
+position = Vector2(-1.4975586, 1.3256836)
+node_a = NodePath("../../../Body")
+node_b = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spider/Leg3/Leg Upper"]
+position = Vector2(-0.817749, 344.33984)
+shape = SubResource("RectangleShape2D_ilwxp")
+
+[node name="Leg Lower" type="RigidBody2D" parent="Spider/Leg3/Leg Upper"]
+position = Vector2(0.29968262, 679.2612)
+rotation = 0.82546186
+collision_layer = 8192
+collision_mask = 0
+mass = 10.0
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spider/Leg3/Leg Upper/Leg Lower"]
+position = Vector2(0, 344.33984)
+shape = SubResource("RectangleShape2D_ilwxp")
+
+[node name="Tip" type="AnimatableBody2D" parent="Spider/Leg3/Leg Upper/Leg Lower"]
+position = Vector2(0.38745117, 702.1592)
+rotation = 0.020762684
+scale = Vector2(0.99999994, 1)
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spider/Leg3/Leg Upper/Leg Lower/Tip"]
+shape = SubResource("CircleShape2D_xjjvj")
+
+[node name="Leg Tip" type="PinJoint2D" parent="Spider/Leg3/Leg Upper/Leg Lower/Tip"]
+position = Vector2(0.00024414063, 0)
+rotation = -0.020762563
+node_a = NodePath("../..")
+node_b = NodePath("..")
+
+[node name="Knee" type="PinJoint2D" parent="Spider/Leg3/Leg Upper"]
+position = Vector2(-1.197876, 680.5869)
+rotation = 0.82546186
+node_a = NodePath("..")
+node_b = NodePath("../Leg Lower")
 
 [connection signal="broke" from="Level/Big/Egg" to="Worm Spawner" method="spawn"]
 [connection signal="timeout" from="Line Drawer/Timer" to="Line Drawer" method="_on_timer_timeout"]
