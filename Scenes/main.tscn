@@ -2561,8 +2561,8 @@ position = Vector2(-459.43622, -1855)
 scale = Vector2(440.77634, 1032.0762)
 
 [node name="Wall7" parent="Level/Big2" instance=ExtResource("4_344ge")]
-position = Vector2(2371.868, -1768.0066)
-scale = Vector2(2543.6401, 3611.6438)
+position = Vector2(2069.7292, -1768.0066)
+scale = Vector2(1939.3625, 3611.6438)
 
 [node name="Wall8" parent="Level/Big2" instance=ExtResource("4_344ge")]
 position = Vector2(-308.2838, -4052)

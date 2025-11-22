@@ -67,10 +67,10 @@ func _picked(_body: Node2D):
 		GameState.show_help("Press T or the button on map...", 1.5)
 	if type == Type.DoubleJump:
 		GameState.has_double_jump = true
-		GameState.show_texts("Double jump!", "Superior control...", 0.5, 1.75)
+		GameState.show_texts("Double jump!", "Superior air control...", 0.5, 1.75)
 	if type == Type.Track:
 		GameState.has_tracking = true
-		GameState.show_texts("Enemy tracking!", "Zoom out on bosses...", 0.5, 1.75)
+		GameState.show_texts("Enemy tracking!", "Zoom out on boss fights...", 0.5, 1.75)
 	if type == Type.Damage:
 		GameState.damage += 30
 		GameState.show_texts("Shot damage up!", "By a whopping 30%...", 0.5, 2.5)

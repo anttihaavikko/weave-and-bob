@@ -5,5 +5,7 @@ extends Node
 @export_flags_2d_physics var platform_layers: int
 
 func _input(_event: InputEvent) -> void:
+	if GameState.attached:
+		return
 	for body in bodies:
 		body.collision_mask = normal_layers if Input.is_action_pressed("down") else normal_layers + platform_layers
