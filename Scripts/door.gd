@@ -3,6 +3,7 @@ extends Node2D
 
 @export var opened: bool
 @export var dir := Vector2.UP
+@export var gears: Array[Node2D]
 
 var _open_pos: Vector2
 var _closed_pos: Vector2
@@ -15,6 +16,9 @@ func _ready() -> void:
 func change(pos: Vector2):
 	get_tree().create_tween().tween_property(self, "global_position", pos, 0.5).set_trans(Tween.TRANS_BOUNCE)
 	SoundEffects.singleton.add(10, global_position) # throw1.wav
+	if len(gears) > 0:
+		for gear in gears:
+			get_tree().create_tween().tween_property(gear, "rotation_degrees", 180 if opened else 0, 0.5).set_trans(Tween.TRANS_BOUNCE)
 	
 func open():
 	change(_open_pos)

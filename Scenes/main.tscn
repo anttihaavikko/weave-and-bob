@@ -1,4 +1,4 @@
-[gd_scene load_steps=154 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=156 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/player.tscn" id="1_bo1nx"]
@@ -52,6 +52,7 @@
 [ext_resource type="PackedScene" uid="uid://dj4ia0fuy6eo6" path="res://Scenes/Effects/bush_particles.tscn" id="33_v2nl5"]
 [ext_resource type="Script" uid="uid://de5j4ushffq0u" path="res://Scripts/nudgeable.gd" id="34_5vy51"]
 [ext_resource type="PackedScene" uid="uid://dtix6dfe6hdbn" path="res://Scenes/vines.tscn" id="34_aok0f"]
+[ext_resource type="Script" uid="uid://bwtaepjv3mwab" path="res://Scripts/rotator.gd" id="36_b4xsn"]
 [ext_resource type="PackedScene" uid="uid://d37cu7ne2sexo" path="res://Scenes/winmill.tscn" id="36_gdwd6"]
 [ext_resource type="Texture2D" uid="uid://c0u1xf8vudw5" path="res://Sprites/fence.png" id="37_ot5ec"]
 [ext_resource type="PackedScene" uid="uid://dub36njkvj5pk" path="res://Scenes/enemy_charger.tscn" id="39_64lof"]
@@ -78,6 +79,7 @@
 [ext_resource type="PackedScene" uid="uid://bpamcmqpiyf2j" path="res://Scenes/killbox.tscn" id="50_dmskm"]
 [ext_resource type="AudioStream" uid="uid://dk8rm3dvhj87i" path="res://Sounds/flag_boop.wav" id="51_55jeb"]
 [ext_resource type="PackedScene" uid="uid://cbp0i7r7pvfar" path="res://Scenes/Effects/breakable.tscn" id="53_5vy51"]
+[ext_resource type="Texture2D" uid="uid://di1d84b5qf3jg" path="res://Sprites/gear.png" id="53_ja2pg"]
 [ext_resource type="AudioStream" uid="uid://c4ijxv5e2avwk" path="res://Sounds/reload.wav" id="58_wl4bb"]
 [ext_resource type="Script" uid="uid://bu70ibk77hcta" path="res://Scripts/hut.gd" id="59_lx3vj"]
 [ext_resource type="PackedScene" uid="uid://1wu8l44j3pi2" path="res://Scenes/Effects/breakable_wall.tscn" id="59_o2owy"]
@@ -2920,6 +2922,63 @@ position = Vector2(-5599.991, 1304)
 modulate = Color(0.7647059, 0.4627451, 0.25882354, 1)
 position = Vector2(-5062.2407, 441)
 
+[node name="Gear" type="Sprite2D" parent="Level/Lower/Background"]
+position = Vector2(3257.4333, 1157)
+scale = Vector2(0.5441308, 0.5441308)
+texture = ExtResource("53_ja2pg")
+
+[node name="Gear2" type="Sprite2D" parent="Level/Lower/Background"]
+position = Vector2(3257.4333, 1408)
+scale = Vector2(0.5441308, 0.5441308)
+texture = ExtResource("53_ja2pg")
+
+[node name="Gear3" type="Sprite2D" parent="Level/Lower/Background"]
+position = Vector2(3257.4333, 1676)
+scale = Vector2(0.5441308, 0.5441308)
+texture = ExtResource("53_ja2pg")
+
+[node name="Gear4" type="Sprite2D" parent="Level/Lower/Background"]
+position = Vector2(3257.4333, 1963)
+scale = Vector2(0.5441308, 0.5441308)
+texture = ExtResource("53_ja2pg")
+
+[node name="Gear5" type="Sprite2D" parent="Level/Lower/Background"]
+position = Vector2(1307.9618, 1864)
+scale = Vector2(0.8944446, 0.8944446)
+texture = ExtResource("53_ja2pg")
+script = ExtResource("36_b4xsn")
+speed = -50.0
+
+[node name="Gear8" type="Sprite2D" parent="Level/Lower/Background"]
+position = Vector2(3737.3186, 466)
+scale = Vector2(1.2828562, 1.2828562)
+texture = ExtResource("53_ja2pg")
+script = ExtResource("36_b4xsn")
+speed = -100.0
+
+[node name="Gear6" type="Sprite2D" parent="Level/Lower/Background"]
+position = Vector2(1573.3453, 1865)
+rotation = 0.3009295
+scale = Vector2(0.6082855, 0.6082855)
+texture = ExtResource("53_ja2pg")
+script = ExtResource("36_b4xsn")
+speed = 50.0
+
+[node name="Gear9" type="Sprite2D" parent="Level/Lower/Background"]
+position = Vector2(3763.2588, 812)
+rotation = 0.033162147
+scale = Vector2(0.6082855, 0.6082855)
+texture = ExtResource("53_ja2pg")
+script = ExtResource("36_b4xsn")
+
+[node name="Gear7" type="Sprite2D" parent="Level/Lower/Background"]
+position = Vector2(1302.9734, 1588)
+rotation = 0.43369308
+scale = Vector2(0.6082855, 0.6082855)
+texture = ExtResource("53_ja2pg")
+script = ExtResource("36_b4xsn")
+speed = 50.0
+
 [node name="Decorations" type="Node2D" parent="Level/Lower"]
 modulate = Color(0.5686275, 0.32941177, 0.16470589, 1)
 position = Vector2(-5862.382, 1628)
@@ -2937,8 +2996,8 @@ position = Vector2(-5168.992, 1512)
 scale = Vector2(609.7465, 360.91348)
 
 [node name="Wall18" parent="Level/Lower" instance=ExtResource("4_344ge")]
-position = Vector2(-1931.0951, 2241.888)
-scale = Vector2(243.0004, 1403.1375)
+position = Vector2(-1931.0951, 2211.561)
+scale = Vector2(243.0004, 1463.7915)
 
 [node name="Wall19" parent="Level/Lower" instance=ExtResource("4_344ge")]
 position = Vector2(-2081.4807, 1655.7651)
@@ -2997,33 +3056,37 @@ rotation = 1.5707964
 scale = Vector2(0.53257436, 0.5325743)
 respawns_after = 5
 
-[node name="Door" parent="Level/Lower" instance=ExtResource("19_ee4r6")]
+[node name="Door" parent="Level/Lower" node_paths=PackedStringArray("gears") instance=ExtResource("19_ee4r6")]
 position = Vector2(-1570.352, 1659.703)
 rotation = 1.5707964
 scale = Vector2(118.102516, 615.48535)
 opened = false
 dir = Vector2(1, 0)
+gears = [NodePath("../Background/Gear")]
 
-[node name="Door2" parent="Level/Lower" instance=ExtResource("19_ee4r6")]
+[node name="Door2" parent="Level/Lower" node_paths=PackedStringArray("gears") instance=ExtResource("19_ee4r6")]
 position = Vector2(-1576.3379, 1906.9999)
 rotation = 1.5707964
 scale = Vector2(118.102516, 615.48535)
 opened = false
 dir = Vector2(1, 0)
+gears = [NodePath("../Background/Gear2")]
 
-[node name="Door3" parent="Level/Lower" instance=ExtResource("19_ee4r6")]
+[node name="Door3" parent="Level/Lower" node_paths=PackedStringArray("gears") instance=ExtResource("19_ee4r6")]
 position = Vector2(-1568.3564, 2174.9998)
 rotation = 1.5707964
 scale = Vector2(118.102516, 615.48535)
 opened = false
 dir = Vector2(1, 0)
+gears = [NodePath("../Background/Gear3")]
 
-[node name="Door4" parent="Level/Lower" instance=ExtResource("19_ee4r6")]
+[node name="Door4" parent="Level/Lower" node_paths=PackedStringArray("gears") instance=ExtResource("19_ee4r6")]
 position = Vector2(-1568.3566, 2456.9998)
 rotation = 1.5707964
 scale = Vector2(118.102516, 615.48535)
 opened = false
 dir = Vector2(1, 0)
+gears = [NodePath("../Background/Gear4")]
 
 [node name="Switch" parent="Level/Lower" node_paths=PackedStringArray("doors") instance=ExtResource("41_ylsbi")]
 position = Vector2(-2225.8293, 1624)
@@ -3055,7 +3118,7 @@ position = Vector2(-2858.3599, 2057)
 show_right = false
 
 [node name="Platform2" parent="Level/Lower" instance=ExtResource("33_o1aky")]
-position = Vector2(-2858.36, 1655)
+position = Vector2(-2858.36, 1606)
 show_right = false
 
 [node name="Platform3" parent="Level/Lower" instance=ExtResource("33_o1aky")]
