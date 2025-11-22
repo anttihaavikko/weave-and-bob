@@ -2,13 +2,14 @@ class_name Door
 extends Node2D
 
 @export var opened: bool
+@export var dir := Vector2.UP
 
 var _open_pos: Vector2
 var _closed_pos: Vector2
 
 func _ready() -> void:
 	_closed_pos = global_position
-	_open_pos = global_position + Vector2.UP * global_scale.y
+	_open_pos = global_position + dir * global_scale.y
 	if opened: global_position = _open_pos
 	
 func change(pos: Vector2):

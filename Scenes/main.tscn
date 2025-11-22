@@ -1,4 +1,4 @@
-[gd_scene load_steps=152 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=154 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/player.tscn" id="1_bo1nx"]
@@ -225,6 +225,11 @@ size = Vector2(64.77557, 711.6787)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xjjvj"]
 radius = 14.286073
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ja2pg"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0wopu"]
+normal = Vector2(-1, 0)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qv1an"]
 normal = Vector2(1, 0)
@@ -2627,6 +2632,25 @@ scale = Vector2(0.55115056, 0.55115056)
 texture = ExtResource("48_8dylv")
 flip_h = true
 
+[node name="Door" parent="Level/Big2" instance=ExtResource("19_ee4r6")]
+position = Vector2(-3693.421, -2221)
+scale = Vector2(130.69635, 615.48535)
+opened = false
+
+[node name="Killbox" parent="Level/Big2/Door" instance=ExtResource("50_dmskm")]
+scale = Vector2(0.3574502, 1.076686)
+
+[node name="Door2" parent="Level/Big2" instance=ExtResource("19_ee4r6")]
+position = Vector2(-4244.1416, -2798)
+scale = Vector2(130.69635, 615.48535)
+opened = false
+
+[node name="Switch" parent="Level/Big2" node_paths=PackedStringArray("doors") instance=ExtResource("41_ylsbi")]
+position = Vector2(-2126.0615, -2784.0002)
+rotation = -0.62092733
+change = -120.0
+doors = [NodePath("../Door"), NodePath("../Door2")]
+
 [node name="Edge" type="Node2D" parent="Level"]
 visibility_layer = 524289
 position = Vector2(-5368.5293, -763)
@@ -2912,6 +2936,30 @@ scale = Vector2(1429.8386, 412.57956)
 position = Vector2(-5168.992, 1512)
 scale = Vector2(609.7465, 360.91348)
 
+[node name="Wall18" parent="Level/Lower" instance=ExtResource("4_344ge")]
+position = Vector2(-1931.0951, 2241.888)
+scale = Vector2(243.0004, 1403.1375)
+
+[node name="Wall19" parent="Level/Lower" instance=ExtResource("4_344ge")]
+position = Vector2(-2081.4807, 1655.7651)
+scale = Vector2(372.19513, 68.50624)
+
+[node name="Wall21" parent="Level/Lower" instance=ExtResource("4_344ge")]
+position = Vector2(-2081.165, 1904.0002)
+scale = Vector2(372.19513, 68.50624)
+
+[node name="Wall23" parent="Level/Lower" instance=ExtResource("4_344ge")]
+position = Vector2(-2081.1653, 2183.0002)
+scale = Vector2(372.19513, 68.50624)
+
+[node name="Wall24" parent="Level/Lower" instance=ExtResource("4_344ge")]
+position = Vector2(-2081.165, 2454.0002)
+scale = Vector2(372.19513, 68.50624)
+
+[node name="Wall25" parent="Level/Lower" instance=ExtResource("4_344ge")]
+position = Vector2(-2081.165, 2741.0002)
+scale = Vector2(372.19513, 68.50624)
+
 [node name="Wall13" parent="Level/Lower" instance=ExtResource("4_344ge")]
 position = Vector2(3359.2239, 471.90588)
 scale = Vector2(919.0793, 1231.1526)
@@ -2921,7 +2969,7 @@ position = Vector2(3359.224, 2441.545)
 scale = Vector2(919.0793, 2034.9426)
 
 [node name="Wall14" parent="Level/Lower" instance=ExtResource("4_344ge")]
-position = Vector2(-3223.1445, 1176.581)
+position = Vector2(-3411.0764, 1177)
 scale = Vector2(688.87805, 2258.4683)
 
 [node name="Wall12" parent="Level/Lower" instance=ExtResource("4_344ge")]
@@ -2949,9 +2997,79 @@ rotation = 1.5707964
 scale = Vector2(0.53257436, 0.5325743)
 respawns_after = 5
 
+[node name="Door" parent="Level/Lower" instance=ExtResource("19_ee4r6")]
+position = Vector2(-1570.352, 1659.703)
+rotation = 1.5707964
+scale = Vector2(118.102516, 615.48535)
+opened = false
+dir = Vector2(1, 0)
+
+[node name="Door2" parent="Level/Lower" instance=ExtResource("19_ee4r6")]
+position = Vector2(-1576.3379, 1906.9999)
+rotation = 1.5707964
+scale = Vector2(118.102516, 615.48535)
+opened = false
+dir = Vector2(1, 0)
+
+[node name="Door3" parent="Level/Lower" instance=ExtResource("19_ee4r6")]
+position = Vector2(-1568.3564, 2174.9998)
+rotation = 1.5707964
+scale = Vector2(118.102516, 615.48535)
+opened = false
+dir = Vector2(1, 0)
+
+[node name="Door4" parent="Level/Lower" instance=ExtResource("19_ee4r6")]
+position = Vector2(-1568.3566, 2456.9998)
+rotation = 1.5707964
+scale = Vector2(118.102516, 615.48535)
+opened = false
+dir = Vector2(1, 0)
+
+[node name="Switch" parent="Level/Lower" node_paths=PackedStringArray("doors") instance=ExtResource("41_ylsbi")]
+position = Vector2(-2225.8293, 1624)
+rotation = -0.772966
+doors = [NodePath("../Door"), NodePath("../Door2")]
+
+[node name="Switch2" parent="Level/Lower" node_paths=PackedStringArray("doors") instance=ExtResource("41_ylsbi")]
+position = Vector2(-2225.8296, 1874)
+rotation = -0.772966
+doors = [NodePath("../Door2")]
+
+[node name="Switch3" parent="Level/Lower" node_paths=PackedStringArray("doors") instance=ExtResource("41_ylsbi")]
+position = Vector2(-2225.8296, 2146)
+rotation = -0.772966
+doors = [NodePath("../Door2"), NodePath("../Door4")]
+
+[node name="Switch4" parent="Level/Lower" node_paths=PackedStringArray("doors") instance=ExtResource("41_ylsbi")]
+position = Vector2(-2225.8296, 2424)
+rotation = -0.772966
+doors = [NodePath("../Door"), NodePath("../Door4")]
+
+[node name="Switch5" parent="Level/Lower" node_paths=PackedStringArray("doors") instance=ExtResource("41_ylsbi")]
+position = Vector2(-2227.8247, 2710)
+rotation = -0.772966
+doors = [NodePath("../Door3")]
+
+[node name="Platform" parent="Level/Lower" instance=ExtResource("33_o1aky")]
+position = Vector2(-2858.3599, 2057)
+show_right = false
+
+[node name="Platform2" parent="Level/Lower" instance=ExtResource("33_o1aky")]
+position = Vector2(-2858.36, 1655)
+show_right = false
+
+[node name="Platform3" parent="Level/Lower" instance=ExtResource("33_o1aky")]
+position = Vector2(-2858.36, 1170)
+show_right = false
+
+[node name="Pickup" parent="Level" instance=ExtResource("16_k12tt")]
+position = Vector2(-702.36847, 5042)
+id = "quad_door"
+type = 3
+
 [node name="Player Spawn" type="Node2D" parent="Level"]
 visibility_layer = 524289
-position = Vector2(15107.905, -3605)
+position = Vector2(-2188.9153, 4951)
 scale = Vector2(1.0023229, 1)
 script = ExtResource("121_xjjvj")
 size = 150
@@ -3004,23 +3122,6 @@ texture = ExtResource("25_1semv")
 position = Vector2(-1373.8088, -470.00003)
 scale = Vector2(2.5642173, 2.5642173)
 texture = ExtResource("25_1semv")
-
-[node name="Door" parent="Level" instance=ExtResource("19_ee4r6")]
-position = Vector2(4489.5713, 4176)
-opened = false
-
-[node name="Killbox" parent="Level/Door" instance=ExtResource("50_dmskm")]
-scale = Vector2(0.3574502, 1.076686)
-
-[node name="Door2" parent="Level" instance=ExtResource("19_ee4r6")]
-position = Vector2(3938.8503, 3599)
-opened = false
-
-[node name="Switch" parent="Level" node_paths=PackedStringArray("doors") instance=ExtResource("41_ylsbi")]
-position = Vector2(6056.93, 3612.9998)
-rotation = -0.62092733
-change = -120.0
-doors = [NodePath("../Door"), NodePath("../Door2")]
 
 [node name="Clouds" type="Node2D" parent="."]
 position = Vector2(-616.56775, -2067)
@@ -4568,7 +4669,7 @@ script = ExtResource("109_ylsbi")
 collision_mask = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killbox/Area2D"]
-shape = SubResource("WorldBoundaryShape2D_qv1an")
+shape = SubResource("WorldBoundaryShape2D_ja2pg")
 
 [node name="Killbox2" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0)
@@ -4580,7 +4681,7 @@ script = ExtResource("109_ylsbi")
 collision_mask = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killbox2/Area2D"]
-shape = SubResource("WorldBoundaryShape2D_qv1an")
+shape = SubResource("WorldBoundaryShape2D_0wopu")
 
 [node name="Killbox3" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0)
