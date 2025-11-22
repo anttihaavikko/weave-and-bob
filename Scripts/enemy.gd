@@ -115,7 +115,7 @@ func die():
 	if not tree: return
 	Gameplay.hit_stop(get_tree(), 0.5, 3 / 60.0)
 	h.apply_torque_impulse(2000 * randf_range(-1, 1))
-	if starts_encounter: starts_encounter.start(self)
+	if starts_encounter: starts_encounter.start(id)
 	if respawns_after > 0:
 		await get_tree().create_timer(respawns_after).timeout
 		life = max_life

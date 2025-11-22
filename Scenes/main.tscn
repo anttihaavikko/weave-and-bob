@@ -2992,8 +2992,12 @@ position = Vector2(449.25372, 1868)
 scale = Vector2(1429.8386, 412.57956)
 
 [node name="Wall16" parent="Level/Lower" instance=ExtResource("4_344ge")]
-position = Vector2(-5168.992, 1512)
-scale = Vector2(609.7465, 360.91348)
+position = Vector2(-5283.067, 1510.7322)
+scale = Vector2(803.8932, 358.37787)
+
+[node name="Wall20" parent="Level/Lower" instance=ExtResource("4_344ge")]
+position = Vector2(-5283.782, 1595.685)
+scale = Vector2(680.07043, 366.61972)
 
 [node name="Wall18" parent="Level/Lower" instance=ExtResource("4_344ge")]
 position = Vector2(-1931.0951, 2211.561)
@@ -3040,8 +3044,8 @@ position = Vector2(-940.8144, 2093.0005)
 scale = Vector2(754.6206, 2767.645)
 
 [node name="Wall15" parent="Level/Lower" instance=ExtResource("4_344ge")]
-position = Vector2(-5183.9575, 2821.813)
-scale = Vector2(1445.2244, 1261.1276)
+position = Vector2(-5271.263, 2821.813)
+scale = Vector2(1619.8354, 1261.1276)
 
 [node name="Enemy" parent="Level/Lower" instance=ExtResource("46_cmq5c")]
 position = Vector2(3640.5435, 1270)
@@ -3124,6 +3128,164 @@ show_right = false
 [node name="Platform3" parent="Level/Lower" instance=ExtResource("33_o1aky")]
 position = Vector2(-2858.36, 1170)
 show_right = false
+
+[node name="Pickup" parent="Level/Lower" node_paths=PackedStringArray("encounter") instance=ExtResource("16_k12tt")]
+position = Vector2(-5293.703, 1027)
+id = "trap_pick"
+type = 11
+encounter = NodePath("../Encounter")
+
+[node name="Spikes Wrap" type="Node2D" parent="Level/Lower"]
+position = Vector2(-4348.8975, 1480)
+scale = Vector2(0.78266805, 0.78266805)
+
+[node name="Spikes" type="TextureRect" parent="Level/Lower/Spikes Wrap"]
+z_index = 500
+offset_right = 959.2959
+offset_bottom = 61.0
+scale = Vector2(0.78266805, 0.78266805)
+texture = ExtResource("65_ynmfv")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Killbox" parent="Level/Lower/Spikes Wrap/Spikes" instance=ExtResource("50_dmskm")]
+position = Vector2(483.76407, 32.50004)
+scale = Vector2(947.8062, 51.000023)
+can_kill_enemies = false
+
+[node name="Spikes Wrap2" type="Node2D" parent="Level/Lower"]
+position = Vector2(-4936.533, 1480)
+scale = Vector2(0.78266805, 0.78266805)
+
+[node name="Spikes" type="TextureRect" parent="Level/Lower/Spikes Wrap2"]
+z_index = 500
+offset_right = 959.2959
+offset_bottom = 61.0
+scale = Vector2(0.78266805, 0.78266805)
+texture = ExtResource("65_ynmfv")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Killbox" parent="Level/Lower/Spikes Wrap2/Spikes" instance=ExtResource("50_dmskm")]
+position = Vector2(483.76407, 32.50004)
+scale = Vector2(947.8062, 51.000023)
+can_kill_enemies = false
+
+[node name="Spikes Wrap3" type="Node2D" parent="Level/Lower"]
+position = Vector2(-6278.4155, 1479)
+scale = Vector2(0.78266805, 0.78266805)
+
+[node name="Spikes" type="TextureRect" parent="Level/Lower/Spikes Wrap3"]
+z_index = 500
+offset_right = 959.2959
+offset_bottom = 61.0
+scale = Vector2(0.78266805, 0.78266805)
+texture = ExtResource("65_ynmfv")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Killbox" parent="Level/Lower/Spikes Wrap3/Spikes" instance=ExtResource("50_dmskm")]
+position = Vector2(483.76407, 32.50004)
+scale = Vector2(947.8062, 51.000023)
+can_kill_enemies = false
+
+[node name="Spikes Wrap4" type="Node2D" parent="Level/Lower"]
+position = Vector2(-6867.0483, 1480)
+scale = Vector2(0.78266805, 0.78266805)
+
+[node name="Spikes" type="TextureRect" parent="Level/Lower/Spikes Wrap4"]
+z_index = 500
+offset_right = 959.2959
+offset_bottom = 61.0
+scale = Vector2(0.78266805, 0.78266805)
+texture = ExtResource("65_ynmfv")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Killbox" parent="Level/Lower/Spikes Wrap4/Spikes" instance=ExtResource("50_dmskm")]
+position = Vector2(483.76407, 32.50004)
+scale = Vector2(947.8062, 51.000023)
+can_kill_enemies = false
+
+[node name="Door5" parent="Level/Lower" node_paths=PackedStringArray("gears") instance=ExtResource("19_ee4r6")]
+position = Vector2(-4040.1572, 1575.0513)
+rotation = 1.5707964
+scale = Vector2(118.102516, 615.48535)
+dir = Vector2(1, 0)
+gears = [NodePath("../Background/Gear")]
+
+[node name="RemoteTransform2D2" type="RemoteTransform2D" parent="Level/Lower/Door5"]
+position = Vector2(-0.8048199, 0.5016209)
+remote_path = NodePath("../../Spikes Wrap")
+update_rotation = false
+update_scale = false
+
+[node name="Door6" parent="Level/Lower" node_paths=PackedStringArray("gears") instance=ExtResource("19_ee4r6")]
+position = Vector2(-4606.8403, 1575.0513)
+rotation = 1.5707964
+scale = Vector2(118.102516, 615.48535)
+dir = Vector2(-1, 0)
+gears = [NodePath("../Background/Gear")]
+
+[node name="RemoteTransform2D2" type="RemoteTransform2D" parent="Level/Lower/Door6"]
+position = Vector2(-0.8048199, 0.5437673)
+remote_path = NodePath("../../Spikes Wrap2")
+update_rotation = false
+update_scale = false
+
+[node name="Door7" parent="Level/Lower" node_paths=PackedStringArray("gears") instance=ExtResource("19_ee4r6")]
+position = Vector2(-5955.7075, 1575.0513)
+rotation = 1.5707964
+scale = Vector2(118.102516, 615.48535)
+dir = Vector2(1, 0)
+gears = [NodePath("../Background/Gear")]
+
+[node name="RemoteTransform2D2" type="RemoteTransform2D" parent="Level/Lower/Door7"]
+position = Vector2(-0.8132871, 0.52431524)
+remote_path = NodePath("../../Spikes Wrap3")
+update_rotation = false
+update_scale = false
+
+[node name="Door8" parent="Level/Lower" node_paths=PackedStringArray("gears") instance=ExtResource("19_ee4r6")]
+position = Vector2(-6550.326, 1575.0513)
+rotation = 1.5707964
+scale = Vector2(118.102516, 615.48535)
+dir = Vector2(-1, 0)
+gears = [NodePath("../Background/Gear")]
+
+[node name="RemoteTransform2D2" type="RemoteTransform2D" parent="Level/Lower/Door8"]
+position = Vector2(-0.8048199, 0.5145894)
+remote_path = NodePath("../../Spikes Wrap4")
+update_rotation = false
+update_scale = false
+
+[node name="Encounter" type="Node2D" parent="Level/Lower" node_paths=PackedStringArray("doors")]
+position = Vector2(-5294.7007, 937)
+script = ExtResource("19_fevyy")
+doors = [NodePath("../Door5"), NodePath("../Door6"), NodePath("../Door7"), NodePath("../Door8")]
+reward = ExtResource("16_k12tt")
+reward_type = 4
+metadata/_custom_type_script = "uid://b6b2bur0hl2iu"
+
+[node name="Wave" type="Node2D" parent="Level/Lower/Encounter"]
+script = ExtResource("21_ee4r6")
+metadata/_custom_type_script = "uid://h30wfqlv3joy"
+
+[node name="Spawn" type="Node2D" parent="Level/Lower/Encounter/Wave"]
+position = Vector2(-646.4982, 186)
+script = ExtResource("22_gt3je")
+_enemy = ExtResource("39_64lof")
+metadata/_custom_type_script = "uid://c8ej1vfg86d5v"
+
+[node name="Wave2" type="Node2D" parent="Level/Lower/Encounter"]
+script = ExtResource("21_ee4r6")
+metadata/_custom_type_script = "uid://h30wfqlv3joy"
+
+[node name="Spawn" type="Node2D" parent="Level/Lower/Encounter/Wave2"]
+position = Vector2(682.41486, 183)
+script = ExtResource("22_gt3je")
+_enemy = ExtResource("39_64lof")
+metadata/_custom_type_script = "uid://c8ej1vfg86d5v"
 
 [node name="Pickup" parent="Level" instance=ExtResource("16_k12tt")]
 position = Vector2(-702.36847, 5042)
@@ -4757,6 +4919,10 @@ collision_mask = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killbox3/Area2D"]
 shape = SubResource("WorldBoundaryShape2D_qv1an")
+
+[node name="Platform" parent="." instance=ExtResource("33_o1aky")]
+position = Vector2(-5581.0356, 4609)
+size = Vector2(800, 40)
 
 [connection signal="broke" from="Level/Big/Egg" to="Worm Spawner" method="spawn"]
 [connection signal="timeout" from="Line Drawer/Timer" to="Line Drawer" method="_on_timer_timeout"]

@@ -9,12 +9,12 @@ var id: String
 var waves: Array[Wave]
 var wave_count: int
 
-func start(enemy: Enemy):
-	id = enemy.id
+func start(identifier: String, title := "Enemies incoming!"):
+	id = identifier
 	# print("starting encounter")
 	for door in doors: door.close()
 	
-	GameState.main_text.show_with_text("Enemies incoming!")
+	GameState.main_text.show_with_text(title)
 	SoundEffects.singleton.add(12, global_position) # warn.wav
 	
 	await get_tree().create_timer(0.5).timeout

@@ -14,6 +14,7 @@ const textures: Dictionary[Type, Texture2D] = {
 	Type.DoubleJump: preload("res://Sprites/double_jump.png"),
 	Type.WormTaxi: preload("res://Sprites/worm_icon.png"),
 	Type.Stomp: preload("res://Sprites/stomp_pickup.png"),
+	Type.Trap: preload("res://Sprites/life-pickup.png"),
 }
 
 @export var id: String
@@ -23,8 +24,9 @@ const textures: Dictionary[Type, Texture2D] = {
 		if sprite: sprite.texture = icon
 		type = val
 @export var sprite: Sprite2D
+@export var encounter: Encounter
 
-enum Type {None, Magazine, Map, Damage, Breaker, Life, Scope, Track, DoubleJump, WormTaxi, Stomp}
+enum Type {None, Magazine, Map, Damage, Breaker, Life, Scope, Track, DoubleJump, WormTaxi, Stomp, Trap}
 
 var done := false
 
@@ -42,13 +44,17 @@ func _picked(_body: Node2D):
 		return
 	done = true
 
-	GameState.mark(id)
+	if type != Type.Trap:
+		GameState.mark(id)
 	Effects.singleton.add_many([0, 1, 3], global_position)
 	SoundEffects.singleton.add(6, global_position, 0.3)
 	SoundEffects.singleton.add(7, global_position, 0.5)
 	SoundEffects.singleton.add(8, global_position)
 	queue_free()
 
+	if type == Type.Trap:
+		# GameState.show_texts("It's a trap!", "Can you survive?", 0.2, 1.5)
+		encounter.start(id, "It's a trap!")
 	if type == Type.Magazine:
 		GameState.has_magazine = true
 		GameState.show_texts("Now we're talking!", "With bullets...", 0.5, 1.75)
