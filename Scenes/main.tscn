@@ -1,4 +1,4 @@
-[gd_scene load_steps=159 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=160 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/player.tscn" id="1_bo1nx"]
@@ -131,6 +131,7 @@
 [ext_resource type="PackedScene" uid="uid://51pawwymqdog" path="res://Scenes/mark_masker.tscn" id="120_ilwxp"]
 [ext_resource type="Script" uid="uid://cahkyqjkmgnwc" path="res://Scripts/visible_node.gd" id="121_xjjvj"]
 [ext_resource type="PackedScene" uid="uid://b7kwgrp8b2dv8" path="res://Scenes/spider.tscn" id="126_na2ur"]
+[ext_resource type="PackedScene" uid="uid://ouc2plqtpje3" path="res://Scenes/enemy_beamer.tscn" id="132_bdqux"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ihvwq"]
 radius = 82.303375
@@ -2152,6 +2153,10 @@ scale = Vector2(893.06506, 1189.1104)
 position = Vector2(-1788.7301, -1908.6692)
 scale = Vector2(2370.5254, 1461.1558)
 
+[node name="Wall13" parent="Level/Climb" instance=ExtResource("4_344ge")]
+position = Vector2(-1927.0033, -2725)
+scale = Vector2(152.54361, 574.3483)
+
 [node name="Wall8" parent="Level/Climb" instance=ExtResource("4_344ge")]
 position = Vector2(1503.6301, -1081.8203)
 scale = Vector2(1473.5458, 1833.7281)
@@ -3917,23 +3922,90 @@ reward_type = 4
 metadata/_custom_type_script = "uid://b6b2bur0hl2iu"
 
 [node name="Wave" type="Node2D" parent="Level/Lower/Encounter"]
+position = Vector2(0, 48)
 script = ExtResource("21_ee4r6")
 metadata/_custom_type_script = "uid://h30wfqlv3joy"
 
 [node name="Spawn" type="Node2D" parent="Level/Lower/Encounter/Wave"]
 position = Vector2(-646.4982, 186)
 script = ExtResource("22_gt3je")
-_enemy = ExtResource("39_64lof")
+title = "POW"
+_enemy = ExtResource("132_bdqux")
+metadata/_custom_type_script = "uid://c8ej1vfg86d5v"
+
+[node name="Spawn2" type="Node2D" parent="Level/Lower/Encounter/Wave"]
+position = Vector2(682.41504, 183)
+script = ExtResource("22_gt3je")
+title = "PEW"
+_enemy = ExtResource("132_bdqux")
 metadata/_custom_type_script = "uid://c8ej1vfg86d5v"
 
 [node name="Wave2" type="Node2D" parent="Level/Lower/Encounter"]
+position = Vector2(1.9953649, -260)
 script = ExtResource("21_ee4r6")
+title = "Dodge this!"
 metadata/_custom_type_script = "uid://h30wfqlv3joy"
 
 [node name="Spawn" type="Node2D" parent="Level/Lower/Encounter/Wave2"]
 position = Vector2(682.41486, 183)
 script = ExtResource("22_gt3je")
-_enemy = ExtResource("39_64lof")
+title = "PEW"
+_enemy = ExtResource("132_bdqux")
+metadata/_custom_type_script = "uid://c8ej1vfg86d5v"
+
+[node name="Spawn2" type="Node2D" parent="Level/Lower/Encounter/Wave2"]
+position = Vector2(-646.49805, 186)
+script = ExtResource("22_gt3je")
+title = "POW"
+_enemy = ExtResource("132_bdqux")
+metadata/_custom_type_script = "uid://c8ej1vfg86d5v"
+
+[node name="Spawn3" type="Node2D" parent="Level/Lower/Encounter/Wave2"]
+position = Vector2(673.4357, 597)
+script = ExtResource("22_gt3je")
+title = "Hz"
+_enemy = ExtResource("132_bdqux")
+metadata/_custom_type_script = "uid://c8ej1vfg86d5v"
+
+[node name="Spawn4" type="Node2D" parent="Level/Lower/Encounter/Wave2"]
+position = Vector2(-655.4772, 600)
+script = ExtResource("22_gt3je")
+title = "dB"
+_enemy = ExtResource("132_bdqux")
+metadata/_custom_type_script = "uid://c8ej1vfg86d5v"
+
+[node name="Wave3" type="Node2D" parent="Level/Lower/Encounter"]
+position = Vector2(1.9953649, -260)
+script = ExtResource("21_ee4r6")
+title = "Aerial strike!"
+metadata/_custom_type_script = "uid://h30wfqlv3joy"
+
+[node name="Spawn" type="Node2D" parent="Level/Lower/Encounter/Wave3"]
+position = Vector2(267.37897, -13)
+script = ExtResource("22_gt3je")
+title = "Hz"
+_enemy = ExtResource("132_bdqux")
+metadata/_custom_type_script = "uid://c8ej1vfg86d5v"
+
+[node name="Spawn2" type="Node2D" parent="Level/Lower/Encounter/Wave3"]
+position = Vector2(-264.38568, -16)
+script = ExtResource("22_gt3je")
+title = "dB"
+_enemy = ExtResource("132_bdqux")
+metadata/_custom_type_script = "uid://c8ej1vfg86d5v"
+
+[node name="Spawn3" type="Node2D" parent="Level/Lower/Encounter/Wave3"]
+position = Vector2(-565.68585, -13)
+script = ExtResource("22_gt3je")
+title = "PEW"
+_enemy = ExtResource("132_bdqux")
+metadata/_custom_type_script = "uid://c8ej1vfg86d5v"
+
+[node name="Spawn4" type="Node2D" parent="Level/Lower/Encounter/Wave3"]
+position = Vector2(571.67224, -18)
+script = ExtResource("22_gt3je")
+title = "POW"
+_enemy = ExtResource("132_bdqux")
 metadata/_custom_type_script = "uid://c8ej1vfg86d5v"
 
 [node name="Platform4" parent="Level/Lower" instance=ExtResource("33_o1aky")]
@@ -3957,7 +4029,7 @@ type = 3
 
 [node name="Player Spawn" type="Node2D" parent="Level"]
 visibility_layer = 524289
-position = Vector2(6569.7393, -4745)
+position = Vector2(2307.6396, 3755)
 scale = Vector2(1.0023229, 1)
 script = ExtResource("121_xjjvj")
 size = 150

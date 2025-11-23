@@ -21,3 +21,4 @@ scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("RectangleShape2D_o1aky")
 
 [connection signal="body_entered" from="Area2D" to="." method="enter"]
+[connection signal="body_exited" from="Area2D" to="." method="exit"]

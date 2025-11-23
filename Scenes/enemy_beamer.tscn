@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=3 uid="uid://ouc2plqtpje3"]
+
+[ext_resource type="PackedScene" uid="uid://biww1pdu4di3l" path="res://Scenes/enemy.tscn" id="1_8ejpv"]
+[ext_resource type="Script" uid="uid://bsgbuurpmdsgp" path="res://Scripts/beamer.gd" id="2_dfr82"]
+[ext_resource type="Texture2D" uid="uid://go0giiad03jq" path="res://Sprites/circle.png" id="2_v0168"]
+[ext_resource type="PackedScene" uid="uid://bpamcmqpiyf2j" path="res://Scenes/killbox.tscn" id="2_yhcno"]
+[ext_resource type="Script" uid="uid://b4h522fs5ekck" path="res://Scripts/pulsater.gd" id="4_ns6be"]
+
+[node name="Enemy" instance=ExtResource("1_8ejpv")]
+vision_range = 1500.0
+
+[node name="Face" parent="." index="8"]
+position = Vector2(0, 0)
+
+[node name="Mouth Wrap" type="Node2D" parent="Face" index="6" node_paths=PackedStringArray("enemy", "face", "line", "bubble", "mouth", "cast", "killbox")]
+position = Vector2(0, 6.4869576)
+rotation = 3.1415925
+scale = Vector2(0.025554433, 0.025554433)
+script = ExtResource("2_dfr82")
+enemy = NodePath("../..")
+face = NodePath("..")
+line = NodePath("Line2D")
+bubble = NodePath("Pulsater/Beam Bubble")
+mouth = NodePath("Open Mouth")
+cast = NodePath("../../Vision Cast")
+killbox = NodePath("Killbox")
+
+[node name="Open Mouth" type="Sprite2D" parent="Face/Mouth Wrap" index="0"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(0, -3.0517578e-05)
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("2_v0168")
+
+[node name="Pulsater" type="Node2D" parent="Face/Mouth Wrap" index="1"]
+position = Vector2(5.3326674, -134.6349)
+scale = Vector2(2, 2)
+script = ExtResource("4_ns6be")
+amount = 0.3
+speed = 20.0
+
+[node name="Beam Bubble" type="Sprite2D" parent="Face/Mouth Wrap/Pulsater" index="0"]
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("2_v0168")
+offset = Vector2(-2.1352124, -195.57927)
+
+[node name="Line2D" type="Line2D" parent="Face/Mouth Wrap" index="2"]
+z_index = 50
+position = Vector2(23.077196, -323.08014)
+points = PackedVector2Array(0, 0, 0, -5000)
+width = 0.0
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Killbox" parent="Face/Mouth Wrap" index="3" instance=ExtResource("2_yhcno")]
+position = Vector2(23.081728, -29822.684)
+rotation = -3.1415925
+scale = Vector2(618.13293, 60078.883)
+can_kill_enemies = false
+enabled = false
+
+[node name="Label Wrap" parent="." index="10"]
+position = Vector2(-128.2112, -164.37334)

@@ -271,6 +271,9 @@ texture = ExtResource("8_83e02")
 
 [node name="Screeches" type="AudioStreamPlayer2D" parent="Body/Main"]
 stream = SubResource("AudioStreamRandomizer_xcn03")
+volume_db = 5.0
+max_polyphony = 2
+bus = &"Sounds"
 
 [node name="Blister Point 1" type="Node2D" parent="Body"]
 z_index = 100

@@ -150,7 +150,7 @@ collision_mask = 9
 script = ExtResource("1_1f0kj")
 frame = NodePath("Frame")
 bump_cast = NodePath("Bump Cast")
-title_label = NodePath("Label")
+title_label = NodePath("Label Wrap/Label")
 halo = NodePath("Halo")
 left_wing = NodePath("Wing Left/Spot")
 right_wing = NodePath("Wing Right/Spot")
@@ -208,7 +208,7 @@ texture = ExtResource("1_hghv2")
 
 [node name="Flasher" type="Node" parent="." node_paths=PackedStringArray("items")]
 script = ExtResource("3_afpow")
-items = [NodePath("../Frame/Outline"), NodePath("../Frame/Fill"), NodePath("../Label"), NodePath("../Face/Eye Left"), NodePath("../Face/Eye Right"), NodePath("../Face/Mouth"), NodePath("../Face/Brow"), NodePath("../Halo"), NodePath("../Wing Right"), NodePath("../Wing Left")]
+items = [NodePath("../Frame/Outline"), NodePath("../Frame/Fill"), NodePath("../Label Wrap/Label"), NodePath("../Face/Eye Left"), NodePath("../Face/Eye Right"), NodePath("../Face/Mouth"), NodePath("../Face/Brow"), NodePath("../Halo"), NodePath("../Wing Right"), NodePath("../Wing Left")]
 white = SubResource("ShaderMaterial_1dp5w")
 metadata/_custom_type_script = "uid://c26faw2casac2"
 
@@ -266,18 +266,26 @@ position = Vector2(-0.58972335, -4.7177877)
 scale = Vector2(0.23466125, 0.23466125)
 texture = ExtResource("5_0830c")
 
+[node name="Text Pos" type="RemoteTransform2D" parent="Face"]
+position = Vector2(-22.999216, -29.486176)
+remote_path = NodePath("../../Label Wrap")
+update_rotation = false
+update_scale = false
+
 [node name="Bump Cast" type="ShapeCast2D" parent="."]
 visible = false
 shape = SubResource("CircleShape2D_ghaa6")
 target_position = Vector2(0, 0)
 collision_mask = 9
 
-[node name="Label" type="Label" parent="."]
+[node name="Label Wrap" type="Node2D" parent="."]
+position = Vector2(-128.2112, -167.66081)
+
+[node name="Label" type="Label" parent="Label Wrap"]
 modulate = Color(0, 0, 0, 1)
-offset_left = -128.2112
-offset_top = -170.94826
-offset_right = 121.63629
-offset_bottom = -59.547714
+offset_top = 1.5258789e-05
+offset_right = 249.84749
+offset_bottom = 111.40056
 label_settings = SubResource("LabelSettings_auwsv")
 horizontal_alignment = 1
 vertical_alignment = 1

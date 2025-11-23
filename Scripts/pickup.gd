@@ -14,7 +14,7 @@ const textures: Dictionary[Type, Texture2D] = {
 	Type.DoubleJump: preload("res://Sprites/double_jump.png"),
 	Type.WormTaxi: preload("res://Sprites/worm_icon.png"),
 	Type.Stomp: preload("res://Sprites/stomp_pickup.png"),
-	Type.Trap: preload("res://Sprites/life-pickup.png"),
+	Type.Trap: preload("res://Sprites/breaker-pickup.png"),
 }
 
 @export var id: String
