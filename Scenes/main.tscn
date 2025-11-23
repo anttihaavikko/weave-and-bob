@@ -1,4 +1,4 @@
-[gd_scene load_steps=156 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=158 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/player.tscn" id="1_bo1nx"]
@@ -56,6 +56,7 @@
 [ext_resource type="PackedScene" uid="uid://d37cu7ne2sexo" path="res://Scenes/winmill.tscn" id="36_gdwd6"]
 [ext_resource type="Texture2D" uid="uid://c0u1xf8vudw5" path="res://Sprites/fence.png" id="37_ot5ec"]
 [ext_resource type="PackedScene" uid="uid://s1fwls7gwbiq" path="res://Scenes/windmill_tower.tscn" id="37_t6wb6"]
+[ext_resource type="Texture2D" uid="uid://dqnykakb2dyvv" path="res://Sprites/vines.png" id="38_fvjqb"]
 [ext_resource type="PackedScene" uid="uid://dub36njkvj5pk" path="res://Scenes/enemy_charger.tscn" id="39_64lof"]
 [ext_resource type="Script" uid="uid://ban2bpqpuesw1" path="res://Scripts/player_spawn.gd" id="39_kwxat"]
 [ext_resource type="PackedScene" uid="uid://d15bns0qk1sjg" path="res://Scenes/rotating_door.tscn" id="40_ceghn"]
@@ -161,6 +162,13 @@ shader = ExtResource("20_j2g22")
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_jjvhh"]
 polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b05pg"]
+shader = ExtResource("17_2daye")
+shader_parameter/amount = 5.0
+shader_parameter/frequency = 0.0
+shader_parameter/speed = 5.0
+shader_parameter/flip = false
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xjjvj"]
 size = Vector2(484.8723, 644)
@@ -1769,6 +1777,287 @@ scale = Vector2(1.5135313, 1.5135313)
 position = Vector2(-2140.5068, -3549)
 scale = Vector2(1.5135313, 1.5135313)
 
+[node name="Polygon2D" type="Polygon2D" parent="Level/Climb/Background"]
+position = Vector2(-784.6565, -1869)
+offset = Vector2(-808.12256, -737)
+polygon = PackedVector2Array(960.76807, 756, 1174.272, 453, 1099.4458, 328, 1163.2974, 78, 1088.4712, 36, 1174.272, -153, 855.0137, -242, 214.50146, -209, -212.50635, -342, -695.38477, -214, -1225.1543, -323, -1638.1948, -131, -1524.459, 150, -1759.9121, 417, -1787.8472, 650, -2170.957, 628, -2581.0046, 701, -3027.9666, 553, -3280.3801, 720, -2961.1218, 865, -3121.7485, 1098, -2952.1426, 1345, -3024.9734, 1610, -2869.335, 1863)
+
+[node name="Tree" parent="Level/Climb/Background" instance=ExtResource("9_wsu2k")]
+position = Vector2(-4628.7266, -2070)
+
+[node name="Tree2" parent="Level/Climb/Background" instance=ExtResource("9_wsu2k")]
+position = Vector2(-3642.019, -1960)
+
+[node name="Tree3" parent="Level/Climb/Background" instance=ExtResource("9_wsu2k")]
+position = Vector2(-3516.311, -1955)
+
+[node name="Tree4" parent="Level/Climb/Background" instance=ExtResource("9_wsu2k")]
+position = Vector2(-3118.2358, -2784)
+
+[node name="Tree5" parent="Level/Climb/Background" instance=ExtResource("9_wsu2k")]
+position = Vector2(-2955.6135, -2864)
+
+[node name="Tree6" parent="Level/Climb/Background" instance=ExtResource("9_wsu2k")]
+position = Vector2(-2281.1802, -2815)
+
+[node name="Tree7" parent="Level/Climb/Background" instance=ExtResource("9_wsu2k")]
+position = Vector2(-2406.8882, -2843)
+
+[node name="Tree8" parent="Level/Climb/Background" instance=ExtResource("9_wsu2k")]
+position = Vector2(-2543.5708, -2874)
+
+[node name="Tree9" parent="Level/Climb/Background" instance=ExtResource("9_wsu2k")]
+position = Vector2(-1776.353, -2918)
+
+[node name="Tree10" parent="Level/Climb/Background" instance=ExtResource("9_wsu2k")]
+position = Vector2(-1179.7384, -2814)
+
+[node name="Tree11" parent="Level/Climb/Background" instance=ExtResource("9_wsu2k")]
+position = Vector2(-1314.4255, -2790)
+
+[node name="Tree12" parent="Level/Climb/Background" instance=ExtResource("9_wsu2k")]
+position = Vector2(-483.35608, -2771)
+
+[node name="Tree13" parent="Level/Climb/Background" instance=ExtResource("9_wsu2k")]
+position = Vector2(-632.01074, -2807)
+
+[node name="Polygon2D2" type="Polygon2D" parent="Level/Climb/Background"]
+position = Vector2(3896.4697, -2923)
+offset = Vector2(-2441.329, -570)
+polygon = PackedVector2Array(-554.71094, -467, -854.0156, -75, -704.3633, 344, -963.76074, 603, -701.3701, 845, -292.3203, 634, -164.61719, 845, -167.61035, 1059, 131.69434, 973, 284.33984, 811, 521.7881, 980, 927.8447, 793, 1086.4766, 882, 1251.0938, 1077, 1565.3643, 860, 1974.4141, 918, 2017.3145, 1010, 2124.0664, 842, 2181.9316, 998, 2352.5352, 793, 2456.295, 940, 2523.1396, 1282, 2425.3662, 1463, 2217.8486, 1625, 1925.5273, 1775, 3069.8691, 1860, 2923.21, 319)
+
+[node name="Tree14" parent="Level/Climb/Background" instance=ExtResource("9_wsu2k")]
+position = Vector2(3556.26, -1800)
+
+[node name="Tree15" parent="Level/Climb/Background" instance=ExtResource("9_wsu2k")]
+position = Vector2(3642.0608, -1840)
+
+[node name="Tree16" parent="Level/Climb/Background" instance=ExtResource("9_wsu2k")]
+position = Vector2(3757.792, -1921)
+
+[node name="Tree17" parent="Level/Climb/Background" instance=ExtResource("9_wsu2k")]
+position = Vector2(3846.5857, -2002)
+
+[node name="ColorRect8" type="ColorRect" parent="Level/Climb/Background"]
+offset_left = 2784.0542
+offset_top = -1405.0
+offset_right = 2879.8325
+offset_bottom = -1053.0
+
+[node name="ColorRect9" type="ColorRect" parent="Level/Climb/Background"]
+offset_left = 3330.7837
+offset_top = -1420.0
+offset_right = 3426.562
+offset_bottom = -1068.0
+
+[node name="ColorRect15" type="ColorRect" parent="Level/Climb/Background"]
+offset_left = 2846.9082
+offset_top = -1474.0
+offset_right = 3366.7012
+offset_bottom = -1424.0
+
+[node name="ColorRect16" type="ColorRect" parent="Level/Climb/Background"]
+offset_left = 2840.922
+offset_top = -1546.0
+offset_right = 3360.715
+offset_bottom = -1496.0
+
+[node name="ColorRect17" type="ColorRect" parent="Level/Climb/Background"]
+offset_left = 2840.922
+offset_top = -1619.0
+offset_right = 3360.715
+offset_bottom = -1569.0
+
+[node name="ColorRect10" type="ColorRect" parent="Level/Climb/Background"]
+offset_left = 3049.4373
+offset_top = -952.0
+offset_right = 3145.2156
+offset_bottom = -350.0
+
+[node name="ColorRect11" type="ColorRect" parent="Level/Climb/Background"]
+offset_left = 3275.9111
+offset_top = -1017.00024
+offset_right = 3315.8184
+offset_bottom = -709.00024
+rotation = 0.63249373
+
+[node name="ColorRect13" type="ColorRect" parent="Level/Climb/Background"]
+offset_left = 3565.239
+offset_top = -1504.0
+offset_right = 3605.1462
+offset_bottom = -1196.0
+rotation = 0.63249373
+
+[node name="ColorRect12" type="ColorRect" parent="Level/Climb/Background"]
+offset_left = 2890.8057
+offset_top = -997.00024
+offset_right = 2930.713
+offset_bottom = -689.00024
+rotation = -0.61063826
+
+[node name="ColorRect14" type="ColorRect" parent="Level/Climb/Background"]
+offset_left = 2616.4429
+offset_top = -1500.0
+offset_right = 2656.35
+offset_bottom = -1192.0
+rotation = -0.61063826
+
+[node name="ColorRect18" type="ColorRect" parent="Level/Climb/Background"]
+offset_left = 5504.734
+offset_top = -13.999765
+offset_right = 5574.7153
+offset_bottom = 466.52954
+rotation = -0.857942
+
+[node name="ColorRect19" type="ColorRect" parent="Level/Climb/Background"]
+offset_left = 3835.6116
+offset_top = -214.00006
+offset_right = 3875.5188
+offset_bottom = 93.99994
+rotation = -0.84640837
+
+[node name="Vines" type="Sprite2D" parent="Level/Climb/Background"]
+material = SubResource("ShaderMaterial_b05pg")
+position = Vector2(795.67224, -2633)
+scale = Vector2(0.5893482, 0.58934814)
+texture = ExtResource("38_fvjqb")
+flip_v = true
+
+[node name="Vines16" type="Sprite2D" parent="Level/Climb/Background"]
+material = SubResource("ShaderMaterial_b05pg")
+position = Vector2(823.60736, -2661)
+scale = Vector2(0.5893482, 0.58934814)
+texture = ExtResource("38_fvjqb")
+flip_v = true
+
+[node name="Vines17" type="Sprite2D" parent="Level/Climb/Background"]
+material = SubResource("ShaderMaterial_b05pg")
+position = Vector2(1118.9214, -2862)
+scale = Vector2(0.5893482, 0.58934814)
+texture = ExtResource("38_fvjqb")
+flip_v = true
+
+[node name="Vines18" type="Sprite2D" parent="Level/Climb/Background"]
+material = SubResource("ShaderMaterial_b05pg")
+position = Vector2(1156.8334, -2889)
+scale = Vector2(0.5893482, 0.58934814)
+texture = ExtResource("38_fvjqb")
+flip_v = true
+
+[node name="Vines19" type="Sprite2D" parent="Level/Climb/Background"]
+material = SubResource("ShaderMaterial_b05pg")
+position = Vector2(1184.7684, -2847)
+scale = Vector2(0.5893482, 0.58934814)
+texture = ExtResource("38_fvjqb")
+flip_v = true
+
+[node name="Vines2" type="Sprite2D" parent="Level/Climb/Background"]
+material = SubResource("ShaderMaterial_b05pg")
+position = Vector2(1544.9318, -2482)
+scale = Vector2(0.5893482, 0.58934814)
+texture = ExtResource("38_fvjqb")
+flip_v = true
+
+[node name="Vines3" type="Sprite2D" parent="Level/Climb/Background"]
+material = SubResource("ShaderMaterial_b05pg")
+position = Vector2(1587.8322, -2532)
+scale = Vector2(0.5893482, 0.58934814)
+texture = ExtResource("38_fvjqb")
+flip_v = true
+
+[node name="Vines4" type="Sprite2D" parent="Level/Climb/Background"]
+material = SubResource("ShaderMaterial_b05pg")
+position = Vector2(1988.9005, -2476)
+scale = Vector2(0.5893482, 0.58934814)
+texture = ExtResource("38_fvjqb")
+flip_v = true
+
+[node name="Vines5" type="Sprite2D" parent="Level/Climb/Background"]
+material = SubResource("ShaderMaterial_b05pg")
+position = Vector2(1937.021, -2527)
+scale = Vector2(0.5893482, 0.58934814)
+texture = ExtResource("38_fvjqb")
+flip_v = true
+
+[node name="Vines6" type="Sprite2D" parent="Level/Climb/Background"]
+material = SubResource("ShaderMaterial_b05pg")
+position = Vector2(2343.0776, -2643)
+scale = Vector2(0.5893482, 0.58934814)
+texture = ExtResource("38_fvjqb")
+flip_v = true
+
+[node name="Vines7" type="Sprite2D" parent="Level/Climb/Background"]
+material = SubResource("ShaderMaterial_b05pg")
+position = Vector2(2387.9734, -2672)
+scale = Vector2(0.5893482, 0.58934814)
+texture = ExtResource("38_fvjqb")
+flip_v = true
+
+[node name="Vines8" type="Sprite2D" parent="Level/Climb/Background"]
+material = SubResource("ShaderMaterial_b05pg")
+position = Vector2(2426.883, -2625)
+scale = Vector2(0.5893482, 0.58934814)
+texture = ExtResource("38_fvjqb")
+flip_v = true
+
+[node name="Vines9" type="Sprite2D" parent="Level/Climb/Background"]
+material = SubResource("ShaderMaterial_b05pg")
+position = Vector2(2966.6294, -2590)
+scale = Vector2(0.5893482, 0.58934814)
+texture = ExtResource("38_fvjqb")
+flip_v = true
+
+[node name="Vines10" type="Sprite2D" parent="Level/Climb/Background"]
+material = SubResource("ShaderMaterial_b05pg")
+position = Vector2(3023.4973, -2617)
+scale = Vector2(0.5893482, 0.58934814)
+texture = ExtResource("38_fvjqb")
+flip_v = true
+
+[node name="Vines11" type="Sprite2D" parent="Level/Climb/Background"]
+material = SubResource("ShaderMaterial_b05pg")
+position = Vector2(3081.3628, -2594)
+scale = Vector2(0.5893482, 0.58934814)
+texture = ExtResource("38_fvjqb")
+flip_v = true
+
+[node name="Vines12" type="Sprite2D" parent="Level/Climb/Background"]
+material = SubResource("ShaderMaterial_b05pg")
+position = Vector2(3412.5933, -2568)
+scale = Vector2(0.5893482, 0.58934814)
+texture = ExtResource("38_fvjqb")
+flip_v = true
+
+[node name="Vines13" type="Sprite2D" parent="Level/Climb/Background"]
+material = SubResource("ShaderMaterial_b05pg")
+position = Vector2(3370.6907, -2588)
+scale = Vector2(0.5893482, 0.58934814)
+texture = ExtResource("38_fvjqb")
+flip_v = true
+
+[node name="Vines14" type="Sprite2D" parent="Level/Climb/Background"]
+material = SubResource("ShaderMaterial_b05pg")
+position = Vector2(3792.7104, -2669)
+scale = Vector2(0.5893482, 0.58934814)
+texture = ExtResource("38_fvjqb")
+flip_v = true
+
+[node name="Vines15" type="Sprite2D" parent="Level/Climb/Background"]
+material = SubResource("ShaderMaterial_b05pg")
+position = Vector2(3837.6062, -2650)
+scale = Vector2(0.5893482, 0.58934814)
+texture = ExtResource("38_fvjqb")
+flip_v = true
+
+[node name="Tree18" parent="Level/Climb/Background" instance=ExtResource("9_wsu2k")]
+position = Vector2(646.0205, -3603)
+
+[node name="Tree19" parent="Level/Climb/Background" instance=ExtResource("9_wsu2k")]
+position = Vector2(730.8235, -3709)
+
+[node name="Tree20" parent="Level/Climb/Background" instance=ExtResource("9_wsu2k")]
+position = Vector2(566.2059, -2945)
+
 [node name="Decorations" type="Node2D" parent="Level/Climb"]
 modulate = Color(0.5686275, 0.32941177, 0.16470589, 1)
 position = Vector2(-1150.8057, 688)
@@ -2468,8 +2757,8 @@ position = Vector2(-1180.607, -2560)
 scale = Vector2(1725.2668, 259.28522)
 
 [node name="Wall12" parent="Level/Big" instance=ExtResource("4_344ge")]
-position = Vector2(-1587.3131, -3280)
-scale = Vector2(644.30634, 169.74223)
+position = Vector2(-1571.2733, -3280)
+scale = Vector2(676.386, 169.74223)
 
 [node name="Rotating Door" parent="Level/Big" instance=ExtResource("40_ceghn")]
 z_index = 0
@@ -2645,7 +2934,7 @@ position = Vector2(6872.481, -3389.5)
 texture = ExtResource("37_ot5ec")
 
 [node name="Vines" parent="Level/Big2/Decorations" instance=ExtResource("34_aok0f")]
-position = Vector2(6587.697, -4600)
+position = Vector2(6246.4893, -5064)
 rotation = 3.1415925
 scale = Vector2(1.2005484, 1.2005484)
 
@@ -2690,7 +2979,17 @@ rotation = 3.1415925
 scale = Vector2(1.5329096, 1.5329096)
 
 [node name="Vines2" parent="Level/Big2/Decorations" instance=ExtResource("34_aok0f")]
-position = Vector2(6658.5317, -4606)
+position = Vector2(6317.324, -5070)
+rotation = 3.1415925
+scale = Vector2(1.2005484, 1.2005484)
+
+[node name="Vines11" parent="Level/Big2/Decorations" instance=ExtResource("34_aok0f")]
+position = Vector2(6467.9746, -5523)
+rotation = 3.1415925
+scale = Vector2(1.2005484, 1.2005484)
+
+[node name="Vines12" parent="Level/Big2/Decorations" instance=ExtResource("34_aok0f")]
+position = Vector2(6538.8096, -5529)
 rotation = 3.1415925
 scale = Vector2(1.2005484, 1.2005484)
 
@@ -3650,7 +3949,7 @@ type = 3
 
 [node name="Player Spawn" type="Node2D" parent="Level"]
 visibility_layer = 524289
-position = Vector2(-4520.5, -1979)
+position = Vector2(6569.7393, -4745)
 scale = Vector2(1.0023229, 1)
 script = ExtResource("121_xjjvj")
 size = 150
