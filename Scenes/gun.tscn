@@ -5,7 +5,7 @@
 
 [node name="Gun" type="RigidBody2D"]
 collision_layer = 4
-collision_mask = 10
+collision_mask = 8266
 
 [node name="Collider" type="CollisionPolygon2D" parent="."]
 scale = Vector2(0.35379726, 0.35379726)

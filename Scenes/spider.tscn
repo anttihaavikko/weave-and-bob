@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b7kwgrp8b2dv8"]
+[gd_scene load_steps=31 format=3 uid="uid://b7kwgrp8b2dv8"]
 
 [ext_resource type="Script" uid="uid://cmhhwcw1efybm" path="res://Scripts/spider.gd" id="1_0jaj0"]
 [ext_resource type="PackedScene" uid="uid://bi44qailjxvyw" path="res://Scenes/worm_blister.tscn" id="2_xcn03"]
@@ -8,9 +8,21 @@
 [ext_resource type="Script" uid="uid://b6wi31avwrvcy" path="res://Scripts/face.gd" id="6_gmqqg"]
 [ext_resource type="Shader" uid="uid://7gwbqnj5dg4s" path="res://Shaders/wavy.gdshader" id="7_4ugnd"]
 [ext_resource type="Texture2D" uid="uid://bqqp1v2ssut6h" path="res://Sprites/spider-tuft.png" id="8_83e02"]
+[ext_resource type="AudioStream" uid="uid://de4cm3f7evbgx" path="res://Sounds/spider1.wav" id="9_gmqqg"]
 [ext_resource type="Script" uid="uid://cahkyqjkmgnwc" path="res://Scripts/visible_node.gd" id="9_qcdvs"]
+[ext_resource type="AudioStream" uid="uid://dtxevfyc8rw1q" path="res://Sounds/spider2.wav" id="10_4ugnd"]
 [ext_resource type="Script" uid="uid://bwknch2pvkg4u" path="res://Scripts/line.gd" id="10_vixoy"]
+[ext_resource type="AudioStream" uid="uid://bsfwdjcplf3gs" path="res://Sounds/spider3.wav" id="11_83e02"]
+[ext_resource type="AudioStream" uid="uid://t4wy6tmrt3q6" path="res://Sounds/spider11.wav" id="11_mx1ws"]
 [ext_resource type="PackedScene" uid="uid://bpamcmqpiyf2j" path="res://Scenes/killbox.tscn" id="11_tv4yk"]
+[ext_resource type="AudioStream" uid="uid://cuxhfef7lmavc" path="res://Sounds/spider4.wav" id="12_qcdvs"]
+[ext_resource type="Texture2D" uid="uid://cfaevshlnl6j0" path="res://Sprites/spider_leg_blade.png" id="12_xcn03"]
+[ext_resource type="AudioStream" uid="uid://hsg4wco3h4d1" path="res://Sounds/spider5.wav" id="14_d5rjn"]
+[ext_resource type="AudioStream" uid="uid://5ig81kj32g7t" path="res://Sounds/spider6.wav" id="15_qhj4k"]
+[ext_resource type="AudioStream" uid="uid://djlh6niyu77w6" path="res://Sounds/spider7.wav" id="16_40he0"]
+[ext_resource type="AudioStream" uid="uid://cqk320h4g8yc1" path="res://Sounds/spider8.wav" id="17_a6p4p"]
+[ext_resource type="AudioStream" uid="uid://q6vfrlfiwpmf" path="res://Sounds/spider9.wav" id="18_o4j36"]
+[ext_resource type="AudioStream" uid="uid://b18yubl4p0v0y" path="res://Sounds/spider10.wav" id="19_l7ypb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_na2ur"]
 
@@ -24,6 +36,21 @@ shader_parameter/frequency = 0.0
 shader_parameter/speed = 5.0
 shader_parameter/flip = true
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_xcn03"]
+random_pitch = 1.1
+streams_count = 11
+stream_0/stream = ExtResource("9_gmqqg")
+stream_1/stream = ExtResource("10_4ugnd")
+stream_2/stream = ExtResource("11_83e02")
+stream_3/stream = ExtResource("12_qcdvs")
+stream_4/stream = ExtResource("14_d5rjn")
+stream_5/stream = ExtResource("15_qhj4k")
+stream_6/stream = ExtResource("16_40he0")
+stream_7/stream = ExtResource("17_a6p4p")
+stream_8/stream = ExtResource("18_o4j36")
+stream_9/stream = ExtResource("19_l7ypb")
+stream_10/stream = ExtResource("11_mx1ws")
+
 [sub_resource type="Curve" id="Curve_xjjvj"]
 _data = [Vector2(0, 0.8012764), 0.0, 0.0, 0, 0, Vector2(0.49384886, 0.5060849), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 3
@@ -34,7 +61,7 @@ size = Vector2(64.77557, 711.6787)
 [sub_resource type="CircleShape2D" id="CircleShape2D_xjjvj"]
 radius = 14.286073
 
-[node name="Spider" type="Node2D" node_paths=PackedStringArray("legs", "body", "killboxes", "main", "blister_points", "eyes")]
+[node name="Spider" type="Node2D" node_paths=PackedStringArray("legs", "body", "killboxes", "main", "blister_points", "eyes", "sound")]
 script = ExtResource("1_0jaj0")
 legs = [NodePath("Leg1/Leg Upper/Leg Lower/Tip"), NodePath("Leg2/Leg Upper/Leg Lower/Tip"), NodePath("Leg3/Leg Upper/Leg Lower/Tip")]
 body = NodePath("Mover")
@@ -44,6 +71,7 @@ main = NodePath("Body/Main")
 blister_points = [NodePath("Body/Blister Point 1"), NodePath("Body/Blister Point 2"), NodePath("Body/Blister Point 3")]
 pickup = ExtResource("3_lt3yk")
 eyes = [NodePath("Body/Main/Face/Eye Pair 1"), NodePath("Body/Main/Face/Eye Pair 2"), NodePath("Body/Main/Face/Eye Pair 3")]
+sound = NodePath("Body/Main/Screeches")
 
 [node name="Mover" type="AnimatableBody2D" parent="."]
 
@@ -241,6 +269,9 @@ rotation = -2.08243
 scale = Vector2(1.1688728, 1.1688732)
 texture = ExtResource("8_83e02")
 
+[node name="Screeches" type="AudioStreamPlayer2D" parent="Body/Main"]
+stream = SubResource("AudioStreamRandomizer_xcn03")
+
 [node name="Blister Point 1" type="Node2D" parent="Body"]
 z_index = 100
 position = Vector2(-87.79606, 235)
@@ -273,28 +304,28 @@ rotation = -2.2199988
 position = Vector2(31.611206, -258.48828)
 rotation = 0.8462244
 scale = Vector2(0.99999994, 1)
-points = PackedVector2Array(108.969955, 256.85794, 237.42583, 923.8625, 929.1028, 1049.9404)
+points = PackedVector2Array(108.969955, 256.85794, 237.42583, 923.8625, 438.69113, 960.99805)
 width = 120.0
 width_curve = SubResource("Curve_xjjvj")
 default_color = Color(0, 0, 0, 1)
 joint_mode = 2
 end_cap_mode = 2
 script = ExtResource("10_vixoy")
-targets = [NodePath("../Leg Upper/Crotch"), NodePath("../Leg Upper/Knee"), NodePath("../Leg Upper/Leg Lower/Tip")]
+targets = [NodePath("../Leg Upper/Crotch"), NodePath("../Leg Upper/Knee"), NodePath("../Leg Upper/Leg Lower/Line End")]
 
 [node name="Line2D2" type="Line2D" parent="Leg1" node_paths=PackedStringArray("targets")]
 z_index = 11
 position = Vector2(31.611206, -258.48828)
 rotation = 0.8462244
 scale = Vector2(0.99999994, 1)
-points = PackedVector2Array(108.969955, 256.85794, 237.42583, 923.8625, 929.1028, 1049.9404)
+points = PackedVector2Array(108.969955, 256.85794, 237.42583, 923.8625, 438.69113, 960.99805)
 width = 60.0
 width_curve = SubResource("Curve_xjjvj")
 default_color = Color(0, 0.47843137, 0.2627451, 1)
 joint_mode = 2
 end_cap_mode = 2
 script = ExtResource("10_vixoy")
-targets = [NodePath("../Leg Upper/Crotch"), NodePath("../Leg Upper/Knee"), NodePath("../Leg Upper/Leg Lower/Tip")]
+targets = [NodePath("../Leg Upper/Crotch"), NodePath("../Leg Upper/Knee"), NodePath("../Leg Upper/Leg Lower/Line End")]
 
 [node name="Leg Upper" type="RigidBody2D" parent="Leg1"]
 position = Vector2(-86.4974, -6.780401)
@@ -347,6 +378,22 @@ scale = Vector2(77.273926, 724.71375)
 can_kill_enemies = false
 enabled = false
 
+[node name="Blade" type="Sprite2D" parent="Leg1/Leg Upper/Leg Lower"]
+position = Vector2(9.522781, 473.93927)
+scale = Vector2(1.0893759, 1.0893759)
+texture = ExtResource("12_xcn03")
+flip_h = true
+
+[node name="Tuft" type="Sprite2D" parent="Leg1/Leg Upper/Leg Lower"]
+modulate = Color(0, 0.47843137, 0.2627451, 1)
+position = Vector2(-0.10947633, 239.7764)
+rotation = 0.047817666
+scale = Vector2(0.6599537, 0.6599537)
+texture = ExtResource("8_83e02")
+
+[node name="Line End" type="Node2D" parent="Leg1/Leg Upper/Leg Lower"]
+position = Vector2(-1.5913544, 203.75137)
+
 [node name="Knee" type="PinJoint2D" parent="Leg1/Leg Upper"]
 position = Vector2(-1.197876, 680.5869)
 rotation = 0.82546186
@@ -361,28 +408,28 @@ rotation = 1.882586
 position = Vector2(31.611206, -258.48828)
 rotation = 0.8462244
 scale = Vector2(0.99999994, 1)
-points = PackedVector2Array(172.59938, 196.9999, 681.4175, 647, -20.644302, 633.2889)
+points = PackedVector2Array(172.59938, 196.9999, 681.4175, 647, 477.72372, 639.89813)
 width = 120.0
 width_curve = SubResource("Curve_xjjvj")
 default_color = Color(0, 0, 0, 1)
 joint_mode = 2
 end_cap_mode = 2
 script = ExtResource("10_vixoy")
-targets = [NodePath("../Leg Upper/Crotch"), NodePath("../Leg Upper/Knee"), NodePath("../Leg Upper/Leg Lower/Tip")]
+targets = [NodePath("../Leg Upper/Crotch"), NodePath("../Leg Upper/Knee"), NodePath("../Leg Upper/Leg Lower/Line End")]
 
 [node name="Line2D2" type="Line2D" parent="Leg2" node_paths=PackedStringArray("targets")]
 z_index = 11
 position = Vector2(31.611206, -258.48828)
 rotation = 0.8462244
 scale = Vector2(0.99999994, 1)
-points = PackedVector2Array(172.59938, 196.9999, 681.4175, 647, -20.644302, 633.2889)
+points = PackedVector2Array(172.59938, 196.9999, 681.4175, 647, 477.72372, 639.89813)
 width = 60.0
 width_curve = SubResource("Curve_xjjvj")
 default_color = Color(0, 0.47843137, 0.2627451, 1)
 joint_mode = 2
 end_cap_mode = 2
 script = ExtResource("10_vixoy")
-targets = [NodePath("../Leg Upper/Crotch"), NodePath("../Leg Upper/Knee"), NodePath("../Leg Upper/Leg Lower/Tip")]
+targets = [NodePath("../Leg Upper/Crotch"), NodePath("../Leg Upper/Knee"), NodePath("../Leg Upper/Leg Lower/Line End")]
 
 [node name="Leg Upper" type="RigidBody2D" parent="Leg2"]
 collision_layer = 8192
@@ -433,6 +480,21 @@ scale = Vector2(77.273926, 724.71375)
 can_kill_enemies = false
 enabled = false
 
+[node name="Blade" type="Sprite2D" parent="Leg2/Leg Upper/Leg Lower"]
+position = Vector2(-4.0330925, 475.05206)
+scale = Vector2(1.0893759, 1.0893759)
+texture = ExtResource("12_xcn03")
+
+[node name="Tuft" type="Sprite2D" parent="Leg2/Leg Upper/Leg Lower"]
+modulate = Color(0, 0.47843137, 0.2627451, 1)
+position = Vector2(-0.10947633, 239.7764)
+rotation = 0.047817666
+scale = Vector2(0.6599537, 0.6599537)
+texture = ExtResource("8_83e02")
+
+[node name="Line End" type="Node2D" parent="Leg2/Leg Upper/Leg Lower"]
+position = Vector2(-1.5913544, 203.75137)
+
 [node name="Knee" type="PinJoint2D" parent="Leg2/Leg Upper"]
 position = Vector2(-1.197876, 680.5869)
 rotation = 0.82546186
@@ -447,28 +509,28 @@ rotation = -1.9367626
 position = Vector2(31.611206, -258.48828)
 rotation = 0.8462244
 scale = Vector2(0.99999994, 1)
-points = PackedVector2Array(172.1593, 196.95088, 569.4876, 747.88306, 414.60626, 61.1671)
+points = PackedVector2Array(172.1593, 196.95088, 569.4876, 747.88306, 526.51855, 546.8522)
 width = 120.0
 width_curve = SubResource("Curve_xjjvj")
 default_color = Color(0, 0, 0, 1)
 joint_mode = 2
 end_cap_mode = 2
 script = ExtResource("10_vixoy")
-targets = [NodePath("../Leg Upper/Crotch"), NodePath("../Leg Upper/Knee"), NodePath("../Leg Upper/Leg Lower/Tip")]
+targets = [NodePath("../Leg Upper/Crotch"), NodePath("../Leg Upper/Knee"), NodePath("../Leg Upper/Leg Lower/Line End")]
 
 [node name="Line2D2" type="Line2D" parent="Leg3" node_paths=PackedStringArray("targets")]
 z_index = 11
 position = Vector2(31.611206, -258.48828)
 rotation = 0.8462244
 scale = Vector2(0.99999994, 1)
-points = PackedVector2Array(172.1593, 196.95088, 569.4876, 747.88306, 414.60626, 61.1671)
+points = PackedVector2Array(172.1593, 196.95088, 569.4876, 747.88306, 526.51855, 546.8522)
 width = 60.0
 width_curve = SubResource("Curve_xjjvj")
 default_color = Color(0, 0.47843137, 0.2627451, 1)
 joint_mode = 2
 end_cap_mode = 2
 script = ExtResource("10_vixoy")
-targets = [NodePath("../Leg Upper/Crotch"), NodePath("../Leg Upper/Knee"), NodePath("../Leg Upper/Leg Lower/Tip")]
+targets = [NodePath("../Leg Upper/Crotch"), NodePath("../Leg Upper/Knee"), NodePath("../Leg Upper/Leg Lower/Line End")]
 
 [node name="Leg Upper" type="RigidBody2D" parent="Leg3"]
 rotation = 0.22185741
@@ -519,6 +581,21 @@ position = Vector2(0.16152483, 344.33942)
 scale = Vector2(77.273926, 724.71375)
 can_kill_enemies = false
 enabled = false
+
+[node name="Blade" type="Sprite2D" parent="Leg3/Leg Upper/Leg Lower"]
+position = Vector2(-4.0330925, 475.05206)
+scale = Vector2(1.0893759, 1.0893759)
+texture = ExtResource("12_xcn03")
+
+[node name="Tuft" type="Sprite2D" parent="Leg3/Leg Upper/Leg Lower"]
+modulate = Color(0, 0.47843137, 0.2627451, 1)
+position = Vector2(-0.10947633, 239.7764)
+rotation = 0.047817666
+scale = Vector2(0.6599537, 0.6599537)
+texture = ExtResource("8_83e02")
+
+[node name="Line End" type="Node2D" parent="Leg3/Leg Upper/Leg Lower"]
+position = Vector2(-1.5913544, 203.75137)
 
 [node name="Knee" type="PinJoint2D" parent="Leg3/Leg Upper"]
 position = Vector2(-1.197876, 680.5869)

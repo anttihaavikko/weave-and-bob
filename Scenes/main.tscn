@@ -4229,6 +4229,7 @@ polygon = PackedVector2Array(1522.3026, 4849.0786, 1370.395, 4908.1045, 1370.395
 position = Vector2(-8.699924, -570.8088)
 scale = Vector2(0.6707506, 0.6707506)
 id = "attic_pick"
+type = 3
 
 [node name="Door Light" type="Polygon2D" parent="Hut"]
 modulate = Color(1, 1, 1, 0.101960786)

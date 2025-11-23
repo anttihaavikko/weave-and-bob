@@ -8,6 +8,7 @@ extends Node2D
 @export var blister_points: Array[Node2D]
 @export var pickup: PackedScene
 @export var eyes: Array[Node2D]
+@export var sound: AudioStreamPlayer2D
 
 var current: Node2D
 var awake := false
@@ -15,12 +16,12 @@ var blister: WormBlister
 var life := 6
 var blister_index := 0
 var time := 0.0
+var sound_delay := 0.0
 
 func _ready():
 	spawn_blister()
 
 func wake():
-	awake = true
 	for kb in killboxes:
 		kb.enabled = true
 	GameState.boss_fight = true
@@ -30,9 +31,13 @@ func wake():
 	# await get_tree().create_timer(2.5).timeout
 	if GameState.has_tracking:
 		GameState.camera.target_zoom = 0.7
-	strike()
+	await get_tree().create_timer(0.5).timeout
+	awake = true
 	for eye in eyes:
 		eye.show()
+	await get_tree().create_timer(0.3).timeout
+	strike()
+	screech()
 	
 func spawn_blister():
 	life -= 1
@@ -68,9 +73,12 @@ func spawn_blister():
 
 	if life == 4:
 		wake()
+	if life > 0 and life < 5:
+		screech()
 
 func _process(delta):
 	time += delta
+	sound_delay -= delta
 	var offset := Vector2(0, abs(sin(time * (5.0 if awake else 2.0))) * (100 if awake else 30))
 	if not awake:
 		body.position = offset
@@ -104,6 +112,12 @@ func strike():
 	await get_tree().create_timer(0.5).timeout
 	get_tree().create_tween().tween_property(current, "global_position", (pp + global_position + current.global_position) / 3, 0.8).set_trans(Tween.TRANS_ELASTIC)
 	await get_tree().create_timer(0.75).timeout
+	screech()
 	get_tree().create_tween().tween_property(current, "global_position", pp, 0.5).set_trans(Tween.TRANS_BOUNCE)
 	await get_tree().create_timer(1).timeout
 	strike()
+
+func screech():
+	if sound_delay <= 0:
+		sound.play()
+		sound_delay = 1
