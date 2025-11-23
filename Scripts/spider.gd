@@ -7,12 +7,14 @@ extends Node2D
 @export var main: Node2D
 @export var blister_points: Array[Node2D]
 @export var pickup: PackedScene
+@export var eyes: Array[Node2D]
 
 var current: Node2D
 var awake := false
 var blister: WormBlister
 var life := 6
 var blister_index := 0
+var time := 0.0
 
 func _ready():
 	spawn_blister()
@@ -29,6 +31,8 @@ func wake():
 	if GameState.has_tracking:
 		GameState.camera.target_zoom = 0.7
 	strike()
+	for eye in eyes:
+		eye.show()
 	
 func spawn_blister():
 	life -= 1
@@ -66,13 +70,16 @@ func spawn_blister():
 		wake()
 
 func _process(delta):
+	time += delta
+	var offset := Vector2(0, abs(sin(time * (5.0 if awake else 2.0))) * (100 if awake else 30))
 	if not awake:
+		body.position = offset
 		return
 	var pp := GameState.player.live_gun.global_position
 	body.global_position = body.global_position.move_toward(pp, delta * 500)
 	for leg in legs:
 		if leg != current and leg.global_position.distance_to(body.global_position) > 1500:
-			leg.global_position = (leg.global_position + body.global_position) * 0.5
+			leg.global_position = (leg.global_position + body.global_position) * 0.5 + offset
 			# get_tree().create_tween().tween_property(leg, "global_position", (leg.global_position + body.global_position) * 0.5, 0.3).set_trans(Tween.TRANS_ELASTIC)
 			# await get_tree().create_timer(0.3).timeout
 
