@@ -1,4 +1,4 @@
-[gd_scene load_steps=158 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=159 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/player.tscn" id="1_bo1nx"]
@@ -58,6 +58,7 @@
 [ext_resource type="PackedScene" uid="uid://s1fwls7gwbiq" path="res://Scenes/windmill_tower.tscn" id="37_t6wb6"]
 [ext_resource type="Texture2D" uid="uid://dqnykakb2dyvv" path="res://Sprites/vines.png" id="38_fvjqb"]
 [ext_resource type="PackedScene" uid="uid://dub36njkvj5pk" path="res://Scenes/enemy_charger.tscn" id="39_64lof"]
+[ext_resource type="PackedScene" uid="uid://c87fxdhj5ldxk" path="res://Scenes/bg_hut.tscn" id="39_b05pg"]
 [ext_resource type="Script" uid="uid://ban2bpqpuesw1" path="res://Scripts/player_spawn.gd" id="39_kwxat"]
 [ext_resource type="PackedScene" uid="uid://d15bns0qk1sjg" path="res://Scenes/rotating_door.tscn" id="40_ceghn"]
 [ext_resource type="Texture2D" uid="uid://cludpgi85lhv5" path="res://Sprites/egg_back.png" id="40_fvjqb"]
@@ -2057,6 +2058,13 @@ position = Vector2(730.8235, -3709)
 
 [node name="Tree20" parent="Level/Climb/Background" instance=ExtResource("9_wsu2k")]
 position = Vector2(566.2059, -2945)
+
+[node name="Bg Hut" parent="Level/Climb/Background" instance=ExtResource("39_b05pg")]
+position = Vector2(-4292.5083, -2008)
+
+[node name="Bg Hut2" parent="Level/Climb/Background" instance=ExtResource("39_b05pg")]
+position = Vector2(-4044.0854, -1983)
+scale = Vector2(-0.232, 0.232)
 
 [node name="Decorations" type="Node2D" parent="Level/Climb"]
 modulate = Color(0.5686275, 0.32941177, 0.16470589, 1)

@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://c87fxdhj5ldxk"]
+
+[ext_resource type="Texture2D" uid="uid://gnrv2fn40kab" path="res://Sprites/bg-hut.png" id="1_205av"]
+[ext_resource type="Texture2D" uid="uid://go0giiad03jq" path="res://Sprites/circle.png" id="2_fio1f"]
+
+[sub_resource type="Curve" id="Curve_b05pg"]
+_data = [Vector2(0, 0.3651163), 0.0, 4.2811365, 0, 0, Vector2(1, 0.28449613), -2.4012618, 0.0, 0, 0]
+point_count = 2
+
+[node name="Bg Hut" type="Sprite2D"]
+scale = Vector2(0.26797226, 0.26797226)
+texture = ExtResource("1_205av")
+
+[node name="Smoke" type="CPUParticles2D" parent="."]
+position = Vector2(-190.31818, -350.7826)
+rotation = -1.595257
+amount = 25
+texture = ExtResource("2_fio1f")
+lifetime = 12.0
+preprocess = 5.0
+randomness = 0.75
+spread = 10.44
+gravity = Vector2(0, 0)
+initial_velocity_min = 341.3
+initial_velocity_max = 341.3
+linear_accel_min = -10.0
+scale_amount_min = 0.05
+scale_amount_max = 0.1
+scale_amount_curve = SubResource("Curve_b05pg")
