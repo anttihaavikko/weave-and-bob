@@ -1,6 +1,5 @@
 extends Node2D
 
-@export var id: String
 @export_multiline var main_message: String;
 @export var spots: Array[Node2D]
 @export var anim: AnimationPlayer
@@ -18,7 +17,7 @@ var done := false
 var tween: Tween
 
 func _ready():
-	if GameState.has(id):
+	if GameState.has(name):
 		queue_free()
 		return
 	
@@ -39,6 +38,8 @@ func _process(_delta):
 	face.position = face_pos + face.to_local(pp).normalized() * 5
 
 func enter(_node: Node2D):
+	if not visible:
+		return
 	if moving and tween:
 		moving = false
 		tween.kill()
@@ -62,7 +63,7 @@ func exit(_node: Node2D):
 	talking = false
 	if message.done:
 		done = true
-		GameState.mark(id)
+		GameState.mark(name)
 	
 func move():
 	if len(spots) > 0:

@@ -4025,7 +4025,7 @@ type = 3
 
 [node name="Player Spawn" type="Node2D" parent="Level"]
 visibility_layer = 524289
-position = Vector2(5666.837, 4481)
+position = Vector2(-1929.5186, -563)
 scale = Vector2(1.0023229, 1)
 script = ExtResource("121_xjjvj")
 size = 150
@@ -4769,77 +4769,96 @@ position = Vector2(205.72704, -477.35132)
 scale = Vector2(163.13611, 34.008877)
 _open_pos = -60.0
 
-[node name="Bob" parent="." node_paths=PackedStringArray("spots") instance=ExtResource("95_nb1ia")]
+[node name="Backyard Bob" parent="." node_paths=PackedStringArray("spots") instance=ExtResource("95_nb1ia")]
 position = Vector2(-4508.527, -525)
 collision_mask = 130
-id = "bob_backyard"
 main_message = "Lorem ipsum dolor sit amet.
 Who knows maybe some
 little more or something."
 spots = [NodePath("Spot"), NodePath("Spot2")]
 
-[node name="Spot" type="Node2D" parent="Bob"]
+[node name="Spot" type="Node2D" parent="Backyard Bob"]
 position = Vector2(165.6153, 0)
 script = ExtResource("121_xjjvj")
 color = Color(1, 0.98333335, 0.5, 1)
 metadata/_custom_type_script = "uid://cahkyqjkmgnwc"
 
-[node name="Spot2" type="Node2D" parent="Bob"]
+[node name="Spot2" type="Node2D" parent="Backyard Bob"]
 position = Vector2(-216.4971, -1)
 script = ExtResource("121_xjjvj")
 color = Color(1, 0.98333335, 0.5, 1)
 metadata/_custom_type_script = "uid://cahkyqjkmgnwc"
 
-[node name="Bob3" parent="." node_paths=PackedStringArray("spots") instance=ExtResource("95_nb1ia")]
+[node name="Hidden Bob" parent="." node_paths=PackedStringArray("spots") instance=ExtResource("95_nb1ia")]
 position = Vector2(7098.5107, 4496)
 collision_mask = 130
-id = "bob_hidden"
 main_message = "Lorem ipsum dolor sit amet.
 Who knows maybe some
 little more or something."
 spots = [NodePath("Spot"), NodePath("Spot2")]
 
-[node name="Spot" type="Node2D" parent="Bob3"]
+[node name="Spot" type="Node2D" parent="Hidden Bob"]
 position = Vector2(278.3534, 0)
 script = ExtResource("121_xjjvj")
 color = Color(1, 0.98333335, 0.5, 1)
 metadata/_custom_type_script = "uid://cahkyqjkmgnwc"
 
-[node name="Spot2" type="Node2D" parent="Bob3"]
+[node name="Spot2" type="Node2D" parent="Hidden Bob"]
 position = Vector2(-432.9942, -1)
 script = ExtResource("121_xjjvj")
 color = Color(1, 0.98333335, 0.5, 1)
 metadata/_custom_type_script = "uid://cahkyqjkmgnwc"
 
-[node name="Bob2" parent="." node_paths=PackedStringArray("spots") instance=ExtResource("95_nb1ia")]
+[node name="Trap Bob" parent="." node_paths=PackedStringArray("spots") instance=ExtResource("95_nb1ia")]
 position = Vector2(-4424.7217, 4317)
 collision_mask = 130
-id = "bob_trap"
 main_message = "Lorem ipsum dolor sit amet.
 Who knows maybe some
 little more or something."
 spots = [NodePath("Spot"), NodePath("Spot2"), NodePath("Spot3"), NodePath("Spot4")]
 
-[node name="Spot" type="Node2D" parent="Bob2"]
+[node name="Spot" type="Node2D" parent="Trap Bob"]
 position = Vector2(679.42175, 0)
 script = ExtResource("121_xjjvj")
 color = Color(1, 0.98333335, 0.5, 1)
 metadata/_custom_type_script = "uid://cahkyqjkmgnwc"
 
-[node name="Spot2" type="Node2D" parent="Bob2"]
+[node name="Spot2" type="Node2D" parent="Trap Bob"]
 position = Vector2(-707.3569, -1)
 script = ExtResource("121_xjjvj")
 color = Color(1, 0.98333335, 0.5, 1)
 metadata/_custom_type_script = "uid://cahkyqjkmgnwc"
 
-[node name="Spot3" type="Node2D" parent="Bob2"]
+[node name="Spot3" type="Node2D" parent="Trap Bob"]
 position = Vector2(-349.18887, -1)
 script = ExtResource("121_xjjvj")
 color = Color(1, 0.98333335, 0.5, 1)
 metadata/_custom_type_script = "uid://cahkyqjkmgnwc"
 
-[node name="Spot4" type="Node2D" parent="Bob2"]
+[node name="Spot4" type="Node2D" parent="Trap Bob"]
 position = Vector2(407.0544, -1)
+script = ExtResource("121_xjjvj")
+color = Color(1, 0.98333335, 0.5, 1)
+metadata/_custom_type_script = "uid://cahkyqjkmgnwc"
+
+[node name="Inside Bob" parent="." node_paths=PackedStringArray("spots") instance=ExtResource("95_nb1ia")]
+visible = false
+position = Vector2(-2913.2327, -650)
+scale = Vector2(0.90048087, 0.90048087)
+collision_mask = 130
+main_message = "Lorem ipsum dolor sit amet.
+Who knows maybe some
+little more or something."
+spots = [NodePath("Spot"), NodePath("Spot2")]
+
+[node name="Spot" type="Node2D" parent="Inside Bob"]
+position = Vector2(165.6153, 0)
+script = ExtResource("121_xjjvj")
+color = Color(1, 0.98333335, 0.5, 1)
+metadata/_custom_type_script = "uid://cahkyqjkmgnwc"
+
+[node name="Spot2" type="Node2D" parent="Inside Bob"]
+position = Vector2(-216.4971, -1)
 script = ExtResource("121_xjjvj")
 color = Color(1, 0.98333335, 0.5, 1)
 metadata/_custom_type_script = "uid://cahkyqjkmgnwc"
