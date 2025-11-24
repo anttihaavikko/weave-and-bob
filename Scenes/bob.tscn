@@ -381,6 +381,7 @@ position = Vector2(0, -196)
 script = ExtResource("14_p0vnj")
 
 [node name="Label" type="Label" parent="Mover/Appearer"]
+z_index = 999
 material = SubResource("ShaderMaterial_4jaqh")
 offset_left = -693.3894
 offset_top = -154.0

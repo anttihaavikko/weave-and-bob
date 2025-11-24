@@ -1,5 +1,7 @@
 extends Node2D
 
+@export var id: String
+@export_multiline var main_message: String;
 @export var spots: Array[Node2D]
 @export var anim: AnimationPlayer
 @export var face: Node2D
@@ -16,6 +18,10 @@ var done := false
 var tween: Tween
 
 func _ready():
+	if GameState.has(id):
+		queue_free()
+		return
+	
 	face_pos = face.position
 
 	area.body_entered.connect(enter)
@@ -49,13 +55,14 @@ func get_text() -> String:
 			"These are some really\nnice mushrooms!",
 			"We've already found X of Y\npossible mushroom spots!"
 		].pick_random()
-	return "Foo bar lorem ipsum"
+	return main_message
 	
 func exit(_node: Node2D):
 	text.disappear()
 	talking = false
 	if message.done:
 		done = true
+		GameState.mark(id)
 	
 func move():
 	if len(spots) > 0:
