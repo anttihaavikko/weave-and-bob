@@ -2153,10 +2153,6 @@ scale = Vector2(893.06506, 1189.1104)
 position = Vector2(-1788.7301, -1908.6692)
 scale = Vector2(2370.5254, 1461.1558)
 
-[node name="Wall13" parent="Level/Climb" instance=ExtResource("4_344ge")]
-position = Vector2(-1927.0033, -2725)
-scale = Vector2(152.54361, 574.3483)
-
 [node name="Wall8" parent="Level/Climb" instance=ExtResource("4_344ge")]
 position = Vector2(1503.6301, -1081.8203)
 scale = Vector2(1473.5458, 1833.7281)
@@ -4029,7 +4025,7 @@ type = 3
 
 [node name="Player Spawn" type="Node2D" parent="Level"]
 visibility_layer = 524289
-position = Vector2(-3283.373, 4814)
+position = Vector2(5666.837, 4481)
 scale = Vector2(1.0023229, 1)
 script = ExtResource("121_xjjvj")
 size = 150
@@ -4790,6 +4786,27 @@ metadata/_custom_type_script = "uid://cahkyqjkmgnwc"
 
 [node name="Spot2" type="Node2D" parent="Bob"]
 position = Vector2(-216.4971, -1)
+script = ExtResource("121_xjjvj")
+color = Color(1, 0.98333335, 0.5, 1)
+metadata/_custom_type_script = "uid://cahkyqjkmgnwc"
+
+[node name="Bob3" parent="." node_paths=PackedStringArray("spots") instance=ExtResource("95_nb1ia")]
+position = Vector2(7098.5107, 4496)
+collision_mask = 130
+id = "bob_hidden"
+main_message = "Lorem ipsum dolor sit amet.
+Who knows maybe some
+little more or something."
+spots = [NodePath("Spot"), NodePath("Spot2")]
+
+[node name="Spot" type="Node2D" parent="Bob3"]
+position = Vector2(278.3534, 0)
+script = ExtResource("121_xjjvj")
+color = Color(1, 0.98333335, 0.5, 1)
+metadata/_custom_type_script = "uid://cahkyqjkmgnwc"
+
+[node name="Spot2" type="Node2D" parent="Bob3"]
+position = Vector2(-432.9942, -1)
 script = ExtResource("121_xjjvj")
 color = Color(1, 0.98333335, 0.5, 1)
 metadata/_custom_type_script = "uid://cahkyqjkmgnwc"
