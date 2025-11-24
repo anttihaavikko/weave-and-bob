@@ -1,5 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://basr4p7b2otct"]
+[gd_scene load_steps=28 format=3 uid="uid://basr4p7b2otct"]
 
+[ext_resource type="Script" uid="uid://d0dfuwkvrw7e0" path="res://Scripts/bob.gd" id="1_e3p42"]
 [ext_resource type="Script" uid="uid://uxu8p38o38ip" path="res://Scripts/mover.gd" id="1_vk4kg"]
 [ext_resource type="Script" uid="uid://d21tebxx08yd3" path="res://Scripts/limb_live.gd" id="2_e3p42"]
 [ext_resource type="Shader" uid="uid://7gwbqnj5dg4s" path="res://Shaders/wavy.gdshader" id="3_fr3lm"]
@@ -10,6 +11,10 @@
 [ext_resource type="Texture2D" uid="uid://go0giiad03jq" path="res://Sprites/circle.png" id="8_4jaqh"]
 [ext_resource type="Texture2D" uid="uid://w5ubxh2dsi74" path="res://Sprites/mouth.png" id="9_drt5s"]
 [ext_resource type="Texture2D" uid="uid://dlnnqgsjygpsm" path="res://Sprites/shirt-string.png" id="10_wsy62"]
+[ext_resource type="Shader" uid="uid://bae8cicg5bb45" path="res://Shaders/wobbly_text.gdshader" id="12_41eny"]
+[ext_resource type="FontFile" uid="uid://x80u6ag0vqx5" path="res://Misc/ChunkFive-Regular.otf" id="13_c8g0p"]
+[ext_resource type="Script" uid="uid://bf838a0ggrmry" path="res://Scripts/appearer.gd" id="14_p0vnj"]
+[ext_resource type="Script" uid="uid://da8a1dg0wsf6v" path="res://Scripts/message.gd" id="15_c8g0p"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_33qc4"]
 radius = 40.90503
@@ -21,7 +26,6 @@ shader_parameter/amount = 3.0
 shader_parameter/frequency = 0.0
 shader_parameter/speed = 10.0
 shader_parameter/flip = false
-shader_parameter/mid = 0.5
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_32dfi"]
 shader = ExtResource("3_fr3lm")
@@ -29,7 +33,6 @@ shader_parameter/amount = 3.0
 shader_parameter/frequency = 0.0
 shader_parameter/speed = 8.0
 shader_parameter/flip = true
-shader_parameter/mid = 0.5
 
 [sub_resource type="Shader" id="Shader_lpdpw"]
 code = "shader_type canvas_item;
@@ -55,10 +58,196 @@ shader_parameter/speed = 6.0
 shader_parameter/flip = true
 shader_parameter/mid = 0.5
 
-[node name="Bob" type="RigidBody2D"]
+[sub_resource type="Animation" id="Animation_e3p42"]
+resource_name = "walk"
+length = 0.25
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Leg Right Tip:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(37, 201), Vector2(28.93279, 214), Vector2(28.93279, 214)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Leg Left Tip:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-26.937424, 214), Vector2(-26.937424, 214), Vector2(-42, 202)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Wrap:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.12409555, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-17, 9), Vector2(0.25694275, 8.798599), Vector2(22, 11.000001)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Wrap:rotation")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.12409555, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.103477456, 0.0, 0.112537116]
+}
+
+[sub_resource type="Animation" id="Animation_fr3lm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Leg Right Tip:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(28.93279, 214)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Leg Left Tip:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-26.937424, 214)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Wrap:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 7)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Wrap:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_vk4kg"]
+resource_name = "idle"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Leg Right Tip:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Leg Left Tip:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Wrap:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.2844528, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 7), Vector2(1, 14), Vector2(1, 14), Vector2(0, 7)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Wrap:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fr3lm"]
+_data = {
+&"RESET": SubResource("Animation_fr3lm"),
+&"idle": SubResource("Animation_vk4kg"),
+&"walk": SubResource("Animation_e3p42")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vk4kg"]
+radius = 139.03236
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4jaqh"]
+shader = ExtResource("12_41eny")
+shader_parameter/height = 3.0
+shader_parameter/frequency = 5.0
+shader_parameter/speed = 2.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_drt5s"]
+line_spacing = -5.0
+font = ExtResource("13_c8g0p")
+font_size = 64
+shadow_size = 8
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(6, 6)
+
+[node name="Bob" type="AnimatableBody2D" node_paths=PackedStringArray("anim", "face", "area", "text", "message")]
 collision_layer = 0
 collision_mask = 2
-lock_rotation = true
+script = ExtResource("1_e3p42")
+anim = NodePath("AnimationPlayer")
+face = NodePath("Wrap/Face")
+area = NodePath("Area2D")
+text = NodePath("Mover/Appearer")
+message = NodePath("Mover/Appearer/Label")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 72)
@@ -66,14 +255,10 @@ shape = SubResource("CapsuleShape2D_33qc4")
 
 [node name="Wrap" type="Node2D" parent="."]
 position = Vector2(0, 7)
-script = ExtResource("1_vk4kg")
-moves = true
-move_direction = Vector2(0, 5)
-single_direction = true
 
 [node name="Leg Right" type="Line2D" parent="Wrap" node_paths=PackedStringArray("target")]
 position = Vector2(15.962887, 161)
-points = PackedVector2Array(0, 0, 16.344807, 20.21997, 12.969904, 46)
+points = PackedVector2Array(0, 0, 24.825993, 7.72464, 21.492344, 33.51004)
 width = 13.0
 default_color = Color(0, 0, 0, 1)
 joint_mode = 2
@@ -86,7 +271,7 @@ flip = true
 
 [node name="Leg Left" type="Line2D" parent="Wrap" node_paths=PackedStringArray("target")]
 position = Vector2(-18.955927, 160)
-points = PackedVector2Array(0, 0, -14.228003, 21.76152, -7.981497, 47)
+points = PackedVector2Array(0, 0, -17.015598, 19.658829, -7.6097565, 43.897842)
 width = 13.0
 default_color = Color(0, 0, 0, 1)
 joint_mode = 2
@@ -111,7 +296,7 @@ position = Vector2(0, 145)
 texture = ExtResource("6_c8g0p")
 
 [node name="Face" type="Node2D" parent="Wrap" node_paths=PackedStringArray("left_eye", "right_eye")]
-position = Vector2(-2.993167, 17)
+position = Vector2(-2.9639306, 15.252485)
 scale = Vector2(1.4064906, 1.4064906)
 script = ExtResource("7_p0vnj")
 left_eye = NodePath("Eye Left")
@@ -169,3 +354,44 @@ position = Vector2(28.93279, 214)
 
 [node name="Leg Left Tip" type="Node2D" parent="."]
 position = Vector2(-26.937424, 214)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_fr3lm")
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, 97)
+collision_layer = 0
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_vk4kg")
+
+[node name="Mover" type="Node2D" parent="."]
+position = Vector2(0, 54)
+script = ExtResource("1_vk4kg")
+moves = true
+move_direction = Vector2(0, -5)
+move_speed = 1.0
+single_direction = true
+
+[node name="Appearer" type="Node2D" parent="Mover"]
+position = Vector2(0, -196)
+script = ExtResource("14_p0vnj")
+
+[node name="Label" type="Label" parent="Mover/Appearer"]
+material = SubResource("ShaderMaterial_4jaqh")
+offset_left = -693.3894
+offset_top = -154.0
+offset_right = 659.056
+offset_bottom = 163.0
+scale = Vector2(0.60105747, 0.60105747)
+pivot_offset = Vector2(680.57263, 140.8576)
+text = "Lorem ipsum dolor sit amet.
+Who knows maybe some
+little more or something."
+label_settings = SubResource("LabelSettings_drt5s")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("15_c8g0p")
