@@ -1,4 +1,4 @@
-[gd_scene load_steps=161 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=162 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/player.tscn" id="1_bo1nx"]
@@ -86,6 +86,7 @@
 [ext_resource type="Texture2D" uid="uid://n6kdy76kh61v" path="res://Sprites/mushrooms.png" id="55_e1jjv"]
 [ext_resource type="Texture2D" uid="uid://bvhkwhpcnih8c" path="res://Sprites/web.png" id="56_rlvdk"]
 [ext_resource type="AudioStream" uid="uid://c4ijxv5e2avwk" path="res://Sounds/reload.wav" id="58_wl4bb"]
+[ext_resource type="Texture2D" uid="uid://sts32ottooj3" path="res://Sprites/shroom_platform.png" id="59_ci23i"]
 [ext_resource type="Script" uid="uid://bu70ibk77hcta" path="res://Scripts/hut.gd" id="59_lx3vj"]
 [ext_resource type="PackedScene" uid="uid://1wu8l44j3pi2" path="res://Scenes/Effects/breakable_wall.tscn" id="59_o2owy"]
 [ext_resource type="Texture2D" uid="uid://dd11kkfciaw2d" path="res://Sprites/hut-door-mask.png" id="60_my4ki"]
@@ -3723,6 +3724,62 @@ position = Vector2(7146.3994, 1749)
 [node name="Tree16" parent="Level/Lower/Background" instance=ExtResource("9_wsu2k")]
 position = Vector2(7413.7783, 2013)
 
+[node name="ShroomPlatform" type="Sprite2D" parent="Level/Lower/Background"]
+position = Vector2(4597.0254, -614.0603)
+scale = Vector2(1.1146367, 1.1146367)
+texture = ExtResource("59_ci23i")
+
+[node name="ColorRect" type="ColorRect" parent="Level/Lower/Background/ShroomPlatform"]
+offset_left = -25.661636
+offset_top = -1.3903376
+offset_right = 24.74173
+offset_bottom = 488.00845
+metadata/_edit_use_anchors_ = true
+
+[node name="ShroomPlatform2" type="Sprite2D" parent="Level/Lower/Background"]
+position = Vector2(4132.1055, -448.0603)
+scale = Vector2(0.9740948, 0.9740948)
+texture = ExtResource("59_ci23i")
+
+[node name="ColorRect" type="ColorRect" parent="Level/Lower/Background/ShroomPlatform2"]
+offset_left = -25.661636
+offset_top = -1.3903376
+offset_right = 24.74173
+offset_bottom = 488.00845
+metadata/_edit_use_anchors_ = true
+
+[node name="ShroomPlatform3" type="Sprite2D" parent="Level/Lower/Background"]
+position = Vector2(3545.468, -767.0603)
+scale = Vector2(1.4531728, 1.4531728)
+texture = ExtResource("59_ci23i")
+
+[node name="ColorRect" type="ColorRect" parent="Level/Lower/Background/ShroomPlatform3"]
+offset_left = -25.661636
+offset_top = -1.3903376
+offset_right = 24.74173
+offset_bottom = 488.00845
+metadata/_edit_use_anchors_ = true
+
+[node name="Polygon2D3" type="Polygon2D" parent="Level/Lower/Background"]
+position = Vector2(4976.44, 366)
+offset = Vector2(-861.9976, -461)
+polygon = PackedVector2Array(612.577, 469, 735.29193, 281, 712.3453, 74, 631.53296, -17, 345.19815, -73, 149.65237, -9, -195.54575, -55, -388.09848, -123, -658.47046, -131, -844.03937, 27, -741.2781, 274, -878.95825, 329, -730.3036, 359, -801.13904, 414, -718.33136, 423, -634.52606, 492)
+
+[node name="Tree17" parent="Level/Lower/Background" instance=ExtResource("9_wsu2k")]
+position = Vector2(4701.08, -106)
+
+[node name="Tree18" parent="Level/Lower/Background" instance=ExtResource("9_wsu2k")]
+position = Vector2(4479.594, -151)
+
+[node name="Tree19" parent="Level/Lower/Background" instance=ExtResource("9_wsu2k")]
+position = Vector2(3671.4714, -206)
+
+[node name="Tree20" parent="Level/Lower/Background" instance=ExtResource("9_wsu2k")]
+position = Vector2(3440.009, -189)
+
+[node name="Tree21" parent="Level/Lower/Background" instance=ExtResource("9_wsu2k")]
+position = Vector2(3368.176, -133)
+
 [node name="Decorations" type="Node2D" parent="Level/Lower"]
 modulate = Color(0.5686275, 0.32941177, 0.16470589, 1)
 position = Vector2(-5862.382, 1628)
@@ -4287,7 +4344,7 @@ type = 3
 
 [node name="Player Spawn" type="Node2D" parent="Level"]
 visibility_layer = 524289
-position = Vector2(-3760.265, 4378)
+position = Vector2(-44.895264, 2441)
 scale = Vector2(1.0023229, 1)
 script = ExtResource("121_xjjvj")
 size = 150
