@@ -8,6 +8,7 @@ size = Vector2(500, 40)
 
 [node name="Platform" type="Node2D" node_paths=PackedStringArray("sprite", "left", "right", "collider")]
 modulate = Color(0, 0, 0, 1)
+visibility_layer = 524289
 script = ExtResource("1_8igbo")
 sprite = NodePath("Sprite2D")
 left = NodePath("Left")
@@ -23,16 +24,19 @@ shape = SubResource("RectangleShape2D_cmq5c")
 one_way_collision = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visibility_layer = 524289
 scale = Vector2(500, 40)
 texture = ExtResource("2_joxgn")
 
 [node name="Left" type="Sprite2D" parent="."]
+visibility_layer = 524289
 position = Vector2(-161.5875, 49.566116)
 rotation = -0.58817595
 scale = Vector2(186.78807, 24.277683)
 texture = ExtResource("2_joxgn")
 
 [node name="Right" type="Sprite2D" parent="."]
+visibility_layer = 524289
 position = Vector2(161.69136, 49.412674)
 rotation = 0.58859426
 scale = Vector2(187.90506, 23.907116)
