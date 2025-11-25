@@ -4344,7 +4344,7 @@ type = 3
 
 [node name="Player Spawn" type="Node2D" parent="Level"]
 visibility_layer = 524289
-position = Vector2(-44.895264, 2441)
+position = Vector2(-2259.7507, -515)
 scale = Vector2(1.0023229, 1)
 script = ExtResource("121_xjjvj")
 size = 150
@@ -5007,7 +5007,7 @@ position = Vector2(10.372559, -45.611023)
 scale = Vector2(0.9999999, 1)
 shape = SubResource("RectangleShape2D_tab3y")
 
-[node name="Text Area" type="Area2D" parent="Hut" node_paths=PackedStringArray("text")]
+[node name="Start Note" type="Area2D" parent="Hut" node_paths=PackedStringArray("text")]
 z_index = 999
 position = Vector2(6.6916347, -67.74581)
 scale = Vector2(0.6707506, 0.6707506)
@@ -5015,17 +5015,17 @@ collision_mask = 256
 script = ExtResource("80_55idt")
 text = NodePath("Node2D/Label")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hut/Text Area"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hut/Start Note"]
 shape = SubResource("CircleShape2D_ihvwq")
 
-[node name="Node2D" type="Node2D" parent="Hut/Text Area"]
+[node name="Node2D" type="Node2D" parent="Hut/Start Note"]
 script = ExtResource("62_y86h7")
 moves = true
 move_direction = Vector2(0, -5)
 move_speed = 1.0
 single_direction = true
 
-[node name="Label" type="Label" parent="Hut/Text Area/Node2D"]
+[node name="Label" type="Label" parent="Hut/Start Note/Node2D"]
 material = SubResource("ShaderMaterial_k8rh3")
 offset_left = -693.3895
 offset_top = -350.0
@@ -5083,13 +5083,15 @@ position = Vector2(205.72704, -477.35132)
 scale = Vector2(163.13611, 34.008877)
 _open_pos = -60.0
 
-[node name="Backyard Bob" parent="." node_paths=PackedStringArray("spots") instance=ExtResource("95_nb1ia")]
+[node name="Backyard Bob" parent="." node_paths=PackedStringArray("spots", "end_bob", "start_note") instance=ExtResource("95_nb1ia")]
 position = Vector2(-4508.5273, -524)
 collision_mask = 130
 main_message = "Lorem ipsum dolor sit amet.
 Who knows maybe some
 little more or something."
 spots = [NodePath("Spot"), NodePath("Spot2")]
+end_bob = NodePath("../Inside Bob")
+start_note = NodePath("../Hut/Start Note")
 
 [node name="Spot" type="Node2D" parent="Backyard Bob"]
 position = Vector2(165.6153, 0)
@@ -5103,13 +5105,15 @@ script = ExtResource("121_xjjvj")
 color = Color(1, 0.98333335, 0.5, 1)
 metadata/_custom_type_script = "uid://cahkyqjkmgnwc"
 
-[node name="Spider Bob" parent="." node_paths=PackedStringArray("spots") instance=ExtResource("95_nb1ia")]
+[node name="Spider Bob" parent="." node_paths=PackedStringArray("spots", "end_bob", "start_note") instance=ExtResource("95_nb1ia")]
 position = Vector2(-819.09735, 741)
 collision_mask = 130
 main_message = "Lorem ipsum dolor sit amet.
 Who knows maybe some
 little more or something."
 spots = [NodePath("Spot"), NodePath("Spot2")]
+end_bob = NodePath("../Inside Bob")
+start_note = NodePath("../Hut/Start Note")
 
 [node name="Spot" type="Node2D" parent="Spider Bob"]
 position = Vector2(165.6153, 0)
@@ -5123,13 +5127,15 @@ script = ExtResource("121_xjjvj")
 color = Color(1, 0.98333335, 0.5, 1)
 metadata/_custom_type_script = "uid://cahkyqjkmgnwc"
 
-[node name="Uphill Bob" parent="." node_paths=PackedStringArray("spots") instance=ExtResource("95_nb1ia")]
+[node name="Uphill Bob" parent="." node_paths=PackedStringArray("spots", "end_bob", "start_note") instance=ExtResource("95_nb1ia")]
 position = Vector2(4241.148, -3791)
 collision_mask = 130
 main_message = "Lorem ipsum dolor sit amet.
 Who knows maybe some
 little more or something."
 spots = [NodePath("Spot"), NodePath("Spot2")]
+end_bob = NodePath("../Inside Bob")
+start_note = NodePath("../Hut/Start Note")
 
 [node name="Spot" type="Node2D" parent="Uphill Bob"]
 position = Vector2(542.73926, 0)
@@ -5143,13 +5149,15 @@ script = ExtResource("121_xjjvj")
 color = Color(1, 0.98333335, 0.5, 1)
 metadata/_custom_type_script = "uid://cahkyqjkmgnwc"
 
-[node name="Hidden Bob" parent="." node_paths=PackedStringArray("spots") instance=ExtResource("95_nb1ia")]
+[node name="Hidden Bob" parent="." node_paths=PackedStringArray("spots", "end_bob", "start_note") instance=ExtResource("95_nb1ia")]
 position = Vector2(7098.5107, 4496)
 collision_mask = 130
 main_message = "Lorem ipsum dolor sit amet.
 Who knows maybe some
 little more or something."
 spots = [NodePath("Spot"), NodePath("Spot2")]
+end_bob = NodePath("../Inside Bob")
+start_note = NodePath("../Hut/Start Note")
 
 [node name="Spot" type="Node2D" parent="Hidden Bob"]
 position = Vector2(278.3534, 0)
@@ -5163,13 +5171,15 @@ script = ExtResource("121_xjjvj")
 color = Color(1, 0.98333335, 0.5, 1)
 metadata/_custom_type_script = "uid://cahkyqjkmgnwc"
 
-[node name="Trap Bob" parent="." node_paths=PackedStringArray("spots") instance=ExtResource("95_nb1ia")]
+[node name="Trap Bob" parent="." node_paths=PackedStringArray("spots", "end_bob", "start_note") instance=ExtResource("95_nb1ia")]
 position = Vector2(-4424.7217, 4317)
 collision_mask = 130
 main_message = "Lorem ipsum dolor sit amet.
 Who knows maybe some
 little more or something."
 spots = [NodePath("Spot"), NodePath("Spot2"), NodePath("Spot3"), NodePath("Spot4")]
+end_bob = NodePath("../Inside Bob")
+start_note = NodePath("../Hut/Start Note")
 
 [node name="Spot" type="Node2D" parent="Trap Bob"]
 position = Vector2(679.42175, 0)
@@ -5195,7 +5205,7 @@ script = ExtResource("121_xjjvj")
 color = Color(1, 0.98333335, 0.5, 1)
 metadata/_custom_type_script = "uid://cahkyqjkmgnwc"
 
-[node name="Inside Bob" parent="." node_paths=PackedStringArray("spots") instance=ExtResource("95_nb1ia")]
+[node name="Inside Bob" parent="." node_paths=PackedStringArray("spots", "end_bob", "start_note") instance=ExtResource("95_nb1ia")]
 visible = false
 position = Vector2(-2913.2327, -650)
 scale = Vector2(0.90048087, 0.90048087)
@@ -5204,6 +5214,9 @@ main_message = "Lorem ipsum dolor sit amet.
 Who knows maybe some
 little more or something."
 spots = [NodePath("Spot"), NodePath("Spot2")]
+final = true
+end_bob = NodePath(".")
+start_note = NodePath("../Hut/Start Note")
 
 [node name="Spot" type="Node2D" parent="Inside Bob"]
 position = Vector2(165.6153, 0)

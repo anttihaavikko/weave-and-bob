@@ -28,6 +28,7 @@ var checkpoints: Array[Checkpoint]
 var boss_fight := false
 var attached := false
 var worm: Worm
+var met_bobs := 5
 
 signal fix_player
 
@@ -44,6 +45,8 @@ func _ready() -> void:
 		has_double_jump = false
 		has_taxi = false
 		has_dash = false
+		met_bobs = 0
+	print(get_percentage())
 
 func mark(id: String):
 	if len(id) > 1:
@@ -54,6 +57,21 @@ func request_player_fix():
 
 func has(id: String) -> bool:
 	return len(id) > 1 and ids.has(id)
+
+func get_percentage() -> String:
+	var total = 0
+	if has_magazine: total += 1
+	if has_gun: total += 1
+	if breaker_shots: total += 1
+	if has_tracking: total += 1
+	if has_double_jump: total += 1
+	if has_taxi: total += 1
+	if has_dash: total += 1
+	total += (max_life - 1)
+	total += int((damage - 100) / 30.0)
+	total += map_upgrades
+	total += accuracy
+	return str(int((total / 20.0) * 100)) + "%"
 
 func register(id: String):
 	if len(id) > 1 and unique.has(id):

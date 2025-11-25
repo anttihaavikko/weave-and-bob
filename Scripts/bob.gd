@@ -8,6 +8,9 @@ extends Node2D
 @export var text: Appearer
 @export var message: Message
 @export var speech: AudioStreamPlayer2D
+@export var final: bool
+@export var end_bob: Node
+@export var start_note: AreaTextDisplay
 
 var cur: Vector2
 var points: Array[Vector2]
@@ -21,6 +24,10 @@ func _ready():
 	if GameState.has(name):
 		queue_free()
 		return
+	
+	if final and GameState.met_bobs >= 5:
+		show()
+		start_note.enabled = false
 	
 	face_pos = face.position
 
@@ -55,23 +62,43 @@ func enter(_node: Node2D):
 func speak():
 	speech.play()
 
-	
 func get_text() -> String:
 	if done:
+		if final:
+			return [
+				"Just go sleep.\nIt's not worth it!",
+				"You're %s done\nwith everything!\nKeep going!" % GameState.get_percentage()
+			].pick_random()
 		return [
+			"This is a really nice spot\nfor gathering mushrooms!",
 			"I've got nothing else\nfor you right now.",
 			"What do you think\nof this invasion?",
 			"These are some really\nnice mushrooms!",
-			"We've already found X of Y\npossible mushroom spots!"
+			"We've already found %d of 5\npossible mushroom spots!" % [GameState.met_bobs]
 		].pick_random()
-	return main_message
+	return [
+		"What's up with these flying goons?\nI'm calling it a mathvasion!",
+		"I'd suggest you to shy away from\ndisturbing Big Papa or Worm Mom!",
+		"This is a really sweet spot for mushrooms.\nDestroying angel is my favourite species!\nI do love fly agarics too...",
+		"Just one more spot of mushrooms\nand we're set for the coming winter.",
+		"And all done with mushrooms!\nI'm going to go back home now.",
+		"Hey don't bother with the mathvasion!\nJust go to sleep instead."
+	][GameState.met_bobs]
 	
 func exit(_node: Node2D):
+	if not visible:
+		return
 	text.disappear()
 	talking = false
 	if message.done:
+		if not done and not final:
+			GameState.met_bobs += 1
+		if not final:
+			GameState.mark(name)
 		done = true
-		GameState.mark(name)
+		if GameState.met_bobs == 5:
+			end_bob.show()
+			start_note.enabled = false
 	
 func move():
 	if len(spots) > 0:
