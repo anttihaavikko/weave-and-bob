@@ -4287,7 +4287,7 @@ type = 3
 
 [node name="Player Spawn" type="Node2D" parent="Level"]
 visibility_layer = 524289
-position = Vector2(6877.025, -5152)
+position = Vector2(-3760.265, 4378)
 scale = Vector2(1.0023229, 1)
 script = ExtResource("121_xjjvj")
 size = 150
@@ -4304,11 +4304,6 @@ sub_text = NodePath("../../../UI/Sub Text")
 home_pos = NodePath("../../../Hut/Inside/Spawn")
 moving_blanket = NodePath("../../../Hut/Inside/Blanket")
 blanket = NodePath("../../../Hut/Inside/BlanketMoved")
-
-[node name="Mag Pickup" parent="Level" instance=ExtResource("16_k12tt")]
-position = Vector2(2144.0198, -1354)
-scale = Vector2(1.0023229, 1)
-type = 8
 
 [node name="Mag Pickup2" parent="Level" instance=ExtResource("16_k12tt")]
 position = Vector2(-5384.4927, -4788)

@@ -7,6 +7,7 @@ extends Node2D
 @export var mouth: Node2D
 @export var cast: RayCast2D
 @export var killbox: Killbox
+@export var sound: AudioStreamPlayer2D
 
 var shooting := false
 var cooldown := 1.0
@@ -36,6 +37,7 @@ func _process(delta):
 		
 func shoot():
 	cooldown = 5
+	sound.play()
 	get_tree().create_tween().tween_property(mouth, "scale", Vector2.ONE, 0.6).set_trans(Tween.TRANS_BOUNCE)
 	await get_tree().create_timer(0.6).timeout
 	get_tree().create_tween().tween_property(bubble, "scale", Vector2.ONE, 0.8).set_trans(Tween.TRANS_BOUNCE)
@@ -45,7 +47,7 @@ func shoot():
 	get_tree().create_tween().tween_property(line, "width", 600, 0.3).set_trans(Tween.TRANS_BOUNCE)
 	await get_tree().create_timer(0.3).timeout
 	killbox.enabled = true
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(1.2).timeout
 	killbox.enabled = false
 	shooting = false
 	line.width = 0

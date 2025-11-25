@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://ouc2plqtpje3"]
+[gd_scene load_steps=7 format=3 uid="uid://ouc2plqtpje3"]
 
 [ext_resource type="PackedScene" uid="uid://biww1pdu4di3l" path="res://Scenes/enemy.tscn" id="1_8ejpv"]
 [ext_resource type="Script" uid="uid://bsgbuurpmdsgp" path="res://Scripts/beamer.gd" id="2_dfr82"]
 [ext_resource type="Texture2D" uid="uid://go0giiad03jq" path="res://Sprites/circle.png" id="2_v0168"]
 [ext_resource type="PackedScene" uid="uid://bpamcmqpiyf2j" path="res://Scenes/killbox.tscn" id="2_yhcno"]
 [ext_resource type="Script" uid="uid://b4h522fs5ekck" path="res://Scripts/pulsater.gd" id="4_ns6be"]
+[ext_resource type="AudioStream" uid="uid://b1ykeb6bxa034" path="res://Sounds/beam_spit.wav" id="6_kxydf"]
 
 [node name="Enemy" instance=ExtResource("1_8ejpv")]
 vision_range = 1500.0
@@ -12,7 +13,7 @@ vision_range = 1500.0
 [node name="Face" parent="." index="8"]
 position = Vector2(0, 0)
 
-[node name="Mouth Wrap" type="Node2D" parent="Face" index="6" node_paths=PackedStringArray("enemy", "face", "line", "bubble", "mouth", "cast", "killbox")]
+[node name="Mouth Wrap" type="Node2D" parent="Face" index="6" node_paths=PackedStringArray("enemy", "face", "line", "bubble", "mouth", "cast", "killbox", "sound")]
 position = Vector2(0, 6.4869576)
 rotation = 3.1415925
 scale = Vector2(0.025554433, 0.025554433)
@@ -24,6 +25,7 @@ bubble = NodePath("Pulsater/Beam Bubble")
 mouth = NodePath("Open Mouth")
 cast = NodePath("../../Vision Cast")
 killbox = NodePath("Killbox")
+sound = NodePath("../../Beam")
 
 [node name="Open Mouth" type="Sprite2D" parent="Face/Mouth Wrap" index="0"]
 modulate = Color(0, 0, 0, 1)
@@ -60,3 +62,8 @@ enabled = false
 
 [node name="Label Wrap" parent="." index="10"]
 position = Vector2(-128.2112, -164.37334)
+
+[node name="Beam" type="AudioStreamPlayer2D" parent="." index="13"]
+stream = ExtResource("6_kxydf")
+volume_db = 5.0
+bus = &"Sounds"
