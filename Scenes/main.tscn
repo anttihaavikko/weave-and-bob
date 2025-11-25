@@ -4368,6 +4368,46 @@ offset_right = 5023.331
 offset_bottom = 535.0
 rotation = 0.062876835
 
+[node name="Letter" parent="Level/Lower/Decorations" instance=ExtResource("17_h1bgf")]
+position = Vector2(5575.0503, 2007)
+scale = Vector2(1.1846226, 1.1846226)
+letter = "L"
+
+[node name="Letter2" parent="Level/Lower/Decorations" instance=ExtResource("17_h1bgf")]
+position = Vector2(5660.851, 2010)
+scale = Vector2(1.1846226, 1.1846226)
+letter = "I"
+
+[node name="Letter3" parent="Level/Lower/Decorations" instance=ExtResource("17_h1bgf")]
+position = Vector2(5753.6353, 2010)
+scale = Vector2(1.1846226, 1.1846226)
+letter = "N"
+
+[node name="Letter4" parent="Level/Lower/Decorations" instance=ExtResource("17_h1bgf")]
+position = Vector2(5851.408, 2012)
+scale = Vector2(1.1846226, 1.1846226)
+letter = "G"
+
+[node name="Letter5" parent="Level/Lower/Decorations" instance=ExtResource("17_h1bgf")]
+position = Vector2(6500.899, 2008)
+scale = Vector2(1.1846226, 1.1846226)
+letter = "L"
+
+[node name="Letter6" parent="Level/Lower/Decorations" instance=ExtResource("17_h1bgf")]
+position = Vector2(6586.6997, 2011)
+scale = Vector2(1.1846226, 1.1846226)
+letter = "I"
+
+[node name="Letter7" parent="Level/Lower/Decorations" instance=ExtResource("17_h1bgf")]
+position = Vector2(6679.484, 2011)
+scale = Vector2(1.1846226, 1.1846226)
+letter = "N"
+
+[node name="Letter8" parent="Level/Lower/Decorations" instance=ExtResource("17_h1bgf")]
+position = Vector2(6777.2573, 2013)
+scale = Vector2(1.1846226, 1.1846226)
+letter = "G"
+
 [node name="Wall9" parent="Level/Lower" instance=ExtResource("4_344ge")]
 position = Vector2(-962.7634, 693.0001)
 scale = Vector2(1274.7935, 412.57956)
