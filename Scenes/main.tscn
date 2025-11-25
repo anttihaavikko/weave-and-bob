@@ -2171,6 +2171,34 @@ offset_right = 5574.7153
 offset_bottom = 466.52954
 rotation = -0.857942
 
+[node name="ColorRect20" type="ColorRect" parent="Level/Climb/Background"]
+offset_left = 4754.1475
+offset_top = -459.00974
+offset_right = 4824.129
+offset_bottom = 235.60306
+rotation = -0.857942
+
+[node name="ColorRect21" type="ColorRect" parent="Level/Climb/Background"]
+offset_left = 4823.317
+offset_top = -14.0000305
+offset_right = 4893.2983
+offset_bottom = 680.6128
+rotation = -2.339985
+
+[node name="ColorRect22" type="ColorRect" parent="Level/Climb/Background"]
+offset_left = 4738.5137
+offset_top = -1099.5903
+offset_right = 4808.495
+offset_bottom = -404.97754
+rotation = -0.857942
+
+[node name="ColorRect23" type="ColorRect" parent="Level/Climb/Background"]
+offset_left = 4807.683
+offset_top = -654.58057
+offset_right = 4877.6646
+offset_bottom = 40.032227
+rotation = -2.339985
+
 [node name="ColorRect19" type="ColorRect" parent="Level/Climb/Background"]
 offset_left = 3835.6116
 offset_top = -214.00006
@@ -2568,8 +2596,16 @@ position = Vector2(10469.013, -3291.5156)
 scale = Vector2(774.89404, 362.1827)
 
 [node name="Wall9" parent="Level/Top" instance=ExtResource("4_344ge")]
-position = Vector2(12955.03, -3643.4214)
-scale = Vector2(1966.6328, 3862.2793)
+position = Vector2(13560.326, -3643.4214)
+scale = Vector2(756.0412, 3862.2793)
+
+[node name="Wall19" parent="Level/Top" instance=ExtResource("4_344ge")]
+position = Vector2(12978.999, -4538.405)
+scale = Vector2(951.3984, 2072.3125)
+
+[node name="Wall18" parent="Level/Top" instance=ExtResource("4_344ge")]
+position = Vector2(12384.686, -3643.4214)
+scale = Vector2(825.9428, 3862.2793)
 
 [node name="Wall10" parent="Level/Top" instance=ExtResource("4_344ge")]
 position = Vector2(11118.489, -5273.405)
@@ -3188,6 +3224,10 @@ size = Vector2(400, 40)
 position = Vector2(-235.45331, -1387)
 show_left = false
 size = Vector2(400, 40)
+
+[node name="Platform4" parent="Level/Big" instance=ExtResource("33_o1aky")]
+position = Vector2(350.1863, -3784)
+size = Vector2(560, 40)
 
 [node name="Platform3" parent="Level/Big" instance=ExtResource("33_o1aky")]
 position = Vector2(-1849.7036, -1679)
@@ -4131,6 +4171,12 @@ position = Vector2(3685.439, -2354)
 [node name="Vines2" parent="Level/Lower/Decorations" instance=ExtResource("34_aok0f")]
 position = Vector2(5489.249, -697)
 
+[node name="Vines27" parent="Level/Lower/Decorations" instance=ExtResource("34_aok0f")]
+position = Vector2(2884.3, -1098)
+
+[node name="Vines28" parent="Level/Lower/Decorations" instance=ExtResource("34_aok0f")]
+position = Vector2(3002.0266, -1140)
+
 [node name="Vines3" parent="Level/Lower/Decorations" instance=ExtResource("34_aok0f")]
 position = Vector2(6167.673, 425)
 
@@ -5017,6 +5063,7 @@ position = Vector2(1324.9225, 5993)
 scale = Vector2(113.65245, 412.57956)
 
 [node name="Ling Back" parent="Level" instance=ExtResource("4_344ge")]
+visible = false
 position = Vector2(1655.6925, 5764.7183)
 scale = Vector2(679.41516, 586.01526)
 
@@ -5036,12 +5083,12 @@ id = "tracker"
 type = 7
 
 [node name="Pickup6" parent="Level" instance=ExtResource("16_k12tt")]
-position = Vector2(11868.431, 5183)
+position = Vector2(12980.847, -3367)
 id = "final_damage"
 type = 3
 
 [node name="Pickup7" parent="Level" instance=ExtResource("16_k12tt")]
-position = Vector2(12625.672, 5209)
+position = Vector2(11920.311, 4407)
 id = "more_damage"
 type = 3
 
