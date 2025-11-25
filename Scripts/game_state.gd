@@ -1,7 +1,7 @@
 extends Node
 
 var has_magazine := true
-var map_upgrades := 3
+var map_upgrades := 4
 var damage := 100
 var has_gun := true
 var breaker_shots := true
@@ -28,7 +28,7 @@ var checkpoints: Array[Checkpoint]
 var boss_fight := false
 var attached := false
 var worm: Worm
-var met_bobs := 5
+var met_bobs := 0
 
 signal fix_player
 
@@ -46,7 +46,7 @@ func _ready() -> void:
 		has_taxi = false
 		has_dash = false
 		met_bobs = 0
-	print(get_percentage())
+	# print(get_percentage())
 
 func mark(id: String):
 	if len(id) > 1:

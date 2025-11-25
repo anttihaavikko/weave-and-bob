@@ -91,3 +91,5 @@ func _picked(_body: Node2D):
 			GameState.show_texts("Breadcrumbs!", "Checkpoints visible on the map...", 0.5, 2.5)
 		if GameState.map_upgrades == 3:
 			GameState.show_texts("Pickups visible on the map!", "That should be helpful...", 0.5, 2.5)
+		if GameState.map_upgrades == 4:
+			GameState.show_texts("Whole map visible!", "Tying off the loose ends...", 0.5, 2.5)

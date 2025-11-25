@@ -66,14 +66,15 @@ func get_text() -> String:
 	if done:
 		if final:
 			return [
-				"Just go sleep.\nIt's not worth it!",
-				"You're %s done\nwith everything!\nKeep going!" % GameState.get_percentage()
+				"Ending bits",
+				"You're %s done with everything!" % GameState.get_percentage()
 			].pick_random()
 		return [
 			"This is a really nice spot\nfor gathering mushrooms!",
 			"I've got nothing else\nfor you right now.",
 			"What do you think\nof this invasion?",
 			"These are some really\nnice mushrooms!",
+			"I've coined the term mathvasion\nfor this new invasive species!",
 			"We've already found %d of 5\npossible mushroom spots!" % [GameState.met_bobs]
 		].pick_random()
 	return [
