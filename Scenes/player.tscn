@@ -658,7 +658,8 @@ drag_bottom_margin = 0.1
 script = ExtResource("8_vfarp")
 
 [node name="Reticule" type="Sprite2D" parent="Gun/Camera2D"]
-z_index = 999
+z_index = 4096
+z_as_relative = false
 position = Vector2(139, -64)
 scale = Vector2(0.851, 0.851)
 texture = ExtResource("6_thj1j")
@@ -754,7 +755,7 @@ stream = ExtResource("15_p7hy0")
 [node name="Line2D" type="Line2D" parent="." node_paths=PackedStringArray("targets")]
 visible = false
 z_index = 1
-points = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+points = PackedVector2Array(18.837748, -48, 45.77517, -20, 46.77288, 19, 18.837742, 48, -21.069555, 48, -50.002342, 21.000004, -50.00232, -18, -21.069553, -47)
 closed = true
 width = 50.0
 default_color = Color(0, 0, 0, 1)

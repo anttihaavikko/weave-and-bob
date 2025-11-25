@@ -1,4 +1,4 @@
-[gd_scene load_steps=163 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=166 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/player.tscn" id="1_bo1nx"]
@@ -135,6 +135,7 @@
 [ext_resource type="Script" uid="uid://cahkyqjkmgnwc" path="res://Scripts/visible_node.gd" id="121_xjjvj"]
 [ext_resource type="PackedScene" uid="uid://b7kwgrp8b2dv8" path="res://Scenes/spider.tscn" id="126_na2ur"]
 [ext_resource type="PackedScene" uid="uid://ouc2plqtpje3" path="res://Scenes/enemy_beamer.tscn" id="132_bdqux"]
+[ext_resource type="PackedScene" uid="uid://qln40mjj4ivw" path="res://Scenes/ling.tscn" id="136_myryv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ihvwq"]
 radius = 82.303375
@@ -189,6 +190,12 @@ shader_parameter/offset = 0.0
 shader_parameter/speed = 0.1
 shader_parameter/peaks = 7.0
 shader_parameter/time_mod = 0.25
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bpr0e"]
+size = Vector2(2579, 646.87573)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_14mkc"]
+size = Vector2(669, 2370.4934)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_s8vy0"]
 blend_mode = 1
@@ -604,6 +611,12 @@ offset_top = -116.0
 offset_right = 594.236
 offset_bottom = 142.0
 
+[node name="ColorRect2" type="ColorRect" parent="Level/Starter/Decorations"]
+offset_left = 198.07869
+offset_top = -116.0
+offset_right = 257.80084
+offset_bottom = 142.0
+
 [node name="Note" type="Sprite2D" parent="Level/Starter"]
 modulate = Color(0.9372549, 0.8784314, 0.70980394, 1)
 position = Vector2(-4887.2783, -1278.0001)
@@ -751,7 +764,7 @@ texture = ExtResource("25_1semv")
 flip_h = true
 
 [node name="Brick4" type="Sprite2D" parent="Level/Starter/Hidden/Bricks & Marker"]
-position = Vector2(3.99057, 51.99997)
+position = Vector2(3.9953306, 54.782925)
 scale = Vector2(0.55115056, 0.55115056)
 texture = ExtResource("48_8dylv")
 flip_h = true
@@ -1297,6 +1310,40 @@ mushroom spot nearby here.
 But beware of Big Papa who is
 having a deep nap over there.
                                   -Bob"
+label_settings = SubResource("LabelSettings_k8rh3")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("86_ihvwq")
+
+[node name="Text Area3" type="Area2D" parent="Level/Room" node_paths=PackedStringArray("text")]
+z_index = 999
+position = Vector2(-4007.672, 5579)
+collision_mask = 256
+script = ExtResource("80_55idt")
+text = NodePath("Node2D/Label")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Room/Text Area3"]
+shape = SubResource("CircleShape2D_ihvwq")
+
+[node name="Node2D" type="Node2D" parent="Level/Room/Text Area3"]
+position = Vector2(-7.962962, 37)
+script = ExtResource("62_y86h7")
+moves = true
+move_direction = Vector2(0, -5)
+move_speed = 1.0
+single_direction = true
+
+[node name="Label" type="Label" parent="Level/Room/Text Area3/Node2D"]
+material = SubResource("ShaderMaterial_k8rh3")
+offset_left = -693.3894
+offset_top = -350.0
+offset_right = 659.056
+offset_bottom = -33.0
+scale = Vector2(0.60105747, 0.60105747)
+pivot_offset = Vector2(680.57263, 140.8576)
+text = "Ling's Domain! Keep out!
+Especially you, Weave!
+                                  -Ling"
 label_settings = SubResource("LabelSettings_k8rh3")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -3966,6 +4013,66 @@ position = Vector2(3440.009, -189)
 [node name="Tree21" parent="Level/Lower/Background" instance=ExtResource("9_wsu2k")]
 position = Vector2(3368.176, -133)
 
+[node name="Circle" type="Sprite2D" parent="Level/Lower/Background"]
+position = Vector2(4805.8364, 3182)
+scale = Vector2(0.6726493, 0.6726493)
+texture = ExtResource("73_jekl6")
+
+[node name="Circle2" type="Sprite2D" parent="Level/Lower/Background"]
+position = Vector2(5058.25, 3266)
+scale = Vector2(0.6726493, 0.6726493)
+texture = ExtResource("73_jekl6")
+
+[node name="Circle3" type="Sprite2D" parent="Level/Lower/Background"]
+position = Vector2(5276.7427, 3154)
+scale = Vector2(0.6726493, 0.6726493)
+texture = ExtResource("73_jekl6")
+
+[node name="Circle4" type="Sprite2D" parent="Level/Lower/Background"]
+position = Vector2(5507.2075, 3200)
+scale = Vector2(0.6726493, 0.6726493)
+texture = ExtResource("73_jekl6")
+
+[node name="Circle5" type="Sprite2D" parent="Level/Lower/Background"]
+position = Vector2(5722.706, 3087)
+scale = Vector2(0.6726493, 0.6726493)
+texture = ExtResource("73_jekl6")
+
+[node name="Circle6" type="Sprite2D" parent="Level/Lower/Background"]
+position = Vector2(5938.2056, 3165)
+scale = Vector2(0.6726493, 0.6726493)
+texture = ExtResource("73_jekl6")
+
+[node name="Circle7" type="Sprite2D" parent="Level/Lower/Background"]
+position = Vector2(6188.6245, 3124)
+scale = Vector2(0.6726493, 0.6726493)
+texture = ExtResource("73_jekl6")
+
+[node name="Circle8" type="Sprite2D" parent="Level/Lower/Background"]
+position = Vector2(5888.322, 2990)
+scale = Vector2(0.31284598, 0.31284598)
+texture = ExtResource("73_jekl6")
+
+[node name="Circle9" type="Sprite2D" parent="Level/Lower/Background"]
+position = Vector2(5200.919, 2996)
+scale = Vector2(0.31284598, 0.31284598)
+texture = ExtResource("73_jekl6")
+
+[node name="Circle10" type="Sprite2D" parent="Level/Lower/Background"]
+position = Vector2(4721.0337, 2983)
+scale = Vector2(0.32604185, 0.32604185)
+texture = ExtResource("73_jekl6")
+
+[node name="Circle11" type="Sprite2D" parent="Level/Lower/Background"]
+position = Vector2(4625.2554, 2954)
+scale = Vector2(0.2217351, 0.2217351)
+texture = ExtResource("73_jekl6")
+
+[node name="Circle12" type="Sprite2D" parent="Level/Lower/Background"]
+position = Vector2(4898.621, 3039)
+scale = Vector2(0.2217351, 0.2217351)
+texture = ExtResource("73_jekl6")
+
 [node name="Decorations" type="Node2D" parent="Level/Lower"]
 modulate = Color(0.5686275, 0.32941177, 0.16470589, 1)
 position = Vector2(-5862.382, 1628)
@@ -3976,6 +4083,21 @@ position = Vector2(7419.7637, -126)
 rotation = 0.035336453
 scale = Vector2(1.8145022, 1.8145026)
 texture = ExtResource("56_rlvdk")
+
+[node name="Web2" type="Sprite2D" parent="Level/Lower/Decorations"]
+material = SubResource("ShaderMaterial_t6wb6")
+position = Vector2(5878.3447, 1904.9998)
+rotation = 0.035336453
+scale = Vector2(0.5673882, 0.56738824)
+texture = ExtResource("56_rlvdk")
+
+[node name="Web3" type="Sprite2D" parent="Level/Lower/Decorations"]
+material = SubResource("ShaderMaterial_t6wb6")
+position = Vector2(6729.3687, 1944.9998)
+rotation = -0.06408949
+scale = Vector2(0.5673882, 0.56738824)
+texture = ExtResource("56_rlvdk")
+flip_h = true
 
 [node name="Fence" type="Sprite2D" parent="Level/Lower/Decorations"]
 position = Vector2(8962.182, -281)
@@ -4011,6 +4133,21 @@ position = Vector2(5489.249, -697)
 
 [node name="Vines3" parent="Level/Lower/Decorations" instance=ExtResource("34_aok0f")]
 position = Vector2(6167.673, 425)
+
+[node name="Vines22" parent="Level/Lower/Decorations" instance=ExtResource("34_aok0f")]
+position = Vector2(5376.5103, 1412)
+
+[node name="Vines23" parent="Level/Lower/Decorations" instance=ExtResource("34_aok0f")]
+position = Vector2(5596.9985, 1465)
+
+[node name="Vines24" parent="Level/Lower/Decorations" instance=ExtResource("34_aok0f")]
+position = Vector2(5701.7554, 1419)
+
+[node name="Vines25" parent="Level/Lower/Decorations" instance=ExtResource("34_aok0f")]
+position = Vector2(4825.79, -59)
+
+[node name="Vines26" parent="Level/Lower/Decorations" instance=ExtResource("34_aok0f")]
+position = Vector2(4878.667, -117)
 
 [node name="Vines4" parent="Level/Lower/Decorations" instance=ExtResource("34_aok0f")]
 position = Vector2(6059.923, 383)
@@ -4146,6 +4283,91 @@ offset_top = 793.0
 offset_right = -76.821495
 offset_bottom = 1073.0
 
+[node name="ColorRect4" type="ColorRect" parent="Level/Lower/Decorations"]
+offset_left = 5250.803
+offset_top = 113.0
+offset_right = 5294.794
+offset_bottom = 290.0
+
+[node name="ColorRect6" type="ColorRect" parent="Level/Lower/Decorations"]
+offset_left = 5156.0225
+offset_top = 38.000008
+offset_right = 5174.978
+offset_bottom = 215.0
+rotation = -0.5742709
+
+[node name="ColorRect7" type="ColorRect" parent="Level/Lower/Decorations"]
+offset_left = 4875.674
+offset_top = 50.000015
+offset_right = 4894.6294
+offset_bottom = 227.00002
+rotation = -0.5742709
+
+[node name="ColorRect5" type="ColorRect" parent="Level/Lower/Decorations"]
+offset_left = 4964.468
+offset_top = 113.0
+offset_right = 5011.4526
+offset_bottom = 290.0
+
+[node name="ColorRect8" type="ColorRect" parent="Level/Lower/Decorations"]
+offset_left = 6281.409
+offset_top = 1584.0
+offset_right = 6365.214
+offset_bottom = 1848.0
+
+[node name="ColorRect9" type="ColorRect" parent="Level/Lower/Decorations"]
+offset_left = 5444.353
+offset_top = 1534.0
+offset_right = 5493.2393
+offset_bottom = 1798.0
+
+[node name="ColorRect10" type="ColorRect" parent="Level/Lower/Decorations"]
+offset_left = 5221.8696
+offset_top = 1529.0
+offset_right = 5270.756
+offset_bottom = 1793.0
+
+[node name="ColorRect11" type="ColorRect" parent="Level/Lower/Decorations"]
+offset_left = 5043.285
+offset_top = 1532.0
+offset_right = 5092.1714
+offset_bottom = 1796.0
+
+[node name="ColorRect12" type="ColorRect" parent="Level/Lower/Decorations"]
+offset_left = 4697.089
+offset_top = 1249.0
+offset_right = 5034.306
+offset_bottom = 1289.0
+rotation = 0.086623475
+
+[node name="ColorRect13" type="ColorRect" parent="Level/Lower/Decorations"]
+offset_left = 4688.1104
+offset_top = 984.0
+offset_right = 5025.3276
+offset_bottom = 1024.0
+rotation = -0.07041243
+
+[node name="ColorRect14" type="ColorRect" parent="Level/Lower/Decorations"]
+offset_left = 4683.1216
+offset_top = 840.0
+offset_right = 5020.339
+offset_bottom = 880.0
+rotation = 0.06982586
+
+[node name="ColorRect15" type="ColorRect" parent="Level/Lower/Decorations"]
+offset_left = 4677.1353
+offset_top = 448.0
+offset_right = 5014.3525
+offset_bottom = 488.0
+rotation = -0.08723086
+
+[node name="ColorRect16" type="ColorRect" parent="Level/Lower/Decorations"]
+offset_left = 4686.114
+offset_top = 495.0
+offset_right = 5023.331
+offset_bottom = 535.0
+rotation = 0.062876835
+
 [node name="Wall9" parent="Level/Lower" instance=ExtResource("4_344ge")]
 position = Vector2(-962.7634, 693.0001)
 scale = Vector2(1274.7935, 412.57956)
@@ -4203,12 +4425,36 @@ position = Vector2(-3411.0764, 1177)
 scale = Vector2(688.87805, 2258.4683)
 
 [node name="Wall12" parent="Level/Lower" instance=ExtResource("4_344ge")]
-position = Vector2(-1968.5135, 3356.8303)
-scale = Vector2(10642.878, 936.2398)
+position = Vector2(2209.2102, 3447.8103)
+scale = Vector2(2287.431, 754.2787)
+
+[node name="Wall32" parent="Level/Lower" instance=ExtResource("4_344ge")]
+position = Vector2(-1699.2495, 3822.7017)
+scale = Vector2(2713.805, 835.68164)
+
+[node name="Wall33" parent="Level/Lower" instance=ExtResource("4_344ge")]
+position = Vector2(1287.2351, 3973.047)
+scale = Vector2(4160.893, 661.776)
+
+[node name="Wall31" parent="Level/Lower" instance=ExtResource("4_344ge")]
+position = Vector2(1252.3468, 3037.134)
+scale = Vector2(4201.1577, 296.8482)
+
+[node name="Wall30" parent="Level/Lower" instance=ExtResource("4_344ge")]
+position = Vector2(-4236.8345, 3356.8306)
+scale = Vector2(6106.236, 936.2398)
 
 [node name="Wall10" parent="Level/Lower" instance=ExtResource("4_344ge")]
-position = Vector2(-940.8144, 2093.0005)
-scale = Vector2(754.6206, 2767.645)
+position = Vector2(-1210.1436, 2093.0005)
+scale = Vector2(215.96222, 2767.645)
+
+[node name="Wall28" parent="Level/Lower" instance=ExtResource("4_344ge")]
+position = Vector2(-940.8145, 1229.1455)
+scale = Vector2(754.6206, 1039.9349)
+
+[node name="Wall29" parent="Level/Lower" instance=ExtResource("4_344ge")]
+position = Vector2(-751.711, 2474.3782)
+scale = Vector2(376.41394, 1141.0145)
 
 [node name="Wall15" parent="Level/Lower" instance=ExtResource("4_344ge")]
 position = Vector2(-5271.263, 3064.6238)
@@ -4602,6 +4848,138 @@ scale = Vector2(0.55115056, 0.55115056)
 texture = ExtResource("48_8dylv")
 flip_h = true
 
+[node name="Hidden2" type="Node2D" parent="Level/Lower" node_paths=PackedStringArray("area", "hider")]
+visibility_layer = 524289
+position = Vector2(-752.2523, 1817)
+rotation = -4.712389
+script = ExtResource("46_jab21")
+area = NodePath("Area2D")
+hider = NodePath("Ling Mask")
+
+[node name="Ling Mask" type="ColorRect" parent="Level/Lower/Hidden2"]
+modulate = Color(0, 0, 0, 1)
+visibility_layer = 524289
+z_index = 999
+offset_left = -199.53662
+offset_top = -188.78027
+offset_right = 1643.2144
+offset_bottom = 410.0744
+
+[node name="ColorRect2" type="ColorRect" parent="Level/Lower/Hidden2/Ling Mask"]
+modulate = Color(0, 0, 0, 1)
+visibility_layer = 524289
+z_index = 999
+layout_mode = 0
+offset_left = 1434.5366
+offset_top = -1928.9573
+offset_right = 2185.75
+offset_bottom = 323.71265
+
+[node name="Area2D" type="Area2D" parent="Level/Lower/Hidden2"]
+collision_layer = 0
+collision_mask = 4096
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Lower/Hidden2/Area2D"]
+position = Vector2(652.5, 160.43814)
+shape = SubResource("RectangleShape2D_bpr0e")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Level/Lower/Hidden2/Area2D"]
+position = Vector2(1607.5, -701.3706)
+shape = SubResource("RectangleShape2D_14mkc")
+
+[node name="Bricks & Marker" type="Node2D" parent="Level/Lower/Hidden2"]
+modulate = Color(0.91764706, 0.3372549, 0.09411765, 0.16470589)
+z_index = 1000
+position = Vector2(-1.9953766, -223)
+
+[node name="Brick2" type="Sprite2D" parent="Level/Lower/Hidden2/Bricks & Marker"]
+position = Vector2(174.99582, 81.32918)
+scale = Vector2(2.5642173, 2.5642173)
+texture = ExtResource("25_1semv")
+
+[node name="Brick3" type="Sprite2D" parent="Level/Lower/Hidden2/Bricks & Marker"]
+position = Vector2(-160.00443, 82.326706)
+scale = Vector2(2.5642173, 2.5642173)
+texture = ExtResource("25_1semv")
+flip_h = true
+
+[node name="Brick4" type="Sprite2D" parent="Level/Lower/Hidden2/Bricks & Marker"]
+position = Vector2(3.9958189, 61.37543)
+scale = Vector2(0.55115056, 0.55115056)
+texture = ExtResource("48_8dylv")
+flip_h = true
+
+[node name="Note" type="Sprite2D" parent="Level/Lower/Hidden2"]
+modulate = Color(0.9372549, 0.8784314, 0.70980394, 1)
+position = Vector2(8.0001745, 122.71495)
+rotation = 1.461759
+scale = Vector2(0.32356426, 0.32356426)
+texture = ExtResource("4_87bhu")
+
+[node name="Fragile Wall" type="Sprite2D" parent="Level/Lower"]
+visibility_layer = 524289
+z_index = 50
+material = SubResource("ShaderMaterial_phube")
+position = Vector2(429.626, 3383)
+rotation = 3.1415925
+scale = Vector2(0.22061636, 1.1943913)
+texture = ExtResource("21_phube")
+
+[node name="Body" type="StaticBody2D" parent="Level/Lower/Fragile Wall" node_paths=PackedStringArray("flasher", "others", "particle_points")]
+scale = Vector2(0.050000004, 0.05)
+collision_layer = 3
+script = ExtResource("70_sasc4")
+id = "ling_domain"
+flasher = NodePath("../ColorRect")
+break_effects = Array[int]([11])
+break_sounds = Array[int]([2, 13])
+others = [NodePath("../../../Ling Back"), NodePath("..")]
+particle_points = [NodePath("../Particle Point"), NodePath("../Particle Point2"), NodePath("../Particle Point3"), NodePath("../Particle Point4")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Lower/Fragile Wall/Body"]
+scale = Vector2(256, 256)
+shape = SubResource("RectangleShape2D_bo1nx")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Level/Lower/Fragile Wall/Body"]
+light_mask = 2
+visibility_layer = 2
+scale = Vector2(256, 256)
+occluder = SubResource("OccluderPolygon2D_jjvhh")
+
+[node name="ColorRect" type="ColorRect" parent="Level/Lower/Fragile Wall" node_paths=PackedStringArray("items")]
+modulate = Color(0, 0, 0, 0.78039217)
+offset_left = -128.29097
+offset_top = -65.03508
+offset_right = 128.09526
+offset_bottom = 128.27888
+script = ExtResource("71_pfx1i")
+items = [NodePath(".")]
+white = ExtResource("72_fg68e")
+
+[node name="Particle Point" type="Node2D" parent="Level/Lower/Fragile Wall"]
+position = Vector2(111.463844, -0.14063011)
+
+[node name="Particle Point2" type="Node2D" parent="Level/Lower/Fragile Wall"]
+position = Vector2(-118.073204, -0.1407377)
+
+[node name="Particle Point3" type="Node2D" parent="Level/Lower/Fragile Wall"]
+position = Vector2(-56.863323, -0.14070901)
+
+[node name="Particle Point4" type="Node2D" parent="Level/Lower/Fragile Wall"]
+position = Vector2(46.495464, -0.14066057)
+
+[node name="Wall34" parent="Level" instance=ExtResource("4_344ge")]
+position = Vector2(1325.1179, 5375.0005)
+scale = Vector2(113.65245, 412.57956)
+
+[node name="Wall35" parent="Level" instance=ExtResource("4_344ge")]
+position = Vector2(1324.9225, 5993)
+scale = Vector2(113.65245, 412.57956)
+
+[node name="Ling Back" parent="Level" instance=ExtResource("4_344ge")]
+position = Vector2(1655.6925, 5764.7183)
+scale = Vector2(679.41516, 586.01526)
+
 [node name="Pickup" parent="Level" instance=ExtResource("16_k12tt")]
 position = Vector2(-702.36847, 5042)
 id = "quad_door"
@@ -4613,7 +4991,7 @@ id = "life2"
 type = 5
 
 [node name="Pickup5" parent="Level" instance=ExtResource("16_k12tt")]
-position = Vector2(11869.429, 4395)
+position = Vector2(1739.9583, 5760)
 id = "tracker"
 type = 7
 
@@ -4629,7 +5007,7 @@ type = 3
 
 [node name="Player Spawn" type="Node2D" parent="Level"]
 visibility_layer = 524289
-position = Vector2(-5635.9087, -657)
+position = Vector2(693.39014, 4919)
 scale = Vector2(1.0023229, 1)
 script = ExtResource("121_xjjvj")
 size = 150
@@ -6241,6 +6619,9 @@ shape = SubResource("RectangleShape2D_ci23i")
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Killbox/Area2D"]
 position = Vector2(-14094.26, -11412)
 shape = SubResource("RectangleShape2D_ci23i")
+
+[node name="Ling" parent="." instance=ExtResource("136_myryv")]
+position = Vector2(1007.6591, 5870)
 
 [connection signal="broke" from="Level/Big/Egg" to="Worm Spawner" method="spawn"]
 [connection signal="timeout" from="Line Drawer/Timer" to="Line Drawer" method="_on_timer_timeout"]
