@@ -276,7 +276,7 @@ update_scale = false
 visible = false
 shape = SubResource("CircleShape2D_ghaa6")
 target_position = Vector2(0, 0)
-collision_mask = 9
+collision_mask = 10
 
 [node name="Label Wrap" type="Node2D" parent="."]
 position = Vector2(-128.2112, -167.66081)
