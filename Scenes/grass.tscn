@@ -31,6 +31,8 @@ stub = NodePath("../Wrap/Stub")
 full = NodePath("../Wrap/Sprite2D")
 particle_points = [NodePath("Particle Point"), NodePath("Particle Point2")]
 effect_ids = Array[int]([5])
+sound_ids = Array[int]([18])
+sound_volume = 0.3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 visible = false

@@ -37,13 +37,15 @@ script = ExtResource("2_is782")
 stub = NodePath("../Wrap/Stub")
 full = NodePath("../Wrap/Sprite2D")
 effect_ids = Array[int]([5])
+sound_ids = Array[int]([2, 13])
+sound_volume = 0.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(2.5, -39)
 shape = SubResource("RectangleShape2D_b3802")
 
 [node name="Particle Point" type="Node2D" parent="StaticBody2D"]
-position = Vector2(0, -36)
+position = Vector2(2, -52)
 
 [node name="Wrap" type="Node2D" parent="."]
 script = ExtResource("3_ncqpm")

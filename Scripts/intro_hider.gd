@@ -3,14 +3,14 @@ extends Area2D
 @export var appearers: Array[Appearer]
 
 func _ready() -> void:
-    if GameState.spawn_set or GameState.has_gun:
-        for a in appearers:
-            a.queue_free()
-        queue_free()
-    body_entered.connect(entered)
+	if GameState.spawn_set or GameState.has_gun:
+		for a in appearers:
+			a.queue_free()
+		queue_free()
+	body_entered.connect(entered)
 
 func entered(_node: Node2D):
-    GameState.spawn_set = true
-    queue_free()
-    for a in appearers:
-        a.disappear()
+	GameState.spawn_set = true
+	queue_free()
+	for a in appearers:
+		a.disappear()

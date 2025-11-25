@@ -7,6 +7,8 @@ var content: String
 var pos := 0.0
 var done := true
 
+signal line_change
+
 func show_text(txt: String):
 	content = txt
 	pos = 0
@@ -16,4 +18,7 @@ func _process(delta):
 	if not done:
 		pos += delta * 20 * speed
 		done = pos >= len(content)
-		text = content.substr(0, floori(pos))
+		var i := floori(pos)
+		if i < len(content) and content[i] == "\n":
+			line_change.emit()
+		text = content.substr(0, i)

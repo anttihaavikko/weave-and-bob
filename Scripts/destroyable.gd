@@ -5,6 +5,8 @@ extends Node2D
 @export var full: Node2D
 @export var particle_points: Array[Node2D]
 @export var effect_ids: Array[int]
+@export var sound_ids: Array[int]
+@export var sound_volume := 1.0
 
 func _ready() -> void:
 	stub.hide()
@@ -13,6 +15,7 @@ func destroy():
 	if len(effect_ids) > 0 and len(particle_points) > 0:
 		for pp in particle_points:
 			Effects.singleton.add_many(effect_ids, pp.global_position)
+	SoundEffects.singleton.add_many(sound_ids, global_position, sound_volume)
 	stub.show()
 	full.queue_free()
 	queue_free()

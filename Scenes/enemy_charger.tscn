@@ -14,9 +14,9 @@ speed = 0.8
 vision_range = 1500.0
 
 [node name="Flasher" parent="." index="6" node_paths=PackedStringArray("items")]
-items = [NodePath("../Frame/Outline"), NodePath("../Frame/Fill"), NodePath("../Label"), NodePath("../Face/Eye Left"), NodePath("../Face/Eye Right"), NodePath("../Face/Mouth"), NodePath("../Face/Brow"), NodePath("../Halo"), NodePath("../Wing Right"), NodePath("../Wing Left"), NodePath("../Arms/Right Arm"), NodePath("../Arms/Left Arm"), NodePath("../Spear Wrap/Spear")]
+items = [NodePath("../Frame/Outline"), NodePath("../Frame/Fill"), NodePath("../Label Wrap/Label"), NodePath("../Face/Eye Left"), NodePath("../Face/Eye Right"), NodePath("../Face/Mouth"), NodePath("../Face/Brow"), NodePath("../Halo"), NodePath("../Wing Right"), NodePath("../Wing Left"), NodePath("../Arms/Right Arm"), NodePath("../Arms/Left Arm"), NodePath("../Spear Wrap/Spear")]
 
-[node name="Label" parent="." index="10"]
+[node name="Label" parent="Label Wrap" index="0"]
 text = "BEE"
 
 [node name="Arms" type="Node2D" parent="." index="12"]

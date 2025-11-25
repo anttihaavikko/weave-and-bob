@@ -7,6 +7,7 @@ extends Node2D
 @export var area: Area2D
 @export var text: Appearer
 @export var message: Message
+@export var speech: AudioStreamPlayer2D
 
 var cur: Vector2
 var points: Array[Vector2]
@@ -33,6 +34,8 @@ func _ready():
 		cur = self.global_position
 		move()
 
+	message.line_change.connect(speak)
+
 func _process(_delta):
 	var pp := GameState.player.live_gun.global_position
 	face.position = face_pos + face.to_local(pp).normalized() * 5
@@ -47,6 +50,11 @@ func enter(_node: Node2D):
 	talking = true
 	message.show_text(get_text())
 	text.appear()
+	speak()
+
+func speak():
+	speech.play()
+
 	
 func get_text() -> String:
 	if done:

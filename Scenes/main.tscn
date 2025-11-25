@@ -119,6 +119,7 @@
 [ext_resource type="PackedScene" uid="uid://basr4p7b2otct" path="res://Scenes/bob.tscn" id="95_nb1ia"]
 [ext_resource type="Texture2D" uid="uid://wbmugvdnyda8" path="res://Sprites/blanket.png" id="96_b4xsn"]
 [ext_resource type="Texture2D" uid="uid://ywc711su2ggn" path="res://Sprites/move-controls.png" id="98_aok0f"]
+[ext_resource type="AudioStream" uid="uid://b1hgfr1rrkflj" path="res://Sounds/grass_break.wav" id="99_stool"]
 [ext_resource type="Script" uid="uid://cffhama7guum2" path="res://Scripts/version_label.gd" id="101_urine"]
 [ext_resource type="Texture2D" uid="uid://dd77b0u1hlkno" path="res://Sprites/spotify.png" id="106_b4mik"]
 [ext_resource type="Script" uid="uid://upwt3di6e84x" path="res://Scripts/blinders.gd" id="108_5vy51"]
@@ -238,13 +239,11 @@ shader_parameter/height = 2.0
 shader_parameter/frequency = 5.0
 shader_parameter/speed = 6.0
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ja2pg"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_stool"]
+size = Vector2(33203.867, 2566)
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0wopu"]
-normal = Vector2(-1, 0)
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qv1an"]
-normal = Vector2(1, 0)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ci23i"]
+size = Vector2(4726.5195, 25911)
 
 [node name="Main" type="Node2D"]
 visibility_layer = 524289
@@ -2367,6 +2366,16 @@ scale = Vector2(171.8142, 1665.9034)
 position = Vector2(11175.275, -5755.833)
 scale = Vector2(4744.159, 1972.8645)
 
+[node name="Wall14" parent="Level/Top" instance=ExtResource("4_344ge")]
+visibility_layer = 1
+position = Vector2(11227.917, -11583.001)
+scale = Vector2(3726.4038, 10909.311)
+
+[node name="Wall15" parent="Level/Top" instance=ExtResource("4_344ge")]
+visibility_layer = 1
+position = Vector2(-5090.176, -11687)
+scale = Vector2(3726.4038, 10909.311)
+
 [node name="Wall8" parent="Level/Top" instance=ExtResource("4_344ge")]
 position = Vector2(11866.167, -3300.0005)
 scale = Vector2(1196.4666, 378.43494)
@@ -4278,7 +4287,7 @@ type = 3
 
 [node name="Player Spawn" type="Node2D" parent="Level"]
 visibility_layer = 524289
-position = Vector2(2503.186, 1222)
+position = Vector2(6877.025, -5152)
 scale = Vector2(1.0023229, 1)
 script = ExtResource("121_xjjvj")
 size = 150
@@ -4662,7 +4671,7 @@ effects = Array[PackedScene]([ExtResource("2_kry3j"), ExtResource("6_21xkr"), Ex
 
 [node name="Sounds" type="Node" parent="."]
 script = ExtResource("10_gt3je")
-effects = Array[AudioStream]([ExtResource("11_3pmx8"), ExtResource("12_cbgmd"), ExtResource("13_1w6v2"), ExtResource("14_ueoa1"), ExtResource("15_6vcvc"), ExtResource("16_7k868"), ExtResource("17_e08e2"), ExtResource("18_neg2b"), ExtResource("19_r33sp"), ExtResource("20_neg2b"), ExtResource("21_r33sp"), ExtResource("22_jwpg7"), ExtResource("23_k2e45"), ExtResource("49_xdkp6"), ExtResource("50_54nrm"), ExtResource("51_55jeb"), ExtResource("58_wl4bb"), ExtResource("65_33qc4")])
+effects = Array[AudioStream]([ExtResource("11_3pmx8"), ExtResource("12_cbgmd"), ExtResource("13_1w6v2"), ExtResource("14_ueoa1"), ExtResource("15_6vcvc"), ExtResource("16_7k868"), ExtResource("17_e08e2"), ExtResource("18_neg2b"), ExtResource("19_r33sp"), ExtResource("20_neg2b"), ExtResource("21_r33sp"), ExtResource("22_jwpg7"), ExtResource("23_k2e45"), ExtResource("49_xdkp6"), ExtResource("50_54nrm"), ExtResource("51_55jeb"), ExtResource("58_wl4bb"), ExtResource("65_33qc4"), ExtResource("99_stool")])
 prefab = ExtResource("12_u50mg")
 
 [node name="Line Drawer" type="Node" parent="." node_paths=PackedStringArray("line")]
@@ -5023,7 +5032,7 @@ scale = Vector2(163.13611, 34.008877)
 _open_pos = -60.0
 
 [node name="Backyard Bob" parent="." node_paths=PackedStringArray("spots") instance=ExtResource("95_nb1ia")]
-position = Vector2(-4508.527, -525)
+position = Vector2(-4508.5273, -524)
 collision_mask = 130
 main_message = "Lorem ipsum dolor sit amet.
 Who knows maybe some
@@ -5799,36 +5808,19 @@ script = ExtResource("109_ylsbi")
 collision_mask = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killbox/Area2D"]
-shape = SubResource("WorldBoundaryShape2D_ja2pg")
+position = Vector2(504.32837, 1273)
+shape = SubResource("RectangleShape2D_stool")
 
-[node name="Killbox2" type="Sprite2D" parent="."]
-self_modulate = Color(1, 1, 1, 0)
-position = Vector2(17064.361, 2004)
-texture = ExtResource("3_8gbba")
-script = ExtResource("109_ylsbi")
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Killbox/Area2D"]
+position = Vector2(15669.85, -11800.5)
+shape = SubResource("RectangleShape2D_ci23i")
 
-[node name="Area2D" type="Area2D" parent="Killbox2"]
-collision_mask = 9
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Killbox2/Area2D"]
-shape = SubResource("WorldBoundaryShape2D_0wopu")
-
-[node name="Killbox3" type="Sprite2D" parent="."]
-self_modulate = Color(1, 1, 1, 0)
-position = Vector2(-8447.378, 2112)
-texture = ExtResource("3_8gbba")
-script = ExtResource("109_ylsbi")
-
-[node name="Area2D" type="Area2D" parent="Killbox3"]
-collision_mask = 9
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Killbox3/Area2D"]
-shape = SubResource("WorldBoundaryShape2D_qv1an")
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Killbox/Area2D"]
+position = Vector2(-14094.26, -11412)
+shape = SubResource("RectangleShape2D_ci23i")
 
 [connection signal="broke" from="Level/Big/Egg" to="Worm Spawner" method="spawn"]
 [connection signal="timeout" from="Line Drawer/Timer" to="Line Drawer" method="_on_timer_timeout"]
 [connection signal="grab" from="Hut/Gun Grab Area" to="Level/Player Spawn/Player Spawn Point" method="add_gun"]
 [connection signal="pressed" from="UI/Map Wrap/Map/ColorRect/Taxi Button" to="Worm Spawner" method="spawn_friend"]
 [connection signal="body_entered" from="Killbox/Area2D" to="Killbox" method="enter"]
-[connection signal="body_entered" from="Killbox2/Area2D" to="Killbox2" method="enter"]
-[connection signal="body_entered" from="Killbox3/Area2D" to="Killbox3" method="enter"]

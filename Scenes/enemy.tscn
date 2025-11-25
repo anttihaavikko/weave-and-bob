@@ -208,7 +208,7 @@ texture = ExtResource("1_hghv2")
 
 [node name="Flasher" type="Node" parent="." node_paths=PackedStringArray("items")]
 script = ExtResource("3_afpow")
-items = [NodePath("../Frame/Outline"), NodePath("../Frame/Fill"), NodePath("../Label Wrap/Label"), NodePath("../Face/Eye Left"), NodePath("../Face/Eye Right"), NodePath("../Face/Mouth"), NodePath("../Face/Brow"), NodePath("../Halo"), NodePath("../Wing Right"), NodePath("../Wing Left")]
+items = [NodePath("../Frame/Outline"), NodePath("../Frame/Fill"), NodePath("../Face/Eye Left"), NodePath("../Face/Eye Right"), NodePath("../Face/Mouth"), NodePath("../Face/Brow"), NodePath("../Halo"), NodePath("../Wing Right"), NodePath("../Wing Left"), NodePath("../Label Wrap/Label")]
 white = SubResource("ShaderMaterial_1dp5w")
 metadata/_custom_type_script = "uid://c26faw2casac2"
 

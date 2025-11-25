@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://basr4p7b2otct"]
+[gd_scene load_steps=34 format=3 uid="uid://basr4p7b2otct"]
 
 [ext_resource type="Script" uid="uid://d0dfuwkvrw7e0" path="res://Scripts/bob.gd" id="1_e3p42"]
 [ext_resource type="Script" uid="uid://uxu8p38o38ip" path="res://Scripts/mover.gd" id="1_vk4kg"]
@@ -11,9 +11,14 @@
 [ext_resource type="Texture2D" uid="uid://go0giiad03jq" path="res://Sprites/circle.png" id="8_4jaqh"]
 [ext_resource type="Texture2D" uid="uid://w5ubxh2dsi74" path="res://Sprites/mouth.png" id="9_drt5s"]
 [ext_resource type="Texture2D" uid="uid://dlnnqgsjygpsm" path="res://Sprites/shirt-string.png" id="10_wsy62"]
+[ext_resource type="AudioStream" uid="uid://dv2uf15fiqmml" path="res://Sounds/bob1.wav" id="11_nnd81"]
 [ext_resource type="Shader" uid="uid://bae8cicg5bb45" path="res://Shaders/wobbly_text.gdshader" id="12_41eny"]
+[ext_resource type="AudioStream" uid="uid://dxkpjfyothutr" path="res://Sounds/bob2.wav" id="12_mtcox"]
 [ext_resource type="FontFile" uid="uid://x80u6ag0vqx5" path="res://Misc/ChunkFive-Regular.otf" id="13_c8g0p"]
+[ext_resource type="AudioStream" uid="uid://bwa3x7xndeg4g" path="res://Sounds/bob3.wav" id="13_dd57t"]
+[ext_resource type="AudioStream" uid="uid://b8rmthjetsnun" path="res://Sounds/bob4.wav" id="14_dni0f"]
 [ext_resource type="Script" uid="uid://bf838a0ggrmry" path="res://Scripts/appearer.gd" id="14_p0vnj"]
+[ext_resource type="AudioStream" uid="uid://dpqbakdygclxm" path="res://Sounds/bob5.wav" id="15_8txpg"]
 [ext_resource type="Script" uid="uid://da8a1dg0wsf6v" path="res://Scripts/message.gd" id="15_c8g0p"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_33qc4"]
@@ -58,58 +63,14 @@ shader_parameter/speed = 6.0
 shader_parameter/flip = true
 shader_parameter/mid = 0.5
 
-[sub_resource type="Animation" id="Animation_e3p42"]
-resource_name = "walk"
-length = 0.25
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Leg Right Tip:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.125, 0.25),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(37, 201), Vector2(28.93279, 214), Vector2(28.93279, 214)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Leg Left Tip:position")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.125, 0.25),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(-26.937424, 214), Vector2(-26.937424, 214), Vector2(-42, 202)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Wrap:position")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.12409555, 0.25),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(-17, 9), Vector2(0.25694275, 8.798599), Vector2(22, 11.000001)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Wrap:rotation")
-tracks/3/interp = 2
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.12409555, 0.25),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [-0.103477456, 0.0, 0.112537116]
-}
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_vgejb"]
+random_pitch = 1.1
+streams_count = 5
+stream_0/stream = ExtResource("11_nnd81")
+stream_1/stream = ExtResource("12_mtcox")
+stream_2/stream = ExtResource("13_dd57t")
+stream_3/stream = ExtResource("14_dni0f")
+stream_4/stream = ExtResource("15_8txpg")
 
 [sub_resource type="Animation" id="Animation_fr3lm"]
 length = 0.001
@@ -215,6 +176,59 @@ tracks/3/keys = {
 "values": [0.0]
 }
 
+[sub_resource type="Animation" id="Animation_e3p42"]
+resource_name = "walk"
+length = 0.25
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Leg Right Tip:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(37, 201), Vector2(28.93279, 214), Vector2(28.93279, 214)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Leg Left Tip:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-26.937424, 214), Vector2(-26.937424, 214), Vector2(-42, 202)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Wrap:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.12409555, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-17, 9), Vector2(0.25694275, 8.798599), Vector2(22, 11.000001)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Wrap:rotation")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.12409555, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.103477456, 0.0, 0.112537116]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fr3lm"]
 _data = {
 &"RESET": SubResource("Animation_fr3lm"),
@@ -239,7 +253,7 @@ shadow_size = 8
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(6, 6)
 
-[node name="Bob" type="AnimatableBody2D" node_paths=PackedStringArray("anim", "face", "area", "text", "message")]
+[node name="Bob" type="AnimatableBody2D" node_paths=PackedStringArray("anim", "face", "area", "text", "message", "speech")]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_e3p42")
@@ -248,6 +262,7 @@ face = NodePath("Wrap/Face")
 area = NodePath("Area2D")
 text = NodePath("Mover/Appearer")
 message = NodePath("Mover/Appearer/Label")
+speech = NodePath("Wrap/Speech")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 72)
@@ -258,7 +273,7 @@ position = Vector2(0, 7)
 
 [node name="Leg Right" type="Line2D" parent="Wrap" node_paths=PackedStringArray("target")]
 position = Vector2(15.962887, 161)
-points = PackedVector2Array(0, 0, 24.825993, 7.72464, 21.492344, 33.51004)
+points = PackedVector2Array(0, 0, 16.344807, 20.21997, 12.969904, 46)
 width = 13.0
 default_color = Color(0, 0, 0, 1)
 joint_mode = 2
@@ -271,7 +286,7 @@ flip = true
 
 [node name="Leg Left" type="Line2D" parent="Wrap" node_paths=PackedStringArray("target")]
 position = Vector2(-18.955927, 160)
-points = PackedVector2Array(0, 0, -17.015598, 19.658829, -7.6097565, 43.897842)
+points = PackedVector2Array(0, 0, -14.228003, 21.76152, -7.981497, 47)
 width = 13.0
 default_color = Color(0, 0, 0, 1)
 joint_mode = 2
@@ -348,6 +363,14 @@ texture = ExtResource("10_wsy62")
 material = SubResource("ShaderMaterial_jrou0")
 position = Vector2(-9.976723, 103)
 texture = ExtResource("10_wsy62")
+
+[node name="Speech" type="AudioStreamPlayer2D" parent="Wrap"]
+position = Vector2(-2.390933, -25.38274)
+rotation = 0.10347746
+scale = Vector2(1.0000001, 1.0000001)
+stream = SubResource("AudioStreamRandomizer_vgejb")
+volume_db = 3.0
+bus = &"Sounds"
 
 [node name="Leg Right Tip" type="Node2D" parent="."]
 position = Vector2(28.93279, 214)
