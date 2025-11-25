@@ -93,6 +93,7 @@ shape = SubResource("CircleShape2D_ilwxp")
 
 [node name="Sprite2D" type="Sprite2D" parent="Body"]
 modulate = Color(0, 0, 0, 1)
+visibility_layer = 524289
 z_index = 10
 scale = Vector2(1.17503, 1.17503)
 texture = ExtResource("4_j5ciw")

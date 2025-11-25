@@ -6209,7 +6209,17 @@ visible = false
 position = Vector2(8508.235, 4903)
 
 [node name="Spider" parent="." instance=ExtResource("126_na2ur")]
+visibility_layer = 524289
 position = Vector2(2674.7866, 3035)
+
+[node name="Map Marker" type="Sprite2D" parent="Spider"]
+modulate = Color(0.91764706, 0.3372549, 0.09411765, 1)
+visibility_layer = 131072
+z_index = 888
+scale = Vector2(4.438483, 4.438483)
+texture = ExtResource("43_rlvdk")
+script = ExtResource("44_t6wb6")
+id = "spider"
 
 [node name="Killbox" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0)
