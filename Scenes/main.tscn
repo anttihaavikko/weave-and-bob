@@ -2685,6 +2685,102 @@ scale = Vector2(0.30418557, 0.3041856)
 position = Vector2(11048.336, -4266)
 scale = Vector2(0.30418557, 0.3041856)
 
+[node name="Bee Encounter" type="Node2D" parent="Level/Top" node_paths=PackedStringArray("doors")]
+position = Vector2(6176.6523, -4943)
+script = ExtResource("19_fevyy")
+doors = [NodePath("../../Edge/Door"), NodePath("../../Edge/Door2")]
+reward = ExtResource("16_k12tt")
+reward_type = 3
+metadata/_custom_type_script = "uid://b6b2bur0hl2iu"
+
+[node name="Wave" type="Node2D" parent="Level/Top/Bee Encounter"]
+script = ExtResource("21_ee4r6")
+metadata/_custom_type_script = "uid://h30wfqlv3joy"
+
+[node name="Spawn" type="Node2D" parent="Level/Top/Bee Encounter/Wave"]
+position = Vector2(811.1161, 160)
+script = ExtResource("22_gt3je")
+title = "BEE"
+mode = 2
+_enemy = ExtResource("39_64lof")
+metadata/_custom_type_script = "uid://c8ej1vfg86d5v"
+
+[node name="Spawn2" type="Node2D" parent="Level/Top/Bee Encounter/Wave"]
+position = Vector2(-814.10864, 160)
+script = ExtResource("22_gt3je")
+title = "JAZZ"
+mode = 2
+_enemy = ExtResource("39_64lof")
+metadata/_custom_type_script = "uid://c8ej1vfg86d5v"
+
+[node name="Wave2" type="Node2D" parent="Level/Top/Bee Encounter"]
+position = Vector2(0.00024357482, -139)
+script = ExtResource("21_ee4r6")
+title = "All the bees"
+metadata/_custom_type_script = "uid://h30wfqlv3joy"
+
+[node name="Spawn" type="Node2D" parent="Level/Top/Bee Encounter/Wave2"]
+position = Vector2(562.6932, 229)
+script = ExtResource("22_gt3je")
+title = "JAZZ"
+mode = 2
+_enemy = ExtResource("39_64lof")
+metadata/_custom_type_script = "uid://c8ej1vfg86d5v"
+
+[node name="Spawn2" type="Node2D" parent="Level/Top/Bee Encounter/Wave2"]
+position = Vector2(-582.6463, 212)
+script = ExtResource("22_gt3je")
+title = "BEE"
+mode = 2
+_enemy = ExtResource("39_64lof")
+metadata/_custom_type_script = "uid://c8ej1vfg86d5v"
+
+[node name="Wave3" type="Node2D" parent="Level/Top/Bee Encounter"]
+position = Vector2(0.00024414063, 180)
+script = ExtResource("21_ee4r6")
+title = "You're surrounded!"
+metadata/_custom_type_script = "uid://h30wfqlv3joy"
+
+[node name="Spawn" type="Node2D" parent="Level/Top/Bee Encounter/Wave3"]
+position = Vector2(811.1161, 160)
+script = ExtResource("22_gt3je")
+title = "BEE"
+mode = 2
+_enemy = ExtResource("39_64lof")
+metadata/_custom_type_script = "uid://c8ej1vfg86d5v"
+
+[node name="Spawn3" type="Node2D" parent="Level/Top/Bee Encounter/Wave3"]
+position = Vector2(305.29034, -264)
+script = ExtResource("22_gt3je")
+title = "BOO"
+mode = 2
+_enemy = ExtResource("39_64lof")
+metadata/_custom_type_script = "uid://c8ej1vfg86d5v"
+
+[node name="Spawn2" type="Node2D" parent="Level/Top/Bee Encounter/Wave3"]
+position = Vector2(-814.10864, 160)
+script = ExtResource("22_gt3je")
+title = "WEE"
+mode = 2
+_enemy = ExtResource("39_64lof")
+metadata/_custom_type_script = "uid://c8ej1vfg86d5v"
+
+[node name="Spawn4" type="Node2D" parent="Level/Top/Bee Encounter/Wave3"]
+position = Vector2(-321.2542, -253)
+script = ExtResource("22_gt3je")
+title = "WOO"
+mode = 2
+_enemy = ExtResource("39_64lof")
+metadata/_custom_type_script = "uid://c8ej1vfg86d5v"
+
+[node name="Enemy3" parent="Level/Top" node_paths=PackedStringArray("starts_encounter") instance=ExtResource("9_ynf5e")]
+position = Vector2(6173.6597, -4399)
+scale = Vector2(0.53856146, 0.53731334)
+id = "mountain_bees"
+respawns_after = 0
+stomp_offset = 40
+starts_encounter = NodePath("../Bee Encounter")
+
 [node name="Big" type="Node2D" parent="Level"]
 visibility_layer = 524289
 position = Vector2(12630.66, 534)
@@ -5173,14 +5269,9 @@ position = Vector2(12980.847, -3367)
 id = "final_damage"
 type = 3
 
-[node name="Pickup7" parent="Level" instance=ExtResource("16_k12tt")]
-position = Vector2(11635.971, 3463)
-id = "more_damage"
-type = 3
-
 [node name="Player Spawn" type="Node2D" parent="Level"]
 visibility_layer = 524289
-position = Vector2(7814.847, 335)
+position = Vector2(5442.3574, -4683)
 scale = Vector2(1.0023229, 1)
 script = ExtResource("121_xjjvj")
 size = 150
