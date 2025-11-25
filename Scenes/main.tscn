@@ -1761,8 +1761,16 @@ position = Vector2(1230.5621, -361.65463)
 scale = Vector2(855.5656, 411.067)
 
 [node name="Wall3" parent="Level/Room2" instance=ExtResource("4_344ge")]
-position = Vector2(2557.82, -1124.6693)
-scale = Vector2(3045.2568, 1002.68134)
+position = Vector2(3554.6636, -1124.6694)
+scale = Vector2(1051.57, 1002.68134)
+
+[node name="Wall12" parent="Level/Room2" instance=ExtResource("4_344ge")]
+position = Vector2(2837.8489, -1369.846)
+scale = Vector2(1267.6797, 512.3282)
+
+[node name="Wall11" parent="Level/Room2" instance=ExtResource("4_344ge")]
+position = Vector2(1878.6067, -1124.6692)
+scale = Vector2(1686.8303, 1002.68134)
 
 [node name="Wall6" parent="Level/Room2" instance=ExtResource("4_344ge")]
 position = Vector2(2932.8604, 991.2489)
@@ -2805,6 +2813,44 @@ position = Vector2(-3104.7878, -1860)
 [node name="Tree16" parent="Level/Big/Back" instance=ExtResource("9_wsu2k")]
 position = Vector2(-3221.5166, -1876)
 
+[node name="Polygon2D7" type="Polygon2D" parent="Level/Big/Back"]
+position = Vector2(-3495.8792, 126)
+offset = Vector2(3508.849, -126)
+polygon = PackedVector2Array(-5486.2563, 96, -5150.037, 35, -4869.6885, 42, -4596.323, 51, -4429.71, -1, -4374.838, -60, -4365.8584, -285, -4509.525, -285, -4309.9883, -513, -4126.4146, -287, -4266.0903, -282, -4266.0903, -70, -4209.222, 0, -4135.3945, 35, -4048.5957, 10, -4183.283, -179, -4114.4424, -241, -4026.6465, -192, -3969.7783, -266, -3847.0635, -254, -3967.7832, 1, -3768.247, 40, -3632.5625, -17, -3360.1943, -257, -3183.6055, -162, -3104.788, -74, -2895.2744, 34, -2611.9326, -19, -2652.838, -67, -2526.1318, -102, -2456.295, -35, -2363.5098, 7, -2211.8623, 62, -2135.041, 183, -2294.67, 263, -2264.7393, 348, -2455.2969, 470, -5691.779, 342)
+
+[node name="Tree17" parent="Level/Big/Back" instance=ExtResource("9_wsu2k")]
+position = Vector2(-4470.615, 61)
+
+[node name="Tree18" parent="Level/Big/Back" instance=ExtResource("9_wsu2k")]
+position = Vector2(-4581.358, 54)
+
+[node name="Tree19" parent="Level/Big/Back" instance=ExtResource("9_wsu2k")]
+position = Vector2(-4699.0845, 74)
+
+[node name="Tree20" parent="Level/Big/Back" instance=ExtResource("9_wsu2k")]
+position = Vector2(-5330.6177, 74)
+
+[node name="Tree21" parent="Level/Big/Back" instance=ExtResource("9_wsu2k")]
+position = Vector2(-5225.861, 54)
+
+[node name="Tree22" parent="Level/Big/Back" instance=ExtResource("9_wsu2k")]
+position = Vector2(-3683.4438, 9)
+
+[node name="Tree23" parent="Level/Big/Back" instance=ExtResource("9_wsu2k")]
+position = Vector2(-3577.6895, -56)
+
+[node name="Tree24" parent="Level/Big/Back" instance=ExtResource("9_wsu2k")]
+position = Vector2(-3460.9607, -179)
+
+[node name="Tree25" parent="Level/Big/Back" instance=ExtResource("9_wsu2k")]
+position = Vector2(-3013.999, 0)
+
+[node name="Tree26" parent="Level/Big/Back" instance=ExtResource("9_wsu2k")]
+position = Vector2(-2407.4082, 6)
+
+[node name="Tree27" parent="Level/Big/Back" instance=ExtResource("9_wsu2k")]
+position = Vector2(-2294.6702, 37)
+
 [node name="Decos" type="Node2D" parent="Level/Big"]
 modulate = Color(0.5686275, 0.32941177, 0.16470589, 1)
 
@@ -2842,6 +2888,18 @@ rotation = 3.1415925
 
 [node name="Vines9" parent="Level/Big/Decos" instance=ExtResource("34_aok0f")]
 position = Vector2(-798.14575, -308)
+rotation = 3.1415925
+
+[node name="Vines10" parent="Level/Big/Decos" instance=ExtResource("34_aok0f")]
+position = Vector2(-4188.271, -1013)
+rotation = 3.1415925
+
+[node name="Vines11" parent="Level/Big/Decos" instance=ExtResource("34_aok0f")]
+position = Vector2(-4278.0625, -1132)
+rotation = 3.1415925
+
+[node name="Vines12" parent="Level/Big/Decos" instance=ExtResource("34_aok0f")]
+position = Vector2(-4379.826, -1173.0001)
 rotation = 3.1415925
 
 [node name="Grave" parent="Level/Big/Decos" instance=ExtResource("41_cmq5c")]
@@ -3555,6 +3613,39 @@ position = Vector2(3.99057, 51.99997)
 scale = Vector2(0.55115056, 0.55115056)
 texture = ExtResource("48_8dylv")
 flip_h = true
+
+[node name="Hidden2" type="Node2D" parent="Level/Big2" node_paths=PackedStringArray("area", "hider")]
+visibility_layer = 524289
+position = Vector2(158.63152, -6882)
+script = ExtResource("46_jab21")
+area = NodePath("Area2D")
+hider = NodePath("ColorRect")
+
+[node name="Platform3" parent="Level/Big2/Hidden2" instance=ExtResource("33_o1aky")]
+z_index = 999
+position = Vector2(-0.99756086, -169)
+
+[node name="ColorRect" type="ColorRect" parent="Level/Big2/Hidden2"]
+modulate = Color(0, 0, 0, 1)
+visibility_layer = 524289
+z_index = 999
+offset_left = -199.53662
+offset_top = -176.0
+offset_right = 212.50635
+offset_bottom = 451.0
+
+[node name="Pickup" parent="Level/Big2/Hidden2" instance=ExtResource("16_k12tt")]
+position = Vector2(-5.986328, 52)
+id = "very_hidden"
+type = 5
+
+[node name="Area2D" type="Area2D" parent="Level/Big2/Hidden2"]
+collision_layer = 0
+collision_mask = 4096
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Big2/Hidden2/Area2D"]
+position = Vector2(-19.954103, 121)
+shape = SubResource("RectangleShape2D_xjjvj")
 
 [node name="Door" parent="Level/Big2" instance=ExtResource("19_ee4r6")]
 position = Vector2(-3693.421, -2221)
@@ -5072,11 +5163,6 @@ position = Vector2(-702.36847, 5042)
 id = "quad_door"
 type = 5
 
-[node name="Pickup2" parent="Level" instance=ExtResource("16_k12tt")]
-position = Vector2(11884.394, 3629)
-id = "life2"
-type = 5
-
 [node name="Pickup5" parent="Level" instance=ExtResource("16_k12tt")]
 position = Vector2(1739.9583, 5760)
 id = "tracker"
@@ -5088,13 +5174,13 @@ id = "final_damage"
 type = 3
 
 [node name="Pickup7" parent="Level" instance=ExtResource("16_k12tt")]
-position = Vector2(11920.311, 4407)
+position = Vector2(11635.971, 3463)
 id = "more_damage"
 type = 3
 
 [node name="Player Spawn" type="Node2D" parent="Level"]
 visibility_layer = 524289
-position = Vector2(693.39014, 4919)
+position = Vector2(7814.847, 335)
 scale = Vector2(1.0023229, 1)
 script = ExtResource("121_xjjvj")
 size = 150
