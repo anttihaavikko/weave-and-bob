@@ -31,7 +31,8 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func _input(_event):
-	clicked = Input.is_action_pressed("shoot")
+	if not GameState.options.open:
+		clicked = Input.is_action_pressed("shoot")
 		
 func reload(wasteful: bool) -> void:
 	if !GameState.has_magazine: return
@@ -66,8 +67,7 @@ func _process(delta: float) -> void:
 		cooldown = 0
 		
 	if Input.is_action_just_pressed("full"):
-		full_screen = !full_screen
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN if full_screen else DisplayServer.WINDOW_MODE_WINDOWED)
+		GameState.options.toggle_fullscreen()
 		
 func _get_shot_end(space_state: PhysicsDirectSpaceState2D, p: Vector2, dir: Vector2, ignored: Array[RID]) -> Dictionary:
 	var query := PhysicsRayQueryParameters2D.create(p, p + dir, wall_mask, ignored)

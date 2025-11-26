@@ -29,6 +29,7 @@ var boss_fight := false
 var attached := false
 var worm: Worm
 var met_bobs := 0
+var options: OptionsMenu
 
 signal fix_player
 

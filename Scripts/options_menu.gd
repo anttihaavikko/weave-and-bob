@@ -14,6 +14,7 @@ func _ready():
 	toggle_button.pressed.connect(toggle)
 	music.value_changed.connect(volumes_changed)
 	sounds.value_changed.connect(volumes_changed)
+	GameState.options = self
 
 func volumes_changed(_val):
 	AudioServer.set_bus_volume_linear(1, music.value * 2)
@@ -30,3 +31,7 @@ func _input(_event):
 func restart():
 	toggle()
 	GameState.restart()
+
+func toggle_fullscreen():
+	var full := DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED if full else DisplayServer.WINDOW_MODE_FULLSCREEN)

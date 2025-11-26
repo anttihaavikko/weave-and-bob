@@ -6721,6 +6721,23 @@ theme_override_styles/focus = ExtResource("131_14mkc")
 text = "RESPAWN
 "
 
+[node name="Fullscreen" type="Button" parent="UI/Options/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("84_6h1fc")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("131_14mkc")
+theme_override_styles/pressed = ExtResource("131_14mkc")
+theme_override_styles/hover = ExtResource("132_l78ku")
+theme_override_styles/focus = ExtResource("131_14mkc")
+text = "FULL SCREEN"
+
 [node name="Close" type="Button" parent="UI/Options/VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
@@ -7056,5 +7073,6 @@ position = Vector2(1007.6591, 5870)
 [connection signal="grab" from="Hut/Gun Grab Area" to="Level/Player Spawn/Player Spawn Point" method="add_gun"]
 [connection signal="pressed" from="UI/Map Wrap/Map/ColorRect/Taxi Button" to="Worm Spawner" method="spawn_friend"]
 [connection signal="pressed" from="UI/Options/VBoxContainer/Respawn" to="UI/Options" method="restart"]
+[connection signal="pressed" from="UI/Options/VBoxContainer/Fullscreen" to="UI/Options" method="toggle_fullscreen"]
 [connection signal="pressed" from="UI/Options/VBoxContainer/Close" to="UI/Options" method="toggle"]
 [connection signal="body_entered" from="Killbox/Area2D" to="Killbox" method="enter"]
