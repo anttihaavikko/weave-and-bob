@@ -1,4 +1,4 @@
-[gd_scene load_steps=166 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=167 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/player.tscn" id="1_bo1nx"]
@@ -164,8 +164,8 @@ shader_parameter/flip = false
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_myryv"]
 size = Vector2(859.48114, 1357.4448)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xjjvj"]
-size = Vector2(484.8723, 644)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l78ku"]
+size = Vector2(484.8723, 497)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_phube"]
 shader = ExtResource("20_j2g22")
@@ -181,6 +181,9 @@ shader_parameter/amount = 5.0
 shader_parameter/frequency = 0.0
 shader_parameter/speed = 5.0
 shader_parameter/flip = false
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xjjvj"]
+size = Vector2(484.8723, 644)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t6wb6"]
 shader = ExtResource("115_b05pg")
@@ -277,30 +280,37 @@ scale = Vector2(1.0023229, 1)
 [node name="Checkpoint4" parent="Level" instance=ExtResource("41_kwxat")]
 position = Vector2(6360.9995, -943)
 scale = Vector2(1.0023229, 1)
+needs_mag = true
 
 [node name="Checkpoint5" parent="Level" instance=ExtResource("41_kwxat")]
 position = Vector2(8941.999, -3813)
 scale = Vector2(1.0023229, 1)
+needs_mag = true
 
 [node name="Checkpoint3" parent="Level" instance=ExtResource("41_kwxat")]
 position = Vector2(3693, 1373)
 scale = Vector2(1.0023229, 1)
+needs_mag = true
 
 [node name="Checkpoint6" parent="Level" instance=ExtResource("41_kwxat")]
 position = Vector2(-5091.1733, 1888)
 scale = Vector2(1.0023229, 1)
+needs_mag = true
 
 [node name="Checkpoint7" parent="Level" instance=ExtResource("41_kwxat")]
 position = Vector2(7038.6494, 3838)
 scale = Vector2(1.0023229, 1)
+needs_mag = true
 
 [node name="Checkpoint9" parent="Level" instance=ExtResource("41_kwxat")]
 position = Vector2(3407.0852, 3827)
 scale = Vector2(1.0023229, 1)
+needs_mag = true
 
 [node name="Checkpoint8" parent="Level" instance=ExtResource("41_kwxat")]
 position = Vector2(-3316.2964, 5148)
 scale = Vector2(1.0023229, 1)
+needs_mag = true
 
 [node name="Note" type="Sprite2D" parent="Level"]
 modulate = Color(0.9372549, 0.8784314, 0.70980394, 1)
@@ -795,8 +805,8 @@ collision_layer = 0
 collision_mask = 4096
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Starter/Hidden2/Area2D"]
-position = Vector2(-19.955078, 159)
-shape = SubResource("RectangleShape2D_xjjvj")
+position = Vector2(-19.955078, 85.5)
+shape = SubResource("RectangleShape2D_l78ku")
 
 [node name="Text Area2" type="Area2D" parent="Level/Starter" node_paths=PackedStringArray("text")]
 z_index = 999
@@ -5270,7 +5280,7 @@ type = 3
 
 [node name="Player Spawn" type="Node2D" parent="Level"]
 visibility_layer = 524289
-position = Vector2(2364.5073, -812)
+position = Vector2(-5634.911, -576)
 scale = Vector2(1.0023229, 1)
 script = ExtResource("121_xjjvj")
 size = 150

@@ -5,6 +5,10 @@ extends Node
 @export var spinner: Appearer
 
 func _ready() -> void:
+	if OS.is_debug_build():
+		get_tree().change_scene_to_packed(scene)
+		return
+		
 	spinner.appear()
 	await get_tree().create_timer(0.5).timeout
 	for p in preloaded:

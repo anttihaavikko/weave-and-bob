@@ -3,6 +3,7 @@ extends Area2D
 
 @export var pole: Node2D
 @export var marker: Node
+@export var needs_mag: bool
 
 func _ready() -> void:
 	GameState.checkpoints.push_back(self)
@@ -10,6 +11,8 @@ func _ready() -> void:
 		marker.show()
 
 func _activate(other: Node2D):
+	if needs_mag and not GameState.has_magazine:
+		return
 	if GameState.attached:
 		return
 	if other is Gun:
