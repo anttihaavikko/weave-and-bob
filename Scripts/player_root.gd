@@ -10,6 +10,7 @@ extends Node2D
 @export var arm_left: Node
 @export var arm_right: Node
 @export var ammo_display: Node
+@export var preloader: bool
 
 var dead := false
 var health := 1
@@ -25,6 +26,21 @@ func _ready() -> void:
 	GameState.unique.clear()
 	var vp := get_tree().root.get_viewport()
 	vp.canvas_cull_mask = 1
+	if preloader:
+		await get_tree().create_timer(0.2).timeout
+		live_gun.muzzle.emitting = true
+		live_gun.flash.emitting = true
+		$"Link N".process_mode = Node.PROCESS_MODE_DISABLED
+		$"Link E".process_mode = Node.PROCESS_MODE_DISABLED
+		$"Link W".process_mode = Node.PROCESS_MODE_DISABLED
+		$"Link S".process_mode = Node.PROCESS_MODE_DISABLED
+		$"Link SE".process_mode = Node.PROCESS_MODE_DISABLED
+		$"Link NE".process_mode = Node.PROCESS_MODE_DISABLED
+		$"Link SW".process_mode = Node.PROCESS_MODE_DISABLED
+		$"Link NW".process_mode = Node.PROCESS_MODE_DISABLED
+		control.process_mode = Node.PROCESS_MODE_DISABLED
+		live_gun.gravity_scale = 0
+		live_gun.freeze = true
 
 func _process(delta: float) -> void:
 	cam.extra_offset = cam.extra_offset.move_toward(Vector2(0, -230) if map_sprite.visible else Vector2(0, 0), delta * 500)

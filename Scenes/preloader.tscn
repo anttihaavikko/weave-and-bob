@@ -1,34 +1,28 @@
-[gd_scene load_steps=8 format=3 uid="uid://bkwhepgpfg8bk"]
+[gd_scene load_steps=17 format=3 uid="uid://bkwhepgpfg8bk"]
 
 [ext_resource type="PackedScene" uid="uid://bespa4vyxw6ny" path="res://Scenes/Effects/black_bits.tscn" id="1_8w0xj"]
+[ext_resource type="Script" uid="uid://d4ksfw1xl3a30" path="res://Scripts/preloader.gd" id="1_vvyr3"]
+[ext_resource type="PackedScene" uid="uid://b717m4xp3kdqg" path="res://Scenes/Effects/blood.tscn" id="4_mf1w2"]
+[ext_resource type="PackedScene" uid="uid://dvbvt8kxd6pqp" path="res://Scenes/Effects/blood_small.tscn" id="5_g2pid"]
 [ext_resource type="PackedScene" uid="uid://lmvlns352qp4" path="res://Scenes/Effects/feathers.tscn" id="5_q0ckb"]
 [ext_resource type="PackedScene" uid="uid://dj4ia0fuy6eo6" path="res://Scenes/Effects/bush_particles.tscn" id="6_oi7tf"]
+[ext_resource type="PackedScene" uid="uid://cbp0i7r7pvfar" path="res://Scenes/Effects/breakable.tscn" id="6_qpke4"]
+[ext_resource type="PackedScene" uid="uid://1wu8l44j3pi2" path="res://Scenes/Effects/breakable_wall.tscn" id="7_g760u"]
 [ext_resource type="PackedScene" uid="uid://dpon26r25h1rq" path="res://Scenes/Effects/pulse.tscn" id="7_mf1w2"]
 [ext_resource type="PackedScene" uid="uid://bhr0ejaysdti2" path="res://Scenes/Effects/pulse_displace.tscn" id="8_g2pid"]
-[ext_resource type="Script" uid="uid://j0f2hsoximvf" path="res://Scripts/scene_change.gd" id="10_rtxyp"]
+[ext_resource type="Script" uid="uid://bf838a0ggrmry" path="res://Scripts/appearer.gd" id="8_rtxyp"]
+[ext_resource type="Texture2D" uid="uid://cnfglrpdlw41n" path="res://Sprites/spinner.png" id="9_wqb73"]
+[ext_resource type="Script" uid="uid://bwtaepjv3mwab" path="res://Scripts/rotator.gd" id="10_0ps2j"]
 [ext_resource type="PackedScene" uid="uid://mnvjkmc1oomr" path="res://Scenes/main.tscn" id="11_wqb73"]
+[ext_resource type="PackedScene" uid="uid://go8yepyde14f" path="res://Scenes/Effects/white_bits.tscn" id="12_au1gj"]
+[ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/player.tscn" id="16_g2pid"]
 
-[node name="Node2D" type="Node2D"]
-
-[node name="Black Bits" parent="." instance=ExtResource("1_8w0xj")]
-position = Vector2(968, 565)
-
-[node name="Feathers" parent="." instance=ExtResource("5_q0ckb")]
-position = Vector2(968, 565)
-
-[node name="Grass" parent="." instance=ExtResource("6_oi7tf")]
-position = Vector2(968, 565)
-
-[node name="Pulse" parent="." instance=ExtResource("7_mf1w2")]
-position = Vector2(968, 565)
-
-[node name="Displace Pulse" parent="." instance=ExtResource("8_g2pid")]
-position = Vector2(830, 516)
-
-[node name="Shot Line" type="Line2D" parent="."]
-position = Vector2(-172, -167)
-points = PackedVector2Array(0, 0, 0, 0)
-width = 5.0
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("spinner")]
+position = Vector2(537, 133)
+script = ExtResource("1_vvyr3")
+scene = ExtResource("11_wqb73")
+preloaded = Array[PackedScene]([ExtResource("1_8w0xj"), ExtResource("4_mf1w2"), ExtResource("5_g2pid"), ExtResource("6_qpke4"), ExtResource("7_g760u"), ExtResource("6_oi7tf"), ExtResource("5_q0ckb"), ExtResource("7_mf1w2"), ExtResource("8_g2pid"), ExtResource("12_au1gj")])
+spinner = NodePath("Appearer")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 modulate = Color(0, 0, 0, 1)
@@ -37,5 +31,19 @@ offset_left = -167.0
 offset_top = -167.0
 offset_right = 2202.0
 offset_bottom = 1331.0
-script = ExtResource("10_rtxyp")
-scene = ExtResource("11_wqb73")
+
+[node name="Player" parent="." instance=ExtResource("16_g2pid")]
+position = Vector2(971, 543)
+preloader = true
+
+[node name="Appearer" type="Node2D" parent="."]
+z_index = 4096
+position = Vector2(1848.9999, 1007.99994)
+scale = Vector2(0.36198547, 0.36198547)
+script = ExtResource("8_rtxyp")
+
+[node name="Spinner" type="Sprite2D" parent="Appearer"]
+scale = Vector2(1.0000001, 1.0000001)
+texture = ExtResource("9_wqb73")
+script = ExtResource("10_0ps2j")
+speed = 200.0
