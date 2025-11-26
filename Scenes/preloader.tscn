@@ -18,7 +18,6 @@
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/player.tscn" id="16_g2pid"]
 
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("spinner")]
-position = Vector2(537, 133)
 script = ExtResource("1_vvyr3")
 scene = ExtResource("11_wqb73")
 preloaded = Array[PackedScene]([ExtResource("1_8w0xj"), ExtResource("4_mf1w2"), ExtResource("5_g2pid"), ExtResource("6_qpke4"), ExtResource("7_g760u"), ExtResource("6_oi7tf"), ExtResource("5_q0ckb"), ExtResource("7_mf1w2"), ExtResource("8_g2pid"), ExtResource("12_au1gj")])

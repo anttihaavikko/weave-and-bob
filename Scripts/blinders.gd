@@ -7,6 +7,7 @@ extends Control
 
 func _ready() -> void:
 	GameState.blinders = self
+	await get_tree().create_timer(0.1).timeout
 	open()
 	
 func open():

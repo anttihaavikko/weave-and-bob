@@ -263,6 +263,13 @@ size = Vector2(4726.5195, 25911)
 visibility_layer = 524289
 scale = Vector2(1.0023229, 1)
 
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -51572.203
+offset_top = -40339.0
+offset_right = 62391.07
+offset_bottom = 34283.0
+color = Color(0.8627451, 0.5529412, 0.3529412, 1)
+
 [node name="Reloader" type="Node" parent="."]
 script = ExtResource("1_6bp64")
 
