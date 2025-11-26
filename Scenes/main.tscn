@@ -1,4 +1,4 @@
-[gd_scene load_steps=172 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=173 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/player.tscn" id="1_bo1nx"]
@@ -138,6 +138,7 @@
 [ext_resource type="StyleBox" uid="uid://c3pbq5ojka84b" path="res://Scenes/Themes/button_default.tres" id="131_14mkc"]
 [ext_resource type="PackedScene" uid="uid://ouc2plqtpje3" path="res://Scenes/enemy_beamer.tscn" id="132_bdqux"]
 [ext_resource type="StyleBox" uid="uid://kcq31sl3gxax" path="res://Scenes/Themes/button_hover.tres" id="132_l78ku"]
+[ext_resource type="Theme" uid="uid://dcgt6p5ro22q2" path="res://Scenes/Themes/theme.tres" id="133_hfu3o"]
 [ext_resource type="PackedScene" uid="uid://qln40mjj4ivw" path="res://Scenes/ling.tscn" id="136_myryv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ihvwq"]
@@ -6684,9 +6685,14 @@ label_settings = SubResource("LabelSettings_bpr0e")
 
 [node name="Music Volume" type="HSlider" parent="UI/Options/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("133_hfu3o")
 max_value = 1.0
 step = 0.01
 value = 0.5
+
+[node name="Spacer3" type="Control" parent="UI/Options/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
 
 [node name="Sounds" type="Label" parent="UI/Options/VBoxContainer"]
 layout_mode = 2
@@ -6695,6 +6701,7 @@ label_settings = SubResource("LabelSettings_bpr0e")
 
 [node name="Sounds Volume" type="HSlider" parent="UI/Options/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("133_hfu3o")
 max_value = 1.0
 step = 0.01
 value = 0.5
@@ -6725,6 +6732,7 @@ text = "RESPAWN
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 focus_mode = 0
+theme = ExtResource("133_hfu3o")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
