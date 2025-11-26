@@ -9,6 +9,7 @@ extends Control
 @export var help: Appearer
 @export var taxi_button: Button
 @export var masks: Node
+@export var options_button: Node
 
 var state := false
 
@@ -32,6 +33,7 @@ func toggle():
 	if GameState.map_upgrades > 3:
 		masks.hide()
 	state = !state
+	options_button.visible = state
 	get_tree().create_tween().tween_property(right, "position", Vector2(543 if !state else 1099, -20), 0.4).set_trans(Tween.TRANS_BOUNCE)
 	get_tree().create_tween().tween_property(left, "position", Vector2(475 if !state else -30, -24), 0.4).set_trans(Tween.TRANS_BOUNCE)
 	get_tree().create_tween().tween_property(paper, "scale", Vector2.ONE if state else Vector2(0, 1), 0.4).set_trans(Tween.TRANS_BOUNCE)

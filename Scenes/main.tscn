@@ -1,4 +1,4 @@
-[gd_scene load_steps=167 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=172 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/player.tscn" id="1_bo1nx"]
@@ -134,7 +134,10 @@
 [ext_resource type="PackedScene" uid="uid://51pawwymqdog" path="res://Scenes/mark_masker.tscn" id="120_ilwxp"]
 [ext_resource type="Script" uid="uid://cahkyqjkmgnwc" path="res://Scripts/visible_node.gd" id="121_xjjvj"]
 [ext_resource type="PackedScene" uid="uid://b7kwgrp8b2dv8" path="res://Scenes/spider.tscn" id="126_na2ur"]
+[ext_resource type="Script" uid="uid://clg7ymun2dxb2" path="res://Scripts/options_menu.gd" id="129_bpr0e"]
+[ext_resource type="StyleBox" uid="uid://c3pbq5ojka84b" path="res://Scenes/Themes/button_default.tres" id="131_14mkc"]
 [ext_resource type="PackedScene" uid="uid://ouc2plqtpje3" path="res://Scenes/enemy_beamer.tscn" id="132_bdqux"]
+[ext_resource type="StyleBox" uid="uid://kcq31sl3gxax" path="res://Scenes/Themes/button_hover.tres" id="132_l78ku"]
 [ext_resource type="PackedScene" uid="uid://qln40mjj4ivw" path="res://Scenes/ling.tscn" id="136_myryv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ihvwq"]
@@ -252,6 +255,20 @@ shader = ExtResource("84_vxl7x")
 shader_parameter/height = 2.0
 shader_parameter/frequency = 5.0
 shader_parameter/speed = 6.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_l78ku"]
+font = ExtResource("84_6h1fc")
+font_size = 75
+shadow_size = 8
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(6, 6)
+
+[sub_resource type="LabelSettings" id="LabelSettings_bpr0e"]
+font = ExtResource("84_6h1fc")
+font_size = 50
+shadow_size = 8
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(6, 6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_stool"]
 size = Vector2(33203.867, 2566)
@@ -5288,7 +5305,7 @@ type = 3
 
 [node name="Player Spawn" type="Node2D" parent="Level"]
 visibility_layer = 524289
-position = Vector2(-5634.911, -576)
+position = Vector2(-4532.4717, -1849)
 scale = Vector2(1.0023229, 1)
 script = ExtResource("121_xjjvj")
 size = 150
@@ -6048,13 +6065,14 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("86_ihvwq")
 
-[node name="Intro Hider" type="Area2D" parent="Hut" node_paths=PackedStringArray("appearers")]
+[node name="Intro Hider" type="Area2D" parent="Hut" node_paths=PackedStringArray("appearers", "options")]
 z_index = 999
 position = Vector2(-264.33282, -172.3829)
 scale = Vector2(0.6707506, 0.6707506)
 collision_mask = 256
 script = ExtResource("95_3ahwd")
 appearers = [NodePath("../../UI/Title"), NodePath("../../UI/Author"), NodePath("../../UI/Artist"), NodePath("../../UI/Artist Button"), NodePath("../../UI/Version")]
+options = NodePath("../../UI/Options")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hut/Intro Hider"]
 position = Vector2(10.974507, -5)
@@ -6242,8 +6260,10 @@ label = NodePath("Version")
 
 [node name="Dev Bg" type="ColorRect" parent="UI"]
 visible = false
-offset_right = 1920.0
-offset_bottom = 1082.0
+offset_left = -118.0
+offset_top = -199.0
+offset_right = 2518.0
+offset_bottom = 1188.0
 
 [node name="Map Wrap" type="Node2D" parent="UI"]
 position = Vector2(966, 388)
@@ -6254,7 +6274,7 @@ move_direction = Vector2(0, 15)
 move_speed = 3.0
 single_direction = true
 
-[node name="Map" type="Control" parent="UI/Map Wrap" node_paths=PackedStringArray("left", "right", "paper", "root", "viewport", "help", "taxi_button", "masks")]
+[node name="Map" type="Control" parent="UI/Map Wrap" node_paths=PackedStringArray("left", "right", "paper", "root", "viewport", "help", "taxi_button", "masks", "options_button")]
 layout_mode = 3
 anchors_preset = 0
 offset_left = -548.72534
@@ -6271,6 +6291,7 @@ viewport = NodePath("ColorRect/Fill/SubViewportContainer/SubViewport")
 help = NodePath("../../Help Text")
 taxi_button = NodePath("ColorRect/Taxi Button")
 masks = NodePath("../../../Map Masks")
+options_button = NodePath("../../Options/Toggle")
 
 [node name="ColorRect" type="ColorRect" parent="UI/Map Wrap/Map"]
 layout_mode = 0
@@ -6598,6 +6619,132 @@ pivot_offset = Vector2(960, 0)
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
+[node name="Options" type="ColorRect" parent="UI" node_paths=PackedStringArray("toggle_button", "music", "sounds")]
+offset_left = 1429.0
+offset_right = 1929.0
+offset_bottom = 1082.0
+color = Color(0, 0, 0, 0.7529412)
+script = ExtResource("129_bpr0e")
+toggle_button = NodePath("Toggle")
+music = NodePath("VBoxContainer/Music Volume")
+sounds = NodePath("VBoxContainer/Sounds Volume")
+
+[node name="Toggle" type="Button" parent="UI/Options"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 0
+offset_left = -123.0
+offset_top = 18.0
+offset_right = -23.0
+offset_bottom = 118.0
+focus_mode = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_constants/icon_max_width = 60
+theme_override_fonts/font = ExtResource("84_6h1fc")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("131_14mkc")
+theme_override_styles/pressed = ExtResource("131_14mkc")
+theme_override_styles/hover = ExtResource("132_l78ku")
+theme_override_styles/focus = ExtResource("131_14mkc")
+text = "
+"
+icon = ExtResource("53_ja2pg")
+icon_alignment = 1
+expand_icon = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Options"]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 26.0
+offset_right = 469.0
+offset_bottom = 240.0
+theme_override_constants/separation = 20
+
+[node name="Title" type="Label" parent="UI/Options/VBoxContainer"]
+layout_mode = 2
+text = "Options"
+label_settings = SubResource("LabelSettings_l78ku")
+
+[node name="Spacer2" type="Control" parent="UI/Options/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Music" type="Label" parent="UI/Options/VBoxContainer"]
+layout_mode = 2
+text = "Music volume"
+label_settings = SubResource("LabelSettings_bpr0e")
+
+[node name="Music Volume" type="HSlider" parent="UI/Options/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 0.5
+
+[node name="Sounds" type="Label" parent="UI/Options/VBoxContainer"]
+layout_mode = 2
+text = "Sound volume"
+label_settings = SubResource("LabelSettings_bpr0e")
+
+[node name="Sounds Volume" type="HSlider" parent="UI/Options/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 0.5
+
+[node name="Spacer" type="Control" parent="UI/Options/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Respawn" type="Button" parent="UI/Options/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("84_6h1fc")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("131_14mkc")
+theme_override_styles/pressed = ExtResource("131_14mkc")
+theme_override_styles/hover = ExtResource("132_l78ku")
+theme_override_styles/focus = ExtResource("131_14mkc")
+text = "RESPAWN
+"
+
+[node name="Close" type="Button" parent="UI/Options/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("84_6h1fc")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("131_14mkc")
+theme_override_styles/pressed = ExtResource("131_14mkc")
+theme_override_styles/hover = ExtResource("132_l78ku")
+theme_override_styles/focus = ExtResource("131_14mkc")
+text = "CLOSE
+"
+
+[node name="ColorRect" type="ColorRect" parent="UI/Options"]
+layout_mode = 0
+offset_right = 11.0
+offset_bottom = 1082.0
+color = Color(0, 0, 0, 1)
+
 [node name="Worm Spawner" type="Node2D" parent="."]
 visibility_layer = 524289
 script = ExtResource("113_xg142")
@@ -6908,4 +7055,6 @@ position = Vector2(1007.6591, 5870)
 [connection signal="timeout" from="Line Drawer/Timer" to="Line Drawer" method="_on_timer_timeout"]
 [connection signal="grab" from="Hut/Gun Grab Area" to="Level/Player Spawn/Player Spawn Point" method="add_gun"]
 [connection signal="pressed" from="UI/Map Wrap/Map/ColorRect/Taxi Button" to="Worm Spawner" method="spawn_friend"]
+[connection signal="pressed" from="UI/Options/VBoxContainer/Respawn" to="UI/Options" method="restart"]
+[connection signal="pressed" from="UI/Options/VBoxContainer/Close" to="UI/Options" method="toggle"]
 [connection signal="body_entered" from="Killbox/Area2D" to="Killbox" method="enter"]

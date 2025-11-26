@@ -6,6 +6,7 @@ extends Node
 
 func _ready() -> void:
 	if OS.is_debug_build():
+		await get_tree().create_timer(0.1).timeout
 		get_tree().change_scene_to_packed(scene)
 		return
 	spinner.appear()
