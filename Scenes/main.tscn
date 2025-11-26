@@ -5141,7 +5141,6 @@ offset_bottom = 410.0744
 [node name="ColorRect2" type="ColorRect" parent="Level/Lower/Hidden2/Ling Mask"]
 modulate = Color(0, 0, 0, 1)
 visibility_layer = 524289
-z_index = 999
 layout_mode = 0
 offset_left = 1434.5366
 offset_top = -1928.9573
