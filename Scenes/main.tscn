@@ -269,6 +269,7 @@ offset_top = -40339.0
 offset_right = 62391.07
 offset_bottom = 34283.0
 color = Color(0.8627451, 0.5529412, 0.3529412, 1)
+metadata/_edit_lock_ = true
 
 [node name="Reloader" type="Node" parent="."]
 script = ExtResource("1_6bp64")
