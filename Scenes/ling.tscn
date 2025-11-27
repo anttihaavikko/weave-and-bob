@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://qln40mjj4ivw"]
+[gd_scene load_steps=31 format=3 uid="uid://qln40mjj4ivw"]
 
 [ext_resource type="Script" uid="uid://uxu8p38o38ip" path="res://Scripts/mover.gd" id="1_myd4i"]
 [ext_resource type="Script" uid="uid://dkfusn25ts0vt" path="res://Scenes/ling.gd" id="1_r8tty"]
@@ -9,10 +9,21 @@
 [ext_resource type="Script" uid="uid://b6wi31avwrvcy" path="res://Scripts/face.gd" id="6_m37jf"]
 [ext_resource type="Texture2D" uid="uid://w5ubxh2dsi74" path="res://Sprites/mouth.png" id="7_7gf2u"]
 [ext_resource type="Script" uid="uid://cahkyqjkmgnwc" path="res://Scripts/visible_node.gd" id="8_vyutn"]
+[ext_resource type="AudioStream" uid="uid://de4cm3f7evbgx" path="res://Sounds/spider1.wav" id="9_w0bir"]
 [ext_resource type="Script" uid="uid://bf838a0ggrmry" path="res://Scripts/appearer.gd" id="10_m37jf"]
+[ext_resource type="AudioStream" uid="uid://dtxevfyc8rw1q" path="res://Sounds/spider2.wav" id="10_nqo0m"]
 [ext_resource type="Shader" uid="uid://bae8cicg5bb45" path="res://Shaders/wobbly_text.gdshader" id="11_7gf2u"]
+[ext_resource type="AudioStream" uid="uid://t4wy6tmrt3q6" path="res://Sounds/spider11.wav" id="11_tyf80"]
+[ext_resource type="AudioStream" uid="uid://bsfwdjcplf3gs" path="res://Sounds/spider3.wav" id="12_orfox"]
 [ext_resource type="FontFile" uid="uid://x80u6ag0vqx5" path="res://Misc/ChunkFive-Regular.otf" id="12_vyutn"]
+[ext_resource type="AudioStream" uid="uid://cuxhfef7lmavc" path="res://Sounds/spider4.wav" id="13_q3xhu"]
 [ext_resource type="Script" uid="uid://da8a1dg0wsf6v" path="res://Scripts/message.gd" id="13_qogmw"]
+[ext_resource type="AudioStream" uid="uid://hsg4wco3h4d1" path="res://Sounds/spider5.wav" id="14_txlkv"]
+[ext_resource type="AudioStream" uid="uid://5ig81kj32g7t" path="res://Sounds/spider6.wav" id="15_qmfpl"]
+[ext_resource type="AudioStream" uid="uid://djlh6niyu77w6" path="res://Sounds/spider7.wav" id="16_6jqwk"]
+[ext_resource type="AudioStream" uid="uid://cqk320h4g8yc1" path="res://Sounds/spider8.wav" id="17_fx6vg"]
+[ext_resource type="AudioStream" uid="uid://q6vfrlfiwpmf" path="res://Sounds/spider9.wav" id="18_71eao"]
+[ext_resource type="AudioStream" uid="uid://b18yubl4p0v0y" path="res://Sounds/spider10.wav" id="19_r88kr"]
 
 [sub_resource type="Curve" id="Curve_ci23i"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.6197183, 0.71008027), -1.5918533, -1.5918533, 0, 0, Vector2(1, 0.4336902), 0.0, 0.0, 0, 0]
@@ -24,6 +35,21 @@ shader_parameter/amount = 8.0
 shader_parameter/frequency = 0.0
 shader_parameter/speed = 7.0
 shader_parameter/flip = true
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_18c0g"]
+random_pitch = 1.1
+streams_count = 11
+stream_0/stream = ExtResource("9_w0bir")
+stream_1/stream = ExtResource("10_nqo0m")
+stream_2/stream = ExtResource("12_orfox")
+stream_3/stream = ExtResource("13_q3xhu")
+stream_4/stream = ExtResource("14_txlkv")
+stream_5/stream = ExtResource("15_qmfpl")
+stream_6/stream = ExtResource("16_6jqwk")
+stream_7/stream = ExtResource("17_fx6vg")
+stream_8/stream = ExtResource("18_71eao")
+stream_9/stream = ExtResource("19_r88kr")
+stream_10/stream = ExtResource("11_tyf80")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_myd4i"]
 radius = 204.39725
@@ -42,13 +68,14 @@ shadow_size = 8
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(6, 6)
 
-[node name="Ling" type="Node2D" node_paths=PackedStringArray("area", "appearer", "message", "face")]
+[node name="Ling" type="Node2D" node_paths=PackedStringArray("area", "appearer", "message", "face", "talk")]
 scale = Vector2(0.8024934, 0.8024934)
 script = ExtResource("1_r8tty")
 area = NodePath("Area2D")
 appearer = NodePath("Mover/Appearer")
 message = NodePath("Mover/Appearer/Label")
 face = NodePath("Body/Face")
+talk = NodePath("Body/Face/Screeches")
 
 [node name="Body" type="Node2D" parent="."]
 script = ExtResource("1_myd4i")
@@ -256,6 +283,13 @@ rotation = 3.1415925
 scale = Vector2(0.009403806, 0.009403806)
 texture = ExtResource("2_r8tty")
 offset = Vector2(0, 128)
+
+[node name="Screeches" type="AudioStreamPlayer2D" parent="Body/Face"]
+stream = SubResource("AudioStreamRandomizer_18c0g")
+volume_db = -2.0
+pitch_scale = 1.5
+max_polyphony = 2
+bus = &"Sounds"
 
 [node name="Leg Target" type="Node2D" parent="."]
 position = Vector2(149.18759, 165.73349)

@@ -5330,7 +5330,6 @@ position = Vector2(1324.9225, 5993)
 scale = Vector2(113.65245, 412.57956)
 
 [node name="Ling Back" parent="Level" instance=ExtResource("4_344ge")]
-visible = false
 position = Vector2(1655.6925, 5764.7183)
 scale = Vector2(679.41516, 586.01526)
 
@@ -5351,7 +5350,7 @@ type = 3
 
 [node name="Player Spawn" type="Node2D" parent="Level"]
 visibility_layer = 524289
-position = Vector2(-4532.4717, -1849)
+position = Vector2(781.18524, 3721)
 scale = Vector2(1.0023229, 1)
 script = ExtResource("121_xjjvj")
 size = 150
