@@ -3,8 +3,13 @@ extends Node
 @export var scene: PackedScene
 @export var preloaded: Array[PackedScene]
 @export var spinner: Appearer
+@export var shader_info: Node
 
 func _ready() -> void:
+	var ua = JavaScriptBridge.eval("navigator.userAgent")
+	if ua and ua.contains("Windows"):
+		shader_info.show()
+	
 	if OS.is_debug_build():
 		await get_tree().create_timer(0.1).timeout
 		get_tree().change_scene_to_packed(scene)

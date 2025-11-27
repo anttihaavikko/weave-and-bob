@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bkwhepgpfg8bk"]
+[gd_scene load_steps=18 format=3 uid="uid://bkwhepgpfg8bk"]
 
 [ext_resource type="PackedScene" uid="uid://bespa4vyxw6ny" path="res://Scenes/Effects/black_bits.tscn" id="1_8w0xj"]
 [ext_resource type="Script" uid="uid://d4ksfw1xl3a30" path="res://Scripts/preloader.gd" id="1_vvyr3"]
@@ -16,12 +16,14 @@
 [ext_resource type="PackedScene" uid="uid://mnvjkmc1oomr" path="res://Scenes/main.tscn" id="11_wqb73"]
 [ext_resource type="PackedScene" uid="uid://go8yepyde14f" path="res://Scenes/Effects/white_bits.tscn" id="12_au1gj"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/player.tscn" id="16_g2pid"]
+[ext_resource type="LabelSettings" uid="uid://b36veepvgj1eg" path="res://Misc/label_settings.tres" id="17_qpke4"]
 
-[node name="Node2D" type="Node2D" node_paths=PackedStringArray("spinner")]
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("spinner", "shader_info")]
 script = ExtResource("1_vvyr3")
 scene = ExtResource("11_wqb73")
 preloaded = Array[PackedScene]([ExtResource("1_8w0xj"), ExtResource("4_mf1w2"), ExtResource("5_g2pid"), ExtResource("6_qpke4"), ExtResource("7_g760u"), ExtResource("6_oi7tf"), ExtResource("5_q0ckb"), ExtResource("7_mf1w2"), ExtResource("8_g2pid"), ExtResource("12_au1gj")])
 spinner = NodePath("Appearer")
+shader_info = NodePath("Label")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 modulate = Color(0, 0, 0, 1)
@@ -46,3 +48,16 @@ scale = Vector2(1.0000001, 1.0000001)
 texture = ExtResource("9_wqb73")
 script = ExtResource("10_0ps2j")
 speed = 200.0
+
+[node name="Label" type="Label" parent="."]
+visible = false
+z_index = 4096
+offset_left = 765.0
+offset_top = 943.0
+offset_right = 3213.0
+offset_bottom = 1254.0
+scale = Vector2(0.41322723, 0.41322723)
+text = "Compiling shaders can take some time!
+Please be patient..."
+label_settings = ExtResource("17_qpke4")
+horizontal_alignment = 2
