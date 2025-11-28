@@ -14,6 +14,6 @@ echo " "
 
 # echo "${COLOR}Copying html5 files over to correct path"
 # cp -a Builds/webgl/html5/Build/. Builds/html5/Build
-cp Builds/web/index_mod.html Builds/web/index.html
+# cp Builds/web/index_mod.html Builds/web/index.html
 echo "${COLOR}Pushing build for HTML5${NC}"
 butler push Builds/web anttihaavikko/weave-and-bob:html5
