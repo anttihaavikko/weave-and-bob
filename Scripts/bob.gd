@@ -86,7 +86,7 @@ func get_text() -> String:
 		"This is a really sweet spot for mushrooms.\nDestroying angel is my favourite species!\nI do love fly agarics too...",
 		"Just one more spot of mushrooms\nand we're set for the coming winter.",
 		"And all done with mushrooms!\nI'm going to go back home now.",
-		"Hey don't bother with the mathvasion!\nJust go to sleep instead."
+		"Hey don't bother with the mathvasion!\nJust go sleep instead."
 	][GameState.met_bobs]
 	
 func exit(_node: Node2D):
