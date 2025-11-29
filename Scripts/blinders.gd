@@ -6,6 +6,7 @@ extends Control
 @export var duration = 0.3
 
 func _ready() -> void:
+	show()
 	GameState.blinders = self
 	await get_tree().create_timer(0.1).timeout
 	open()

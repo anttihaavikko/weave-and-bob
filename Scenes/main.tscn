@@ -1,4 +1,4 @@
-[gd_scene load_steps=182 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=184 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/player.tscn" id="1_bo1nx"]
@@ -137,6 +137,7 @@
 [ext_resource type="PackedScene" uid="uid://0uv2v0ugkper" path="res://Scenes/worm_friend.tscn" id="115_gdwd6"]
 [ext_resource type="PackedScene" uid="uid://51pawwymqdog" path="res://Scenes/mark_masker.tscn" id="120_ilwxp"]
 [ext_resource type="Script" uid="uid://cahkyqjkmgnwc" path="res://Scripts/visible_node.gd" id="121_xjjvj"]
+[ext_resource type="Script" uid="uid://tix4v4nyolnr" path="res://Scripts/ending_trigger.gd" id="124_102yd"]
 [ext_resource type="PackedScene" uid="uid://b7kwgrp8b2dv8" path="res://Scenes/spider.tscn" id="126_na2ur"]
 [ext_resource type="Script" uid="uid://clg7ymun2dxb2" path="res://Scripts/options_menu.gd" id="129_bpr0e"]
 [ext_resource type="StyleBox" uid="uid://c3pbq5ojka84b" path="res://Scenes/Themes/button_default.tres" id="131_14mkc"]
@@ -256,6 +257,9 @@ size = Vector2(59.55838, 228.05524)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aok0f"]
 size = Vector2(97.03345, 92.5636)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gf7g1"]
+radius = 66.280914
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ihvwq"]
 shader = ExtResource("84_vxl7x")
@@ -5458,7 +5462,7 @@ type = 3
 
 [node name="Player Spawn" type="Node2D" parent="Level"]
 visibility_layer = 524289
-position = Vector2(-79.81445, 2564)
+position = Vector2(-1820.7704, -1222)
 scale = Vector2(1.0023229, 1)
 script = ExtResource("121_xjjvj")
 size = 150
@@ -6218,14 +6222,16 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("86_ihvwq")
 
-[node name="Intro Hider" type="Area2D" parent="Hut" node_paths=PackedStringArray("appearers", "options")]
+[node name="Intro Hider" type="Area2D" parent="Hut" node_paths=PackedStringArray("appearers", "options", "completion", "thanks")]
 z_index = 999
 position = Vector2(-264.33282, -172.3829)
 scale = Vector2(0.6707506, 0.6707506)
 collision_mask = 256
 script = ExtResource("95_3ahwd")
-appearers = [NodePath("../../UI/Title"), NodePath("../../UI/Author"), NodePath("../../UI/Artist"), NodePath("../../UI/Artist Button"), NodePath("../../UI/Version")]
+appearers = [NodePath("../../UI/Title"), NodePath("../../UI/Author"), NodePath("../../UI/Artist"), NodePath("../../UI/Artist Button"), NodePath("../../UI/Version"), NodePath("../../UI/Completion Label"), NodePath("../../UI/Thanks Label")]
 options = NodePath("../../UI/Options")
+completion = NodePath("../../UI/Completion Label")
+thanks = NodePath("../../UI/Thanks Label")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hut/Intro Hider"]
 position = Vector2(10.974507, -5)
@@ -6259,6 +6265,15 @@ rotating_door = NodePath("../Rotating Door")
 position = Vector2(205.72704, -477.35132)
 scale = Vector2(163.13611, 34.008877)
 _open_pos = -60.0
+
+[node name="Ending Trigger" type="Area2D" parent="Hut"]
+position = Vector2(191.38977, -342.08282)
+collision_layer = 0
+collision_mask = 256
+script = ExtResource("124_102yd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hut/Ending Trigger"]
+shape = SubResource("CircleShape2D_gf7g1")
 
 [node name="Backyard Bob" parent="." node_paths=PackedStringArray("spots", "end_bob", "start_note") instance=ExtResource("95_nb1ia")]
 position = Vector2(-4508.5273, -524)
@@ -6715,6 +6730,50 @@ vertical_alignment = 1
 script = ExtResource("86_ihvwq")
 appear_after = 0.5
 
+[node name="Completion Label" type="Label" parent="UI"]
+material = SubResource("ShaderMaterial_ihvwq")
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -840.7916
+offset_top = -256.66608
+offset_right = 791.2084
+offset_bottom = -102.66608
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.46838498, 0.46838498)
+pivot_offset = Vector2(850.97034, 68.97107)
+text = "COMPLETION 100%"
+label_settings = ExtResource("85_ihvwq")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("86_ihvwq")
+appear_after = 0.5
+
+[node name="Thanks Label" type="Label" parent="UI"]
+material = SubResource("ShaderMaterial_ihvwq")
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -840.7916
+offset_top = -170.66614
+offset_right = 791.2084
+offset_bottom = -16.666138
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.7781455, 0.7781455)
+pivot_offset = Vector2(850.97034, 68.97107)
+text = "Thanks for playing!"
+label_settings = ExtResource("85_ihvwq")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("86_ihvwq")
+appear_after = 0.5
+
 [node name="Artist Button" type="LinkButton" parent="UI"]
 offset_left = 1493.0
 offset_top = 463.0
@@ -6739,6 +6798,7 @@ texture = ExtResource("106_b4mik")
 expand_mode = 2
 
 [node name="Blinders" type="Control" parent="UI" node_paths=PackedStringArray("left", "right")]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -7564,7 +7624,6 @@ position = Vector2(1007.6591, 5870)
 [connection signal="pressed" from="UI/Options/VBoxContainer/Fullscreen" to="UI/Options" method="toggle_fullscreen"]
 [connection signal="pressed" from="UI/Options/VBoxContainer/Credits" to="UI/Extra Panel" method="toggle"]
 [connection signal="pressed" from="UI/Options/VBoxContainer/Clear" to="Level/Player Spawn/Player Spawn Point" method="erase_save"]
-[connection signal="pressed" from="UI/Options/VBoxContainer/Clear" to="UI/Options" method="close"]
 [connection signal="pressed" from="UI/Options/VBoxContainer/Quit" to="UI/Blinders" method="quit"]
 [connection signal="pressed" from="UI/Options/VBoxContainer/Quit" to="UI/Options" method="close"]
 [connection signal="body_entered" from="Killbox/Area2D" to="Killbox" method="enter"]

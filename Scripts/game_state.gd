@@ -11,6 +11,7 @@ var has_tracking := true
 var has_double_jump := true
 var has_taxi := true
 var has_dash := false
+var met_bobs := 5
 
 var spawn_set := false
 var spawn_point: Vector2
@@ -28,7 +29,6 @@ var checkpoints: Array[Checkpoint]
 var boss_fight := false
 var attached := false
 var worm: Worm
-var met_bobs := 0
 var options: OptionsMenu
 var saver: Saver
 
@@ -133,7 +133,6 @@ func save():
 		"met_bobs": met_bobs
 	}
 	saver.save(data)
-
 	
 func load_save():
 	var data := saver.load()

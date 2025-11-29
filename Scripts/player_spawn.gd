@@ -62,8 +62,10 @@ func add_gun():
 	SoundEffects.singleton.add(16, global_position)
 
 func erase_save():
+	GameState.options.close()
 	GameState.blinders.close()
 	await get_tree().create_timer(GameState.blinders.duration + 0.5).timeout
 	GameState.saver.erase()
-	respawn()
-	GameState.blinders.open()
+	GameState._ready()
+	GameState.spawn_set = false
+	GameState.restart()
