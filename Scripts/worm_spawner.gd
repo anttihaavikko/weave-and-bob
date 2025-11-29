@@ -7,7 +7,7 @@ func spawn(friend: bool = false):
 	spawn_with(friendly if friend else worm)
 
 func spawn_with(prefab: PackedScene):
-	var dir := Vector2.from_angle(randf() * TAU) * 2000
+	var dir := Vector2.from_angle(randf() * TAU) * 3000
 	global_position = GameState.player.live_gun.global_position + dir
 	var w := prefab.instantiate()
 	if w is Worm:

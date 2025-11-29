@@ -4200,6 +4200,20 @@ texture = ExtResource("53_ja2pg")
 script = ExtResource("36_b4xsn")
 speed = -50.0
 
+[node name="Gear10" type="Sprite2D" parent="Level/Lower/Background"]
+position = Vector2(184.57129, 1074)
+scale = Vector2(0.8944446, 0.8944446)
+texture = ExtResource("53_ja2pg")
+script = ExtResource("36_b4xsn")
+speed = -50.0
+
+[node name="Gear11" type="Sprite2D" parent="Level/Lower/Background"]
+position = Vector2(-640.51215, 1074)
+scale = Vector2(0.8944446, 0.8944446)
+texture = ExtResource("53_ja2pg")
+script = ExtResource("36_b4xsn")
+speed = 50.0
+
 [node name="Gear8" type="Sprite2D" parent="Level/Lower/Background"]
 position = Vector2(3737.3186, 466)
 scale = Vector2(1.2828562, 1.2828562)
@@ -4312,6 +4326,42 @@ offset_right = 24.74173
 offset_bottom = 488.00845
 metadata/_edit_use_anchors_ = true
 
+[node name="ShroomPlatform4" type="Sprite2D" parent="Level/Lower/Background"]
+position = Vector2(4094.4883, -1910)
+scale = Vector2(0.9740948, 0.9740948)
+texture = ExtResource("59_ci23i")
+
+[node name="ColorRect" type="ColorRect" parent="Level/Lower/Background/ShroomPlatform4"]
+offset_left = -25.661636
+offset_top = -1.3903376
+offset_right = 24.74173
+offset_bottom = 488.00845
+metadata/_edit_use_anchors_ = true
+
+[node name="ShroomPlatform6" type="Sprite2D" parent="Level/Lower/Background"]
+position = Vector2(4808.8296, -2154)
+scale = Vector2(0.9740948, 0.9740948)
+texture = ExtResource("59_ci23i")
+
+[node name="ColorRect" type="ColorRect" parent="Level/Lower/Background/ShroomPlatform6"]
+offset_left = -25.661636
+offset_top = -1.3903376
+offset_right = 24.74173
+offset_bottom = 488.00845
+metadata/_edit_use_anchors_ = true
+
+[node name="ShroomPlatform5" type="Sprite2D" parent="Level/Lower/Background"]
+position = Vector2(4189.2686, -1652)
+scale = Vector2(0.5948654, 0.5948654)
+texture = ExtResource("59_ci23i")
+
+[node name="ColorRect" type="ColorRect" parent="Level/Lower/Background/ShroomPlatform5"]
+offset_left = -25.661636
+offset_top = -1.3903376
+offset_right = 24.74173
+offset_bottom = 488.00845
+metadata/_edit_use_anchors_ = true
+
 [node name="ShroomPlatform3" type="Sprite2D" parent="Level/Lower/Background"]
 position = Vector2(3545.468, -767.0603)
 scale = Vector2(1.4531728, 1.4531728)
@@ -4403,6 +4453,37 @@ texture = ExtResource("73_jekl6")
 position = Vector2(4898.621, 3039)
 scale = Vector2(0.2217351, 0.2217351)
 texture = ExtResource("73_jekl6")
+
+[node name="Polygon2D4" type="Polygon2D" parent="Level/Lower/Background"]
+position = Vector2(4772.913, -1540)
+offset = Vector2(-4772.913, 1540)
+polygon = PackedVector2Array(4377.8306, -1529, 4278.0625, -1479, 3897.9456, -1490, 3957.8064, -1442, 3960.7996, -1374, 3996.716, -1382, 4030.6372, -1324, 4048.5955, -1351, 4125.417, -1275, 4275.0693, -1276, 4391.7983, -1208, 4492.5645, -1283, 4742.9824, -1409, 4850.7324, -1367, 5019.341, -1166, 5079.2017, -984, 5108.1343, -1041, 5248.8076, -922, 5232.8447, -1752, 4657.1816, -1729, 4601.3115, -1577, 4505.534, -1569, 4433.701, -1588, 4366.8564, -1577)
+
+[node name="Tree22" parent="Level/Lower/Background" instance=ExtResource("9_wsu2k")]
+position = Vector2(4917.577, -1729)
+
+[node name="Tree23" parent="Level/Lower/Background" instance=ExtResource("9_wsu2k")]
+position = Vector2(5070.222, -1734)
+
+[node name="Tree24" parent="Level/Lower/Background" instance=ExtResource("9_wsu2k")]
+position = Vector2(4543.446, -1554)
+
+[node name="Tree25" parent="Level/Lower/Background" instance=ExtResource("9_wsu2k")]
+position = Vector2(3935.8572, -1486)
+
+[node name="Tree26" parent="Level/Lower/Background" instance=ExtResource("9_wsu2k")]
+position = Vector2(3603.6292, -1839)
+
+[node name="Tree27" parent="Level/Lower/Background" instance=ExtResource("9_wsu2k")]
+position = Vector2(3490.891, -1873)
+
+[node name="Polygon2D5" type="Polygon2D" parent="Level/Lower/Background"]
+position = Vector2(3339.2432, -1580)
+offset = Vector2(-153.64313, -315)
+polygon = PackedVector2Array(-216.49707, -79, 35.916565, -1, 261.39282, -13, 558.7022, 113, 455.94092, 317, 416.03363, 558, 350.18658, 478, 188.56201, 553, 135.68481, 670, 60.858643, 644, -2.993042, 549, -15.962891, 655, -53.874878, 558, -182.57593, 662)
+
+[node name="Tree28" parent="Level/Lower/Background" instance=ExtResource("9_wsu2k")]
+position = Vector2(3185.6, -1895)
 
 [node name="Decorations" type="Node2D" parent="Level/Lower"]
 modulate = Color(0.5686275, 0.32941177, 0.16470589, 1)
@@ -5373,7 +5454,7 @@ type = 3
 
 [node name="Player Spawn" type="Node2D" parent="Level"]
 visibility_layer = 524289
-position = Vector2(-2143.022, -1023)
+position = Vector2(-79.81445, 2564)
 scale = Vector2(1.0023229, 1)
 script = ExtResource("121_xjjvj")
 size = 150
