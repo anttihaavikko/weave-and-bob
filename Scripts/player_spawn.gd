@@ -60,3 +60,10 @@ func add_gun():
 	plr.arm_left.visible = true
 	plr.arm_right.visible = true
 	SoundEffects.singleton.add(16, global_position)
+
+func erase_save():
+	GameState.blinders.close()
+	await get_tree().create_timer(GameState.blinders.duration + 0.5).timeout
+	GameState.saver.erase()
+	respawn()
+	GameState.blinders.open()

@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://dcgt6p5ro22q2"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://dcgt6p5ro22q2"]
 
 [ext_resource type="FontFile" uid="uid://x80u6ag0vqx5" path="res://Misc/ChunkFive-Regular.otf" id="1_nm7fo"]
 [ext_resource type="StyleBox" uid="uid://kcq31sl3gxax" path="res://Scenes/Themes/button_hover.tres" id="2_32i1e"]
@@ -20,6 +20,9 @@ border_width_top = 10
 border_width_bottom = 10
 border_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5x1i1"]
+bg_color = Color(1, 1, 1, 1)
+
 [resource]
 Button/colors/font_color = Color(0, 0, 0, 1)
 Button/colors/font_hover_color = Color(1, 1, 1, 1)
@@ -33,3 +36,4 @@ HSlider/icons/grabber_highlight = ExtResource("4_xdaro")
 HSlider/styles/grabber_area = SubResource("StyleBoxFlat_xdaro")
 HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_32i1e")
 HSlider/styles/slider = SubResource("StyleBoxFlat_nm7fo")
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_5x1i1")

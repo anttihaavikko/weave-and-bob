@@ -1,13 +1,15 @@
-@abstract
 class_name Saver
 
-static var filename = "user://save.dat"
+static var filename: String
 
-static func save(data: Dictionary):
+func _init(name := "save.dat"):
+	filename = "user://%s" % name
+
+func save(data: Dictionary):
 	var file := FileAccess.open(filename, FileAccess.WRITE)
 	file.store_line(JSON.stringify(data))
 
-static func load() -> Dictionary:
+func load() -> Dictionary:
 	if not FileAccess.file_exists(filename):
 		return {}
 	var file = FileAccess.open(filename, FileAccess.READ)
@@ -16,3 +18,6 @@ static func load() -> Dictionary:
 		if data:
 			return data
 	return {}
+
+func erase():
+	save({})

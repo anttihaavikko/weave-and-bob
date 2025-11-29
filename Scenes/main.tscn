@@ -259,16 +259,16 @@ shader_parameter/height = 2.0
 shader_parameter/frequency = 5.0
 shader_parameter/speed = 6.0
 
-[sub_resource type="LabelSettings" id="LabelSettings_l78ku"]
+[sub_resource type="LabelSettings" id="LabelSettings_bpr0e"]
 font = ExtResource("84_6h1fc")
-font_size = 70
+font_size = 50
 shadow_size = 8
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(6, 6)
 
-[sub_resource type="LabelSettings" id="LabelSettings_bpr0e"]
+[sub_resource type="LabelSettings" id="LabelSettings_l78ku"]
 font = ExtResource("84_6h1fc")
-font_size = 50
+font_size = 70
 shadow_size = 8
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(6, 6)
@@ -4439,7 +4439,7 @@ position = Vector2(9340.304, -281)
 texture = ExtResource("37_ot5ec")
 
 [node name="Vines" parent="Level/Lower/Decorations" instance=ExtResource("34_aok0f")]
-position = Vector2(5371.5225, -655)
+position = Vector2(5367.5317, -691)
 
 [node name="Vines16" parent="Level/Lower/Decorations" instance=ExtResource("34_aok0f")]
 position = Vector2(4526.4854, -2638.0002)
@@ -4460,7 +4460,7 @@ position = Vector2(3574.6958, -2437)
 position = Vector2(3685.439, -2354)
 
 [node name="Vines2" parent="Level/Lower/Decorations" instance=ExtResource("34_aok0f")]
-position = Vector2(5489.249, -697)
+position = Vector2(5482.265, -723)
 
 [node name="Vines27" parent="Level/Lower/Decorations" instance=ExtResource("34_aok0f")]
 position = Vector2(2884.3, -1098)
@@ -5373,7 +5373,7 @@ type = 3
 
 [node name="Player Spawn" type="Node2D" parent="Level"]
 visibility_layer = 524289
-position = Vector2(781.18524, 3721)
+position = Vector2(1289.0057, 3831)
 scale = Vector2(1.0023229, 1)
 script = ExtResource("121_xjjvj")
 size = 150
@@ -6654,6 +6654,7 @@ texture = ExtResource("106_b4mik")
 expand_mode = 2
 
 [node name="Blinders" type="Control" parent="UI" node_paths=PackedStringArray("left", "right")]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -6732,15 +6733,10 @@ expand_icon = true
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/Options"]
 layout_mode = 0
 offset_left = 37.0
-offset_top = 26.0
+offset_top = 9.0
 offset_right = 469.0
-offset_bottom = 240.0
+offset_bottom = 1068.0
 theme_override_constants/separation = 20
-
-[node name="Title" type="Label" parent="UI/Options/VBoxContainer"]
-layout_mode = 2
-text = "Options"
-label_settings = SubResource("LabelSettings_l78ku")
 
 [node name="Spacer2" type="Control" parent="UI/Options/VBoxContainer"]
 custom_minimum_size = Vector2(0, 5)
@@ -6850,6 +6846,24 @@ theme_override_styles/hover = ExtResource("132_l78ku")
 theme_override_styles/focus = ExtResource("131_14mkc")
 text = "CREDITS"
 
+[node name="Clear" type="Button" parent="UI/Options/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("133_hfu3o")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("84_6h1fc")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("131_14mkc")
+theme_override_styles/pressed = ExtResource("131_14mkc")
+theme_override_styles/hover = ExtResource("132_l78ku")
+theme_override_styles/focus = ExtResource("131_14mkc")
+text = "ERASE SAVE"
+
 [node name="Quit" type="Button" parent="UI/Options/VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
@@ -6875,7 +6889,7 @@ color = Color(0, 0, 0, 1)
 
 [node name="Extra Panel" type="ColorRect" parent="UI"]
 offset_left = -1.0
-offset_right = 464.0
+offset_right = 538.0
 offset_bottom = 1081.0
 color = Color(0, 0, 0, 0.7529412)
 script = ExtResource("134_qxkn4")
@@ -6883,9 +6897,10 @@ direction = Vector2(-1, 0)
 
 [node name="ColorRect" type="ColorRect" parent="UI/Extra Panel"]
 layout_mode = 0
-offset_left = 459.0
-offset_right = 470.0
-offset_bottom = 1082.0
+offset_left = 531.0
+offset_top = 5.0
+offset_right = 542.0
+offset_bottom = 1087.0
 color = Color(0, 0, 0, 1)
 
 [node name="Title" type="Label" parent="UI/Extra Panel"]
@@ -6901,8 +6916,9 @@ label_settings = SubResource("LabelSettings_l78ku")
 layout_mode = 0
 offset_left = 24.0
 offset_top = 139.0
-offset_right = 448.0
+offset_right = 519.0
 offset_bottom = 1057.0
+theme = ExtResource("133_hfu3o")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/Extra Panel/ScrollContainer"]
 layout_mode = 2
@@ -6913,7 +6929,7 @@ layout_mode = 2
 
 [node name="Area" type="Label" parent="UI/Extra Panel/ScrollContainer/VBoxContainer/Section"]
 layout_mode = 2
-text = "Game by"
+text = "Design, code, art, sounds"
 label_settings = SubResource("LabelSettings_hfu3o")
 
 [node name="Name" type="Label" parent="UI/Extra Panel/ScrollContainer/VBoxContainer/Section"]
@@ -6933,6 +6949,75 @@ label_settings = SubResource("LabelSettings_hfu3o")
 layout_mode = 2
 text = "Mika Kälkäinen"
 label_settings = SubResource("LabelSettings_adgm5")
+
+[node name="Section7" type="VBoxContainer" parent="UI/Extra Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Area" type="Label" parent="UI/Extra Panel/ScrollContainer/VBoxContainer/Section7"]
+layout_mode = 2
+text = "Tools used"
+label_settings = SubResource("LabelSettings_hfu3o")
+
+[node name="Name" type="Label" parent="UI/Extra Panel/ScrollContainer/VBoxContainer/Section7"]
+layout_mode = 2
+text = "Godot
+Affinity Designer
+ZzFX"
+label_settings = SubResource("LabelSettings_adgm5")
+
+[node name="LinkButton" type="LinkButton" parent="UI/Extra Panel/ScrollContainer/VBoxContainer/Section7/Name"]
+layout_mode = 0
+offset_left = 149.0
+offset_top = 11.0
+offset_right = 189.0
+offset_bottom = 51.0
+uri = "https://godotengine.org/"
+
+[node name="TextureRect" type="TextureRect" parent="UI/Extra Panel/ScrollContainer/VBoxContainer/Section7/Name/LinkButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("134_adgm5")
+expand_mode = 3
+
+[node name="LinkButton2" type="LinkButton" parent="UI/Extra Panel/ScrollContainer/VBoxContainer/Section7/Name"]
+layout_mode = 0
+offset_left = 394.0
+offset_top = 72.0
+offset_right = 434.0
+offset_bottom = 112.0
+uri = "https://www.affinity.studio/"
+
+[node name="TextureRect" type="TextureRect" parent="UI/Extra Panel/ScrollContainer/VBoxContainer/Section7/Name/LinkButton2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("134_adgm5")
+expand_mode = 3
+
+[node name="LinkButton3" type="LinkButton" parent="UI/Extra Panel/ScrollContainer/VBoxContainer/Section7/Name"]
+layout_mode = 0
+offset_left = 146.0
+offset_top = 125.0
+offset_right = 186.0
+offset_bottom = 165.0
+uri = "https://killedbyapixel.github.io/ZzFX/"
+
+[node name="TextureRect" type="TextureRect" parent="UI/Extra Panel/ScrollContainer/VBoxContainer/Section7/Name/LinkButton3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("134_adgm5")
+expand_mode = 3
 
 [node name="Section3" type="VBoxContainer" parent="UI/Extra Panel/ScrollContainer/VBoxContainer"]
 layout_mode = 2
@@ -7394,6 +7479,8 @@ position = Vector2(1007.6591, 5870)
 [connection signal="pressed" from="UI/Options/VBoxContainer/Respawn" to="UI/Options" method="restart"]
 [connection signal="pressed" from="UI/Options/VBoxContainer/Fullscreen" to="UI/Options" method="toggle_fullscreen"]
 [connection signal="pressed" from="UI/Options/VBoxContainer/Credits" to="UI/Extra Panel" method="toggle"]
+[connection signal="pressed" from="UI/Options/VBoxContainer/Clear" to="Level/Player Spawn/Player Spawn Point" method="erase_save"]
+[connection signal="pressed" from="UI/Options/VBoxContainer/Clear" to="UI/Options" method="close"]
 [connection signal="pressed" from="UI/Options/VBoxContainer/Quit" to="UI/Blinders" method="quit"]
 [connection signal="pressed" from="UI/Options/VBoxContainer/Quit" to="UI/Options" method="close"]
 [connection signal="body_entered" from="Killbox/Area2D" to="Killbox" method="enter"]

@@ -30,10 +30,12 @@ var attached := false
 var worm: Worm
 var met_bobs := 0
 var options: OptionsMenu
+var saver: Saver
 
 signal fix_player
 
 func _ready() -> void:
+	saver = Saver.new()
 	if not OS.is_debug_build():
 		has_magazine = false
 		map_upgrades = 0
@@ -131,11 +133,11 @@ func save():
 		"has_dash": has_dash,
 		"met_bobs": met_bobs
 	}
-	Saver.save(data)
+	saver.save(data)
 
 	
 func load_save():
-	var data := Saver.load()
+	var data := saver.load()
 	if data.has("success"):
 		for id in data.ids:
 			ids.push_back(id)

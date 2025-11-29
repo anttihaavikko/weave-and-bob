@@ -19,6 +19,8 @@ func close():
 	get_tree().create_tween().tween_property(right, "scale", Vector2(1, 1), duration).set_trans(Tween.TRANS_BOUNCE)
 
 func quit():
+	if OS.get_name() == "Web":
+		return
 	close()
 	await get_tree().create_timer(duration + 0.1).timeout
 	get_tree().quit()
