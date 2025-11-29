@@ -1,4 +1,4 @@
-[gd_scene load_steps=184 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=185 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/player.tscn" id="1_bo1nx"]
@@ -16,6 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://d3ivffpwlf2en" path="res://Sounds/jump.wav" id="11_3pmx8"]
 [ext_resource type="PackedScene" uid="uid://bhr0ejaysdti2" path="res://Scenes/Effects/pulse_displace.tscn" id="12_6iyac"]
 [ext_resource type="AudioStream" uid="uid://7crcfiktt7y4" path="res://Sounds/throw2.wav" id="12_cbgmd"]
+[ext_resource type="PackedScene" uid="uid://bowl5f5pc52w6" path="res://Scenes/tree_back.tscn" id="12_rtmaq"]
 [ext_resource type="PackedScene" uid="uid://c5itq0mw48wch" path="res://Scenes/sound.tscn" id="12_u50mg"]
 [ext_resource type="PackedScene" uid="uid://whn8b2heqg8s" path="res://Scenes/grass.tscn" id="12_wsu2k"]
 [ext_resource type="AudioStream" uid="uid://isl0a55wt0u8" path="res://Sounds/explosion.wav" id="13_1w6v2"]
@@ -475,12 +476,8 @@ rotation = -0.27423465
 scale = Vector2(0.47023985, 0.47023985)
 texture = ExtResource("18_ptfg5")
 
-[node name="Tree11" type="Sprite2D" parent="Level/Starter/Far2"]
-material = SubResource("ShaderMaterial_1semv")
+[node name="Tree11" parent="Level/Starter/Far2" instance=ExtResource("12_rtmaq")]
 position = Vector2(825.99536, 67.742584)
-rotation = -0.27423465
-scale = Vector2(0.47023985, 0.47023985)
-texture = ExtResource("18_ptfg5")
 
 [node name="Tree12" type="Sprite2D" parent="Level/Starter/Far2"]
 material = SubResource("ShaderMaterial_1semv")
@@ -516,6 +513,65 @@ position = Vector2(306.2027, 85.74254)
 rotation = -0.27423465
 scale = Vector2(0.3356245, 0.3356245)
 texture = ExtResource("18_ptfg5")
+
+[node name="Polygon2D2" type="Polygon2D" parent="Level/Starter/Far2"]
+polygon = PackedVector2Array(2076.325, 129.44382, 1960.7179, -121.68829, 1765.884, -156.03015, 2004.6909, -283.724, 1989.1307, -347.987, 2310.899, -453.02686, 2254.5957, -1532.0013, 2784.4636, -864.0786, 2768.0117, -1545.2352, 3256.0444, -810.07715, 3380.3142, -1711.2084, 3992.2966, -969.1156, 4028.893, -1697.9362, 4625.135, -956.24207, 5147.2656, -964.82837, 5497.823, -1159.2506, 5916.445, -1271.0056, 6858.617, -1105.1664)
+
+[node name="Tree13" parent="Level/Starter/Far2" instance=ExtResource("12_rtmaq")]
+position = Vector2(1777.4915, -209.80312)
+
+[node name="Tree14" parent="Level/Starter/Far2" instance=ExtResource("12_rtmaq")]
+position = Vector2(1813.4998, -228.1778)
+
+[node name="Tree15" parent="Level/Starter/Far2" instance=ExtResource("12_rtmaq")]
+position = Vector2(1886.8325, -267.42325)
+
+[node name="Tree16" parent="Level/Starter/Far2" instance=ExtResource("12_rtmaq")]
+position = Vector2(1911.7155, -281.33728)
+
+[node name="Tree17" parent="Level/Starter/Far2" instance=ExtResource("12_rtmaq")]
+position = Vector2(1951.014, -305.95203)
+
+[node name="Tree18" parent="Level/Starter/Far2" instance=ExtResource("12_rtmaq")]
+position = Vector2(1999.0574, -397.0598)
+
+[node name="Tree19" parent="Level/Starter/Far2" instance=ExtResource("12_rtmaq")]
+position = Vector2(2029.1423, -404.2021)
+
+[node name="Tree20" parent="Level/Starter/Far2" instance=ExtResource("12_rtmaq")]
+position = Vector2(2060.6152, -417.0005)
+
+[node name="Tree22" parent="Level/Starter/Far2" instance=ExtResource("12_rtmaq")]
+position = Vector2(2282.692, -487.25687)
+
+[node name="Tree23" parent="Level/Starter/Far2" instance=ExtResource("12_rtmaq")]
+position = Vector2(2247.4849, -476.45053)
+
+[node name="Tree24" parent="Level/Starter/Far2" instance=ExtResource("12_rtmaq")]
+position = Vector2(2198.2974, -460.30685)
+
+[node name="Winmill" parent="Level/Starter/Far2" instance=ExtResource("36_gdwd6")]
+position = Vector2(2122.4412, -476.77322)
+rotation = -0.27867115
+scale = Vector2(0.6919781, 0.6919781)
+
+[node name="Tree21" parent="Level/Starter/Far2" instance=ExtResource("12_rtmaq")]
+position = Vector2(5486.5234, -1202.8544)
+
+[node name="Tree25" parent="Level/Starter/Far2" instance=ExtResource("12_rtmaq")]
+position = Vector2(5525.4653, -1211.669)
+
+[node name="Tree26" parent="Level/Starter/Far2" instance=ExtResource("12_rtmaq")]
+position = Vector2(5564.773, -1222.6879)
+
+[node name="Tree27" parent="Level/Starter/Far2" instance=ExtResource("12_rtmaq")]
+position = Vector2(5958.519, -1306.933)
+
+[node name="Tree28" parent="Level/Starter/Far2" instance=ExtResource("12_rtmaq")]
+position = Vector2(5913.3433, -1315.0337)
+
+[node name="Tree29" parent="Level/Starter/Far2" instance=ExtResource("12_rtmaq")]
+position = Vector2(5869.642, -1304.7582)
 
 [node name="Background" type="Node2D" parent="Level/Starter"]
 modulate = Color(0.7647059, 0.4627451, 0.25882354, 1)
@@ -2025,6 +2081,194 @@ _enemy = ExtResource("16_aa8k8")
 visibility_layer = 524289
 position = Vector2(7955, -1730)
 
+[node name="Far" type="Node2D" parent="Level/Climb"]
+modulate = Color(0.8509804, 0.50980395, 0.3529412, 1)
+position = Vector2(-5599.991, 1304)
+
+[node name="Polygon2D" type="Polygon2D" parent="Level/Climb/Far"]
+polygon = PackedVector2Array(4039.138, -366, 3920.4138, -735, 3759.7869, -934, 4097.003, -1018, 4258.628, -1190, 4573.8955, -1265, 4947.0293, -1053, 5300.208, -975, 5556.6133, -1265, 5802.043, -1546, 5723.2256, -1799, 5869.8857, -1958, 5751.161, -2150, 5665.3604, -2499, 5786.08, -2913, 5856.915, -3219, 5711.254, -3345, 6041.4863, -3505, 6378.703, -3651, 6701.952, -3416, 7022.209, -3378, 7281.6064, -3426, 7654.7393, -3378, 7834.3223, -3444, 7957.037, -3436, 8060.796, -3345, 7942.0723, -3307, 7922.118, -3227, 8004.926, -3138, 8257.34, -3206, 8635.461, -2853, 8516.737, -2494, 8222.421, -2393, 7997.9424, -1993, 8002.9307, -1576, 7912.1416, -1210, 7514.0664, -1192, 7271.629, -843, 7342.465, -634, 7539.008, -406, 7904.16, -394, 8267.316, -292, 8090.7266, -181, 7907.1533, -27, 8090.7266, -25, 7856.2715, 137, 7591.8857, 162, 7289.588, 322, 7110.005, 481, 6875.549, 448, 6348.7725, 504, 6041.4863, 466, 5430.9053, 587, 4730.532, 294)
+
+[node name="Tree11" parent="Level/Climb/Far" instance=ExtResource("12_rtmaq")]
+position = Vector2(7559.959, -451)
+rotation = -0.025868788
+
+[node name="Tree12" parent="Level/Climb/Far" instance=ExtResource("12_rtmaq")]
+position = Vector2(7602.8594, -449)
+rotation = -0.025868788
+
+[node name="Tree13" parent="Level/Climb/Far" instance=ExtResource("12_rtmaq")]
+position = Vector2(7640.7715, -449)
+rotation = -0.025868788
+
+[node name="Tree14" parent="Level/Climb/Far" instance=ExtResource("12_rtmaq")]
+position = Vector2(7740.5396, -446)
+rotation = -0.025868788
+
+[node name="Tree15" parent="Level/Climb/Far" instance=ExtResource("12_rtmaq")]
+position = Vector2(7786.434, -441)
+rotation = -0.025868788
+
+[node name="Tree16" parent="Level/Climb/Far" instance=ExtResource("12_rtmaq")]
+position = Vector2(8241.376, -343)
+rotation = -0.025868788
+
+[node name="Tree17" parent="Level/Climb/Far" instance=ExtResource("12_rtmaq")]
+position = Vector2(8200.472, -356)
+rotation = -0.025868788
+
+[node name="Tree18" parent="Level/Climb/Far" instance=ExtResource("12_rtmaq")]
+position = Vector2(8170.541, -356)
+rotation = 0.05797296
+
+[node name="Tree20" parent="Level/Climb/Far" instance=ExtResource("12_rtmaq")]
+position = Vector2(8063.789, -68.99997)
+rotation = 0.05797296
+
+[node name="Tree21" parent="Level/Climb/Far" instance=ExtResource("12_rtmaq")]
+position = Vector2(8022.8843, -66)
+rotation = -0.0673952
+
+[node name="Tree19" parent="Level/Climb/Far" instance=ExtResource("12_rtmaq")]
+position = Vector2(8100.703, -380)
+rotation = 0.11955099
+
+[node name="Tree22" parent="Level/Climb/Far" instance=ExtResource("12_rtmaq")]
+position = Vector2(8254.345, -3251)
+rotation = 0.0031917393
+
+[node name="Tree23" parent="Level/Climb/Far" instance=ExtResource("12_rtmaq")]
+position = Vector2(8035.853, -3193)
+rotation = 0.0031917393
+
+[node name="Tree24" parent="Level/Climb/Far" instance=ExtResource("12_rtmaq")]
+position = Vector2(8006.9204, -3186)
+rotation = 0.0031917393
+
+[node name="Tree25" parent="Level/Climb/Far" instance=ExtResource("12_rtmaq")]
+position = Vector2(7978.9854, -3211.0002)
+rotation = 0.07069515
+
+[node name="Tree26" parent="Level/Climb/Far" instance=ExtResource("12_rtmaq")]
+position = Vector2(7962.025, -3474)
+rotation = 0.07069515
+
+[node name="Tree27" parent="Level/Climb/Far" instance=ExtResource("12_rtmaq")]
+position = Vector2(7925.112, -3480)
+rotation = -0.03079892
+
+[node name="Tree28" parent="Level/Climb/Far" instance=ExtResource("12_rtmaq")]
+position = Vector2(7888.1978, -3484)
+rotation = -0.03079892
+
+[node name="WindmillTower" parent="Level/Climb/Far" instance=ExtResource("37_t6wb6")]
+position = Vector2(8120.656, -3479)
+scale = Vector2(0.42629728, 0.42629728)
+
+[node name="WindmillTower2" parent="Level/Climb/Far" instance=ExtResource("37_t6wb6")]
+position = Vector2(7491.119, -3686)
+scale = Vector2(0.42629728, 0.42629728)
+
+[node name="WindmillTower3" parent="Level/Climb/Far" instance=ExtResource("37_t6wb6")]
+position = Vector2(7231.7217, -3709)
+scale = Vector2(0.42629728, 0.42629728)
+
+[node name="Tree29" parent="Level/Climb/Far" instance=ExtResource("12_rtmaq")]
+position = Vector2(6373.715, -3694)
+rotation = 0.016373426
+
+[node name="Tree43" parent="Level/Climb/Far" instance=ExtResource("12_rtmaq")]
+position = Vector2(6416.615, -3664)
+rotation = 0.016373426
+
+[node name="Tree44" parent="Level/Climb/Far" instance=ExtResource("12_rtmaq")]
+position = Vector2(6450.5366, -3630)
+rotation = 0.016373426
+
+[node name="Tree45" parent="Level/Climb/Far" instance=ExtResource("12_rtmaq")]
+position = Vector2(7339.4717, -3452)
+rotation = 0.016373426
+
+[node name="Tree46" parent="Level/Climb/Far" instance=ExtResource("12_rtmaq")]
+position = Vector2(7385.365, -3448)
+rotation = 0.016373426
+
+[node name="Tree47" parent="Level/Climb/Far" instance=ExtResource("12_rtmaq")]
+position = Vector2(7429.263, -3428)
+rotation = 0.016373426
+
+[node name="Tree48" parent="Level/Climb/Far" instance=ExtResource("12_rtmaq")]
+position = Vector2(7473.161, -3440)
+rotation = 0.016373426
+
+[node name="Tree49" parent="Level/Climb/Far" instance=ExtResource("12_rtmaq")]
+position = Vector2(7209.773, -3439.0002)
+rotation = 0.016373426
+
+[node name="Tree50" parent="Level/Climb/Far" instance=ExtResource("12_rtmaq")]
+position = Vector2(7157.8936, -3439)
+rotation = 0.016373426
+
+[node name="Tree51" parent="Level/Climb/Far" instance=ExtResource("12_rtmaq")]
+position = Vector2(7617.825, -3420)
+rotation = 0.016373426
+
+[node name="Tree30" parent="Level/Climb/Far" instance=ExtResource("12_rtmaq")]
+position = Vector2(6333.8076, -3679)
+rotation = 0.016373426
+
+[node name="Tree31" parent="Level/Climb/Far" instance=ExtResource("12_rtmaq")]
+position = Vector2(6138.2617, -3593)
+rotation = 0.016373426
+
+[node name="Tree32" parent="Level/Climb/Far" instance=ExtResource("12_rtmaq")]
+position = Vector2(6175.176, -3607)
+rotation = 0.016373426
+
+[node name="Tree33" parent="Level/Climb/Far" instance=ExtResource("12_rtmaq")]
+position = Vector2(6215.083, -3615.0002)
+rotation = 0.016373426
+
+[node name="Tree34" parent="Level/Climb/Far" instance=ExtResource("12_rtmaq")]
+position = Vector2(6270.953, -3631)
+rotation = 0.016373426
+
+[node name="Tree35" parent="Level/Climb/Far" instance=ExtResource("12_rtmaq")]
+position = Vector2(6039.4907, -3540)
+rotation = 0.016373426
+
+[node name="Tree36" parent="Level/Climb/Far" instance=ExtResource("12_rtmaq")]
+position = Vector2(6009.56, -3522)
+rotation = 0.016373426
+
+[node name="Tree37" parent="Level/Climb/Far" instance=ExtResource("12_rtmaq")]
+position = Vector2(5964.6665, -3490)
+rotation = 0.016373426
+
+[node name="Tree38" parent="Level/Climb/Far" instance=ExtResource("12_rtmaq")]
+position = Vector2(5760.14, -3403.0002)
+rotation = 0.016373426
+
+[node name="Tree39" parent="Level/Climb/Far" instance=ExtResource("12_rtmaq")]
+position = Vector2(5793.0635, -3418.0002)
+rotation = 0.016373426
+
+[node name="Tree40" parent="Level/Climb/Far" instance=ExtResource("12_rtmaq")]
+position = Vector2(5821.997, -3441.0002)
+rotation = 0.016373426
+
+[node name="Tree41" parent="Level/Climb/Far" instance=ExtResource("12_rtmaq")]
+position = Vector2(5852.9253, -3448.0002)
+rotation = 0.016373426
+
+[node name="Tree42" parent="Level/Climb/Far" instance=ExtResource("12_rtmaq")]
+position = Vector2(5881.858, -3473)
+rotation = 0.016373426
+
+[node name="Polygon2D2" type="Polygon2D" parent="Level/Climb/Far"]
+position = Vector2(2528.6467, -2076)
+offset = Vector2(-2528.6467, 2076)
+polygon = PackedVector2Array(646.0198, -1692, 520.31177, -2136, 136.2041, -2469, 368.66406, -2750, 184.09277, -2935, -70.31616, -2835, -81.29077, -3135, 177.10913, -3320, 737.80664, -3549, 1059.0603, -3582, 1354.3743, -4167, 1590.825, -3719, 1820.2922, -4511, 2137.555, -3997, 2337.0916, -4137, 2808.9954, -4082, 3303.846, -3986, 3728.8586, -5059, 4156.8643, -4045, 4470.1367, -4992, 4902.133, -4041, 5201.4375, -3556, 5142.574, -3090, 5282.25, -2602, 5105.66, -2199, 4319.4863, -1936, 4049.1145, -1669, 3942.3625, -1751, 3588.1853, -1599, 2587.51, -1962, 2215.3743, -1914, 1974.9329, -1932, 1410.2446, -1607)
+
 [node name="Background" type="Node2D" parent="Level/Climb"]
 modulate = Color(0.7647059, 0.4627451, 0.25882354, 1)
 
@@ -2606,10 +2850,6 @@ position = Vector2(630.53516, -1151.0222)
 
 [node name="Vines4" parent="Level/Climb/Decorations" instance=ExtResource("34_aok0f")]
 position = Vector2(541.7414, -1090.5214)
-
-[node name="Far" type="Node2D" parent="Level/Climb"]
-modulate = Color(0.8509804, 0.50980395, 0.3529412, 1)
-position = Vector2(-5599.991, 1304)
 
 [node name="Wall3" parent="Level/Climb" instance=ExtResource("4_344ge")]
 position = Vector2(615.39795, 343.88843)
@@ -3472,6 +3712,7 @@ scale = Vector2(942.9261, 51.000023)
 
 [node name="Switch" parent="Level/Big" node_paths=PackedStringArray("rotating_door") instance=ExtResource("41_ylsbi")]
 position = Vector2(-865.98834, -2690.0002)
+rotation = -0.9679524
 rotating_door = NodePath("../Rotating Door")
 
 [node name="Switch2" parent="Level/Big" node_paths=PackedStringArray("rotating_door") instance=ExtResource("41_ylsbi")]
@@ -5951,7 +6192,7 @@ type = 3
 
 [node name="Player Spawn" type="Node2D" parent="Level"]
 visibility_layer = 524289
-position = Vector2(-4453.6543, -1877)
+position = Vector2(11834.51, -2436)
 scale = Vector2(1.0023229, 1)
 script = ExtResource("121_xjjvj")
 size = 150
