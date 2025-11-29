@@ -8,7 +8,7 @@
 title = "nil"
 
 [node name="Flasher" parent="." index="6" node_paths=PackedStringArray("items")]
-items = [NodePath("../Frame/Outline"), NodePath("../Frame/Fill"), NodePath("../Label"), NodePath("../Face/Eye Left"), NodePath("../Face/Eye Right"), NodePath("../Face/Mouth"), NodePath("../Face/Brow"), NodePath("../Spike"), NodePath("../Spike2"), NodePath("../Spike3"), NodePath("../Halo"), NodePath("../Wing Right"), NodePath("../Wing Left")]
+items = [NodePath("../Frame/Outline"), NodePath("../Frame/Fill"), NodePath("../Face/Eye Left"), NodePath("../Face/Eye Right"), NodePath("../Face/Mouth"), NodePath("../Face/Brow"), NodePath("../Spike"), NodePath("../Spike2"), NodePath("../Spike3"), NodePath("../Halo"), NodePath("../Wing Right"), NodePath("../Wing Left")]
 
 [node name="Spike" type="Sprite2D" parent="." index="7"]
 modulate = Color(0.8646751, 0.86467516, 0.8646751, 1)
@@ -45,5 +45,5 @@ position = Vector2(-1.4671991, -1.4671783)
 scale = Vector2(14.231364, 21.051495)
 can_kill_enemies = false
 
-[node name="Label" parent="." index="13"]
+[node name="Label" parent="Label Wrap" index="0"]
 text = "nil"
