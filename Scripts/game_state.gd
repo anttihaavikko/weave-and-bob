@@ -49,8 +49,7 @@ func _ready() -> void:
 		has_taxi = false
 		has_dash = false
 		met_bobs = 0
-	# print(get_percentage())
-	load_save()
+		load_save()
 
 func mark(id: String):
 	if len(id) > 1:

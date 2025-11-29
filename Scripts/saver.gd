@@ -1,6 +1,6 @@
 class_name Saver
 
-static var filename: String
+var filename: String
 
 func _init(name := "save.dat"):
 	filename = "user://%s" % name

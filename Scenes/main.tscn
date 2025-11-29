@@ -5373,7 +5373,7 @@ type = 3
 
 [node name="Player Spawn" type="Node2D" parent="Level"]
 visibility_layer = 524289
-position = Vector2(1289.0057, 3831)
+position = Vector2(-2143.022, -1023)
 scale = Vector2(1.0023229, 1)
 script = ExtResource("121_xjjvj")
 size = 150
@@ -6654,7 +6654,6 @@ texture = ExtResource("106_b4mik")
 expand_mode = 2
 
 [node name="Blinders" type="Control" parent="UI" node_paths=PackedStringArray("left", "right")]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
