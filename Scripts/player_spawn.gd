@@ -11,7 +11,7 @@ var plr: PlayerRoot
 var started := false
 
 func _ready() -> void:
-	var home := not GameState.spawn_set and not GameState.has_gun
+	var home := not GameState.spawn_set and (not GameState.has_gun or GameState.met_bobs >= 5) and not OS.is_debug_build()
 	if GameState.spawn_set:
 		global_position = GameState.spawn_point
 		Musics.start(0.5)

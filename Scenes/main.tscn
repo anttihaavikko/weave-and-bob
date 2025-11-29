@@ -6750,7 +6750,7 @@ label_settings = ExtResource("85_ihvwq")
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("86_ihvwq")
-appear_after = 0.5
+appear_after = -1.0
 
 [node name="Thanks Label" type="Label" parent="UI"]
 material = SubResource("ShaderMaterial_ihvwq")
@@ -6772,7 +6772,7 @@ label_settings = ExtResource("85_ihvwq")
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("86_ihvwq")
-appear_after = 0.5
+appear_after = -1.0
 
 [node name="Artist Button" type="LinkButton" parent="UI"]
 offset_left = 1493.0
