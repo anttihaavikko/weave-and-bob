@@ -9,8 +9,8 @@ var max_life := 1
 var accuracy := 0
 var has_tracking := true
 var has_double_jump := true
-var has_taxi := true
-var has_dash := false
+var has_taxi := false
+var has_dash := true
 var met_bobs := 5
 
 var spawn_set := false

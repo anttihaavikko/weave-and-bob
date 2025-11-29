@@ -64,10 +64,13 @@ func speak():
 
 func get_text() -> String:
 	if done:
+		var percentage := GameState.get_percentage()
 		if final:
 			return [
-				"Ending bits",
-				"You're %s done with everything!" % GameState.get_percentage()
+				"Wow, you're done with everything!" if percentage == "100%" else "You've still got things to find!",
+				"You're %s done with everything!" % percentage,
+				"Oh sweet, you managed to beat\nMomma Worm! That's a nice feat!" if GameState.has_taxi else "Have you considered challenging\nMomma Worm to a duel?",
+				"Wowsies, you've bested Spider Pop?\nGo brag to Ling about it!" if GameState.has_dash else "There is still Spider Pop\nnapping in the underground.\nLing will make fun of you\nif you can't best him."
 			].pick_random()
 		return [
 			"This is a really nice spot\nfor gathering mushrooms!",

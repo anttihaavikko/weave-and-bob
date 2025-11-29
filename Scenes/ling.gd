@@ -10,7 +10,8 @@ var face_pos: Vector2
 var intro := "What are you doing here Weave!?\nThis is my place...\nGo bother dad or something!"
 var messages := [
 	"Have you been to the east side yet?\nThat's Mother\'s domain.\nThe entrance is locked though and\nyou'll need to find another route.",
-	"Where's Bob?\nHe never wants to play with me!"
+	"Where's Bob?\nHe never wants to play with me!",
+	"Psh, I bet Dad was still\ngroggy after his nap time." if GameState.has_dash else "You'll never beat my dad!"
 ]
 
 func _ready():
