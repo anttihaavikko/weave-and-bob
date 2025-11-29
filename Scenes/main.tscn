@@ -609,6 +609,30 @@ position = Vector2(-2686.5044, -496)
 [node name="Polygon2D2" type="Polygon2D" parent="Level/Starter/Background"]
 polygon = PackedVector2Array(-37.823975, 1369, 142.33789, 1114, 985.4166, 985, 1204.3982, 900, 1442.2916, 959, 1540.8334, 921, 1606.5277, 1133, 1957.8936, 1281, 2249.537, 1221, 2540.185, 1245, 2693.4722, 1213, 3067.7314, 1211, 3094.6064, 1107, 3194.1436, 1107, 3337.4768, 1154, 3532.5693, 1069, 3687.8472, 1054, 3748.5647, 923, 3879.9536, 812, 3806.2961, 716, 3730.648, 585, 3869.0044, 524, 4087.9858, 524, 3980.4858, 613, 3993.4258, 835, 4173.588, 959, 4743.935, 1012, 5035.5786, 879, 5036.574, 748, 5174.9307, 664, 5335.185, 748, 5378.9814, 934, 3715.7175, 1673)
 
+[node name="Polygon2D3" type="Polygon2D" parent="Level/Starter/Background"]
+polygon = PackedVector2Array(-3331.5046, -3945, -2939.3284, -3811, -2528.2405, -3890, -1970.8333, -3841, -1797.6389, -3572, -1362.6619, -3844, -957.54614, -3811, -848.0554, -3704, -574.3286, -3499, -266.75928, -3566, 19.90747, -3597, 241.875, -3814, 436.96753, -4205, 287.6621, -4548, 485.74072, -4707, 969.4907, -4566, 1271.088, -4829, 576.3196, -4945, -59.722168, -4933, -3544.514, -4318)
+
+[node name="Tree16" parent="Level/Starter/Background" instance=ExtResource("9_wsu2k")]
+position = Vector2(263.77325, -4927)
+
+[node name="Tree21" parent="Level/Starter/Background" instance=ExtResource("9_wsu2k")]
+position = Vector2(263.77325, -4927)
+
+[node name="Tree17" parent="Level/Starter/Background" instance=ExtResource("9_wsu2k")]
+position = Vector2(367.29178, -4913)
+
+[node name="Tree18" parent="Level/Starter/Background" instance=ExtResource("9_wsu2k")]
+position = Vector2(487.7316, -4929)
+
+[node name="Tree19" parent="Level/Starter/Background" instance=ExtResource("9_wsu2k")]
+position = Vector2(1154.6298, -4836)
+
+[node name="Tree20" parent="Level/Starter/Background" instance=ExtResource("9_wsu2k")]
+position = Vector2(1043.1482, -4862)
+
+[node name="Winmill" parent="Level/Starter/Background" instance=ExtResource("36_gdwd6")]
+position = Vector2(771.41205, -5150.0005)
+
 [node name="Background2" type="Node2D" parent="Level/Starter"]
 modulate = Color(0.7647059, 0.4627451, 0.25882354, 1)
 position = Vector2(-82.62499, -1315)
@@ -2460,6 +2484,45 @@ position = Vector2(1392.2867, -4593)
 [node name="Tree27" parent="Level/Climb/Background" instance=ExtResource("9_wsu2k")]
 position = Vector2(1270.5695, -4565)
 
+[node name="Capsule" type="Sprite2D" parent="Level/Climb/Background"]
+position = Vector2(1990.896, -1319)
+rotation = 1.5547556
+scale = Vector2(1.8846097, 1.8846097)
+texture = ExtResource("45_7t1gx")
+
+[node name="Capsule3" type="Sprite2D" parent="Level/Climb/Background"]
+position = Vector2(4192.7813, -1093)
+rotation = 1.5547556
+scale = Vector2(1.8846097, 1.8846097)
+texture = ExtResource("45_7t1gx")
+
+[node name="Capsule4" type="Sprite2D" parent="Level/Climb/Background"]
+position = Vector2(3770.7615, -420)
+rotation = 1.5547556
+scale = Vector2(1.1502525, 1.1502525)
+texture = ExtResource("45_7t1gx")
+
+[node name="Capsule2" type="Sprite2D" parent="Level/Climb/Background"]
+position = Vector2(2066.72, -595)
+rotation = 1.6208484
+scale = Vector2(1.620998, 1.620998)
+texture = ExtResource("45_7t1gx")
+
+[node name="Tree28" parent="Level/Climb/Background" instance=ExtResource("9_wsu2k")]
+position = Vector2(3661.0166, -532)
+
+[node name="Tree31" parent="Level/Climb/Background" instance=ExtResource("9_wsu2k")]
+position = Vector2(2383.983, -752)
+
+[node name="Tree32" parent="Level/Climb/Background" instance=ExtResource("9_wsu2k")]
+position = Vector2(2249.2957, -749)
+
+[node name="Tree29" parent="Level/Climb/Background" instance=ExtResource("9_wsu2k")]
+position = Vector2(3770.7617, -519)
+
+[node name="Tree30" parent="Level/Climb/Background" instance=ExtResource("9_wsu2k")]
+position = Vector2(3892.479, -528)
+
 [node name="Decorations" type="Node2D" parent="Level/Climb"]
 modulate = Color(0.5686275, 0.32941177, 0.16470589, 1)
 position = Vector2(-1150.8057, 688)
@@ -3346,6 +3409,14 @@ texture = ExtResource("37_ot5ec")
 position = Vector2(-3680.4507, -1648)
 texture = ExtResource("37_ot5ec")
 
+[node name="Fence3" type="Sprite2D" parent="Level/Big/Decos"]
+position = Vector2(-5285.7217, 49)
+texture = ExtResource("37_ot5ec")
+
+[node name="Fence4" type="Sprite2D" parent="Level/Big/Decos"]
+position = Vector2(-4908.5977, 49)
+texture = ExtResource("37_ot5ec")
+
 [node name="Wall6" parent="Level/Big" instance=ExtResource("4_344ge")]
 position = Vector2(294.31567, 1568)
 scale = Vector2(4431.071, 1861.4581)
@@ -3919,6 +3990,42 @@ position = Vector2(1607.2665, 2317)
 scale = Vector2(0.76080894, 0.76080894)
 texture = ExtResource("20_t014q")
 
+[node name="Cactus5" type="Sprite2D" parent="Level/Edge/Bg"]
+position = Vector2(219.49007, 1305)
+scale = Vector2(0.76080894, 0.76080894)
+texture = ExtResource("20_t014q")
+
+[node name="Cactus7" type="Sprite2D" parent="Level/Edge/Bg"]
+position = Vector2(-23.944473, 333.99988)
+scale = Vector2(0.76080894, 0.76080894)
+texture = ExtResource("20_t014q")
+
+[node name="Cactus8" type="Sprite2D" parent="Level/Edge/Bg"]
+position = Vector2(-135.6849, 322.00003)
+rotation = -0.12860169
+scale = Vector2(0.94075245, 0.94075245)
+texture = ExtResource("20_t014q")
+flip_h = true
+
+[node name="Cactus9" type="Sprite2D" parent="Level/Edge/Bg"]
+position = Vector2(-358.1681, 278.00003)
+rotation = 0.25535214
+scale = Vector2(0.76080894, 0.76080894)
+texture = ExtResource("20_t014q")
+
+[node name="Cactus10" type="Sprite2D" parent="Level/Edge/Bg"]
+position = Vector2(-452.94794, -144)
+rotation = 0.15658653
+scale = Vector2(1.1667849, 1.1667849)
+texture = ExtResource("20_t014q")
+
+[node name="Cactus6" type="Sprite2D" parent="Level/Edge/Bg"]
+position = Vector2(401.06827, 1239)
+rotation = 0.16248302
+scale = Vector2(0.76080894, 0.76080894)
+texture = ExtResource("20_t014q")
+flip_h = true
+
 [node name="Grave1" type="Sprite2D" parent="Level/Edge/Bg"]
 position = Vector2(2212.8599, 2171)
 rotation = 0.19335042
@@ -3928,6 +4035,60 @@ texture = ExtResource("46_ilwxp")
 position = Vector2(2041.2583, 2210.0002)
 rotation = -0.39147624
 texture = ExtResource("47_xjjvj")
+
+[node name="Polygon2D" type="Polygon2D" parent="Level/Edge/Bg"]
+position = Vector2(1286.0127, 1900)
+offset = Vector2(-1286.0127, -1900)
+polygon = PackedVector2Array(632.53076, 1154, 492.85498, 1275, 339.2119, 1265, 342.20508, 1149, 409.0498, 1147, 401.06836, 1077, 126.70557, 1080, 126.70557, 975, -39.907227, 1118, 113.73584, 1253, 122.71484, 1144, 273.36523, 1146, 271.36963, 1319, 153.64307, 1378, 4.9882813, 1376, -96.77539, 1304, -142.66846, 1201, -349.18896, 1056, -465.91748, 1102, -344.2002, 1108, -233.45752, 1217, -348.19092, 1303, -407.0542, 1417, -337.2168, 1545, -459.93164, 1572, -335.2212, 1641, -365.15186, 1716, -331.23047, 1813, -326.2422, 1937, -375.12842, 2094, -244.43213, 2221, -227.47168, 2375, -115.73096, 2155, 142.66846, 2215, 338.21436, 2116, 569.67676, 2156, 747.26416, 2106, 927.8447, 2170, 1060.5366, 2029, 1386.7786, 1920, 1609.2617, 1833, 1708.0325, 1905, 1736.9651, 1817, 1934.5063, 1679)
+
+[node name="Tree" parent="Level/Edge/Bg" instance=ExtResource("9_wsu2k")]
+position = Vector2(-177.5874, 1197)
+
+[node name="Tree3" parent="Level/Edge/Bg" instance=ExtResource("9_wsu2k")]
+position = Vector2(539.7463, 1247)
+
+[node name="Tree2" parent="Level/Edge/Bg" instance=ExtResource("9_wsu2k")]
+position = Vector2(-268.3765, 1140)
+
+[node name="Polygon2D2" type="Polygon2D" parent="Level/Edge/Bg"]
+position = Vector2(215.49951, 506)
+offset = Vector2(-215.49951, -506)
+polygon = PackedVector2Array(314.27002, 464, 81.81006, 392, -331.23047, 343, -487.8667, 224, -466.91553, 59, -370.14014, -52, -587.63477, -88, -777.1948, 607)
+
+[node name="ColorRect" type="ColorRect" parent="Level/Edge/Bg"]
+offset_left = -300.30243
+offset_top = 2137.9998
+offset_right = -247.42548
+offset_bottom = 2975.2952
+rotation = 0.080909446
+
+[node name="ColorRect2" type="ColorRect" parent="Level/Edge/Bg"]
+offset_left = 858.0068
+offset_top = 2104.0
+offset_right = 910.8837
+offset_bottom = 2941.2954
+rotation = -0.12945236
+
+[node name="ColorRect3" type="ColorRect" parent="Level/Edge/Bg"]
+offset_left = 672.4378
+offset_top = 2096.0
+offset_right = 725.31476
+offset_bottom = 2933.2954
+rotation = -0.07007544
+
+[node name="ColorRect4" type="ColorRect" parent="Level/Edge/Bg"]
+offset_left = 295.31387
+offset_top = 2096.9998
+offset_right = 348.19083
+offset_bottom = 2934.2952
+rotation = -0.017261699
+
+[node name="ColorRect5" type="ColorRect" parent="Level/Edge/Bg"]
+offset_left = 324.24667
+offset_top = 2394.0002
+offset_right = 377.12363
+offset_bottom = 3022.0808
+rotation = 1.4948772
 
 [node name="Deco" type="Node2D" parent="Level/Edge"]
 modulate = Color(0.5686275, 0.32941177, 0.16470589, 1)
@@ -3977,6 +4138,18 @@ position = Vector2(379.11914, -59)
 [node name="Vines11" parent="Level/Edge/Deco" instance=ExtResource("34_aok0f")]
 position = Vector2(253.41113, -3517)
 
+[node name="Vines15" parent="Level/Edge/Deco" instance=ExtResource("34_aok0f")]
+position = Vector2(-500.8368, -4799)
+
+[node name="Vines16" parent="Level/Edge/Deco" instance=ExtResource("34_aok0f")]
+position = Vector2(-388.0987, -4856.0005)
+
+[node name="Vines17" parent="Level/Edge/Deco" instance=ExtResource("34_aok0f")]
+position = Vector2(-266.38144, -4870)
+
+[node name="Vines18" parent="Level/Edge/Deco" instance=ExtResource("34_aok0f")]
+position = Vector2(-156.63637, -4822.0005)
+
 [node name="Vines12" parent="Level/Edge/Deco" instance=ExtResource("34_aok0f")]
 position = Vector2(138.67764, -3550)
 
@@ -3985,6 +4158,18 @@ position = Vector2(25.93953, -3477)
 
 [node name="Vines14" parent="Level/Edge/Deco" instance=ExtResource("34_aok0f")]
 position = Vector2(-80.81249, -3502)
+
+[node name="Fence" type="Sprite2D" parent="Level/Edge/Deco"]
+position = Vector2(-663.0139, -3958.5)
+texture = ExtResource("37_ot5ec")
+
+[node name="Fence2" type="Sprite2D" parent="Level/Edge/Deco"]
+position = Vector2(-283.89456, -3958.5)
+texture = ExtResource("37_ot5ec")
+
+[node name="Fence3" type="Sprite2D" parent="Level/Edge/Deco"]
+position = Vector2(91.23404, -3958.5)
+texture = ExtResource("37_ot5ec")
 
 [node name="Wall9" parent="Level/Edge" instance=ExtResource("4_344ge")]
 position = Vector2(-288.71863, 647.0343)
@@ -3999,8 +4184,12 @@ position = Vector2(622.1132, -5322.3267)
 scale = Vector2(4371.0513, 1183.2325)
 
 [node name="Wall11" parent="Level/Edge" instance=ExtResource("4_344ge")]
-position = Vector2(451.50958, 1868)
-scale = Vector2(1434.3503, 412.57956)
+position = Vector2(451.50958, 1794.303)
+scale = Vector2(1434.3503, 559.9736)
+
+[node name="Wall17" parent="Level/Edge" instance=ExtResource("4_344ge")]
+position = Vector2(-161.12312, 1736.866)
+scale = Vector2(209.085, 674.8479)
 
 [node name="Wall12" parent="Level/Edge" instance=ExtResource("4_344ge")]
 position = Vector2(1411.116, 3252.9158)
@@ -4038,6 +4227,22 @@ expand_mode = 1
 stretch_mode = 1
 
 [node name="Killbox" parent="Level/Edge/Spikes" instance=ExtResource("50_dmskm")]
+position = Vector2(1245.5419, 32.50004)
+scale = Vector2(2471.3618, 51.000023)
+can_kill_enemies = false
+
+[node name="Spikes2" type="TextureRect" parent="Level/Edge"]
+z_index = 500
+offset_left = -105.75442
+offset_top = 1477.0
+offset_right = 790.374
+offset_bottom = 1538.0
+scale = Vector2(0.78266805, 0.78266805)
+texture = ExtResource("65_ynmfv")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Killbox" parent="Level/Edge/Spikes2" instance=ExtResource("50_dmskm")]
 position = Vector2(1245.5419, 32.50004)
 scale = Vector2(2471.3618, 51.000023)
 can_kill_enemies = false
@@ -4211,6 +4416,62 @@ speed = -50.0
 [node name="Gear10" type="Sprite2D" parent="Level/Lower/Background"]
 position = Vector2(184.57129, 1074)
 scale = Vector2(0.8944446, 0.8944446)
+texture = ExtResource("53_ja2pg")
+script = ExtResource("36_b4xsn")
+speed = -50.0
+
+[node name="Gear12" type="Sprite2D" parent="Level/Lower/Background"]
+position = Vector2(349.1889, 525)
+scale = Vector2(0.8944446, 0.8944446)
+texture = ExtResource("53_ja2pg")
+script = ExtResource("36_b4xsn")
+speed = -50.0
+
+[node name="Gear13" type="Sprite2D" parent="Level/Lower/Background"]
+position = Vector2(629.53766, 525)
+scale = Vector2(0.63144296, 0.63144296)
+texture = ExtResource("53_ja2pg")
+script = ExtResource("36_b4xsn")
+speed = 50.0
+
+[node name="Gear14" type="Sprite2D" parent="Level/Lower/Background"]
+position = Vector2(846.0347, 525)
+scale = Vector2(0.63144296, 0.63144296)
+texture = ExtResource("53_ja2pg")
+script = ExtResource("36_b4xsn")
+speed = -50.0
+
+[node name="Gear15" type="Sprite2D" parent="Level/Lower/Background"]
+position = Vector2(1114.4114, 529)
+scale = Vector2(1.0373926, 1.0373926)
+texture = ExtResource("53_ja2pg")
+script = ExtResource("36_b4xsn")
+speed = 50.0
+
+[node name="Gear16" type="Sprite2D" parent="Level/Lower/Background"]
+position = Vector2(-1672.2938, 520.2915)
+scale = Vector2(0.8944446, 0.8944446)
+texture = ExtResource("53_ja2pg")
+script = ExtResource("36_b4xsn")
+speed = 50.0
+
+[node name="Gear17" type="Sprite2D" parent="Level/Lower/Background"]
+position = Vector2(-1391.945, 520.2915)
+scale = Vector2(0.63144296, 0.63144296)
+texture = ExtResource("53_ja2pg")
+script = ExtResource("36_b4xsn")
+speed = -50.0
+
+[node name="Gear18" type="Sprite2D" parent="Level/Lower/Background"]
+position = Vector2(-1175.4479, 520.2915)
+scale = Vector2(0.63144296, 0.63144296)
+texture = ExtResource("53_ja2pg")
+script = ExtResource("36_b4xsn")
+speed = 50.0
+
+[node name="Gear19" type="Sprite2D" parent="Level/Lower/Background"]
+position = Vector2(-907.071, 524.2915)
+scale = Vector2(1.0373926, 1.0373926)
 texture = ExtResource("53_ja2pg")
 script = ExtResource("36_b4xsn")
 speed = -50.0
@@ -4493,6 +4754,75 @@ polygon = PackedVector2Array(-216.49707, -79, 35.916565, -1, 261.39282, -13, 558
 [node name="Tree28" parent="Level/Lower/Background" instance=ExtResource("9_wsu2k")]
 position = Vector2(3185.6, -1895)
 
+[node name="ColorRect" type="ColorRect" parent="Level/Lower/Background"]
+offset_left = 132.69177
+offset_top = 477.0
+offset_right = 1504.5052
+offset_bottom = 576.0
+
+[node name="ColorRect2" type="ColorRect" parent="Level/Lower/Background"]
+offset_left = -1992.372
+offset_top = 477.0
+offset_right = -620.5585
+offset_bottom = 576.0
+
+[node name="ColorRect3" type="ColorRect" parent="Level/Lower/Background"]
+offset_left = -698.37775
+offset_top = 538.0
+offset_right = -632.5306
+offset_bottom = 1007.0
+rotation = -0.47897026
+
+[node name="ColorRect4" type="ColorRect" parent="Level/Lower/Background"]
+offset_left = 145.66154
+offset_top = 522.0
+offset_right = 211.50871
+offset_bottom = 991.0
+rotation = 0.41446015
+
+[node name="ColorRect5" type="ColorRect" parent="Level/Lower/Background"]
+offset_left = 53.874783
+offset_top = 1308.0
+offset_right = 119.721954
+offset_bottom = 1958.5417
+rotation = -0.44374874
+
+[node name="ColorRect6" type="ColorRect" parent="Level/Lower/Background"]
+offset_left = -540.74396
+offset_top = 1242.0
+offset_right = -474.8968
+offset_bottom = 1892.5417
+rotation = 0.43481275
+
+[node name="Polygon2D6" type="Polygon2D" parent="Level/Lower/Background"]
+position = Vector2(1037.5898, 2456)
+offset = Vector2(-1037.5898, -2456)
+polygon = PackedVector2Array(-1874.645, 2304, -1498.519, 2149, -1281.0239, 1872, -1248.1006, 1640, -1382.7876, 1496, -1091.4644, 1447, -873.9697, 1541, -512.8086, 1665, -362.1587, 1596, -205.52246, 1678, -70.83545, 1617, 144.66406, 1684, 380.1172, 1538, 795.1531, 1522, 900.9075, 1607, 743.2737, 1640, 804.1323, 1701, 730.3037, 1722, 766.2202, 1778, 669.44507, 1824, 740.2805, 2039, 908.8889, 2053, 1060.5366, 2183, 1164.2957, 2202, 1231.1404, 2354, 1403.7395, 2395, 1747.94, 2323, 1797.824, 2156, 1956.4556, 2067, 2110.0986, 2069, 2154.9941, 2169, 2074.182, 2225, 2081.1658, 2343, 2333.5796, 2323, 2385.459, 2076, 2534.1138, 2076, 2591.979, 1913, 2902.2583, 1880, 3044.927, 1753, 3100.7974, 2793, -2053.2305, 2742)
+
+[node name="Tree29" parent="Level/Lower/Background" instance=ExtResource("9_wsu2k")]
+position = Vector2(1660.1438, 2339)
+
+[node name="Tree30" parent="Level/Lower/Background" instance=ExtResource("9_wsu2k")]
+position = Vector2(1520.4683, 2377)
+
+[node name="Tree31" parent="Level/Lower/Background" instance=ExtResource("9_wsu2k")]
+position = Vector2(1279.029, 2374)
+
+[node name="Tree32" parent="Level/Lower/Background" instance=ExtResource("9_wsu2k")]
+position = Vector2(2448.3127, 2082)
+
+[node name="Tree33" parent="Level/Lower/Background" instance=ExtResource("9_wsu2k")]
+position = Vector2(2646.8516, 1918)
+
+[node name="Tree34" parent="Level/Lower/Background" instance=ExtResource("9_wsu2k")]
+position = Vector2(-1737.9626, 2257)
+
+[node name="Tree35" parent="Level/Lower/Background" instance=ExtResource("9_wsu2k")]
+position = Vector2(-1656.1527, 2220)
+
+[node name="Tree36" parent="Level/Lower/Background" instance=ExtResource("9_wsu2k")]
+position = Vector2(-1328.9128, 1498)
+
 [node name="Decorations" type="Node2D" parent="Level/Lower"]
 modulate = Color(0.5686275, 0.32941177, 0.16470589, 1)
 position = Vector2(-5862.382, 1628)
@@ -4661,6 +4991,78 @@ position = Vector2(504.82724, -65)
 [node name="Polygon2D" type="Polygon2D" parent="Level/Lower/Decorations"]
 position = Vector2(3192.5835, -2007)
 rotation = 1.0803162
+offset = Vector2(-6.9833984, 0)
+polygon = PackedVector2Array(-15.962891, -72, 74.82617, -54, 88.793945, 30, 28.932617, 65, -58.86328, 64, -80.8125, 0)
+
+[node name="Polygon2D6" type="Polygon2D" parent="Level/Lower/Decorations"]
+position = Vector2(208.51581, -3251)
+rotation = 1.0803162
+offset = Vector2(-6.9833984, 0)
+polygon = PackedVector2Array(-15.962891, -72, 74.82617, -54, 88.793945, 30, 28.932617, 65, -58.86328, 64, -80.8125, 0)
+
+[node name="Polygon2D7" type="Polygon2D" parent="Level/Lower/Decorations"]
+position = Vector2(-418.02875, -3226.9998)
+rotation = -0.38650358
+offset = Vector2(-6.9833984, 0)
+polygon = PackedVector2Array(-15.962891, -72, 74.82617, -54, 88.793945, 30, 28.932617, 65, -58.86328, 64, -80.8125, 0)
+
+[node name="Polygon2D12" type="Polygon2D" parent="Level/Lower/Decorations"]
+position = Vector2(-490.85956, -3338)
+rotation = -0.38650358
+offset = Vector2(-6.9833984, 0)
+polygon = PackedVector2Array(-15.962891, -72, 74.82617, -54, 88.793945, 30, 28.932617, 65, -58.86328, 64, -80.8125, 0)
+
+[node name="Polygon2D8" type="Polygon2D" parent="Level/Lower/Decorations"]
+position = Vector2(-44.895523, -4168)
+rotation = -0.38650358
+offset = Vector2(-6.9833984, 0)
+polygon = PackedVector2Array(-15.962891, -72, 74.82617, -54, 88.793945, 30, 28.932617, 65, -58.86328, 64, -80.8125, 0)
+
+[node name="Polygon2D14" type="Polygon2D" parent="Level/Lower/Decorations"]
+position = Vector2(1125.386, -5622)
+rotation = -0.38650358
+offset = Vector2(-6.9833984, 0)
+polygon = PackedVector2Array(-15.962891, -72, 74.82617, -54, 88.793945, 30, 28.932617, 65, -58.86328, 64, -80.8125, 0)
+
+[node name="Polygon2D15" type="Polygon2D" parent="Level/Lower/Decorations"]
+position = Vector2(996.68494, -5590)
+rotation = -0.38650358
+offset = Vector2(-6.9833984, 0)
+polygon = PackedVector2Array(-15.962891, -72, 74.82617, -54, 88.793945, 30, 28.932617, 65, -58.86328, 64, -80.8125, 0)
+
+[node name="Polygon2D16" type="Polygon2D" parent="Level/Lower/Decorations"]
+position = Vector2(-70.835304, -5605)
+rotation = 0.95495033
+offset = Vector2(-6.9833984, 0)
+polygon = PackedVector2Array(-15.962891, -72, 74.82617, -54, 88.793945, 30, 28.932617, 65, -58.86328, 64, -80.8125, 0)
+
+[node name="Polygon2D17" type="Polygon2D" parent="Level/Lower/Decorations"]
+position = Vector2(128.70123, -5585)
+rotation = -1.5238125
+offset = Vector2(-6.9833984, 0)
+polygon = PackedVector2Array(-15.962891, -72, 74.82617, -54, 88.793945, 30, 28.932617, 65, -58.86328, 64, -80.8125, 0)
+
+[node name="Polygon2D13" type="Polygon2D" parent="Level/Lower/Decorations"]
+position = Vector2(-663.4586, -4258)
+rotation = -0.38650358
+offset = Vector2(-6.9833984, 0)
+polygon = PackedVector2Array(-15.962891, -72, 74.82617, -54, 88.793945, 30, 28.932617, 65, -58.86328, 64, -80.8125, 0)
+
+[node name="Polygon2D9" type="Polygon2D" parent="Level/Lower/Decorations"]
+position = Vector2(252.41386, -4120)
+rotation = -0.38650358
+offset = Vector2(-6.9833984, 0)
+polygon = PackedVector2Array(-15.962891, -72, 74.82617, -54, 88.793945, 30, 28.932617, 65, -58.86328, 64, -80.8125, 0)
+
+[node name="Polygon2D10" type="Polygon2D" parent="Level/Lower/Decorations"]
+position = Vector2(259.39764, -3954)
+rotation = -1.5304313
+offset = Vector2(-6.9833984, 0)
+polygon = PackedVector2Array(-15.962891, -72, 74.82617, -54, 88.793945, 30, 28.932617, 65, -58.86328, 64, -80.8125, 0)
+
+[node name="Polygon2D11" type="Polygon2D" parent="Level/Lower/Decorations"]
+position = Vector2(273.36472, -3799.0002)
+rotation = -2.5157585
 offset = Vector2(-6.9833984, 0)
 polygon = PackedVector2Array(-15.962891, -72, 74.82617, -54, 88.793945, 30, 28.932617, 65, -58.86328, 64, -80.8125, 0)
 
@@ -4833,6 +5235,93 @@ letter = "N"
 position = Vector2(6777.2573, 2013)
 scale = Vector2(1.1846226, 1.1846226)
 letter = "G"
+
+[node name="Grass" parent="Level/Lower/Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(-585.6397, -3332)
+
+[node name="Grass2" parent="Level/Lower/Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(-623.55164, -3331)
+
+[node name="Grass3" parent="Level/Lower/Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(-70.83557, -4289)
+
+[node name="Grass4" parent="Level/Lower/Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(-126.70579, -4289)
+
+[node name="Grass5" parent="Level/Lower/Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(-209.51343, -4288)
+
+[node name="Grass6" parent="Level/Lower/Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(-349.18896, -4275)
+
+[node name="Grass7" parent="Level/Lower/Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(-562.693, -4283)
+
+[node name="Grass8" parent="Level/Lower/Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(-466.91547, -4280)
+
+[node name="Grass9" parent="Level/Lower/Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(-511.8112, -4282)
+
+[node name="Grass10" parent="Level/Lower/Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(-924.8517, -4287)
+
+[node name="Grass11" parent="Level/Lower/Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(-853.01855, -4283)
+
+[node name="Grass12" parent="Level/Lower/Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(-779.19006, -4284)
+
+[node name="Grass13" parent="Level/Lower/Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(-249.4209, -5607)
+
+[node name="Grass14" parent="Level/Lower/Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(-222.48299, -5607)
+
+[node name="Grass15" parent="Level/Lower/Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(-174.59424, -5606)
+
+[node name="Grass16" parent="Level/Lower/Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(6.983963, -5610)
+
+[node name="Grass17" parent="Level/Lower/Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(922.85645, -5619)
+
+[node name="Grass18" parent="Level/Lower/Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(873.9698, -5613)
+
+[node name="Grass19" parent="Level/Lower/Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(808.12274, -5609)
+
+[node name="Grass20" parent="Level/Lower/Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(1223.1587, -5616)
+
+[node name="Polygon2D18" type="Polygon2D" parent="Level/Lower/Decorations"]
+position = Vector2(1228.8575, -4274.4727)
+rotation = -0.38650358
+offset = Vector2(-6.9833984, 0)
+polygon = PackedVector2Array(-15.962891, -72, 74.82617, -54, 88.793945, 30, 28.932617, 65, -58.86328, 64, -80.8125, 0)
+
+[node name="Polygon2D19" type="Polygon2D" parent="Level/Lower/Decorations"]
+position = Vector2(1100.1565, -4242.4727)
+rotation = -0.38650358
+offset = Vector2(-6.9833984, 0)
+polygon = PackedVector2Array(-15.962891, -72, 74.82617, -54, 88.793945, 30, 28.932617, 65, -58.86328, 64, -80.8125, 0)
+
+[node name="Grass24" parent="Level/Lower/Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(1026.328, -4271.4727)
+
+[node name="Grass25" parent="Level/Lower/Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(1326.6302, -4268.4727)
+
+[node name="Grass21" parent="Level/Lower/Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(655.47736, -5612)
+
+[node name="Grass22" parent="Level/Lower/Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(618.5631, -5612)
+
+[node name="Grass23" parent="Level/Lower/Decorations" instance=ExtResource("12_wsu2k")]
+position = Vector2(581.64886, -5611)
 
 [node name="Wall9" parent="Level/Lower" instance=ExtResource("4_344ge")]
 position = Vector2(-962.7634, 693.0001)
@@ -5462,7 +5951,7 @@ type = 3
 
 [node name="Player Spawn" type="Node2D" parent="Level"]
 visibility_layer = 524289
-position = Vector2(-1820.7704, -1222)
+position = Vector2(-4453.6543, -1877)
 scale = Vector2(1.0023229, 1)
 script = ExtResource("121_xjjvj")
 size = 150
@@ -5507,6 +5996,31 @@ position = Vector2(3713.703, 1505.4083)
 scale = Vector2(2.5642173, 2.5642173)
 texture = ExtResource("25_1semv")
 
+[node name="Brick22" type="Sprite2D" parent="Level/Bricks"]
+position = Vector2(-569.6767, 2881)
+scale = Vector2(2.5642173, 2.5642173)
+texture = ExtResource("25_1semv")
+
+[node name="Brick23" type="Sprite2D" parent="Level/Bricks"]
+position = Vector2(358.16797, 2881.0002)
+scale = Vector2(2.5642173, 2.5642173)
+texture = ExtResource("25_1semv")
+
+[node name="Brick24" type="Sprite2D" parent="Level/Bricks"]
+position = Vector2(-3339.2434, 5281.0005)
+scale = Vector2(2.5642173, 2.5642173)
+texture = ExtResource("25_1semv")
+
+[node name="Brick25" type="Sprite2D" parent="Level/Bricks"]
+position = Vector2(-4216.206, 3722)
+scale = Vector2(2.5642173, 2.5642173)
+texture = ExtResource("25_1semv")
+
+[node name="Brick26" type="Sprite2D" parent="Level/Bricks"]
+position = Vector2(-4735.001, 3724)
+scale = Vector2(2.5642173, 2.5642173)
+texture = ExtResource("25_1semv")
+
 [node name="Brick2" type="Sprite2D" parent="Level/Bricks"]
 position = Vector2(-1373.8088, -470.00003)
 scale = Vector2(2.5642173, 2.5642173)
@@ -5543,6 +6057,52 @@ position = Vector2(6370.2026, -810)
 scale = Vector2(2.5642173, 2.5642173)
 texture = ExtResource("25_1semv")
 flip_h = true
+
+[node name="Brick14" type="Sprite2D" parent="Level/Bricks"]
+position = Vector2(8328.653, 702)
+scale = Vector2(2.5642173, 2.5642173)
+texture = ExtResource("25_1semv")
+flip_h = true
+
+[node name="Brick15" type="Sprite2D" parent="Level/Bricks"]
+position = Vector2(8465.337, 702)
+scale = Vector2(2.5642173, 2.5642173)
+texture = ExtResource("25_1semv")
+flip_h = true
+
+[node name="Brick16" type="Sprite2D" parent="Level/Bricks"]
+position = Vector2(9767.3125, 702)
+scale = Vector2(2.5642173, 2.5642173)
+texture = ExtResource("25_1semv")
+
+[node name="Brick17" type="Sprite2D" parent="Level/Bricks"]
+position = Vector2(11136.132, 1220)
+scale = Vector2(2.5642173, 2.5642173)
+texture = ExtResource("25_1semv")
+
+[node name="Brick18" type="Sprite2D" parent="Level/Bricks"]
+position = Vector2(9466.013, 2875)
+scale = Vector2(2.5642173, 2.5642173)
+texture = ExtResource("25_1semv")
+
+[node name="Brick19" type="Sprite2D" parent="Level/Bricks"]
+position = Vector2(9338.309, 3851)
+rotation = -1.5707964
+scale = Vector2(2.5642173, 2.5642173)
+texture = ExtResource("25_1semv")
+
+[node name="Brick20" type="Sprite2D" parent="Level/Bricks"]
+position = Vector2(10761.003, 1576.0001)
+rotation = -1.5707964
+scale = Vector2(2.5642173, 2.5642173)
+texture = ExtResource("25_1semv")
+
+[node name="Brick21" type="Sprite2D" parent="Level/Bricks"]
+position = Vector2(10248.195, 1789)
+rotation = -1.5707964
+scale = Vector2(2.5642173, 2.5642173)
+texture = ExtResource("25_1semv")
+flip_v = true
 
 [node name="Brick10" type="Sprite2D" parent="Level/Bricks"]
 position = Vector2(5842.428, 304)
@@ -7614,6 +8174,23 @@ shape = SubResource("RectangleShape2D_ci23i")
 
 [node name="Ling" parent="." instance=ExtResource("136_myryv")]
 position = Vector2(1007.6591, 5870)
+
+[node name="LinkButton" type="LinkButton" parent="."]
+offset_left = 337.0
+offset_top = 12.0
+offset_right = 377.0
+offset_bottom = 52.0
+uri = "https://freesound.org/s/402791/"
+
+[node name="TextureRect" type="TextureRect" parent="LinkButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("134_adgm5")
+expand_mode = 3
 
 [connection signal="broke" from="Level/Big/Egg" to="Worm Spawner" method="spawn"]
 [connection signal="timeout" from="Line Drawer/Timer" to="Line Drawer" method="_on_timer_timeout"]
