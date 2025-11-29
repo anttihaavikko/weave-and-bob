@@ -48,6 +48,7 @@ func _ready() -> void:
 		has_dash = false
 		met_bobs = 0
 	# print(get_percentage())
+	load_save()
 
 func mark(id: String):
 	if len(id) > 1:
@@ -88,6 +89,7 @@ func change_spawn(cp: Checkpoint) -> void:
 	checkpoint = cp
 	spawn_point = cp.global_position
 	spawn_set = true
+	save()
 
 func show_texts(main: String, sub: String, delay: float = 0, hide_delay: float = 0):
 	main_text.show_with_text(main)
@@ -109,3 +111,45 @@ func restart():
 func show_help(text: String, delay: float):
 	await get_tree().create_timer(delay).timeout
 	help_text.show_with_text(text)
+
+func save():
+	var data: Dictionary = {
+		"success": true,
+		"ids": ids,
+		"spawn_x": spawn_point.x,
+		"spawn_y": spawn_point.y,
+		"has_gun": has_gun,
+		"has_magazine": has_magazine,
+		"map_upgrades": map_upgrades,
+		"damage": damage,
+		"breaker_shots": breaker_shots,
+		"max_life": max_life,
+		"accuracy": accuracy,
+		"has_tracking": has_tracking,
+		"has_double_jump": has_double_jump,
+		"has_taxi": has_taxi,
+		"has_dash": has_dash,
+		"met_bobs": met_bobs
+	}
+	Saver.save(data)
+
+	
+func load_save():
+	var data := Saver.load()
+	if data.has("success"):
+		for id in data.ids:
+			ids.push_back(id)
+		spawn_point = Vector2(data.spawn_x, data.spawn_y)
+		spawn_set = true
+		has_gun = data.has_gun
+		has_magazine = data.has_magazine
+		map_upgrades = data.map_upgrades
+		damage = data.damage
+		breaker_shots = data.breaker_shots
+		max_life = data.max_life
+		accuracy = data.accuracy
+		has_tracking = data.has_tracking
+		has_double_jump = data.has_double_jump
+		has_taxi = data.has_taxi
+		has_dash = data.has_dash
+		met_bobs = data.met_bobs
