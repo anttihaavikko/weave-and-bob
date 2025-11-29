@@ -72,3 +72,9 @@ func get_current_piece() -> AudioStreamPlayer:
 func pause():
 	normal.volume_linear = 0
 	combat.volume_linear = 0
+
+func dim_for(duration: float):
+	var vol := AudioServer.get_bus_volume_linear(1)
+	AudioServer.set_bus_volume_linear(1, vol * 0.3)
+	await get_tree().create_timer(duration).timeout
+	AudioServer.set_bus_volume_linear(1, vol)

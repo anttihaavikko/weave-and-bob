@@ -78,7 +78,7 @@ func get_percentage() -> String:
 
 func register(id: String):
 	if len(id) > 1 and unique.has(id):
-		print("DUPLICATED ID %s" % [id])
+		# print("DUPLICATED ID %s" % [id])
 		return
 	unique.push_back(id)
 

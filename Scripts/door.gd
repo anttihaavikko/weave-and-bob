@@ -15,10 +15,14 @@ func _ready() -> void:
 	
 func change(pos: Vector2):
 	get_tree().create_tween().tween_property(self, "global_position", pos, 0.5).set_trans(Tween.TRANS_BOUNCE)
-	SoundEffects.singleton.add(10, global_position) # throw1.wav
 	if len(gears) > 0:
 		for gear in gears:
 			get_tree().create_tween().tween_property(gear, "rotation_degrees", 180 if opened else 0, 0.5).set_trans(Tween.TRANS_BOUNCE)
+
+	SoundEffects.singleton.add(10, global_position) # throw1.wav
+	SoundEffects.singleton.add(19, global_position, 0.6)
+	await get_tree().create_timer(0.4).timeout
+	SoundEffects.singleton.add(20, global_position, 1.2)
 	
 func open():
 	change(_open_pos)
