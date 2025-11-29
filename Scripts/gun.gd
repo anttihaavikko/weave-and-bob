@@ -31,7 +31,7 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func _input(_event):
-	if not GameState.options.open:
+	if GameState.options and not GameState.options.open:
 		clicked = Input.is_action_pressed("shoot")
 		
 func reload(wasteful: bool) -> void:

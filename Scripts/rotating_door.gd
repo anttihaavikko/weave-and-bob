@@ -21,4 +21,5 @@ func change():
 	
 func _notification(event: int):
 	if (event == NOTIFICATION_PREDELETE):
-		body.queue_free()
+		if body:
+			body.queue_free()

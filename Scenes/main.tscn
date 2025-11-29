@@ -1,4 +1,4 @@
-[gd_scene load_steps=173 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=178 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/player.tscn" id="1_bo1nx"]
@@ -139,6 +139,8 @@
 [ext_resource type="PackedScene" uid="uid://ouc2plqtpje3" path="res://Scenes/enemy_beamer.tscn" id="132_bdqux"]
 [ext_resource type="StyleBox" uid="uid://kcq31sl3gxax" path="res://Scenes/Themes/button_hover.tres" id="132_l78ku"]
 [ext_resource type="Theme" uid="uid://dcgt6p5ro22q2" path="res://Scenes/Themes/theme.tres" id="133_hfu3o"]
+[ext_resource type="Texture2D" uid="uid://bc0dlnq6qcwgq" path="res://Sprites/link.png" id="134_adgm5"]
+[ext_resource type="Script" uid="uid://cljxpxo8sqbx0" path="res://Scripts/sliding_panel.gd" id="134_qxkn4"]
 [ext_resource type="PackedScene" uid="uid://qln40mjj4ivw" path="res://Scenes/ling.tscn" id="136_myryv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ihvwq"]
@@ -259,7 +261,7 @@ shader_parameter/speed = 6.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_l78ku"]
 font = ExtResource("84_6h1fc")
-font_size = 75
+font_size = 70
 shadow_size = 8
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(6, 6)
@@ -267,6 +269,27 @@ shadow_offset = Vector2(6, 6)
 [sub_resource type="LabelSettings" id="LabelSettings_bpr0e"]
 font = ExtResource("84_6h1fc")
 font_size = 50
+shadow_size = 8
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(6, 6)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hfu3o"]
+font = ExtResource("84_6h1fc")
+font_size = 30
+shadow_size = 8
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(6, 6)
+
+[sub_resource type="LabelSettings" id="LabelSettings_adgm5"]
+font = ExtResource("84_6h1fc")
+font_size = 45
+shadow_size = 8
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(6, 6)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qxkn4"]
+font = ExtResource("84_6h1fc")
+font_size = 32
 shadow_size = 8
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(6, 6)
@@ -6664,7 +6687,7 @@ pivot_offset = Vector2(960, 0)
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Options" type="ColorRect" parent="UI" node_paths=PackedStringArray("toggle_button", "music", "sounds")]
+[node name="Options" type="ColorRect" parent="UI" node_paths=PackedStringArray("toggle_button", "music", "sounds", "extra_panel")]
 offset_left = 1429.0
 offset_right = 1929.0
 offset_bottom = 1082.0
@@ -6673,6 +6696,7 @@ script = ExtResource("129_bpr0e")
 toggle_button = NodePath("Toggle")
 music = NodePath("VBoxContainer/Music Volume")
 sounds = NodePath("VBoxContainer/Sounds Volume")
+extra_panel = NodePath("../Extra Panel")
 
 [node name="Toggle" type="Button" parent="UI/Options"]
 custom_minimum_size = Vector2(0, 100)
@@ -6719,7 +6743,7 @@ text = "Options"
 label_settings = SubResource("LabelSettings_l78ku")
 
 [node name="Spacer2" type="Control" parent="UI/Options/VBoxContainer"]
-custom_minimum_size = Vector2(0, 10)
+custom_minimum_size = Vector2(0, 5)
 layout_mode = 2
 
 [node name="Music" type="Label" parent="UI/Options/VBoxContainer"]
@@ -6735,7 +6759,7 @@ step = 0.01
 value = 0.5
 
 [node name="Spacer3" type="Control" parent="UI/Options/VBoxContainer"]
-custom_minimum_size = Vector2(0, 10)
+custom_minimum_size = Vector2(0, 5)
 layout_mode = 2
 
 [node name="Sounds" type="Label" parent="UI/Options/VBoxContainer"]
@@ -6751,8 +6775,26 @@ step = 0.01
 value = 0.5
 
 [node name="Spacer" type="Control" parent="UI/Options/VBoxContainer"]
-custom_minimum_size = Vector2(0, 50)
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
+
+[node name="Close" type="Button" parent="UI/Options/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("84_6h1fc")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("131_14mkc")
+theme_override_styles/pressed = ExtResource("131_14mkc")
+theme_override_styles/hover = ExtResource("132_l78ku")
+theme_override_styles/focus = ExtResource("131_14mkc")
+text = "RESUME
+"
 
 [node name="Respawn" type="Button" parent="UI/Options/VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
@@ -6790,7 +6832,25 @@ theme_override_styles/hover = ExtResource("132_l78ku")
 theme_override_styles/focus = ExtResource("131_14mkc")
 text = "FULL SCREEN"
 
-[node name="Close" type="Button" parent="UI/Options/VBoxContainer"]
+[node name="Credits" type="Button" parent="UI/Options/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("133_hfu3o")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("84_6h1fc")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("131_14mkc")
+theme_override_styles/pressed = ExtResource("131_14mkc")
+theme_override_styles/hover = ExtResource("132_l78ku")
+theme_override_styles/focus = ExtResource("131_14mkc")
+text = "CREDITS"
+
+[node name="Quit" type="Button" parent="UI/Options/VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 focus_mode = 0
@@ -6805,14 +6865,220 @@ theme_override_styles/normal = ExtResource("131_14mkc")
 theme_override_styles/pressed = ExtResource("131_14mkc")
 theme_override_styles/hover = ExtResource("132_l78ku")
 theme_override_styles/focus = ExtResource("131_14mkc")
-text = "CLOSE
-"
+text = "QUIT"
 
 [node name="ColorRect" type="ColorRect" parent="UI/Options"]
 layout_mode = 0
 offset_right = 11.0
 offset_bottom = 1082.0
 color = Color(0, 0, 0, 1)
+
+[node name="Extra Panel" type="ColorRect" parent="UI"]
+offset_left = -1.0
+offset_right = 464.0
+offset_bottom = 1081.0
+color = Color(0, 0, 0, 0.7529412)
+script = ExtResource("134_qxkn4")
+direction = Vector2(-1, 0)
+
+[node name="ColorRect" type="ColorRect" parent="UI/Extra Panel"]
+layout_mode = 0
+offset_left = 459.0
+offset_right = 470.0
+offset_bottom = 1082.0
+color = Color(0, 0, 0, 1)
+
+[node name="Title" type="Label" parent="UI/Extra Panel"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 29.0
+offset_right = 363.0
+offset_bottom = 120.0
+text = "Credits"
+label_settings = SubResource("LabelSettings_l78ku")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="UI/Extra Panel"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 139.0
+offset_right = 448.0
+offset_bottom = 1057.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Extra Panel/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Section" type="VBoxContainer" parent="UI/Extra Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Area" type="Label" parent="UI/Extra Panel/ScrollContainer/VBoxContainer/Section"]
+layout_mode = 2
+text = "Game by"
+label_settings = SubResource("LabelSettings_hfu3o")
+
+[node name="Name" type="Label" parent="UI/Extra Panel/ScrollContainer/VBoxContainer/Section"]
+layout_mode = 2
+text = "Antti Haavikko"
+label_settings = SubResource("LabelSettings_adgm5")
+
+[node name="Section2" type="VBoxContainer" parent="UI/Extra Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Area" type="Label" parent="UI/Extra Panel/ScrollContainer/VBoxContainer/Section2"]
+layout_mode = 2
+text = "Music"
+label_settings = SubResource("LabelSettings_hfu3o")
+
+[node name="Name" type="Label" parent="UI/Extra Panel/ScrollContainer/VBoxContainer/Section2"]
+layout_mode = 2
+text = "Mika Kälkäinen"
+label_settings = SubResource("LabelSettings_adgm5")
+
+[node name="Section3" type="VBoxContainer" parent="UI/Extra Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Area" type="Label" parent="UI/Extra Panel/ScrollContainer/VBoxContainer/Section3"]
+layout_mode = 2
+text = "AK47 and various other
+gunshots at indoor
+shooting range"
+label_settings = SubResource("LabelSettings_hfu3o")
+
+[node name="Name" type="Label" parent="UI/Extra Panel/ScrollContainer/VBoxContainer/Section3"]
+layout_mode = 2
+text = "acidsnowflake"
+label_settings = SubResource("LabelSettings_adgm5")
+
+[node name="LinkButton" type="LinkButton" parent="UI/Extra Panel/ScrollContainer/VBoxContainer/Section3/Name"]
+layout_mode = 0
+offset_left = 337.0
+offset_top = 12.0
+offset_right = 377.0
+offset_bottom = 52.0
+uri = "https://freesound.org/s/402791/"
+
+[node name="TextureRect" type="TextureRect" parent="UI/Extra Panel/ScrollContainer/VBoxContainer/Section3/Name/LinkButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("134_adgm5")
+expand_mode = 3
+
+[node name="Licese" type="Label" parent="UI/Extra Panel/ScrollContainer/VBoxContainer/Section3"]
+layout_mode = 2
+text = "License: CC0"
+label_settings = SubResource("LabelSettings_qxkn4")
+
+[node name="Section4" type="VBoxContainer" parent="UI/Extra Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Area" type="Label" parent="UI/Extra Panel/ScrollContainer/VBoxContainer/Section4"]
+layout_mode = 2
+text = "Rifle Cartridges clanging"
+label_settings = SubResource("LabelSettings_hfu3o")
+
+[node name="Name" type="Label" parent="UI/Extra Panel/ScrollContainer/VBoxContainer/Section4"]
+layout_mode = 2
+text = "ibirdfilm"
+label_settings = SubResource("LabelSettings_adgm5")
+
+[node name="LinkButton" type="LinkButton" parent="UI/Extra Panel/ScrollContainer/VBoxContainer/Section4/Name"]
+layout_mode = 0
+offset_left = 217.0
+offset_top = 12.0
+offset_right = 257.0
+offset_bottom = 52.0
+uri = "https://freesound.org/s/128157"
+
+[node name="TextureRect" type="TextureRect" parent="UI/Extra Panel/ScrollContainer/VBoxContainer/Section4/Name/LinkButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("134_adgm5")
+expand_mode = 3
+
+[node name="Licese" type="Label" parent="UI/Extra Panel/ScrollContainer/VBoxContainer/Section4"]
+layout_mode = 2
+text = "License: CC0"
+label_settings = SubResource("LabelSettings_qxkn4")
+
+[node name="Section5" type="VBoxContainer" parent="UI/Extra Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Area" type="Label" parent="UI/Extra Panel/ScrollContainer/VBoxContainer/Section5"]
+layout_mode = 2
+text = "A rifle being dry fired once"
+label_settings = SubResource("LabelSettings_hfu3o")
+
+[node name="Name" type="Label" parent="UI/Extra Panel/ScrollContainer/VBoxContainer/Section5"]
+layout_mode = 2
+text = "serøtōnin"
+label_settings = SubResource("LabelSettings_adgm5")
+
+[node name="LinkButton" type="LinkButton" parent="UI/Extra Panel/ScrollContainer/VBoxContainer/Section5/Name"]
+layout_mode = 0
+offset_left = 226.0
+offset_top = 12.0
+offset_right = 266.0
+offset_bottom = 52.0
+uri = "https://freesound.org/s/725402"
+
+[node name="TextureRect" type="TextureRect" parent="UI/Extra Panel/ScrollContainer/VBoxContainer/Section5/Name/LinkButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("134_adgm5")
+expand_mode = 3
+
+[node name="Licese" type="Label" parent="UI/Extra Panel/ScrollContainer/VBoxContainer/Section5"]
+layout_mode = 2
+text = "License: CC0"
+label_settings = SubResource("LabelSettings_qxkn4")
+
+[node name="Section6" type="VBoxContainer" parent="UI/Extra Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Area" type="Label" parent="UI/Extra Panel/ScrollContainer/VBoxContainer/Section6"]
+layout_mode = 2
+text = "m4 rifle reload"
+label_settings = SubResource("LabelSettings_hfu3o")
+
+[node name="Name" type="Label" parent="UI/Extra Panel/ScrollContainer/VBoxContainer/Section6"]
+layout_mode = 2
+text = "Freeman213SG"
+label_settings = SubResource("LabelSettings_adgm5")
+
+[node name="LinkButton" type="LinkButton" parent="UI/Extra Panel/ScrollContainer/VBoxContainer/Section6/Name"]
+layout_mode = 0
+offset_left = 347.0
+offset_top = 13.0
+offset_right = 387.0
+offset_bottom = 53.0
+uri = "https://freesound.org/s/326042"
+
+[node name="TextureRect" type="TextureRect" parent="UI/Extra Panel/ScrollContainer/VBoxContainer/Section6/Name/LinkButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("134_adgm5")
+expand_mode = 3
+
+[node name="Licese" type="Label" parent="UI/Extra Panel/ScrollContainer/VBoxContainer/Section6"]
+layout_mode = 2
+text = "License: CC0"
+label_settings = SubResource("LabelSettings_qxkn4")
 
 [node name="Worm Spawner" type="Node2D" parent="."]
 visibility_layer = 524289
@@ -7124,7 +7390,10 @@ position = Vector2(1007.6591, 5870)
 [connection signal="timeout" from="Line Drawer/Timer" to="Line Drawer" method="_on_timer_timeout"]
 [connection signal="grab" from="Hut/Gun Grab Area" to="Level/Player Spawn/Player Spawn Point" method="add_gun"]
 [connection signal="pressed" from="UI/Map Wrap/Map/ColorRect/Taxi Button" to="Worm Spawner" method="spawn_friend"]
+[connection signal="pressed" from="UI/Options/VBoxContainer/Close" to="UI/Options" method="close"]
 [connection signal="pressed" from="UI/Options/VBoxContainer/Respawn" to="UI/Options" method="restart"]
 [connection signal="pressed" from="UI/Options/VBoxContainer/Fullscreen" to="UI/Options" method="toggle_fullscreen"]
-[connection signal="pressed" from="UI/Options/VBoxContainer/Close" to="UI/Options" method="toggle"]
+[connection signal="pressed" from="UI/Options/VBoxContainer/Credits" to="UI/Extra Panel" method="toggle"]
+[connection signal="pressed" from="UI/Options/VBoxContainer/Quit" to="UI/Blinders" method="quit"]
+[connection signal="pressed" from="UI/Options/VBoxContainer/Quit" to="UI/Options" method="close"]
 [connection signal="body_entered" from="Killbox/Area2D" to="Killbox" method="enter"]
