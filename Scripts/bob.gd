@@ -78,7 +78,7 @@ func get_text() -> String:
 			"What do you think\nof this invasion?",
 			"These are some really\nnice mushrooms!",
 			"I've coined the term mathvasion\nfor this new invasive species!",
-			"We've already found %d of 5\npossible mushroom spots!" % [GameState.met_bobs]
+			"We've already found %d of 5\npossible mushroom spots!" % [min(GameState.met_bobs, 5)]
 		].pick_random()
 	return [
 		"What's up with these flying goons?\nI'm calling it a mathvasion!",
