@@ -122,10 +122,21 @@ tracks/3/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Wrap:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_vk4kg"]
 resource_name = "idle"
-length = 0.5
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -158,10 +169,10 @@ tracks/2/path = NodePath("Wrap:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.2844528, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.2844528, 0.5, 0.6971667, 0.80208385, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 7), Vector2(1, 14), Vector2(1, 14), Vector2(0, 7)]
+"values": [Vector2(-6, 9), Vector2(1, 14), Vector2(1, 14), Vector2(0, 7), Vector2(1, 14), Vector2(1, 14), Vector2(-6, 9)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -170,10 +181,10 @@ tracks/3/path = NodePath("Wrap:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.500257, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0.0]
+"values": [-0.04363323129985824, 0.04363323129985824, -0.04363323129985824]
 }
 
 [sub_resource type="Animation" id="Animation_e3p42"]
