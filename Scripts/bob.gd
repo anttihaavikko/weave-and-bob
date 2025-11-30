@@ -120,4 +120,5 @@ func move():
 		move()
 
 func step():
-	SoundEffects.singleton.add(23, global_position + Vector2.DOWN * 50, 0.3)
+	if visible:
+		SoundEffects.singleton.add(23, global_position + Vector2.DOWN * 50, 0.3)
