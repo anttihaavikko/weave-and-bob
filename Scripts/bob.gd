@@ -95,7 +95,7 @@ func exit(_node: Node2D):
 	text.disappear()
 	talking = false
 	if message.done:
-		if not done and not final and GameState.met_bobs < 6:
+		if not done and not final and GameState.met_bobs < 5:
 			GameState.met_bobs += 1
 		if not final:
 			GameState.mark(name)
