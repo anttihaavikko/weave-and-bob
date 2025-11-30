@@ -48,8 +48,8 @@ func spawn_blister():
 			if pick is Pickup:
 				pick.type = Pickup.Type.Stomp
 				pick.id = "spider"
-				pick.global_position = blister.global_position
 				get_parent().add_child(pick)
+				pick.global_position = blister.global_position
 		GameState.camera.shake(30, 0.5)
 		GameState.camera.target_zoom = 1
 		GameState.boss_fight = false

@@ -19,6 +19,7 @@ var sound_cooldown := 0.0
 var prev_blister: WormBlister
 var goal: Node2D
 var leaving := false
+var blister_pos: Vector2
 
 func _ready() -> void:
 	activate()
@@ -56,8 +57,8 @@ func respawn_blister():
 			if pick is Pickup:
 				pick.type = Pickup.Type.WormTaxi
 				pick.id = "worm"
-				pick.global_position = prev_blister.global_position
 				get_parent().add_child(pick)
+				pick.global_position = blister_pos
 		GameState.camera.shake(30, 0.5)
 		GameState.camera.target_zoom = 1
 		GameState.boss_fight = false
@@ -98,6 +99,9 @@ func leave():
 func _process(delta: float) -> void:
 	if not active:
 		return
+
+	if prev_blister:
+		blister_pos = prev_blister.global_position
 	
 	sound_cooldown -= delta
 

@@ -65,6 +65,7 @@ func erase_save():
 	GameState.options.close()
 	GameState.blinders.close()
 	await get_tree().create_timer(GameState.blinders.duration + 0.5).timeout
+	GameState.reset()
 	GameState.saver.erase()
 	GameState._ready()
 	GameState.spawn_set = false

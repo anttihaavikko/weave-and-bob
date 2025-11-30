@@ -37,19 +37,23 @@ signal fix_player
 func _ready() -> void:
 	saver = Saver.new()
 	if not OS.is_debug_build():
-		has_magazine = false
-		map_upgrades = 0
-		damage = 100
-		has_gun = false
-		breaker_shots = false
-		max_life = 1
-		accuracy = 0
-		has_tracking = false
-		has_double_jump = false
-		has_taxi = false
-		has_dash = false
-		met_bobs = 0
+		reset()
 		load_save()
+
+func reset():
+	ids.clear()
+	has_magazine = false
+	map_upgrades = 0
+	damage = 100
+	has_gun = false
+	breaker_shots = false
+	max_life = 1
+	accuracy = 0
+	has_tracking = false
+	has_double_jump = false
+	has_taxi = false
+	has_dash = false
+	met_bobs = 0
 
 func mark(id: String):
 	if len(id) > 1:
