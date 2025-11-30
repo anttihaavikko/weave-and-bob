@@ -8203,7 +8203,7 @@ type = 3
 
 [node name="Player Spawn" type="Node2D" parent="Level"]
 visibility_layer = 524289
-position = Vector2(11893.371, -147)
+position = Vector2(-5670.8276, 1745)
 scale = Vector2(1.0023229, 1)
 script = ExtResource("121_xjjvj")
 size = 150
@@ -8250,6 +8250,116 @@ texture = ExtResource("25_1semv")
 
 [node name="Brick22" type="Sprite2D" parent="Level/Bricks"]
 position = Vector2(-569.6767, 2881)
+scale = Vector2(2.5642173, 2.5642173)
+texture = ExtResource("25_1semv")
+
+[node name="Brick27" type="Sprite2D" parent="Level/Bricks"]
+position = Vector2(-1876.2512, 2017.5919)
+scale = Vector2(2.5642173, 2.5642173)
+texture = ExtResource("25_1semv")
+
+[node name="Brick28" type="Sprite2D" parent="Level/Bricks"]
+position = Vector2(-2014.9291, 2016.5917)
+scale = Vector2(2.5642173, 2.5642173)
+texture = ExtResource("25_1semv")
+
+[node name="Brick29" type="Sprite2D" parent="Level/Bricks"]
+position = Vector2(-1944.0938, 2086.5918)
+scale = Vector2(2.5642173, 2.5642173)
+texture = ExtResource("25_1semv")
+
+[node name="Brick30" type="Sprite2D" parent="Level/Bricks"]
+position = Vector2(-4969.0664, 2031.5918)
+scale = Vector2(2.5642173, 2.5642173)
+texture = ExtResource("25_1semv")
+
+[node name="Brick31" type="Sprite2D" parent="Level/Bricks"]
+position = Vector2(-5107.745, 2030.5918)
+scale = Vector2(2.5642173, 2.5642173)
+texture = ExtResource("25_1semv")
+
+[node name="Brick32" type="Sprite2D" parent="Level/Bricks"]
+position = Vector2(-5036.909, 2100.5918)
+scale = Vector2(2.5642173, 2.5642173)
+texture = ExtResource("25_1semv")
+
+[node name="Brick33" type="Sprite2D" parent="Level/Bricks"]
+position = Vector2(38.302177, 2881.5918)
+scale = Vector2(2.5642173, 2.5642173)
+texture = ExtResource("25_1semv")
+
+[node name="Brick34" type="Sprite2D" parent="Level/Bricks"]
+position = Vector2(-100.37653, 2880.5918)
+scale = Vector2(2.5642173, 2.5642173)
+texture = ExtResource("25_1semv")
+
+[node name="Brick35" type="Sprite2D" parent="Level/Bricks"]
+position = Vector2(-29.540596, 2950.5918)
+scale = Vector2(2.5642173, 2.5642173)
+texture = ExtResource("25_1semv")
+
+[node name="Brick36" type="Sprite2D" parent="Level/Bricks"]
+position = Vector2(4446.0635, 3820.5918)
+scale = Vector2(2.5642173, 2.5642173)
+texture = ExtResource("25_1semv")
+
+[node name="Brick37" type="Sprite2D" parent="Level/Bricks"]
+position = Vector2(4307.385, 3819.5918)
+scale = Vector2(2.5642173, 2.5642173)
+texture = ExtResource("25_1semv")
+
+[node name="Brick38" type="Sprite2D" parent="Level/Bricks"]
+position = Vector2(4378.2207, 3889.5918)
+scale = Vector2(2.5642173, 2.5642173)
+texture = ExtResource("25_1semv")
+
+[node name="Brick39" type="Sprite2D" parent="Level/Bricks"]
+position = Vector2(7819.2275, 3981.5918)
+scale = Vector2(2.5642173, 2.5642173)
+texture = ExtResource("25_1semv")
+
+[node name="Brick41" type="Sprite2D" parent="Level/Bricks"]
+position = Vector2(7751.385, 4050.5918)
+scale = Vector2(2.5642173, 2.5642173)
+texture = ExtResource("25_1semv")
+
+[node name="Brick40" type="Sprite2D" parent="Level/Bricks"]
+position = Vector2(12484.391, 71.59169)
+scale = Vector2(2.5642173, 2.5642173)
+texture = ExtResource("25_1semv")
+
+[node name="Brick42" type="Sprite2D" parent="Level/Bricks"]
+position = Vector2(12416.549, 140.59169)
+scale = Vector2(2.5642173, 2.5642173)
+texture = ExtResource("25_1semv")
+
+[node name="Brick43" type="Sprite2D" parent="Level/Bricks"]
+position = Vector2(11787.01, -2102.4082)
+scale = Vector2(2.5642173, 2.5642173)
+texture = ExtResource("25_1semv")
+
+[node name="Brick44" type="Sprite2D" parent="Level/Bricks"]
+position = Vector2(11719.168, -2033.4083)
+scale = Vector2(2.5642173, 2.5642173)
+texture = ExtResource("25_1semv")
+
+[node name="Brick45" type="Sprite2D" parent="Level/Bricks"]
+position = Vector2(8938.627, -3666.4082)
+scale = Vector2(2.5642173, 2.5642173)
+texture = ExtResource("25_1semv")
+
+[node name="Brick47" type="Sprite2D" parent="Level/Bricks"]
+position = Vector2(6181.0313, -4317.408)
+scale = Vector2(2.5642173, 2.5642173)
+texture = ExtResource("25_1semv")
+
+[node name="Brick48" type="Sprite2D" parent="Level/Bricks"]
+position = Vector2(6109.1987, -4247.4087)
+scale = Vector2(2.5642173, 2.5642173)
+texture = ExtResource("25_1semv")
+
+[node name="Brick46" type="Sprite2D" parent="Level/Bricks"]
+position = Vector2(8870.785, -3597.4082)
 scale = Vector2(2.5642173, 2.5642173)
 texture = ExtResource("25_1semv")
 
