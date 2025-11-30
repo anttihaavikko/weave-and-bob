@@ -70,7 +70,7 @@ func get_text() -> String:
 				"Wow, you're done with everything!" if percentage == "100%" else "You've still got things to find!",
 				"You're %s done with everything!" % percentage,
 				"Oh sweet, you managed to beat\nMomma Worm! That's a nice feat!" if GameState.has_taxi else "Have you considered challenging\nMomma Worm to a duel?",
-				"Wowsies, you've bested Spider Pop?\nGo brag to Ling about it!" if GameState.has_dash else "There is still Spider Pop\nnapping in the underground.\nLing will make fun of you\nif you can't best him."
+				"Wowsies, you've bested Spider Pops?\nGo brag to Ling about it!" if GameState.has_dash else "There is still Spider Pop\nnapping in the underground.\nLing will make fun of you\nif you can't best him."
 			].pick_random()
 		return [
 			"This is a really nice spot\nfor gathering mushrooms!",
@@ -118,3 +118,6 @@ func move():
 			moving = false
 		await get_tree().create_timer(randf_range(3, 6)).timeout
 		move()
+
+func step():
+	SoundEffects.singleton.add(23, global_position + Vector2.DOWN * 50, 0.3)

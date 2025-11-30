@@ -228,6 +228,23 @@ tracks/3/keys = {
 "update": 0,
 "values": [-0.103477456, 0.0, 0.112537116]
 }
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"step"
+}, {
+"args": [],
+"method": &"step"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fr3lm"]
 _data = {
@@ -273,7 +290,7 @@ position = Vector2(0, 7)
 
 [node name="Leg Right" type="Line2D" parent="Wrap" node_paths=PackedStringArray("target")]
 position = Vector2(15.962887, 161)
-points = PackedVector2Array(0, 0, 16.344807, 20.21997, 12.969904, 46)
+points = PackedVector2Array(0, 0, 19.386515, 17.32521, 9.1511345, 41.225784)
 width = 13.0
 default_color = Color(0, 0, 0, 1)
 joint_mode = 2
@@ -286,7 +303,7 @@ flip = true
 
 [node name="Leg Left" type="Line2D" parent="Wrap" node_paths=PackedStringArray("target")]
 position = Vector2(-18.955927, 160)
-points = PackedVector2Array(0, 0, -14.228003, 21.76152, -7.981497, 47)
+points = PackedVector2Array(0, 0, -24.651134, 8.265686, -27.196022, 34.14084)
 width = 13.0
 default_color = Color(0, 0, 0, 1)
 joint_mode = 2

@@ -1,4 +1,4 @@
-[gd_scene load_steps=185 format=3 uid="uid://mnvjkmc1oomr"]
+[gd_scene load_steps=190 format=3 uid="uid://mnvjkmc1oomr"]
 
 [ext_resource type="Script" uid="uid://cdpg4d6hpwjbh" path="res://Scripts/reloader.gd" id="1_6bp64"]
 [ext_resource type="PackedScene" uid="uid://il0jdy8qi06w" path="res://Scenes/player.tscn" id="1_bo1nx"]
@@ -128,10 +128,14 @@
 [ext_resource type="AudioStream" uid="uid://3q1dq6xksnw2" path="res://Sounds/switch.wav" id="104_b12iu"]
 [ext_resource type="AudioStream" uid="uid://c6jpvb3q8idbs" path="res://Sounds/secret.wav" id="105_gf7g1"]
 [ext_resource type="Texture2D" uid="uid://dd77b0u1hlkno" path="res://Sprites/spotify.png" id="106_b4mik"]
+[ext_resource type="AudioStream" uid="uid://bfab37kagkhya" path="res://Sounds/step1.wav" id="107_r1tr8"]
 [ext_resource type="Script" uid="uid://upwt3di6e84x" path="res://Scripts/blinders.gd" id="108_5vy51"]
+[ext_resource type="AudioStream" uid="uid://dg6c7ayvumlux" path="res://Sounds/step2.wav" id="108_vlivj"]
 [ext_resource type="Texture2D" uid="uid://douu5e6kewbug" path="res://Sprites/worm_icon.png" id="109_gdwd6"]
 [ext_resource type="PackedScene" uid="uid://b717m4xp3kdqg" path="res://Scenes/Effects/blood.tscn" id="109_o2owy"]
+[ext_resource type="AudioStream" uid="uid://beyh85vlkify2" path="res://Sounds/step3.wav" id="109_wt5iu"]
 [ext_resource type="Script" uid="uid://dwe1vkc75ubha" path="res://Scripts/killbox.gd" id="109_ylsbi"]
+[ext_resource type="AudioStream" uid="uid://bi6444x15q27x" path="res://Sounds/step4.wav" id="110_pmnrr"]
 [ext_resource type="Script" uid="uid://bm7d82m38cnnb" path="res://Scripts/worm_spawner.gd" id="113_xg142"]
 [ext_resource type="PackedScene" uid="uid://biwhx5suil4e0" path="res://Scenes/worm.tscn" id="114_0fjpc"]
 [ext_resource type="Shader" uid="uid://dw5u0j1r1we5x" path="res://Shaders/blob.gdshader" id="115_b05pg"]
@@ -214,6 +218,13 @@ size = Vector2(669, 2370.4934)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_s8vy0"]
 blend_mode = 1
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_s8cid"]
+streams_count = 4
+stream_0/stream = ExtResource("107_r1tr8")
+stream_1/stream = ExtResource("108_vlivj")
+stream_2/stream = ExtResource("109_wt5iu")
+stream_3/stream = ExtResource("110_pmnrr")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uv6w5"]
 shader = ExtResource("17_2daye")
@@ -8703,7 +8714,7 @@ effects = Array[PackedScene]([ExtResource("2_kry3j"), ExtResource("6_21xkr"), Ex
 
 [node name="Sounds" type="Node" parent="."]
 script = ExtResource("10_gt3je")
-effects = Array[AudioStream]([ExtResource("11_3pmx8"), ExtResource("12_cbgmd"), ExtResource("13_1w6v2"), ExtResource("14_ueoa1"), ExtResource("15_6vcvc"), ExtResource("16_7k868"), ExtResource("17_e08e2"), ExtResource("18_neg2b"), ExtResource("19_r33sp"), ExtResource("20_neg2b"), ExtResource("21_r33sp"), ExtResource("22_jwpg7"), ExtResource("23_k2e45"), ExtResource("49_xdkp6"), ExtResource("50_54nrm"), ExtResource("51_55jeb"), ExtResource("58_wl4bb"), ExtResource("65_33qc4"), ExtResource("99_stool"), ExtResource("102_130ps"), ExtResource("103_odn5n"), ExtResource("104_b12iu"), ExtResource("105_gf7g1")])
+effects = Array[AudioStream]([ExtResource("11_3pmx8"), ExtResource("12_cbgmd"), ExtResource("13_1w6v2"), ExtResource("14_ueoa1"), ExtResource("15_6vcvc"), ExtResource("16_7k868"), ExtResource("17_e08e2"), ExtResource("18_neg2b"), ExtResource("19_r33sp"), ExtResource("20_neg2b"), ExtResource("21_r33sp"), ExtResource("22_jwpg7"), ExtResource("23_k2e45"), ExtResource("49_xdkp6"), ExtResource("50_54nrm"), ExtResource("51_55jeb"), ExtResource("58_wl4bb"), ExtResource("65_33qc4"), ExtResource("99_stool"), ExtResource("102_130ps"), ExtResource("103_odn5n"), ExtResource("104_b12iu"), ExtResource("105_gf7g1"), SubResource("AudioStreamRandomizer_s8cid")])
 prefab = ExtResource("12_u50mg")
 
 [node name="Line Drawer" type="Node" parent="." node_paths=PackedStringArray("line")]
