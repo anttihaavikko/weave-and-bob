@@ -24,5 +24,5 @@ func _physics_process(delta: float) -> void:
 		queue_free()
 		
 func _notification(event: int):
-	if (event == NOTIFICATION_PREDELETE):
+	if line and event == NOTIFICATION_PREDELETE:
 		line.queue_free()
