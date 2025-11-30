@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Weave & Bob"
-config/version="0.9.2"
+config/version="0.9.4"
 run/main_scene="uid://bkwhepgpfg8bk"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="uid://yak4dho0hlc4"
@@ -130,4 +130,4 @@ escape={
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
-environment/defaults/default_clear_color=Color(0.45646393, 0.456464, 0.456464, 1)
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)

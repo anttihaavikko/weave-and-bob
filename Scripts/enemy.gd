@@ -67,7 +67,7 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		if turn_delay <= 0 and bump_cast.is_colliding():
 			dir = - dir
-			turn_delay = 0.5
+			turn_delay = 0.2
 			var p := bump_cast.get_collision_point(0)
 			Effects.singleton.add_many([0, 1], p)
 			SoundEffects.singleton.add(5, p, 0.3) # enemy_bump.wav
