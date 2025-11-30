@@ -3,14 +3,14 @@ NC='\033[0m' # No Color
 
 echo " "
 
-# echo "${COLOR}Pushing build for Windows${NC}"
-# butler push Builds/win anttihaavikko/replace:win --fix-permissions
+echo "${COLOR}Pushing build for Windows${NC}"
+butler push Builds/win anttihaavikko/weave-and-bob:win --fix-permissions
 
-# echo "${COLOR}Pushing build for OSX${NC}"
-# butler push Builds/osx anttihaavikko/replace:osx --fix-permissions
+echo "${COLOR}Pushing build for OSX${NC}"
+butler push Builds/macos anttihaavikko/weave-and-bob:osx --fix-permissions
 
-# echo "${COLOR}Pushing build for Linux${NC}"
-# butler push Builds/linux anttihaavikko/replace:linux
+echo "${COLOR}Pushing build for Linux${NC}"
+butler push Builds/linux anttihaavikko/weave-and-bob:linux
 
 # echo "${COLOR}Copying html5 files over to correct path"
 # cp -a Builds/webgl/html5/Build/. Builds/html5/Build
