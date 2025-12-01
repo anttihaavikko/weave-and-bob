@@ -105,16 +105,16 @@ func strike():
 	pick_leg()
 	if not current: return
 	var pp := GameState.player.live_gun.global_position
-	if body.global_position.distance_to(pp) > 1800:
+	if body.global_position.distance_to(pp) > 1400:
 		await get_tree().create_timer(1).timeout
 		strike()
 		return
-	await get_tree().create_timer(0.5).timeout
-	get_tree().create_tween().tween_property(current, "global_position", (pp + global_position + current.global_position) / 3, 0.8).set_trans(Tween.TRANS_ELASTIC)
-	await get_tree().create_timer(0.75).timeout
+	await get_tree().create_timer(0.7).timeout
+	get_tree().create_tween().tween_property(current, "global_position", (pp + global_position + current.global_position) / 3, 1.2).set_trans(Tween.TRANS_ELASTIC)
+	await get_tree().create_timer(0.9).timeout
 	screech()
-	get_tree().create_tween().tween_property(current, "global_position", pp, 0.5).set_trans(Tween.TRANS_BOUNCE)
-	await get_tree().create_timer(1).timeout
+	get_tree().create_tween().tween_property(current, "global_position", pp, 0.8).set_trans(Tween.TRANS_BOUNCE)
+	await get_tree().create_timer(1.3).timeout
 	strike()
 
 func screech():
